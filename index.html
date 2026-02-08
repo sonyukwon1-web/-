@@ -111,133 +111,95 @@
             box-shadow: 0 8px 20px rgba(254, 229, 0, 0.4);
         }
 
-        /* Hero Section */
+        /* Hero Section with Video */
         .hero {
-            background: linear-gradient(135deg, var(--deep-navy) 0%, var(--navy) 100%);
-            color: white;
-            padding: 140px 2rem 100px;
             position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
+            color: white;
         }
 
-        .hero::before {
-            content: '';
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.08) 0%, transparent 50%);
-            animation: heroGlow 10s ease-in-out infinite;
-        }
-
-        @keyframes heroGlow {
-            0%, 100% { opacity: 0.6; }
-            50% { opacity: 1; }
-        }
-
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                rgba(15, 26, 46, 0.5) 0%,
+                rgba(26, 43, 74, 0.7) 100%
+            );
             z-index: 1;
         }
 
-        .hero-badge {
-            display: inline-block;
-            background: rgba(212, 175, 55, 0.2);
-            color: var(--light-gold);
-            padding: 0.5rem 1.2rem;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            animation: fadeInDown 0.8s ease-out;
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 800;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
             line-height: 1.2;
             margin-bottom: 1.5rem;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero h1 .highlight {
-            color: var(--gold);
-            position: relative;
-            display: inline-block;
+            letter-spacing: -0.02em;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
         .hero-subtitle {
-            font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.9);
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            font-weight: 400;
             margin-bottom: 3rem;
-            max-width: 700px;
-            animation: fadeInUp 0.8s ease-out 0.4s both;
+            opacity: 0.95;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
-        .hero-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 2rem;
-            max-width: 800px;
-            margin-top: 4rem;
-            animation: fadeInUp 0.8s ease-out 0.6s both;
+        .hero-scroll {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            animation: bounce 2s infinite;
         }
 
-        .stat-item {
-            text-align: center;
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
         }
 
-        .stat-item:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: var(--gold);
+        .hero-scroll span {
             display: block;
+            font-size: 0.9rem;
             margin-bottom: 0.5rem;
+            opacity: 0.9;
         }
 
-        .stat-label {
-            font-size: 0.95rem;
-            color: rgba(255, 255, 255, 0.9);
+        .hero-scroll::after {
+            content: '↓';
+            display: block;
+            font-size: 2rem;
         }
 
         /* Trust Indicators */
@@ -735,12 +697,8 @@
                 justify-content: center;
             }
 
-            .hero {
-                padding: 120px 1.5rem 60px;
-            }
-
-            .hero-stats {
-                grid-template-columns: 1fr 1fr;
+            .hero h1 {
+                font-size: 2.5rem;
             }
 
             .trust-grid,
@@ -798,36 +756,20 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Video -->
     <section class="hero">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="hero-video.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        
         <div class="hero-content">
-            <div class="hero-badge">✓ 기업 전문 노무법인</div>
-            <h1>
-                복잡한 노동법,<br>
-                <span class="highlight">유영이 명확하게</span> 해결합니다
-            </h1>
-            <p class="hero-subtitle">
-                대기업부터 스타트업까지, 500개 이상 기업이 선택한 신뢰의 파트너
-            </p>
-            
-            <div class="hero-stats">
-                <div class="stat-item">
-                    <span class="stat-number">500+</span>
-                    <span class="stat-label">자문 기업</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">98%</span>
-                    <span class="stat-label">승소율</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">24시간</span>
-                    <span class="stat-label">긴급 대응</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">15년</span>
-                    <span class="stat-label">전문 경력</span>
-                </div>
-            </div>
+            <h1>노무법인 유영</h1>
+            <p class="hero-subtitle">Your Trusted Partner in Labor Law Compliance</p>
+        </div>
+
+        <div class="hero-scroll">
+            <span>Scroll</span>
         </div>
     </section>
 
