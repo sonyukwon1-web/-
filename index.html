@@ -67,13 +67,13 @@
         }
 
         .logo-img {
-            height: 40px;
+            height: 60px;
             width: auto;
         }
 
         .nav-menu {
             display: flex;
-            gap: 2.5rem;
+            gap: 3rem;
             list-style: none;
             align-items: center;
         }
@@ -81,7 +81,7 @@
         .nav-menu a {
             color: var(--navy);
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: 1.1rem;
             font-weight: 500;
             position: relative;
             transition: color 0.3s ease;
@@ -196,7 +196,7 @@
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 8vw, 6rem);
+            font-size: clamp(4rem, 10vw, 8rem);
             font-weight: 900;
             line-height: 1.2;
             margin-bottom: 1.5rem;
@@ -252,7 +252,7 @@
 
         .section-title {
             text-align: center;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Noto Sans KR', sans-serif;
             font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 700;
             margin-bottom: 1rem;
@@ -313,7 +313,7 @@
 
         /* Services Section */
         .services {
-            padding: 5rem 2rem;
+            padding: 2rem 2rem 5rem;
             background: white;
         }
 
@@ -437,7 +437,7 @@
         }
 
         .cta-content h2 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Noto Sans KR', sans-serif;
             font-size: clamp(2rem, 4vw, 3.5rem);
             font-weight: 700;
             color: white;
@@ -445,6 +445,7 @@
         }
 
         .cta-content p {
+            font-family: 'Noto Sans KR', sans-serif;
             font-size: 1.2rem;
             color: rgba(255, 255, 255, 0.9);
             margin-bottom: 3rem;
@@ -793,8 +794,8 @@
     <!-- Header -->
     <header id="header">
         <nav>
-            <a href="#" class="logo">
-                <img src="logo.svg" alt="노무법인 유영" class="logo-img">
+            <a href="https://hryy.co.kr" class="logo">
+                <img src="노무법인 유영 로고.svg" alt="노무법인 유영" class="logo-img">
             </a>
             <ul class="nav-menu">
                 <li><a href="#company">법인소개</a></li>
@@ -807,7 +808,7 @@
                 <a href="tel:010-4835-8422" class="btn-call">
                     ☎ 전화상담
                 </a>
-                <a href="http://pf.kakao.com/_xexopLn/chat" class="btn-kakao" target="_blank">
+                <a href="http://pf.kakao.com/_BaeGn/chat" class="btn-kakao" target="_blank">
                     💬 카톡상담
                 </a>
             </div>
@@ -834,24 +835,19 @@
     <!-- Trust Section -->
     <section class="trust-section reveal" id="company">
         <div class="trust-content">
-            <h2 class="section-title">왜 기업들이 유영을 선택할까요?</h2>
+            <h2 class="section-title">왜 유영을 선택할까요?</h2>
             <p class="section-subtitle">검증된 전문성과 실질적인 솔루션으로 기업의 성장을 지원합니다</p>
             
             <div class="trust-grid">
                 <div class="trust-card">
                     <div class="trust-icon">⚖️</div>
-                    <h3>전문성</h3>
-                    <p>노동법 전문 변호사와 노무사가 팀을 이루어 복잡한 법률 문제도 정확하게 해결합니다.</p>
+                    <h3>노무﹒세무 통합서비스</h3>
+                    <p>노무사와 세무사가 한 팀을 이루어 기업에 딱 맞는 전략을 제시합니다.</p>
                 </div>
                 <div class="trust-card">
                     <div class="trust-icon">🎯</div>
                     <h3>맞춤 솔루션</h3>
                     <p>기업의 규모와 업종에 최적화된 인사노무 시스템을 설계하고 운영을 지원합니다.</p>
-                </div>
-                <div class="trust-card">
-                    <div class="trust-icon">⚡</div>
-                    <h3>신속 대응</h3>
-                    <p>노동 분쟁은 타이밍이 중요합니다. 24시간 긴급 상담과 즉각적인 법률 대응을 제공합니다.</p>
                 </div>
                 <div class="trust-card">
                     <div class="trust-icon">📊</div>
@@ -873,10 +869,10 @@
                     <h3>🏢 기업 종합 자문</h3>
                     <p>일상적인 인사노무 상담부터 중요 의사결정까지 전방위 법률 지원</p>
                     <ul class="service-features">
-                        <li>월 정액 자문 서비스</li>
-                        <li>취업규칙 작성·검토</li>
+                        <li>정기 자문 서비스(노무﹒세무 통합)</li>
+                        <li>근로계약서 등 서류 정비</li>
                         <li>인사제도 설계 및 개선</li>
-                        <li>노사협의회 운영 지원</li>
+                        <li>법정의무교육</li>
                     </ul>
                     <a href="#" class="service-cta" onclick="openPopup(); return false;">
                         상담 신청하기 →
@@ -884,55 +880,13 @@
                 </div>
 
                 <div class="service-card">
-                    <h3>⚖️ 노동 분쟁 대리</h3>
+                    <h3>⚖️ 노동 분쟁 대응</h3>
                     <p>부당해고, 임금체불 등 모든 노동 분쟁에서 기업을 보호합니다</p>
                     <ul class="service-features">
-                        <li>부당해고 구제신청 대리</li>
-                        <li>노동위원회 대응</li>
-                        <li>민·형사 소송 대리</li>
-                        <li>단체교섭 및 쟁의행위 대응</li>
-                    </ul>
-                    <a href="#" class="service-cta" onclick="openPopup(); return false;">
-                        상담 신청하기 →
-                    </a>
-                </div>
-
-                <div class="service-card">
-                    <h3>📚 법정의무교육</h3>
-                    <p>노동법상 필수 교육을 전문 강사가 직접 진행합니다</p>
-                    <ul class="service-features">
-                        <li>직장 내 성희롱 예방교육</li>
-                        <li>직장 내 괴롭힘 예방교육</li>
-                        <li>개인정보보호 교육</li>
-                        <li>산업안전보건 교육</li>
-                    </ul>
-                    <a href="#" class="service-cta" onclick="openPopup(); return false;">
-                        상담 신청하기 →
-                    </a>
-                </div>
-
-                <div class="service-card">
-                    <h3>💰 정부지원금</h3>
-                    <p>놓치기 쉬운 정부 지원사업, 유영이 찾아드립니다</p>
-                    <ul class="service-features">
-                        <li>고용보험 환급 컨설팅</li>
-                        <li>일자리안정자금 신청 대행</li>
-                        <li>청년내일채움공제 지원</li>
-                        <li>각종 고용장려금 신청</li>
-                    </ul>
-                    <a href="#" class="service-cta" onclick="openPopup(); return false;">
-                        상담 신청하기 →
-                    </a>
-                </div>
-
-                <div class="service-card">
-                    <h3>🔍 노무 감사·진단</h3>
-                    <p>현재 인사노무 시스템의 리스크를 정밀 진단합니다</p>
-                    <ul class="service-features">
-                        <li>근로계약서 및 규정 검토</li>
-                        <li>임금·근로시간 컴플라이언스</li>
-                        <li>4대보험 가입 적정성 검토</li>
-                        <li>개선방안 및 로드맵 제시</li>
+                        <li>부당해고 구제신청 대응</li>
+                        <li>임금체불 진정 대응</li>
+                        <li>괴롭힘/성희롱 조사용역</li>
+                        <li>근로자와 협상 지원</li>
                     </ul>
                     <a href="#" class="service-cta" onclick="openPopup(); return false;">
                         상담 신청하기 →
@@ -944,7 +898,7 @@
                     <p>빠르게 성장하는 스타트업을 위한 맞춤형 노무 솔루션</p>
                     <ul class="service-features">
                         <li>창업 초기 인사제도 설계</li>
-                        <li>스톡옵션 및 성과급 설계</li>
+                        <li>임금체계 설계</li>
                         <li>조직 확장 시 법률 리스크 관리</li>
                         <li>투자유치 대비 노무실사</li>
                     </ul>
@@ -952,8 +906,6 @@
                         상담 신청하기 →
                     </a>
                 </div>
-            </div>
-        </div>
     </section>
 
     <!-- Labor Cases Section -->
@@ -965,11 +917,10 @@
             <div class="services-grid">
                 <div class="service-card">
                     <h3>⚖️ 부당해고</h3>
-                    <p>정당한 이유 없는 해고에 대한 구제 및 복직 지원</p>
+                    <p>정당한 이유 없는 해고에 대한 구제신청 대리</p>
                     <ul class="service-features">
                         <li>부당해고 구제신청 대리</li>
                         <li>노동위원회 심판 대응</li>
-                        <li>행정소송 및 민사소송</li>
                         <li>금전보상 및 복직 협상</li>
                     </ul>
                     <a href="#" class="service-cta" onclick="openPopup(); return false;">
@@ -981,10 +932,9 @@
                     <h3>💰 임금체불</h3>
                     <p>밀린 급여, 퇴직금 등 체불임금 청구 대리</p>
                     <ul class="service-features">
-                        <li>임금체불 진정 및 고소</li>
-                        <li>체불임금 확인서 발급</li>
-                        <li>민사소송 및 가압류</li>
-                        <li>도산기업 임금채권 확보</li>
+                        <li>임금체불 진정 대리</li>
+                        <li>금전 협상 대리</li>
+                        <li>간이대지급금 신청 대리</li>
                     </ul>
                     <a href="#" class="service-cta" onclick="openPopup(); return false;">
                         상담 신청하기 →
@@ -995,11 +945,10 @@
                     <h3>🚫 직장 내 괴롭힘</h3>
                     <p>직장 내 괴롭힘 피해자 보호 및 가해자 징계</p>
                     <ul class="service-features">
-                        <li>괴롭힘 신고 및 조사 지원</li>
-                        <li>피해자 보호조치 요청</li>
-                        <li>손해배상청구 대리</li>
-                        <li>형사고소 및 민사소송</li>
-                    </ul>
+                        <li>괴롭힘 신고 대리</li>
+                        <li>증거자료 수집 지원</li>
+                        <li>가해자 징계 요청</li>
+                     </ul>
                     <a href="#" class="service-cta" onclick="openPopup(); return false;">
                         상담 신청하기 →
                     </a>
@@ -1017,39 +966,33 @@
             <div class="trust-grid">
                 <div class="trust-card">
                     <div class="trust-icon">💼</div>
-                    <h3>고용장려금</h3>
-                    <p>고용창출, 고용유지 등 다양한 고용장려금 신청을 대행하고 최대 금액을 수령할 수 있도록 지원합니다.</p>
+                    <h3>청년일자리 도약 장려금</h3>
+                    <p>청년일자리도약장려금 등 청년 고용 관련 정부지원금을 받도록 컨설팅합니다.<br>(2026년 기준, 1인당 720만원 지원)</p>
                 </div>
                 <div class="trust-card">
                     <div class="trust-icon">👨‍💼</div>
-                    <h3>청년고용지원</h3>
-                    <p>청년내일채움공제, 청년일자리도약장려금 등 청년 고용 관련 정부지원금을 전액 환급받도록 컨설팅합니다.</p>
+                    <h3>고용장려금</h3>
+                    <p>고용창출, 고용유지 등 다양한 고용장려금 신청을 대행하고 최대 금액을 수령할 수 있도록 지원합니다.</p>
                 </div>
                 <div class="trust-card">
                     <div class="trust-icon">📈</div>
                     <h3>일자리안정자금</h3>
                     <p>최저임금 인상에 따른 인건비 부담을 줄일 수 있는 일자리안정자금 신청을 지원합니다.</p>
-                </div>
-                <div class="trust-card">
-                    <div class="trust-icon">🎓</div>
-                    <h3>직업훈련지원</h3>
-                    <p>근로자 역량 개발을 위한 직업훈련 과정 개설 및 훈련비용 환급을 전액 지원합니다.</p>
-                </div>
-            </div>
-        </div>
+               
+                   
     </section>
 
     <!-- CTA Section -->
     <section class="cta-section" id="contact">
         <div class="cta-content">
             <h2>노동법 문제, 지금 바로 해결하세요</h2>
-            <p>첫 상담은 무료입니다. 전문가가 귀사의 상황을 정확히 파악하고 최선의 솔루션을 제시해드립니다.</p>
+            <p>전문가가 상황을 정확히 파악하고 최선의 솔루션을 제시해드립니다.</p>
             <div class="cta-buttons">
                 <a href="tel:010-4835-8422" class="btn-primary">
-                    ☎ 010-4835-8422
+                    ☎ 전화 상담
                 </a>
-                <a href="http://pf.kakao.com/_xexopLn/chat" class="btn-secondary" target="_blank">
-                    💬 카카오톡 상담
+                <a href="http://pf.kakao.com/_BaeGn/chat" class="btn-secondary" target="_blank">
+                    💬 카톡 상담
                 </a>
             </div>
         </div>
@@ -1062,10 +1005,11 @@
                 <h4>노무법인 유영</h4>
                 <p>📍 서울특별시 강남구 선릉로 578 태정빌딩 7층</p>
                 <p>📞 010-4835-8422</p>
-                <p>📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7f1c0f131e06143f111e091a0d511c1012">[email&#160;protected]</a></p>
+                <p>📧 cplayk@naver.com</p>
+                <p><a href="http://pf.kakao.com/_BaeGn/chat" target="_blank" style="color: var(--gold); text-decoration: none;">💬 카톡상담</a></p>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 노무법인 유영. All rights reserved.</p>
+                <p>&copy; 2026 노무법인 유영. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -1075,8 +1019,8 @@
         <a href="#" class="floating-btn consult" onclick="openPopup(); return false;" title="빠른 상담 신청">
             ✏️
         </a>
-        <a href="http://pf.kakao.com/_xexopLn/chat" class="floating-btn kakao" target="_blank" title="카카오톡 상담">
-            💬
+        <a href="http://pf.kakao.com/_BaeGn/chat" class="floating-btn kakao" target="_blank" title="카카오톡 상담">
+            <img src="카카오톡로고.png" alt="카카오톡" style="width: 40px; height: 40px; margin-top: 6px; margin-left: 0px;">
         </a>
         <a href="tel:010-4835-8422" class="floating-btn phone" title="전화 상담">
             📞
