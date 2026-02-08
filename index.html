@@ -133,6 +133,7 @@
             transform: translate(-50%, -50%);
             z-index: 0;
             object-fit: cover;
+            filter: brightness(1.1) contrast(1.05) saturate(1.1);
         }
 
         .hero-overlay {
@@ -143,8 +144,8 @@
             height: 100%;
             background: linear-gradient(
                 to bottom,
-                rgba(15, 26, 46, 0.5) 0%,
-                rgba(26, 43, 74, 0.7) 100%
+                rgba(15, 26, 46, 0.2) 0%,
+                rgba(26, 43, 74, 0.35) 100%
             );
             z-index: 1;
         }
@@ -758,7 +759,7 @@
 
     <!-- Hero Section with Video -->
     <section class="hero">
-        <video class="hero-video" autoplay muted loop playsinline>
+        <video class="hero-video" autoplay muted loop playsinline preload="auto">
             <source src="hero-video.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
@@ -921,7 +922,7 @@
                 <h4>노무법인 유영</h4>
                 <p>📍 서울특별시 강남구 선릉로 578 태정빌딩 7층</p>
                 <p>📞 010-4835-8422</p>
-                <p>📧 cplayk@naver.com</p>
+                <p>📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7f1c0f131e06143f111e091a0d511c1012">[email&#160;protected]</a></p>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 노무법인 유영. All rights reserved.</p>
@@ -988,7 +989,7 @@
         </div>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Header scroll effect
         window.addEventListener('scroll', () => {
             const header = document.getElementById('header');
@@ -1065,14 +1066,4 @@
                     e.preventDefault();
                     const target = document.querySelector(href);
                     if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+                        target.scroll
