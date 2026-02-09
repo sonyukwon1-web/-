@@ -780,43 +780,59 @@
 
             .nav-menu {
                 position: fixed;
-                top: 0;
+                top: 70px;
                 right: -100%;
-                width: 70%;
-                height: 100vh;
+                width: 100%;
+                max-width: 300px;
+                height: calc(100vh - 70px);
                 background: white;
                 flex-direction: column;
                 justify-content: flex-start;
-                padding: 80px 2rem 2rem;
-                gap: 2rem;
-                box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+                padding: 2rem;
+                gap: 0;
+                box-shadow: -2px 0 10px rgba(0,0,0,0.2);
                 transition: right 0.3s ease;
-                z-index: 1000;
+                z-index: 999;
+                list-style: none;
+                overflow-y: auto;
             }
 
             .nav-menu.active {
                 right: 0;
             }
 
-            .nav-menu a {
-                font-size: 1.1rem;
-                padding: 1rem 0;
-                width: 100%;
+            .nav-menu li {
                 border-bottom: 1px solid var(--border);
+            }
+
+            .nav-menu a {
+                display: block;
+                font-size: 1.1rem;
+                padding: 1.2rem 0;
+                width: 100%;
+                color: var(--navy);
+                text-decoration: none;
+                font-weight: 500;
+            }
+
+            .nav-menu a:active {
+                color: var(--gold);
             }
 
             .header-cta {
                 position: fixed;
                 bottom: 0;
                 right: -100%;
-                width: 70%;
+                width: 100%;
+                max-width: 300px;
                 flex-direction: column;
                 padding: 1.5rem;
                 background: white;
                 gap: 1rem;
-                box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+                box-shadow: -2px 0 10px rgba(0,0,0,0.2);
                 transition: right 0.3s ease;
-                z-index: 1000;
+                z-index: 999;
+                border-top: 1px solid var(--border);
             }
 
             .header-cta.active {
