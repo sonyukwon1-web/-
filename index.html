@@ -829,36 +829,81 @@
 
         /* Footer */
         footer {
-            background: var(--deep-navy);
-            color: rgba(255, 255, 255, 0.8);
-            padding: 3rem 2rem 2rem;
+            background: #2a2a2a;
+            color: #ffffff;
+            padding: 3rem 0 2rem;
         }
 
         .footer-content {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        .footer-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 4rem;
+            padding-bottom: 2rem;
+        }
+
+        .footer-logo {
+            flex: 0 0 auto;
+            padding-top: 0.5rem;
+        }
+
+        .footer-logo img {
+            height: 65px;
+            width: auto;
         }
 
         .footer-info {
-            margin-bottom: 2rem;
+            flex: 1;
+            text-align: right;
         }
 
-        .footer-info h4 {
-            color: var(--gold);
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
+        .footer-privacy {
+            margin-bottom: 1.2rem;
         }
 
-        .footer-info p {
-            margin-bottom: 0.5rem;
+        .footer-privacy span {
+            color: #ffffff;
+            font-weight: 500;
             font-size: 0.95rem;
+            border-bottom: 1px solid #ffffff;
+            padding-bottom: 2px;
+            cursor: default;
+        }
+
+        .footer-details {
+            line-height: 1.7;
+        }
+
+        .footer-details p {
+            margin: 0.35rem 0;
+            font-size: 0.9rem;
+            color: #d5d5d5;
+            font-weight: 400;
+        }
+
+        .footer-company-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #ffffff;
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            padding-top: 1.5rem;
             text-align: center;
-            font-size: 0.9rem;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: #999999;
+            font-weight: 400;
         }
 
         /* Responsive */
@@ -969,6 +1014,30 @@
 
             .popup-content {
                 padding: 2rem;
+            }
+
+            /* Footer responsive */
+            .footer-content {
+                padding: 0 1.5rem;
+            }
+
+            .footer-main {
+                flex-direction: column;
+                gap: 2rem;
+                align-items: center;
+            }
+
+            .footer-logo img {
+                height: 50px;
+            }
+
+            .footer-info {
+                text-align: center;
+            }
+
+            .footer-details p {
+                font-size: 0.8rem;
+                line-height: 1.6;
             }
         }
 
@@ -1211,15 +1280,19 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <div class="footer-info">
-                <h4>노무법인 유영</h4>
-                <p>📍 서울특별시 강남구 선릉로 578 태정빌딩 7층</p>
-                <p>📞 010-4835-8422</p>
-                <p>📧 cplayk@naver.com</p>
-                <p><a href="http://pf.kakao.com/_BaeGn/chat" target="_blank" style="color: var(--gold); text-decoration: none;">💬 카톡상담</a></p>
+            <div class="footer-main">
+                <div class="footer-info">
+                    <div class="footer-privacy">
+                        <span>개인정보처리방침</span>
+                    </div>
+                    <div class="footer-details">
+                        <p class="footer-company-name">노무법인 유영 | 대표노무사 : 손유권 | 서울특별시 강남구 선릉로 578, 7층(태정빌딩)</p>
+                        <p>사업자등록증 : 645-88-02930 | 전화 : 010-4835-8422 | 팩스 : 0504-340-8422 | 이메일 : cplayk@naver.com</p>
+                    </div>
+                </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 노무법인 유영. All rights reserved.</p>
+                <p>Copyright 노무법인 유영. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -1275,7 +1348,7 @@
         </div>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Header scroll effect
         window.addEventListener('scroll', () => {
             const header = document.getElementById('header');
@@ -1351,11 +1424,4 @@
         const navLinks = document.querySelectorAll('.nav-link');
 
         hamburger.addEventListener('click', function() {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-            headerCta.classList.toggle('active');
-        });
-
-        // Close menu when clicking on a link
-        navLinks.forEach(link => {
-            link.addEventListene
+            hamburger.classList.toggle('active'
