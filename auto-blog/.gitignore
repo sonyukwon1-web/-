@@ -1,0 +1,9 @@
+.env
+naver_cookies.json
+current_draft.json
+publish_history.json
+static/images/*.png
+static/images/*.jpg
+__pycache__/
+*.pyc
+.DS_Store

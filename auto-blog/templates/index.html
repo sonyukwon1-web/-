@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>노무법인 유영 - 자동 블로그 발행</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Pretendard', 'Apple SD Gothic Neo', sans-serif; background: #f5f6fa; color: #222; }
+
+    header {
+      background: #1a3a6b;
+      color: #fff;
+      padding: 18px 32px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    header h1 { font-size: 1.2rem; font-weight: 700; }
+    header span { font-size: 0.85rem; opacity: 0.7; }
+
+    .container { max-width: 1100px; margin: 32px auto; padding: 0 20px; }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+    .card h2 { font-size: 1rem; font-weight: 700; color: #1a3a6b; margin-bottom: 16px; border-bottom: 2px solid #e8edf5; padding-bottom: 10px; }
+
+    /* 주제 선택 */
+    .topic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 10px;
+    }
+    .topic-btn {
+      padding: 10px 14px;
+      border: 2px solid #dde3ef;
+      border-radius: 8px;
+      background: #fff;
+      cursor: pointer;
+      font-size: 0.88rem;
+      text-align: left;
+      transition: all 0.15s;
+    }
+    .topic-btn:hover { border-color: #1a3a6b; background: #f0f4fb; }
+    .topic-btn.selected { border-color: #1a3a6b; background: #1a3a6b; color: #fff; }
+    .topic-btn .topic-id { font-size: 0.72rem; opacity: 0.6; }
+
+    /* 생성 버튼 */
+    .btn-generate {
+      display: inline-block;
+      padding: 12px 28px;
+      background: #1a3a6b;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .btn-generate:hover { background: #14306a; }
+    .btn-generate:disabled { background: #aab; cursor: not-allowed; }
+
+    /* 상태 표시 */
+    .status-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      margin-top: 12px;
+      font-size: 0.9rem;
+    }
+    .status-bar.idle { display: none; }
+    .status-bar.generating { background: #fff8e1; color: #b36200; }
+    .status-bar.done { background: #e8f5e9; color: #1b5e20; }
+    .status-bar.error { background: #fdecea; color: #b71c1c; }
+    .spinner { width: 18px; height: 18px; border: 3px solid #ffc107; border-top-color: transparent; border-radius: 50%; animation: spin 0.8s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* 미리보기 */
+    #preview-section { display: none; }
+    .preview-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 10px; }
+    .preview-meta { font-size: 0.82rem; color: #666; }
+    .preview-meta span { margin-right: 12px; }
+
+    .preview-image-wrap { margin-bottom: 16px; }
+    .preview-image-wrap img { max-width: 100%; border-radius: 8px; max-height: 320px; object-fit: cover; }
+
+    .editable-title {
+      width: 100%;
+      font-size: 1.3rem;
+      font-weight: 700;
+      border: 2px solid #dde3ef;
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      font-family: inherit;
+    }
+    .editable-title:focus { outline: none; border-color: #1a3a6b; }
+
+    .editable-content {
+      width: 100%;
+      min-height: 400px;
+      border: 2px solid #dde3ef;
+      border-radius: 8px;
+      padding: 14px;
+      font-size: 0.92rem;
+      line-height: 1.8;
+      font-family: inherit;
+      resize: vertical;
+    }
+    .editable-content:focus { outline: none; border-color: #1a3a6b; }
+
+    .tags-wrap { margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap; }
+    .tag { background: #e8edf5; color: #1a3a6b; padding: 4px 10px; border-radius: 20px; font-size: 0.8rem; }
+
+    /* 발행 버튼 */
+    .btn-publish {
+      padding: 14px 36px;
+      background: #00b900;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .btn-publish:hover { background: #00a000; }
+    .btn-publish:disabled { background: #aaa; cursor: not-allowed; }
+
+    /* 발행 결과 */
+    .publish-result {
+      display: none;
+      padding: 14px 18px;
+      border-radius: 8px;
+      margin-top: 14px;
+      font-size: 0.9rem;
+    }
+    .publish-result.success { background: #e8f5e9; color: #1b5e20; }
+    .publish-result.error { background: #fdecea; color: #b71c1c; }
+
+    /* 발행 이력 */
+    .history-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    .history-table th { background: #f0f4fb; padding: 8px 12px; text-align: left; font-weight: 600; }
+    .history-table td { padding: 8px 12px; border-bottom: 1px solid #eee; }
+    .history-table a { color: #1a3a6b; text-decoration: none; }
+    .history-table a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>노무법인 유영 · 자동 블로그 발행 시스템</h1>
+      <span>주제를 선택하고 글을 생성한 후 검토하여 네이버 블로그에 발행하세요</span>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- 주제 선택 -->
+    <div class="card">
+      <h2>1. 주제 선택</h2>
+      <div class="topic-grid" id="topic-grid">
+        {% for topic in topics %}
+        <button class="topic-btn" data-id="{{ topic.id }}" onclick="selectTopic(this, {{ topic.id }})">
+          <div class="topic-id">#{{ topic.id }}</div>
+          <div>{{ topic.title }}</div>
+        </button>
+        {% endfor %}
+      </div>
+      <div style="margin-top: 16px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+        <button class="btn-generate" id="btn-generate" onclick="startGenerate()">
+          AI 글 생성하기
+        </button>
+        <span id="selected-label" style="font-size:0.85rem; color:#666;">선택된 주제: <strong id="selected-name">자동(다음 순서)</strong></span>
+      </div>
+      <div class="status-bar idle" id="status-bar">
+        <div class="spinner" id="spinner"></div>
+        <span id="status-msg"></span>
+      </div>
+    </div>
+
+    <!-- 미리보기 및 편집 -->
+    <div class="card" id="preview-section">
+      <h2>2. 내용 검토 및 편집</h2>
+      <div class="preview-header">
+        <div class="preview-meta">
+          <span id="meta-topic"></span>
+          <span id="meta-date"></span>
+        </div>
+      </div>
+
+      <div class="preview-image-wrap" id="image-wrap">
+        <img id="preview-img" src="" alt="대표 이미지">
+      </div>
+
+      <input type="text" class="editable-title" id="edit-title" placeholder="제목">
+      <textarea class="editable-content" id="edit-content" placeholder="본문 내용"></textarea>
+
+      <div class="tags-wrap" id="tags-wrap"></div>
+
+      <div style="margin-top: 20px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+        <button class="btn-publish" id="btn-publish" onclick="publishPost()">
+          네이버 블로그에 발행하기
+        </button>
+        <span style="font-size:0.82rem; color:#888;">발행 전 내용을 자유롭게 수정할 수 있습니다</span>
+      </div>
+      <div class="publish-result" id="publish-result"></div>
+    </div>
+
+    <!-- 발행 이력 -->
+    {% if history %}
+    <div class="card">
+      <h2>발행 이력 (최근 10건)</h2>
+      <table class="history-table">
+        <thead>
+          <tr><th>주제</th><th>제목</th><th>발행일</th><th>링크</th></tr>
+        </thead>
+        <tbody>
+          {% for item in history|reverse %}
+          <tr>
+            <td>{{ item.topic_title or '-' }}</td>
+            <td>{{ item.title }}</td>
+            <td>{{ item.published_at[:10] if item.published_at else '-' }}</td>
+            <td>
+              {% if item.naver_url %}
+              <a href="{{ item.naver_url }}" target="_blank">보기</a>
+              {% else %}-{% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endif %}
+
+  </div>
+
+  <script>
+    let selectedTopicId = null;
+    let currentDraft = null;
+    let pollInterval = null;
+
+    function selectTopic(btn, id) {
+      document.querySelectorAll('.topic-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      selectedTopicId = id;
+      document.getElementById('selected-name').textContent = btn.querySelector('div:last-child').textContent;
+    }
+
+    function setStatus(type, msg) {
+      const bar = document.getElementById('status-bar');
+      const spinner = document.getElementById('spinner');
+      bar.className = 'status-bar ' + type;
+      document.getElementById('status-msg').textContent = msg;
+      spinner.style.display = (type === 'generating') ? 'block' : 'none';
+    }
+
+    async function startGenerate() {
+      const btn = document.getElementById('btn-generate');
+      btn.disabled = true;
+      document.getElementById('preview-section').style.display = 'none';
+
+      setStatus('generating', '요청 중...');
+
+      const res = await fetch('/api/generate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ topic_id: selectedTopicId })
+      });
+      const data = await res.json();
+
+      if (data.error) {
+        setStatus('error', data.error);
+        btn.disabled = false;
+        return;
+      }
+
+      setStatus('generating', `'${data.topic}' 생성 중... (1~2분 소요)`);
+
+      // 폴링으로 상태 확인
+      pollInterval = setInterval(async () => {
+        const statusRes = await fetch('/api/status');
+        const status = await statusRes.json();
+
+        if (status.status === 'generating') {
+          setStatus('generating', status.message);
+        } else if (status.status === 'done') {
+          clearInterval(pollInterval);
+          setStatus('done', '생성 완료!');
+          btn.disabled = false;
+          showPreview(status.draft);
+        } else if (status.status === 'error') {
+          clearInterval(pollInterval);
+          setStatus('error', status.message);
+          btn.disabled = false;
+        }
+      }, 2000);
+    }
+
+    function showPreview(draft) {
+      currentDraft = draft;
+      document.getElementById('preview-section').style.display = 'block';
+
+      document.getElementById('edit-title').value = draft.title || '';
+      document.getElementById('edit-content').value = draft.content || '';
+      document.getElementById('meta-topic').textContent = '주제: ' + (draft.topic_title || '');
+      document.getElementById('meta-date').textContent = '생성: ' + (draft.created_at || '').slice(0, 16).replace('T', ' ');
+
+      if (draft.image_path) {
+        document.getElementById('preview-img').src = '/' + draft.image_path;
+        document.getElementById('image-wrap').style.display = 'block';
+      } else {
+        document.getElementById('image-wrap').style.display = 'none';
+      }
+
+      const tagsWrap = document.getElementById('tags-wrap');
+      tagsWrap.innerHTML = '';
+      (draft.tags || []).forEach(tag => {
+        const span = document.createElement('span');
+        span.className = 'tag';
+        span.textContent = '#' + tag;
+        tagsWrap.appendChild(span);
+      });
+
+      document.getElementById('preview-section').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    async function publishPost() {
+      const btn = document.getElementById('btn-publish');
+      const resultDiv = document.getElementById('publish-result');
+
+      const title = document.getElementById('edit-title').value.trim();
+      const content = document.getElementById('edit-content').value.trim();
+
+      if (!title || !content) {
+        alert('제목과 내용을 입력해주세요.');
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = '발행 중... (브라우저가 열립니다)';
+      resultDiv.style.display = 'none';
+
+      const res = await fetch('/api/publish', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          title,
+          content,
+          image_path: currentDraft?.image_path || '',
+          tags: currentDraft?.tags || [],
+          topic_id: currentDraft?.topic_id,
+          topic_title: currentDraft?.topic_title,
+          created_at: currentDraft?.created_at
+        })
+      });
+      const data = await res.json();
+
+      btn.disabled = false;
+      btn.textContent = '네이버 블로그에 발행하기';
+
+      if (data.success) {
+        resultDiv.className = 'publish-result success';
+        resultDiv.innerHTML = '발행 완료! ' + (data.url ? `<a href="${data.url}" target="_blank">블로그에서 확인하기</a>` : '');
+        resultDiv.style.display = 'block';
+        // 페이지 새로고침으로 이력 업데이트
+        setTimeout(() => location.reload(), 3000);
+      } else {
+        resultDiv.className = 'publish-result error';
+        resultDiv.textContent = '발행 실패: ' + (data.error || '알 수 없는 오류');
+        resultDiv.style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>
