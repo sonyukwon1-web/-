@@ -963,7 +963,10 @@
 
             .header-cta {
                 position: fixed;
-                bottom: 0;
+                /* 헤더의 흐림 효과 때문에 bottom:0 이 화면 맨 위로 붙던 문제 → 화면 맨 아래 기준으로 */
+                top: 100vh;
+                top: 100dvh;
+                transform: translateY(-100%);
                 right: -100%;
                 width: 100%;
                 max-width: 300px;
@@ -1077,7 +1080,7 @@
                 <a href="tel:010-4835-8422" class="btn-call">
                     ☎ 전화상담
                 </a>
-                <a href="http://pf.kakao.com/_BaeGn/chat" class="btn-kakao" target="_blank">
+                <a href="https://pf.kakao.com/_BaeGn/chat" class="btn-kakao" target="_blank" rel="noopener">
                     💬 카톡상담
                 </a>
             </div>
@@ -1143,7 +1146,7 @@
                         <li>인사제도 설계 및 개선</li>
                         <li>법정의무교육</li>
                     </ul>
-                    <a href="http://pf.kakao.com/_BaeGn/chat" class="service-cta" target="_blank">
+                    <a href="https://pf.kakao.com/_BaeGn/chat" class="service-cta" target="_blank" rel="noopener">
                         상담 신청하기 →
                     </a>
                 </div>
@@ -1157,7 +1160,7 @@
                         <li>괴롭힘/성희롱 조사용역</li>
                         <li>근로자와 협상 지원</li>
                     </ul>
-                    <a href="http://pf.kakao.com/_BaeGn/chat" class="service-cta" target="_blank">
+                    <a href="https://pf.kakao.com/_BaeGn/chat" class="service-cta" target="_blank" rel="noopener">
                         상담 신청하기 →
                     </a>
                 </div>
@@ -1171,7 +1174,7 @@
                         <li>조직 확장 시 법률 리스크 관리</li>
                         <li>투자유치 대비 노무실사</li>
                     </ul>
-                    <a href="http://pf.kakao.com/_BaeGn/chat" class="service-cta" target="_blank">
+                    <a href="https://pf.kakao.com/_BaeGn/chat" class="service-cta" target="_blank" rel="noopener">
                         상담 신청하기 →
                     </a>
                 </div>
@@ -1192,7 +1195,7 @@
                         <li>노동위원회 심판 대응</li>
                         <li>금전보상 및 복직 협상</li>
                     </ul>
-                    <a href="http://pf.kakao.com/_BaeGn/chat" class="service-cta" target="_blank">
+                    <a href="https://pf.kakao.com/_BaeGn/chat" class="service-cta" target="_blank" rel="noopener">
                         상담 신청하기 →
                     </a>
                 </div>
@@ -1205,7 +1208,7 @@
                         <li>금전 협상 대리</li>
                         <li>간이대지급금 신청 대리</li>
                     </ul>
-                    <a href="http://pf.kakao.com/_BaeGn/chat" class="service-cta" target="_blank">
+                    <a href="https://pf.kakao.com/_BaeGn/chat" class="service-cta" target="_blank" rel="noopener">
                         상담 신청하기 →
                     </a>
                 </div>
@@ -1218,7 +1221,7 @@
                         <li>증거자료 수집 지원</li>
                         <li>가해자 징계 요청</li>
                      </ul>
-                    <a href="http://pf.kakao.com/_BaeGn/chat" class="service-cta" target="_blank">
+                    <a href="https://pf.kakao.com/_BaeGn/chat" class="service-cta" target="_blank" rel="noopener">
                         상담 신청하기 →
                     </a>
                 </div>
@@ -1237,7 +1240,7 @@
                     <div class="trust-icon">💼</div>
                     <h3>청년일자리 도약 장려금</h3>
                     <p>청년일자리도약장려금 등 청년 고용 관련 정부지원금을 받도록 컨설팅합니다.<br>(2026년 기준, 1인당 720만원 지원)</p>
-                    <a href="http://pf.kakao.com/_BaeGn/chat" class="service-cta" target="_blank">
+                    <a href="https://pf.kakao.com/_BaeGn/chat" class="service-cta" target="_blank" rel="noopener">
                         상담 신청하기 →
                     </a>
                 </div>
@@ -1245,7 +1248,7 @@
                     <div class="trust-icon">👨‍💼</div>
                     <h3>고용장려금</h3>
                     <p>고용창출, 고용유지 등 다양한 고용장려금 신청을 대행하고 최대 금액을 수령할 수 있도록 지원합니다.</p>
-                    <a href="http://pf.kakao.com/_BaeGn/chat" class="service-cta" target="_blank">
+                    <a href="https://pf.kakao.com/_BaeGn/chat" class="service-cta" target="_blank" rel="noopener">
                         상담 신청하기 →
                     </a>
                 </div>
@@ -1253,7 +1256,7 @@
                     <div class="trust-icon">📈</div>
                     <h3>일자리안정자금</h3>
                     <p>최저임금 인상에 따른 인건비 부담을 줄일 수 있는 일자리안정자금 신청을 지원합니다.</p>
-                    <a href="http://pf.kakao.com/_BaeGn/chat" class="service-cta" target="_blank">
+                    <a href="https://pf.kakao.com/_BaeGn/chat" class="service-cta" target="_blank" rel="noopener">
                         상담 신청하기 →
                     </a>
                 </div>
@@ -1270,7 +1273,7 @@
                 <a href="tel:010-4835-8422" class="btn-primary">
                     ☎ 전화 상담
                 </a>
-                <a href="http://pf.kakao.com/_BaeGn/chat" class="btn-secondary" target="_blank">
+                <a href="https://pf.kakao.com/_BaeGn/chat" class="btn-secondary" target="_blank" rel="noopener">
                     💬 카톡 상담
                 </a>
             </div>
@@ -1297,58 +1300,8 @@
         </div>
     </footer>
 
-    <!-- Floating Action Buttons -->
-    <div class="floating-actions">
-        </a>
-    </div>
 
-    <!-- Consultation Popup -->
-    <div class="popup-overlay" id="consultPopup">
-        <div class="popup-content">
-            <button class="popup-close" onclick="closePopup()">×</button>
-            <h3>빠른 상담 신청</h3>
-            <p>간단한 정보를 남겨주시면 24시간 내 연락드립니다.</p>
-            
-            <form class="consult-form" onsubmit="submitForm(event)">
-                <div class="form-group">
-                    <label for="company">회사명 *</label>
-                    <input type="text" id="company" name="company" placeholder="회사명을 입력해주세요" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="name">담당자명 *</label>
-                    <input type="text" id="name" name="name" placeholder="이름을 입력해주세요" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="phone">연락처 *</label>
-                    <input type="tel" id="phone" name="phone" placeholder="010-0000-0000" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="category">상담 분야 *</label>
-                    <select id="category" name="category" required>
-                        <option value="">선택해주세요</option>
-                        <option value="기업자문">기업 종합 자문</option>
-                        <option value="노동분쟁">노동 분쟁 대리</option>
-                        <option value="법정교육">법정의무교육</option>
-                        <option value="정부지원금">정부지원금</option>
-                        <option value="노무감사">노무 감사·진단</option>
-                        <option value="기타">기타</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="message">상담 내용</label>
-                    <textarea id="message" name="message" placeholder="상담하실 내용을 간단히 적어주세요"></textarea>
-                </div>
-                
-                <button type="submit" class="form-submit">상담 신청하기</button>
-            </form>
-        </div>
-    </div>
-
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Header scroll effect
         window.addEventListener('scroll', () => {
             const header = document.getElementById('header');
@@ -1376,46 +1329,6 @@
         window.addEventListener('scroll', revealOnScroll);
         revealOnScroll();
 
-        // Popup functions
-        function openPopup() {
-            document.getElementById('consultPopup').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closePopup() {
-            document.getElementById('consultPopup').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close popup when clicking overlay
-        document.getElementById('consultPopup').addEventListener('click', (e) => {
-            if (e.target.id === 'consultPopup') {
-                closePopup();
-            }
-        });
-
-        // Form submission
-        function submitForm(e) {
-            e.preventDefault();
-            
-            const formData = {
-                company: document.getElementById('company').value,
-                name: document.getElementById('name').value,
-                phone: document.getElementById('phone').value,
-                category: document.getElementById('category').value,
-                message: document.getElementById('message').value
-            };
-            
-            // Show success message
-            alert('상담 신청이 완료되었습니다!\n24시간 내에 연락드리겠습니다.');
-            
-            // Reset form and close popup
-            e.target.reset();
-            closePopup();
-            
-            // In production, send data to server
-            console.log('Form submitted:', formData);
-        }
 
         // Mobile hamburger menu
         const hamburger = document.getElementById('hamburger');
@@ -1424,4 +1337,19 @@
         const navLinks = document.querySelectorAll('.nav-link');
 
         hamburger.addEventListener('click', function() {
-            hamburger.classList.toggle('active'
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            headerCta.classList.toggle('active');
+        });
+
+        // 메뉴를 누르면 모바일 메뉴 닫기
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                headerCta.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
