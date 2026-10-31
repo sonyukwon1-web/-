@@ -70,7 +70,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
     
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -96,1260 +96,333 @@
     
     <style>
         :root {
-            --navy: #1a2b4a;
-            --deep-navy: #0f1a2e;
-            --gold: #d4af37;
-            --light-gold: #f4e5b8;
-            --white: #ffffff;
-            --light-gray: #f8f9fb;
-            --text-gray: #4a5568;
-            --border: #e2e8f0;
-            --success: #10b981;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Noto Sans KR', sans-serif;
-            color: var(--navy);
-            line-height: 1.7;
-            overflow-x: hidden;
-            user-select: none;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
-            z-index: 900;
-            transition: all 0.3s ease;
-        }
-
-        header.scrolled {
-            padding: 0.5rem 0;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        nav {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 1.2rem 3rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            text-decoration: none;
-            cursor: pointer;
-            user-select: none;
-        }
-
-        .logo-img {
-            height: 54px;
-            width: auto;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 3rem;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-menu a {
-            color: var(--navy);
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 500;
-            position: relative;
-            transition: color 0.3s ease;
-            padding: 0.5rem 0;
-        }
-
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gold);
-            transition: width 0.3s ease;
-        }
-
-        .nav-menu a:hover {
-            color: var(--gold);
-        }
-
-        .nav-menu a:hover::after {
-            width: 100%;
-        }
-
-        .header-cta {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            padding: 10px;
-            z-index: 1001;
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: var(--navy);
-            transition: all 0.3s ease;
-            border-radius: 3px;
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(8px, 8px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
-        }
-
-        .btn-call, .btn-kakao {
-            padding: 0.8rem 1.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn-call {
-            background: var(--navy);
-            color: white;
-        }
-
-        .btn-call:hover {
-            background: var(--deep-navy);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(26, 43, 74, 0.3);
-        }
-
-        .btn-kakao {
-            background: #FEE500;
-            color: #3c1e1e;
-        }
-
-        .btn-kakao:hover {
-            background: #fada0a;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(254, 229, 0, 0.4);
-        }
-
-        /* Hero Section with Video */
-        .hero {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            color: white;
-        }
-
-        .hero-video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translate(-50%, -50%);
-            z-index: 0;
-            object-fit: cover;
-            filter: brightness(1.1) contrast(1.05) saturate(1.1);
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                to bottom,
-                rgba(15, 26, 46, 0.2) 0%,
-                rgba(26, 43, 74, 0.35) 100%
-            );
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            padding: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: clamp(4rem, 10vw, 8rem);
-            font-weight: 900;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-            font-weight: 400;
-            margin-bottom: 3rem;
-            opacity: 0.95;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero-scroll {
-            position: absolute;
-            bottom: 3rem;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(-10px); }
-        }
-
-        .hero-scroll span {
-            display: block;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-            opacity: 0.9;
-        }
-
-        .hero-scroll::after {
-            content: '↓';
-            display: block;
-            font-size: 2rem;
-        }
-
-        /* Trust Indicators */
-        .trust-section {
-            background: var(--light-gray);
-            padding: 5rem 2rem;
-        }
-
-        .trust-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-family: 'Noto Sans KR', sans-serif;
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--navy);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.1rem;
-            color: var(--text-gray);
-            margin-bottom: 4rem;
-        }
-
-        .trust-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .trust-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .trust-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
-            border-color: var(--gold);
-        }
-
-        .trust-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--gold), var(--light-gold));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .trust-card h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--navy);
-        }
-
-        .trust-card p {
-            color: var(--text-gray);
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        /* 정부지원금 섹션의 service-cta 버튼 스타일 */
-        #support .service-cta {
-            margin-top: 0;
-        }
-
-        /* 일자리안정자금 카드의 추가 여백 */
-        #support .trust-card:last-child p {
-            margin-bottom: 3rem;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 2rem 2rem 5rem;
-            background: white;
-        }
-
-        .services-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: linear-gradient(135deg, var(--light-gray) 0%, white 100%);
-            padding: 2.5rem;
-            border-radius: 20px;
-            border: 2px solid var(--border);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--gold), var(--light-gold));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
-        }
-
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-            border-color: var(--gold);
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--navy);
-        }
-
-        .service-card p {
-            color: var(--text-gray);
-            margin-bottom: 2rem;
-            line-height: 1.8;
-        }
-
-        .service-features {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .service-features li {
-            padding: 0.5rem 0;
-            color: var(--text-gray);
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .service-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--gold);
-            font-weight: 700;
-        }
-
-        .service-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--navy);
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .service-cta:hover {
-            color: var(--gold);
-            gap: 1rem;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, var(--navy) 0%, var(--deep-navy) 100%);
-            padding: 5rem 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 30% 50%, rgba(212, 175, 55, 0.15) 0%, transparent 50%);
-        }
-
-        .cta-content {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .cta-content h2 {
-            font-family: 'Noto Sans KR', sans-serif;
-            font-size: clamp(2rem, 4vw, 3.5rem);
-            font-weight: 700;
-            color: white;
-            margin-bottom: 1.5rem;
-        }
-
-        .cta-content p {
-            font-family: 'Noto Sans KR', sans-serif;
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 3rem;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary, .btn-secondary {
-            padding: 1.2rem 2.5rem;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-
-        .btn-primary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn-primary:hover {
-            background: white;
-            color: var(--navy);
-            transform: translateY(-3px);
-        }
-
-        .btn-secondary {
-            background: var(--gold);
-            color: var(--navy);
-        }
-
-        .btn-secondary:hover {
-            background: var(--light-gold);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
-        }
-
-        /* Floating Action Buttons */
-        .floating-actions {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .floating-btn {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            animation: bounceIn 0.6s ease-out;
-        }
-
-        @keyframes bounceIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.3);
-            }
-            50% {
-                opacity: 1;
-                transform: scale(1.05);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        .floating-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .floating-btn.kakao {
-            background: #4CAF50;
-            color: #FEE500;
-            animation-delay: 0.2s;
-            font-size: 2.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-
-
-        .floating-btn.phone {
-            background: #4CAF50;
-            color: white;
-            font-size: 2.2rem;
-            animation-delay: 0.4s;
-        }
-
-        /* Consultation Popup */
-        .popup-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .popup-overlay.active {
-            display: flex;
-        }
-
-        .popup-content {
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            max-width: 500px;
-            width: 90%;
-            position: relative;
-            animation: slideUp 0.4s ease;
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .popup-close {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            background: none;
-            border: none;
-            font-size: 2rem;
-            cursor: pointer;
-            color: var(--text-gray);
-            transition: color 0.3s ease;
-        }
-
-        .popup-close:hover {
-            color: var(--navy);
-        }
-
-        .popup-content h3 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--navy);
-        }
-
-        .popup-content p {
-            color: var(--text-gray);
-            margin-bottom: 2rem;
-        }
-
-        .consult-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .form-group label {
-            font-weight: 600;
-            color: var(--navy);
-            font-size: 0.95rem;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            padding: 0.9rem 1.2rem;
-            border: 2px solid var(--border);
-            border-radius: 10px;
-            font-family: 'Noto Sans KR', sans-serif;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            user-select: auto;
-            -webkit-user-select: auto;
-            -moz-user-select: auto;
-            -ms-user-select: auto;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--gold);
-            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .form-submit {
-            padding: 1.2rem;
-            background: var(--gold);
-            color: var(--navy);
-            border: none;
-            border-radius: 10px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .form-submit:hover {
-            background: var(--light-gold);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
-        }
-
-        /* Footer */
-        footer {
-            background: #2a2a2a;
-            color: #ffffff;
-            padding: 3rem 0 2rem;
-        }
-
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 3rem;
-        }
-
-        .footer-main {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 4rem;
-            padding-bottom: 2rem;
-        }
-
-        .footer-logo {
-            flex: 0 0 auto;
-            padding-top: 0.5rem;
-        }
-
-        .footer-logo img {
-            height: 65px;
-            width: auto;
-        }
-
-        .footer-info {
-            flex: 1;
-            text-align: right;
-        }
-
-        .footer-privacy {
-            margin-bottom: 1.2rem;
-        }
-
-        .footer-privacy span {
-            color: #ffffff;
-            font-weight: 500;
-            font-size: 0.95rem;
-            border-bottom: 1px solid #ffffff;
-            padding-bottom: 2px;
-            cursor: default;
-        }
-
-        .footer-details {
-            line-height: 1.7;
-        }
-
-        .footer-details p {
-            margin: 0.35rem 0;
-            font-size: 0.9rem;
-            color: #d5d5d5;
-            font-weight: 400;
-        }
-
-        .footer-company-name {
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: #ffffff;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.15);
-            padding-top: 1.5rem;
-            text-align: center;
-        }
-
-        .footer-bottom p {
-            margin: 0;
-            font-size: 0.85rem;
-            color: #999999;
-            font-weight: 400;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav {
-                padding: 1rem;
-            }
-
-            .logo-img {
-                height: 30px;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .nav-menu {
-                position: fixed;
-                top: 70px;
-                right: -100%;
-                width: 100%;
-                max-width: 300px;
-                height: calc(100vh - 70px);
-                background: white;
-                flex-direction: column;
-                justify-content: flex-start;
-                padding: 2rem;
-                gap: 0;
-                box-shadow: -2px 0 10px rgba(0,0,0,0.2);
-                transition: right 0.3s ease;
-                z-index: 999;
-                list-style: none;
-                overflow-y: auto;
-            }
-
-            .nav-menu.active {
-                right: 0;
-            }
-
-            .nav-menu li {
-                border-bottom: 1px solid var(--border);
-            }
-
-            .nav-menu a {
-                display: block;
-                font-size: 1.1rem;
-                padding: 1.2rem 0;
-                width: 100%;
-                color: var(--navy);
-                text-decoration: none;
-                font-weight: 500;
-            }
-
-            .nav-menu a:active {
-                color: var(--gold);
-            }
-
-            .header-cta {
-                position: fixed;
-                /* 헤더의 흐림 효과 때문에 bottom:0 이 화면 맨 위로 붙던 문제 → 화면 맨 아래 기준으로 */
-                top: 100vh;
-                top: 100dvh;
-                transform: translateY(-100%);
-                right: -100%;
-                width: 100%;
-                max-width: 300px;
-                flex-direction: column;
-                padding: 1.5rem;
-                background: white;
-                gap: 1rem;
-                box-shadow: -2px 0 10px rgba(0,0,0,0.2);
-                transition: right 0.3s ease;
-                z-index: 999;
-                border-top: 1px solid var(--border);
-            }
-
-            .header-cta.active {
-                right: 0;
-            }
-
-            .btn-call, .btn-kakao {
-                width: 100%;
-                text-align: center;
-                justify-content: center;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .trust-grid,
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-            }
-
-            .floating-actions {
-                bottom: 20px;
-                right: 20px;
-                gap: 0.7rem;
-            }
-
-            .floating-btn {
-                width: 55px;
-                height: 55px;
-                font-size: 1.5rem;
-            }
-
-            .popup-content {
-                padding: 2rem;
-            }
-
-            /* Footer responsive */
-            .footer-content {
-                padding: 0 1.5rem;
-            }
-
-            .footer-main {
-                flex-direction: column;
-                gap: 2rem;
-                align-items: center;
-            }
-
-            .footer-logo img {
-                height: 50px;
-            }
-
-            .footer-info {
-                text-align: center;
-            }
-
-            .footer-details p {
-                font-size: 0.8rem;
-                line-height: 1.6;
-            }
-        }
-
-        /* Scroll reveal */
-        .reveal {
-            opacity: 1;
-            transform: translateY(0);
-            transition: all 0.8s ease;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
+            --navy: #14213d;
+            --ink: #0b1426;
+            --gold: #c9a24a;
+            --gold-soft: #f3ead2;
+            --paper: #ffffff;
+            --mist: #f5f6f8;
+            --text: #1f2a3d;
+            --muted: #4b5568;
+            --line: #d9dee6;
+            --kakao: #fee500;
+            --serif: 'Noto Serif KR', serif;
+            --sans: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            --wrap: 1180px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; scrollbar-gutter: stable; }
+        body { font-family: var(--sans); color: var(--text); background: var(--paper); line-height: 1.7; -webkit-font-smoothing: antialiased; word-break: keep-all; }
+        a { color: inherit; text-decoration: none; }
+        .wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 24px; }
+
+        /* 버튼: 크기 고정, 글자 가운데 */
+        .btn { display: inline-flex; align-items: center; justify-content: center; text-align: center; height: 52px; width: 168px; border-radius: 6px; font-weight: 700; font-size: 1rem; white-space: nowrap; transition: transform .2s ease, box-shadow .2s ease; flex: none; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,.18); }
+        .btn-gold { background: var(--gold); color: var(--ink); }
+        .btn-kakao { background: var(--kakao); color: #191600; }
+        .btn-navy { background: var(--navy); color: #fff; }
+        .btn-line { border: 2px solid rgba(255,255,255,.85); color: #fff; }
+        .btn-sm { height: 42px; width: 120px; font-size: .92rem; }
+
+        /* 헤더 */
+        header { position: fixed; inset: 0 0 auto 0; z-index: 50; height: 76px; background: rgba(255,255,255,.97); border-bottom: 1px solid var(--line); }
+        header .wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+        .logo img { height: 40px; display: block; }
+        .nav { display: flex; gap: 34px; list-style: none; }
+        .nav a { font-weight: 500; color: var(--text); font-size: .98rem; }
+        .nav a:hover { color: var(--gold); }
+        .head-cta { display: flex; gap: 10px; }
+
+        /* 히어로 */
+        .hero { position: relative; min-height: 100vh; min-height: 100svh; display: flex; align-items: center; color: #fff; overflow: hidden; background: var(--ink); }
+        .hero video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+        .hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(11,20,38,.92) 0%, rgba(11,20,38,.78) 45%, rgba(11,20,38,.35) 100%); }
+        .hero .wrap { position: relative; z-index: 1; padding-top: 76px; }
+        .eyebrow { display: inline-block; font-size: .85rem; letter-spacing: .18em; color: var(--gold); font-weight: 700; margin-bottom: 22px; }
+        .hero h1 { font-family: var(--serif); font-weight: 700; font-size: clamp(2.3rem, 5.6vw, 4.4rem); line-height: 1.25; letter-spacing: -.01em; max-width: 14em; }
+        .hero h1 em { font-style: normal; color: var(--gold); }
+        .hero p.lead { margin-top: 26px; font-size: clamp(1.02rem, 1.6vw, 1.22rem); color: #e6e9ef; max-width: 34em; }
+        .hero .actions { margin-top: 40px; display: flex; gap: 12px; flex-wrap: wrap; }
+        .hero-points { margin-top: 64px; display: flex; gap: 0; border-top: 1px solid rgba(255,255,255,.28); max-width: 760px; }
+        .hero-points div { flex: 1; padding: 18px 18px 0 0; }
+        .hero-points b { display: block; font-size: 1.02rem; color: #fff; }
+        .hero-points span { font-size: .88rem; color: #c8ced9; }
+
+        /* 공통 섹션 */
+        section { padding: 120px 0; }
+        .sec-head { display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; align-items: end; margin-bottom: 64px; }
+        .sec-head .no { font-size: .85rem; letter-spacing: .18em; color: var(--gold); font-weight: 700; display: block; margin-bottom: 14px; }
+        .sec-head h2 { font-family: var(--serif); font-size: clamp(1.9rem, 3.4vw, 2.8rem); line-height: 1.3; color: var(--navy); }
+        .sec-head p { color: var(--muted); font-size: 1.05rem; }
+        .bg-mist { background: var(--mist); }
+
+        /* 왜 유영 */
+        .why { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 2px solid var(--navy); }
+        .why article { padding: 36px 32px 8px 0; }
+        .why article + article { padding-left: 32px; border-left: 1px solid var(--line); }
+        .why .n { font-family: var(--serif); font-size: 2.6rem; color: var(--gold); line-height: 1; }
+        .why h3 { margin: 18px 0 10px; font-size: 1.3rem; color: var(--navy); }
+        .why p { color: var(--muted); }
+
+        /* 서비스 목록 */
+        .svc { border-top: 2px solid var(--navy); }
+        .svc-row { display: grid; grid-template-columns: 80px 1fr 1.1fr 168px; gap: 28px; align-items: center; padding: 34px 0; border-bottom: 1px solid var(--line); }
+        .svc-row .n { font-family: var(--serif); font-size: 1.5rem; color: var(--gold); }
+        .svc-row h3 { font-size: 1.35rem; color: var(--navy); }
+        .svc-row h3 + p { color: var(--muted); margin-top: 6px; font-size: .98rem; }
+        .svc-row ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 20px; }
+        .svc-row li { position: relative; padding-left: 16px; font-size: .97rem; color: var(--text); }
+        .svc-row li::before { content: ''; position: absolute; left: 0; top: .72em; width: 7px; height: 7px; background: var(--gold); }
+        .svc-row .btn { justify-self: end; }
+        .svc-label { margin: 56px 0 0; font-weight: 700; color: var(--navy); font-size: 1rem; letter-spacing: .04em; }
+        .svc-label:first-child { margin-top: 0; }
+
+        /* 지원금 */
+        .grant { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .grant article { background: #fff; border: 1px solid var(--line); border-top: 4px solid var(--gold); padding: 36px 30px; display: flex; flex-direction: column; }
+        .grant h3 { font-size: 1.25rem; color: var(--navy); margin-bottom: 12px; }
+        .grant p { color: var(--muted); flex: 1; }
+        .grant .note { margin-top: 14px; font-weight: 700; color: var(--navy); }
+        .grant .btn { margin-top: 26px; }
+
+        /* 진행 절차 */
+        .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; counter-reset: s; }
+        .steps li { list-style: none; position: relative; padding: 0 24px 0 0; }
+        .steps li::before { counter-increment: s; content: counter(s, decimal-leading-zero); display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 50%; background: var(--navy); color: var(--gold); font-family: var(--serif); font-weight: 700; margin-bottom: 22px; position: relative; z-index: 1; }
+        .steps li::after { content: ''; position: absolute; top: 28px; left: 56px; right: 0; height: 2px; background: var(--line); }
+        .steps li:last-child::after { display: none; }
+        .steps b { display: block; font-size: 1.15rem; color: var(--navy); margin-bottom: 6px; }
+        .steps span { color: var(--muted); font-size: .97rem; }
+
+        /* 마지막 상담 띠 */
+        .cta-band { background: var(--navy); color: #fff; padding: 110px 0; text-align: center; }
+        .cta-band h2 { font-family: var(--serif); font-size: clamp(1.9rem, 3.6vw, 2.9rem); line-height: 1.35; }
+        .cta-band p { margin-top: 16px; color: #d3d8e2; font-size: 1.08rem; }
+        .cta-band .actions { margin-top: 38px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .cta-band .tel { margin-top: 26px; font-size: 1.05rem; color: var(--gold-soft); }
+
+        footer { background: var(--ink); color: #aeb6c4; padding: 48px 0 110px; font-size: .9rem; }
+        footer .name { color: #fff; font-weight: 700; margin-bottom: 8px; }
+        footer p + p { margin-top: 4px; }
+        footer .copy { margin-top: 22px; color: #7c8697; }
+
+        /* 휴대폰 하단 고정 상담 줄 */
+        .mbar { display: none; }
+
+        /* 등장 효과 (JS 가 켜질 때만) */
+        .js .rv { opacity: 0; transform: translateY(26px); transition: opacity .8s ease, transform .8s ease; }
+        .js .rv.on { opacity: 1; transform: none; }
+        @media (prefers-reduced-motion: reduce) { .js .rv { opacity: 1; transform: none; transition: none; } .btn { transition: none; } }
+
+        @media (max-width: 1024px) {
+            .svc-row { grid-template-columns: 56px 1fr 168px; }
+            .svc-row ul { grid-column: 2 / 4; grid-row: 2; }
+            .svc-row .btn { grid-column: 3; grid-row: 1; }
+        }
+        @media (max-width: 860px) {
+            .nav, .head-cta { display: none; }
+            header { height: 64px; }
+            .logo img { height: 34px; }
+            .hero .wrap { padding-top: 64px; }
+            section { padding: 84px 0; }
+            .sec-head { grid-template-columns: 1fr; gap: 14px; margin-bottom: 40px; }
+            .why, .grant { grid-template-columns: 1fr; }
+            .why article, .why article + article { padding: 28px 0 24px; border-left: 0; border-bottom: 1px solid var(--line); }
+            .svc-row { grid-template-columns: 44px 1fr; gap: 14px 16px; padding: 28px 0; }
+            .svc-row ul { grid-column: 1 / 3; grid-row: auto; grid-template-columns: 1fr; }
+            .svc-row .btn { grid-column: 1 / 3; grid-row: auto; justify-self: stretch; width: 100%; }
+            .steps { grid-template-columns: 1fr; gap: 26px; }
+            .steps li { display: grid; grid-template-columns: 56px 1fr; column-gap: 18px; padding: 0; }
+            .steps li::before { grid-row: 1 / 3; margin: 0; }
+            .steps li::after { display: none; }
+            .hero-points { flex-direction: column; border-top: 0; margin-top: 44px; }
+            .hero-points div { padding: 12px 0 12px 14px; border-left: 3px solid var(--gold); margin-bottom: 8px; }
+            .hero .actions .btn, .cta-band .actions .btn { width: calc(50% - 6px); }
+            .mbar { display: grid; grid-template-columns: 1fr 1fr; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; height: 60px; padding-bottom: env(safe-area-inset-bottom); box-shadow: 0 -4px 16px rgba(0,0,0,.15); }
+            .mbar a { display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.02rem; }
+            .mbar .t { background: var(--navy); color: #fff; }
+            .mbar .k { background: var(--kakao); color: #191600; }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header id="header">
-        <nav>
-            <a href="https://hryy.co.kr" class="logo">
-                <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iX+uSt+uptF/rlJTsnpDsnbgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgNjk5LjU1IDEzNi44OSI+CiAgPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDMwLjIuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDIuMS4xIEJ1aWxkIDEwNSkgIC0tPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuc3QwIHsKICAgICAgICBzdHJva2U6ICMwMGEwZTk7CiAgICAgICAgc3Ryb2tlLWxpbmVjYXA6IHJvdW5kOwogICAgICB9CgogICAgICAuc3QwLCAuc3QxIHsKICAgICAgICBzdHJva2Utd2lkdGg6IDIuOTRweDsKICAgICAgfQoKICAgICAgLnN0MCwgLnN0MSwgLnN0MiwgLnN0MyB7CiAgICAgICAgZmlsbDogbm9uZTsKICAgICAgfQoKICAgICAgLnN0MCwgLnN0MiwgLnN0MywgLnN0NCB7CiAgICAgICAgc3Ryb2tlLW1pdGVybGltaXQ6IDEwOwogICAgICB9CgogICAgICAuc3QxIHsKICAgICAgICBzdHJva2UtbGluZWpvaW46IHJvdW5kOwogICAgICB9CgogICAgICAuc3QxLCAuc3QyLCAuc3QzIHsKICAgICAgICBzdHJva2U6ICMxZDIwODg7CiAgICAgIH0KCiAgICAgIC5zdDIgewogICAgICAgIHN0cm9rZS13aWR0aDogMS45NnB4OwogICAgICB9CgogICAgICAuc3Q1IHsKICAgICAgICBpc29sYXRpb246IGlzb2xhdGU7CiAgICAgIH0KCiAgICAgIC5zdDMgewogICAgICAgIHN0cm9rZS13aWR0aDogMy4yM3B4OwogICAgICB9CgogICAgICAuc3Q2IHsKICAgICAgICBmaWxsOiAjMjMxODE1OwogICAgICB9CgogICAgICAuc3Q0IHsKICAgICAgICBmaWxsOiAjZmZmOwogICAgICAgIHN0cm9rZTogIzAwMDsKICAgICAgfQogICAgPC9zdHlsZT4KICA8L2RlZnM+CiAgCiAgPGc+CiAgICA8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMzcuMTUsOTAuOTljMi4wNy4xNiwxMC43Ni4xNiwxNy41MS05LjIsNy43MS0xMC43LDIyLjEzLTE4LjIsMjcuODUtMTYuOTFoMHMtMTAuODMsMjAuMjgsMy44OCwyNS41MWMxLjc2LjYyLDMuNjguNzEsNS40OC4yNyw0LjktMS4yLDE1LjgtNC42MywxOS44MS0xMi4wM2gwczIuNDcsMTkuMDEsMjIuNjYsOS40YzAsMCwzLjE2LTEuNjMsMTAuMjUtNy43MSIvPgogICAgPHBhdGggY2xhc3M9InN0MCIgZD0iTTM5LjA5LDgwLjU0czE4LjY1LDI4LjU5LDUxLjMxLTEuOTRjMCwwLDEyLjIxLDMxLjg2LDQ0Ljc0LTEuNDkiLz4KICAgIDxjaXJjbGUgY2xhc3M9InN0MyIgY3g9Ijg5LjIiIGN5PSI2Ny4yOCIgcj0iNTYuOTMiLz4KICAgIDxjaXJjbGUgY2xhc3M9InN0MiIgY3g9IjEwNy4xNiIgY3k9IjM0LjM3IiByPSI0LjM0Ii8+CiAgICA8Y2lyY2xlIGNsYXNzPSJzdDIiIGN4PSIxMTcuMzQiIGN5PSI0MC44OCIgcj0iMi4xNiIvPgogIDwvZz4KICA8ZyBjbGFzcz0ic3Q1Ij4KICAgIDxnIGNsYXNzPSJzdDUiPgogICAgICA8ZyBjbGFzcz0ic3Q1Ij4KICAgICAgICA8cGF0aCBjbGFzcz0ic3Q2IiBkPSJNMTgzLjQ2LDQ5LjQxaDEyLjR2MjcuNzhoNDAuOXYxMC4yOGgtMjAuNjJ2MTQuNjdoMjMuMzl2MTAuMTNoLTU5LjI1di0xMC4xM2gyMy40NnYtMTQuNjdoLTIwLjI3di0zOC4wNmgtLjAxWiIvPgogICAgICAgIDxwYXRoIGNsYXNzPSJzdDYiIGQ9Ik0yNzEuNjQsOTkuNjZoLTIzLjMydi0xMC4yOGg1OS4yNXYxMC4yOGgtMjMuNTN2MTYuNDRoLTEyLjR2LTE2LjQ0Wk0zMDQuMzgsNDkuNDF2MzMuOTVoLTUyLjg3di0zMy45NWg1Mi44N1pNMjYzLjkxLDczLjIzaDI4LjA3di0xMy42MWgtMjguMDd2MTMuNjFoMFoiLz4KICAgICAgICA8cGF0aCBjbGFzcz0ic3Q2IiBkPSJNMzI5Ljc2LDQ5LjQxdjguMDFoMTAuODR2LTguMDFoMTEuNjJ2MTIuMjZoNy43M3YtMTMuMDRoMTIuNHYzNi43MWgtMTIuNHYtMTMuNTRoLTcuNzN2MTEuN2gtMzQuMjN2LTM0LjA5aDExLjc3Wk0zMzMuOTQsOTIuNjVoMjYuMTV2LTUuMTdoMTIuMjZ2MjguMjFoLTUwLjY4di0yOC4yMWgxMi4yNnY1LjE3aDBaTTMyOS43Niw3My45NGgxMC44NHYtNi44N2gtMTAuODR2Ni44N1pNMzYwLjA5LDEwNi4xMXYtMy44M2gtMjYuMTV2My44M2gyNi4xNVoiLz4KICAgICAgICA8cGF0aCBjbGFzcz0ic3Q2IiBkPSJNMzg0Ljk3LDY4LjEyYzAtNy4yMywyLjI3LTEyLjQ3LDYuMDItMTUuODgsMy4xMi0yLjY5LDcuMTYtMy45NywxMi4xOS0zLjk3czksMS4yOCwxMi4xMiwzLjk3YzMuODMsMy40LDYuMDMsOC42NSw2LjAzLDE1Ljg4cy0yLjIsMTIuNjItNi4wMywxNS44OGMtMy4xMiwyLjYyLTcuMTYsNC4wNC0xMi4xMiw0LjA0cy05LjA3LTEuNDItMTIuMTktNC4wNGMtMy43Ni0zLjI2LTYuMDItOC42NS02LjAyLTE1Ljg4Wk00NDEuMjUsMTA1LjMzdjEwLjA2aC01MS41M3YtMjMuODloMTIuNHYxMy44MmgzOS4xM1pNNDA5LjUsNjguMTJjMC0zLjktLjc4LTYuNjYtMi4yLTguMjktMS4wNi0xLjA2LTIuNDEtMS43LTQuMTEtMS43cy0zLjEyLjY0LTQuMTEsMS43Yy0xLjQyLDEuNjMtMi4yNyw0LjM5LTIuMjcsOC4yOXMuODUsNi44LDIuMjcsOC4yOWMuOTksMS4yMSwyLjQxLDEuNjMsNC4xMSwxLjYzczMuMDUtLjQyLDQuMTEtMS42M2MxLjQyLTEuNDksMi4yLTQuMzIsMi4yLTguMjlaTTQ0MC40LDQ4LjYzdjQ2LjU3aC0xMi40di00Ni41N3MxMi40LDAsMTIuNCwwWiIvPgogICAgICA8L2c+CiAgICA8L2c+CiAgPC9nPgogIDxnIGNsYXNzPSJzdDUiPgogICAgPGcgY2xhc3M9InN0NSI+CiAgICAgIDxnIGNsYXNzPSJzdDUiPgogICAgICAgIDxwYXRoIGNsYXNzPSJzdDYiIGQ9Ik0xOTMuMDUsMjcuNDRoLTExLjYydi0xMy42NWgxMy40NXYzLjdoLTkuMTF2Ni4yOGg4LjIxYzIuMjMsMCwzLjUtLjI2LDQuNDUtLjl2LTkuMzdoNC40djUuNjFoMy42N3YzLjc5aC0zLjY3djUuODFoLTQuNHYtMi4zNGMtLjk1LjY5LTIuNTcsMS4wNy01LjM4LDEuMDdaTTE4Mi40OSwzNC45MmMwLTEuNjguNzItMi45MiwxLjkxLTMuODIsMS44OC0xLjUsNS4wMy0yLjA4LDguNTktMi4wOHM2LjY4LjU4LDguNTYsMi4wOGMxLjE5LjksMS45MSwyLjE0LDEuOTEsMy44MnMtLjcyLDIuOTUtMS45MSwzLjg1Yy0xLjg4LDEuNDctNS4wMywyLjA1LTguNTYsMi4wNXMtNi43MS0uNTgtOC41OS0yLjA1Yy0xLjE5LS45LTEuOTEtMi4xNy0xLjkxLTMuODVaTTE4Ni44OSwzNC45MmMwLC41NS4yNi45OC43NSwxLjMzLjk4LjY5LDIuODYuOSw1LjM1LjlzNC4zNC0uMiw1LjMyLS45Yy40OS0uMzUuNzgtLjc4Ljc4LTEuMzNzLS4yOS0uOTgtLjc4LTEuMzNjLS45OC0uNjctMi44Ni0uOS01LjMyLS45cy00LjM3LjIzLTUuMzUuOWMtLjQ5LjM1LS43NS43OC0uNzUsMS4zM1oiLz4KICAgICAgICA8cGF0aCBjbGFzcz0ic3Q2IiBkPSJNMjE0LjA0LDEzLjY0aDQuNHY0LjIyYzAsNC42OCwyLjA4LDYuNzcsNS40NCw3LjcydjMuODJjLTMuMTUtLjQ5LTYuMDctMi4wNS03LjYtNC4wMi0xLjQ3LDIuMDUtNC40LDMuNzMtNy42Niw0LjMxdi0zLjc2YzMuNDctMS4wNyw1LjQ0LTMuNTMsNS40NC04LjA3di00LjIyaC0uMDIsMFpNMjMxLjcxLDM2LjY2djMuNjdoLTIwLjd2LTkuNTFoNC40djUuODRoMTYuMzEsMFpNMjMxLjI4LDEzLjV2MTguNzRoLTQuNFYxMy41aDQuNFoiLz4KICAgICAgICA8cGF0aCBjbGFzcz0ic3Q2IiBkPSJNMjU5LjAxLDEzLjV2MjYuNjloLTQuNHYtMi42OWMtLjkuODctMi42OSwxLjMtNS4yLDEuM2gtMTIuNzV2LTMuN2gxMy40NWMyLjE3LDAsMy42NC0uMzUsNC41MS0xLjEzVjEzLjVoNC40LS4wMVpNMjM3LjQ0LDIyLjEyYzAtMy4wNy45LTUuNDEsMi42My02Ljg4LDEuMjEtMS4wNCwyLjk1LTEuNTksNC44My0xLjU5czMuNjQuNTUsNC44NiwxLjU5YzEuNzMsMS40NywyLjYsMy44MiwyLjYsNi44OHMtLjg3LDUuNDEtMi42LDYuOTFjLTEuMjEsMS4wMS0yLjk1LDEuNTYtNC44NiwxLjU2cy0zLjYxLS41NS00LjgzLTEuNTZjLTEuNzMtMS41LTIuNjMtMy44NS0yLjYzLTYuOTFaTTI0MS43OCwyMi4xMmMwLDEuODIuMzIsMy4yNywxLjEsNC4wNS40OS41MiwxLjIxLjcyLDIuMDIuNzJzMS41LS4yLDItLjcyYy44MS0uNzgsMS4xNi0yLjIzLDEuMTYtNC4wNXMtLjM1LTMuMjQtMS4xNi00LjA1Yy0uNDktLjQ5LTEuMTYtLjc1LTItLjc1cy0xLjUzLjI2LTIuMDIuNzVjLS43OC44MS0xLjEsMi4yMy0xLjEsNC4wNVoiLz4KICAgICAgICA8cGF0aCBjbGFzcz0ic3Q2IiBkPSJNMjk2LjgxLDMwLjM4aC0yNC4xMnYtMy42N2gyNC4xMnYzLjY3Wk0yOTUuMTYsMTMuNzl2My42MmgtMTYuNDV2My4zNWgxNi42djMuNTloLTIwLjk5di0xMC41NWgyMC44NS0uMDFaTTI3NC4zMSwzMi4yMWg0LjQydjQuNDVoMTYuODl2My42N2gtMjEuMzF2LTguMTJaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9InN0NiIgZD0iTTMyNC41NywzMC4zOGgtMjQuMTJ2LTMuNjdoMjQuMTJ2My42N1pNMzIyLjkyLDEzLjc5djMuNjJoLTE2LjQ1djMuMzVoMTYuNnYzLjU5aC0yMC45OXYtMTAuNTVoMjAuODUtLjAxWk0zMDIuMDgsMzIuMjFoNC40MnY0LjQ1aDE2Ljg5djMuNjdoLTIxLjMxdi04LjEyaDBaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9InN0NiIgZD0iTTM0My4yOCwxNS4zOHYzLjQ3aC0xNS40MXYtMy40N2g1LjU4di0yLjY2aDQuNDJ2Mi42Nmg1LjQxWk0zMjguNjIsMjUuNWMwLTEuNzEuNjctMy4wOSwxLjg4LTQuMDUsMS4yNC0xLjAxLDMuMDQtMS41Niw1LjA5LTEuNTZzMy44Ny41NSw1LjEyLDEuNTZjMS4yMS45NSwxLjg4LDIuMzQsMS44OCw0LjA1cy0uNjcsMy4wOS0xLjg4LDQuMDVjLTEuMjQuOTgtMy4wNCwxLjU2LTUuMTIsMS41NnMtMy44NS0uNTgtNS4wOS0xLjU2Yy0xLjIxLS45Ni0xLjg4LTIuMzQtMS44OC00LjA1Wk0zMzAuMTMsMzIuMDZoNC40MnY0LjZoMTYuMDJ2My42N2gtMjAuNDR2LTguMjdaTTMzMi44MiwyNS41YzAsLjYxLjI2LDEuMTMuNjcsMS41LjQ5LjQ2LDEuMjQuNzIsMi4xMS43MnMxLjY1LS4yNiwyLjE0LS43MmMuNC0uMzguNjctLjkuNjctMS41cy0uMjYtMS4xNi0uNjctMS41M2MtLjQ5LS40Ni0xLjI3LS42OS0yLjE0LS42OXMtMS42Mi4yMy0yLjExLjY5Yy0uNC4zOC0uNjcuOS0uNjcsMS41M1pNMzQ1Ljc0LDEzLjVoNC40djcuMmgzLjY3djMuNzloLTMuNjd2OC41NmgtNC40VjEzLjVaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9InN0NiIgZD0iTTM2Ny4xNCwzNC43OHYtMTcuMTJoLTIuMTF2LTMuN2gxNS4zNXYzLjdoLTIuMTF2MTEuMjhjMCwyLjE0LS4xNCw0LjIyLS40Niw1Ljg0LDEuOTctLjAzLDMuMzUtLjM1LDQuMTktMS4wNFYxMy41aDQuNHYxMC40NGgzLjl2My43OWgtMy45djEyLjQ2aC00LjR2LTIuOTVjLS45My44NC0yLjc1LDEuMjEtNS4xOCwxLjIxaC0xMi4xMnYtMy42N2gyLjQ0LDBaTTM3NC4wMywyOS4xNHYtMTEuNDhoLTIuNjZ2MTcuMTJoMi4zMWMuMjktMS42Mi4zNS0zLjYxLjM1LTUuNjRaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9InN0NiIgZD0iTTQxNi4yMiwzOS4wOWgtMjMuODN2LTMuNzZoMjMuODN2My43NlpNNDE0Ljg5LDEzLjk2djMuN2gtMTYuNzd2My4yN2gxNi40NXYzLjY3aC0xNi40NXYzLjNoMTcuMDl2My43NmgtMjEuNTFWMTMuOTZoMjEuMTlaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9InN0NiIgZD0iTTQzMS41OCwzOC40NWgtMTAuNThWMTMuNzhoNC4zN3YyMC45OWg2LjM5YzEuODgsMCwzLjQxLS4wOSw0LjYzLS40M3YzLjU2Yy0xLjIxLjQzLTIuODYuNTUtNC44LjU1aC0uMDFaTTQzOC4yLDI2LjI4aC03LjM3di0zLjc5aDcuMzd2LTguOTloNC40djI2LjY5aC00LjR2LTEzLjkxWiIvPgogICAgICA8L2c+CiAgICA8L2c+CiAgPC9nPgogIDxnIGNsYXNzPSJzdDUiPgogICAgPGcgY2xhc3M9InN0NSI+CiAgICAgIDxnIGNsYXNzPSJzdDUiPgogICAgICAgIDxwYXRoIGNsYXNzPSJzdDYiIGQ9Ik00NzMuODgsOTMuNTFoLTE2Ljg0di0xNS4zN2g4Ny45OXYxNS4zN2gtMTYuNzR2MjMuODloLTE4di0yMy44OWgtMTguMzF2MjMuODloLTE4LjF2LTIzLjg5aDBaTTQ1OS43OCw0NC4xNWMwLTcuNTgsMi45NS0xMy42OCw4LTE3Ljc5LDcuMjYtNiwxOC40Mi04LjUzLDMzLjM3LTguNTNzMjUuODksMi41MywzMy4yNiw4LjUzYzUuMDUsNC4xMSw4LjEsMTAuMjEsOC4xLDE3Ljc5cy0zLjA1LDEzLjc5LTguMSwxNy43OWMtNy4zNyw2LTE4LjQyLDguNTMtMzMuMjYsOC41M3MtMjYuMS0yLjUzLTMzLjM3LTguNTNjLTUuMDUtNC04LTEwLjIxLTgtMTcuNzloMFpNNDc4LjIsNDQuMTVjMCwzLjI2LDEuMjYsNS42OCwzLjQ3LDcuMzcsMy42OCwyLjg0LDEwLDMuNzksMTkuNDcsMy43OXMxNS42OC0uOTUsMTkuMzctMy43OWMyLjMyLTEuNjgsMy40Ny00LjExLDMuNDctNy4zNywwLTMuMDUtMS4xNi01LjU4LTMuNDctNy4zNy0zLjY4LTIuNzQtMTAuMS0zLjY4LTE5LjM3LTMuNjhzLTE1Ljc5Ljk1LTE5LjQ3LDMuNjhjLTIuMjEsMS43OS0zLjQ3LDQuMzItMy40Nyw3LjM3WiIvPgogICAgICAgIDxwYXRoIGNsYXNzPSJzdDYiIGQ9Ik01NTguOTMsNDQuMzZjMC05LjM3LDMuMzctMTYuODQsOS4wNS0yMS40Nyw0LjUzLTMuNjgsMTAuNDItNS41OCwxNy41OC01LjU4czEzLjA1LDEuODksMTcuNTgsNS41OGMxLjE2Ljk1LDIuMjEsMi4xMSwzLjI2LDMuMjZoMTYuNDJ2LTguMzJoMTguNDJ2NTYuMzFoLTE4LjQydi0xMS4wNWgtMTYuOTVjLS44NC45NS0xLjc5LDEuNzktMi43NCwyLjYzLTQuNTMsMy42OC0xMC41Myw1Ljc5LTE3LjU4LDUuNzlzLTEzLjA1LTIuMS0xNy41OC01Ljc5Yy01LjY4LTQuNjMtOS4wNS0xMS44OS05LjA1LTIxLjM3aC4wMVpNNTY0LjkzLDk2Ljc4YzAtNi4zMiwyLjk1LTExLjE2LDcuNjgtMTQuNTMsNy4yNi01LjE2LDE4Ljc0LTcuMjYsMzEuNTgtNy4yNnMyNC4zMSwyLjExLDMxLjQ3LDcuMjZjNC44NCwzLjM3LDcuNzksOC4yMSw3Ljc5LDE0LjUzcy0yLjk1LDExLjI2LTcuNzksMTQuNjNjLTcuMTYsNS4yNi0xOC43Myw3LjI2LTMxLjQ3LDcuMjZzLTI0LjMxLTItMzEuNTgtNy4yNmMtNC43NC0zLjM3LTcuNjgtOC4yMS03LjY4LTE0LjYzWk01OTQuNTEsNDQuMzZjMC00LjUzLS45NS03Ljc5LTMuMTYtMTAtMS40Ny0xLjQ3LTMuMzctMi40Mi01Ljc5LTIuNDJzLTQuNDIuOTUtNiwyLjQyYy0yLDIuMjEtMy4xNiw1LjQ3LTMuMTYsMTBzMS4xNiw3Ljg5LDMuMTYsMTBjMS41OCwxLjU4LDMuNDcsMi4zMiw2LDIuMzJzNC4zMi0uNzQsNS43OS0yLjMyYzIuMjEtMi4xMSwzLjE2LTUuNjgsMy4xNi0xMFpNNTgzLjA0LDk2Ljc4YzAsMS43OS45NSwzLjA1LDIuNTMsNC4yMSwzLjM3LDIuMTEsMTAuMSwyLjk1LDE4LjYzLDIuOTVzMTUuMTYtLjg0LDE4LjUzLTIuOTVjMS42OC0xLjE2LDIuNDItMi40MiwyLjQyLTQuMjEsMC0xLjY4LS43NC0yLjg0LTIuNDItNC0zLjM3LTIuMTEtMTAtMy4wNS0xOC41My0zLjA1cy0xNS4yNi45NS0xOC42MywzLjA1Yy0xLjU4LDEuMTYtMi41MywyLjMyLTIuNTMsNFpNNjExLjc3LDQwLjU3Yy4xMSwxLjI2LjIxLDIuNTMuMjEsMy43OSwwLDEuNDctLjExLDIuOTUtLjIxLDQuMzJoMTEuMDV2LTguMWgtMTEuMDVaIi8+CiAgICAgIDwvZz4KICAgIDwvZz4KICA8L2c+Cjwvc3ZnPg==" alt="노무법인 유영" class="logo-img">
-            </a>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#company" class="nav-link">법인소개</a></li>
-                <li><a href="#advisory" class="nav-link">인사노무자문</a></li>
-                <li><a href="#cases" class="nav-link">노동사건</a></li>
-                <li><a href="#support" class="nav-link">정부지원금</a></li>
-                <li><a href="#contact" class="nav-link">상담</a></li>
+    <header>
+        <div class="wrap">
+            <a href="#top" class="logo"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iX+uSt+uptF/rlJTsnpDsnbgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgNjk5LjU1IDEzNi44OSI+CiAgPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDMwLjIuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDIuMS4xIEJ1aWxkIDEwNSkgIC0tPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuc3QwIHsKICAgICAgICBzdHJva2U6ICMwMGEwZTk7CiAgICAgICAgc3Ryb2tlLWxpbmVjYXA6IHJvdW5kOwogICAgICB9CgogICAgICAuc3QwLCAuc3QxIHsKICAgICAgICBzdHJva2Utd2lkdGg6IDIuOTRweDsKICAgICAgfQoKICAgICAgLnN0MCwgLnN0MSwgLnN0MiwgLnN0MyB7CiAgICAgICAgZmlsbDogbm9uZTsKICAgICAgfQoKICAgICAgLnN0MCwgLnN0MiwgLnN0MywgLnN0NCB7CiAgICAgICAgc3Ryb2tlLW1pdGVybGltaXQ6IDEwOwogICAgICB9CgogICAgICAuc3QxIHsKICAgICAgICBzdHJva2UtbGluZWpvaW46IHJvdW5kOwogICAgICB9CgogICAgICAuc3QxLCAuc3QyLCAuc3QzIHsKICAgICAgICBzdHJva2U6ICMxZDIwODg7CiAgICAgIH0KCiAgICAgIC5zdDIgewogICAgICAgIHN0cm9rZS13aWR0aDogMS45NnB4OwogICAgICB9CgogICAgICAuc3Q1IHsKICAgICAgICBpc29sYXRpb246IGlzb2xhdGU7CiAgICAgIH0KCiAgICAgIC5zdDMgewogICAgICAgIHN0cm9rZS13aWR0aDogMy4yM3B4OwogICAgICB9CgogICAgICAuc3Q2IHsKICAgICAgICBmaWxsOiAjMjMxODE1OwogICAgICB9CgogICAgICAuc3Q0IHsKICAgICAgICBmaWxsOiAjZmZmOwogICAgICAgIHN0cm9rZTogIzAwMDsKICAgICAgfQogICAgPC9zdHlsZT4KICA8L2RlZnM+CiAgCiAgPGc+CiAgICA8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMzcuMTUsOTAuOTljMi4wNy4xNiwxMC43Ni4xNiwxNy41MS05LjIsNy43MS0xMC43LDIyLjEzLTE4LjIsMjcuODUtMTYuOTFoMHMtMTAuODMsMjAuMjgsMy44OCwyNS41MWMxLjc2LjYyLDMuNjguNzEsNS40OC4yNyw0LjktMS4yLDE1LjgtNC42MywxOS44MS0xMi4wM2gwczIuNDcsMTkuMDEsMjIuNjYsOS40YzAsMCwzLjE2LTEuNjMsMTAuMjUtNy43MSIvPgogICAgPHBhdGggY2xhc3M9InN0MCIgZD0iTTM5LjA5LDgwLjU0czE4LjY1LDI4LjU5LDUxLjMxLTEuOTRjMCwwLDEyLjIxLDMxLjg2LDQ0Ljc0LTEuNDkiLz4KICAgIDxjaXJjbGUgY2xhc3M9InN0MyIgY3g9Ijg5LjIiIGN5PSI2Ny4yOCIgcj0iNTYuOTMiLz4KICAgIDxjaXJjbGUgY2xhc3M9InN0MiIgY3g9IjEwNy4xNiIgY3k9IjM0LjM3IiByPSI0LjM0Ii8+CiAgICA8Y2lyY2xlIGNsYXNzPSJzdDIiIGN4PSIxMTcuMzQiIGN5PSI0MC44OCIgcj0iMi4xNiIvPgogIDwvZz4KICA8ZyBjbGFzcz0ic3Q1Ij4KICAgIDxnIGNsYXNzPSJzdDUiPgogICAgICA8ZyBjbGFzcz0ic3Q1Ij4KICAgICAgICA8cGF0aCBjbGFzcz0ic3Q2IiBkPSJNMTgzLjQ2LDQ5LjQxaDEyLjR2MjcuNzhoNDAuOXYxMC4yOGgtMjAuNjJ2MTQuNjdoMjMuMzl2MTAuMTNoLTU5LjI1di0xMC4xM2gyMy40NnYtMTQuNjdoLTIwLjI3di0zOC4wNmgtLjAxWiIvPgogICAgICAgIDxwYXRoIGNsYXNzPSJzdDYiIGQ9Ik0yNzEuNjQsOTkuNjZoLTIzLjMydi0xMC4yOGg1OS4yNXYxMC4yOGgtMjMuNTN2MTYuNDRoLTEyLjR2LTE2LjQ0Wk0zMDQuMzgsNDkuNDF2MzMuOTVoLTUyLjg3di0zMy45NWg1Mi44N1pNMjYzLjkxLDczLjIzaDI4LjA3di0xMy42MWgtMjguMDd2MTMuNjFoMFoiLz4KICAgICAgICA8cGF0aCBjbGFzcz0ic3Q2IiBkPSJNMzI5Ljc2LDQ5LjQxdjguMDFoMTAuODR2LTguMDFoMTEuNjJ2MTIuMjZoNy43M3YtMTMuMDRoMTIuNHYzNi43MWgtMTIuNHYtMTMuNTRoLTcuNzN2MTEuN2gtMzQuMjN2LTM0LjA5aDExLjc3Wk0zMzMuOTQsOTIuNjVoMjYuMTV2LTUuMTdoMTIuMjZ2MjguMjFoLTUwLjY4di0yOC4yMWgxMi4yNnY1LjE3aDBaTTMyOS43Niw3My45NGgxMC44NHYtNi44N2gtMTAuODR2Ni44N1pNMzYwLjA5LDEwNi4xMXYtMy44M2gtMjYuMTV2My44M2gyNi4xNVoiLz4KICAgICAgICA8cGF0aCBjbGFzcz0ic3Q2IiBkPSJNMzg0Ljk3LDY4LjEyYzAtNy4yMywyLjI3LTEyLjQ3LDYuMDItMTUuODgsMy4xMi0yLjY5LDcuMTYtMy45NywxMi4xOS0zLjk3czksMS4yOCwxMi4xMiwzLjk3YzMuODMsMy40LDYuMDMsOC42NSw2LjAzLDE1Ljg4cy0yLjIsMTIuNjItNi4wMywxNS44OGMtMy4xMiwyLjYyLTcuMTYsNC4wNC0xMi4xMiw0LjA0cy05LjA3LTEuNDItMTIuMTktNC4wNGMtMy43Ni0zLjI2LTYuMDItOC42NS02LjAyLTE1Ljg4Wk00NDEuMjUsMTA1LjMzdjEwLjA2aC01MS41M3YtMjMuODloMTIuNHYxMy44MmgzOS4xM1pNNDA5LjUsNjguMTJjMC0zLjktLjc4LTYuNjYtMi4yLTguMjktMS4wNi0xLjA2LTIuNDEtMS43LTQuMTEtMS43cy0zLjEyLjY0LTQuMTEsMS43Yy0xLjQyLDEuNjMtMi4yNyw0LjM5LTIuMjcsOC4yOXMuODUsNi44LDIuMjcsOC4yOWMuOTksMS4yMSwyLjQxLDEuNjMsNC4xMSwxLjYzczMuMDUtLjQyLDQuMTEtMS42M2MxLjQyLTEuNDksMi4yLTQuMzIsMi4yLTguMjlaTTQ0MC40LDQ4LjYzdjQ2LjU3aC0xMi40di00Ni41N3MxMi40LDAsMTIuNCwwWiIvPgogICAgICA8L2c+CiAgICA8L2c+CiAgPC9nPgogIDxnIGNsYXNzPSJzdDUiPgogICAgPGcgY2xhc3M9InN0NSI+CiAgICAgIDxnIGNsYXNzPSJzdDUiPgogICAgICAgIDxwYXRoIGNsYXNzPSJzdDYiIGQ9Ik0xOTMuMDUsMjcuNDRoLTExLjYydi0xMy42NWgxMy40NXYzLjdoLTkuMTF2Ni4yOGg4LjIxYzIuMjMsMCwzLjUtLjI2LDQuNDUtLjl2LTkuMzdoNC40djUuNjFoMy42N3YzLjc5aC0zLjY3djUuODFoLTQuNHYtMi4zNGMtLjk1LjY5LTIuNTcsMS4wNy01LjM4LDEuMDdaTTE4Mi40OSwzNC45MmMwLTEuNjguNzItMi45MiwxLjkxLTMuODIsMS44OC0xLjUsNS4wMy0yLjA4LDguNTktMi4wOHM2LjY4LjU4LDguNTYsMi4wOGMxLjE5LjksMS45MSwyLjE0LDEuOTEsMy44MnMtLjcyLDIuOTUtMS45MSwzLjg1Yy0xLjg4LDEuNDctNS4wMywyLjA1LTguNTYsMi4wNXMtNi43MS0uNTgtOC41OS0yLjA1Yy0xLjE5LS45LTEuOTEtMi4xNy0xLjkxLTMuODVaTTE4Ni44OSwzNC45MmMwLC41NS4yNi45OC43NSwxLjMzLjk4LjY5LDIuODYuOSw1LjM1LjlzNC4zNC0uMiw1LjMyLS45Yy40OS0uMzUuNzgtLjc4Ljc4LTEuMzNzLS4yOS0uOTgtLjc4LTEuMzNjLS45OC0uNjctMi44Ni0uOS01LjMyLS45cy00LjM3LjIzLTUuMzUuOWMtLjQ5LjM1LS43NS43OC0uNzUsMS4zM1oiLz4KICAgICAgICA8cGF0aCBjbGFzcz0ic3Q2IiBkPSJNMjE0LjA0LDEzLjY0aDQuNHY0LjIyYzAsNC42OCwyLjA4LDYuNzcsNS40NCw3LjcydjMuODJjLTMuMTUtLjQ5LTYuMDctMi4wNS03LjYtNC4wMi0xLjQ3LDIuMDUtNC40LDMuNzMtNy42Niw0LjMxdi0zLjc2YzMuNDctMS4wNyw1LjQ0LTMuNTMsNS40NC04LjA3di00LjIyaC0uMDIsMFpNMjMxLjcxLDM2LjY2djMuNjdoLTIwLjd2LTkuNTFoNC40djUuODRoMTYuMzEsMFpNMjMxLjI4LDEzLjV2MTguNzRoLTQuNFYxMy41aDQuNFoiLz4KICAgICAgICA8cGF0aCBjbGFzcz0ic3Q2IiBkPSJNMjU5LjAxLDEzLjV2MjYuNjloLTQuNHYtMi42OWMtLjkuODctMi42OSwxLjMtNS4yLDEuM2gtMTIuNzV2LTMuN2gxMy40NWMyLjE3LDAsMy42NC0uMzUsNC41MS0xLjEzVjEzLjVoNC40LS4wMVpNMjM3LjQ0LDIyLjEyYzAtMy4wNy45LTUuNDEsMi42My02Ljg4LDEuMjEtMS4wNCwyLjk1LTEuNTksNC44My0xLjU5czMuNjQuNTUsNC44NiwxLjU5YzEuNzMsMS40NywyLjYsMy44MiwyLjYsNi44OHMtLjg3LDUuNDEtMi42LDYuOTFjLTEuMjEsMS4wMS0yLjk1LDEuNTYtNC44NiwxLjU2cy0zLjYxLS41NS00LjgzLTEuNTZjLTEuNzMtMS41LTIuNjMtMy44NS0yLjYzLTYuOTFaTTI0MS43OCwyMi4xMmMwLDEuODIuMzIsMy4yNywxLjEsNC4wNS40OS41MiwxLjIxLjcyLDIuMDIuNzJzMS41LS4yLDItLjcyYy44MS0uNzgsMS4xNi0yLjIzLDEuMTYtNC4wNXMtLjM1LTMuMjQtMS4xNi00LjA1Yy0uNDktLjQ5LTEuMTYtLjc1LTItLjc1cy0xLjUzLjI2LTIuMDIuNzVjLS43OC44MS0xLjEsMi4yMy0xLjEsNC4wNVoiLz4KICAgICAgICA8cGF0aCBjbGFzcz0ic3Q2IiBkPSJNMjk2LjgxLDMwLjM4aC0yNC4xMnYtMy42N2gyNC4xMnYzLjY3Wk0yOTUuMTYsMTMuNzl2My42MmgtMTYuNDV2My4zNWgxNi42djMuNTloLTIwLjk5di0xMC41NWgyMC44NS0uMDFaTTI3NC4zMSwzMi4yMWg0LjQydjQuNDVoMTYuODl2My42N2gtMjEuMzF2LTguMTJaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9InN0NiIgZD0iTTMyNC41NywzMC4zOGgtMjQuMTJ2LTMuNjdoMjQuMTJ2My42N1pNMzIyLjkyLDEzLjc5djMuNjJoLTE2LjQ1djMuMzVoMTYuNnYzLjU5aC0yMC45OXYtMTAuNTVoMjAuODUtLjAxWk0zMDIuMDgsMzIuMjFoNC40MnY0LjQ1aDE2Ljg5djMuNjdoLTIxLjMxdi04LjEyaDBaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9InN0NiIgZD0iTTM0My4yOCwxNS4zOHYzLjQ3aC0xNS40MXYtMy40N2g1LjU4di0yLjY2aDQuNDJ2Mi42Nmg1LjQxWk0zMjguNjIsMjUuNWMwLTEuNzEuNjctMy4wOSwxLjg4LTQuMDUsMS4yNC0xLjAxLDMuMDQtMS41Niw1LjA5LTEuNTZzMy44Ny41NSw1LjEyLDEuNTZjMS4yMS45NSwxLjg4LDIuMzQsMS44OCw0LjA1cy0uNjcsMy4wOS0xLjg4LDQuMDVjLTEuMjQuOTgtMy4wNCwxLjU2LTUuMTIsMS41NnMtMy44NS0uNTgtNS4wOS0xLjU2Yy0xLjIxLS45Ni0xLjg4LTIuMzQtMS44OC00LjA1Wk0zMzAuMTMsMzIuMDZoNC40MnY0LjZoMTYuMDJ2My42N2gtMjAuNDR2LTguMjdaTTMzMi44MiwyNS41YzAsLjYxLjI2LDEuMTMuNjcsMS41LjQ5LjQ2LDEuMjQuNzIsMi4xMS43MnMxLjY1LS4yNiwyLjE0LS43MmMuNC0uMzguNjctLjkuNjctMS41cy0uMjYtMS4xNi0uNjctMS41M2MtLjQ5LS40Ni0xLjI3LS42OS0yLjE0LS42OXMtMS42Mi4yMy0yLjExLjY5Yy0uNC4zOC0uNjcuOS0uNjcsMS41M1pNMzQ1Ljc0LDEzLjVoNC40djcuMmgzLjY3djMuNzloLTMuNjd2OC41NmgtNC40VjEzLjVaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9InN0NiIgZD0iTTM2Ny4xNCwzNC43OHYtMTcuMTJoLTIuMTF2LTMuN2gxNS4zNXYzLjdoLTIuMTF2MTEuMjhjMCwyLjE0LS4xNCw0LjIyLS40Niw1Ljg0LDEuOTctLjAzLDMuMzUtLjM1LDQuMTktMS4wNFYxMy41aDQuNHYxMC40NGgzLjl2My43OWgtMy45djEyLjQ2aC00LjR2LTIuOTVjLS45My44NC0yLjc1LDEuMjEtNS4xOCwxLjIxaC0xMi4xMnYtMy42N2gyLjQ0LDBaTTM3NC4wMywyOS4xNHYtMTEuNDhoLTIuNjZ2MTcuMTJoMi4zMWMuMjktMS42Mi4zNS0zLjYxLjM1LTUuNjRaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9InN0NiIgZD0iTTQxNi4yMiwzOS4wOWgtMjMuODN2LTMuNzZoMjMuODN2My43NlpNNDE0Ljg5LDEzLjk2djMuN2gtMTYuNzd2My4yN2gxNi40NXYzLjY3aC0xNi40NXYzLjNoMTcuMDl2My43NmgtMjEuNTFWMTMuOTZoMjEuMTlaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9InN0NiIgZD0iTTQzMS41OCwzOC40NWgtMTAuNThWMTMuNzhoNC4zN3YyMC45OWg2LjM5YzEuODgsMCwzLjQxLS4wOSw0LjYzLS40M3YzLjU2Yy0xLjIxLjQzLTIuODYuNTUtNC44LjU1aC0uMDFaTTQzOC4yLDI2LjI4aC03LjM3di0zLjc5aDcuMzd2LTguOTloNC40djI2LjY5aC00LjR2LTEzLjkxWiIvPgogICAgICA8L2c+CiAgICA8L2c+CiAgPC9nPgogIDxnIGNsYXNzPSJzdDUiPgogICAgPGcgY2xhc3M9InN0NSI+CiAgICAgIDxnIGNsYXNzPSJzdDUiPgogICAgICAgIDxwYXRoIGNsYXNzPSJzdDYiIGQ9Ik00NzMuODgsOTMuNTFoLTE2Ljg0di0xNS4zN2g4Ny45OXYxNS4zN2gtMTYuNzR2MjMuODloLTE4di0yMy44OWgtMTguMzF2MjMuODloLTE4LjF2LTIzLjg5aDBaTTQ1OS43OCw0NC4xNWMwLTcuNTgsMi45NS0xMy42OCw4LTE3Ljc5LDcuMjYtNiwxOC40Mi04LjUzLDMzLjM3LTguNTNzMjUuODksMi41MywzMy4yNiw4LjUzYzUuMDUsNC4xMSw4LjEsMTAuMjEsOC4xLDE3Ljc5cy0zLjA1LDEzLjc5LTguMSwxNy43OWMtNy4zNyw2LTE4LjQyLDguNTMtMzMuMjYsOC41M3MtMjYuMS0yLjUzLTMzLjM3LTguNTNjLTUuMDUtNC04LTEwLjIxLTgtMTcuNzloMFpNNDc4LjIsNDQuMTVjMCwzLjI2LDEuMjYsNS42OCwzLjQ3LDcuMzcsMy42OCwyLjg0LDEwLDMuNzksMTkuNDcsMy43OXMxNS42OC0uOTUsMTkuMzctMy43OWMyLjMyLTEuNjgsMy40Ny00LjExLDMuNDctNy4zNywwLTMuMDUtMS4xNi01LjU4LTMuNDctNy4zNy0zLjY4LTIuNzQtMTAuMS0zLjY4LTE5LjM3LTMuNjhzLTE1Ljc5Ljk1LTE5LjQ3LDMuNjhjLTIuMjEsMS43OS0zLjQ3LDQuMzItMy40Nyw3LjM3WiIvPgogICAgICAgIDxwYXRoIGNsYXNzPSJzdDYiIGQ9Ik01NTguOTMsNDQuMzZjMC05LjM3LDMuMzctMTYuODQsOS4wNS0yMS40Nyw0LjUzLTMuNjgsMTAuNDItNS41OCwxNy41OC01LjU4czEzLjA1LDEuODksMTcuNTgsNS41OGMxLjE2Ljk1LDIuMjEsMi4xMSwzLjI2LDMuMjZoMTYuNDJ2LTguMzJoMTguNDJ2NTYuMzFoLTE4LjQydi0xMS4wNWgtMTYuOTVjLS44NC45NS0xLjc5LDEuNzktMi43NCwyLjYzLTQuNTMsMy42OC0xMC41Myw1Ljc5LTE3LjU4LDUuNzlzLTEzLjA1LTIuMS0xNy41OC01Ljc5Yy01LjY4LTQuNjMtOS4wNS0xMS44OS05LjA1LTIxLjM3aC4wMVpNNTY0LjkzLDk2Ljc4YzAtNi4zMiwyLjk1LTExLjE2LDcuNjgtMTQuNTMsNy4yNi01LjE2LDE4Ljc0LTcuMjYsMzEuNTgtNy4yNnMyNC4zMSwyLjExLDMxLjQ3LDcuMjZjNC44NCwzLjM3LDcuNzksOC4yMSw3Ljc5LDE0LjUzcy0yLjk1LDExLjI2LTcuNzksMTQuNjNjLTcuMTYsNS4yNi0xOC43Myw3LjI2LTMxLjQ3LDcuMjZzLTI0LjMxLTItMzEuNTgtNy4yNmMtNC43NC0zLjM3LTcuNjgtOC4yMS03LjY4LTE0LjYzWk01OTQuNTEsNDQuMzZjMC00LjUzLS45NS03Ljc5LTMuMTYtMTAtMS40Ny0xLjQ3LTMuMzctMi40Mi01Ljc5LTIuNDJzLTQuNDIuOTUtNiwyLjQyYy0yLDIuMjEtMy4xNiw1LjQ3LTMuMTYsMTBzMS4xNiw3Ljg5LDMuMTYsMTBjMS41OCwxLjU4LDMuNDcsMi4zMiw2LDIuMzJzNC4zMi0uNzQsNS43OS0yLjMyYzIuMjEtMi4xMSwzLjE2LTUuNjgsMy4xNi0xMFpNNTgzLjA0LDk2Ljc4YzAsMS43OS45NSwzLjA1LDIuNTMsNC4yMSwzLjM3LDIuMTEsMTAuMSwyLjk1LDE4LjYzLDIuOTVzMTUuMTYtLjg0LDE4LjUzLTIuOTVjMS42OC0xLjE2LDIuNDItMi40MiwyLjQyLTQuMjEsMC0xLjY4LS43NC0yLjg0LTIuNDItNC0zLjM3LTIuMTEtMTAtMy4wNS0xOC41My0zLjA1cy0xNS4yNi45NS0xOC42MywzLjA1Yy0xLjU4LDEuMTYtMi41MywyLjMyLTIuNTMsNFpNNjExLjc3LDQwLjU3Yy4xMSwxLjI2LjIxLDIuNTMuMjEsMy43OSwwLDEuNDctLjExLDIuOTUtLjIxLDQuMzJoMTEuMDV2LTguMWgtMTEuMDVaIi8+CiAgICAgIDwvZz4KICAgIDwvZz4KICA8L2c+Cjwvc3ZnPg==" alt="노무법인 유영"></a>
+            <ul class="nav">
+                <li><a href="#company">법인소개</a></li>
+                <li><a href="#advisory">기업자문</a></li>
+                <li><a href="#cases">노동사건</a></li>
+                <li><a href="#support">정부지원금</a></li>
+                <li><a href="#contact">상담</a></li>
             </ul>
-            <div class="header-cta" id="headerCta">
-                <a href="tel:010-4835-8422" class="btn-call">
-                    ☎ 전화상담
-                </a>
-                <a href="https://pf.kakao.com/_BaeGn/chat" class="btn-kakao" target="_blank" rel="noopener">
-                    💬 카톡상담
-                </a>
+            <div class="head-cta">
+                <a href="tel:010-4835-8422" class="btn btn-navy btn-sm">전화상담</a>
+                <a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-kakao btn-sm" target="_blank" rel="noopener">카톡상담</a>
             </div>
-        </nav>
+        </div>
     </header>
 
-    <!-- Hero Section with Video -->
-    <section class="hero">
-        <video class="hero-video" autoplay muted loop playsinline preload="auto">
-            <source src="hero-video.mp4" type="video/mp4">
-        </video>
-        <div class="hero-overlay"></div>
-        
-        <div class="hero-content">
-            <h1>노무법인 유영</h1>
-            <p class="hero-subtitle">Your Trusted Partner in Labor Law Compliance</p>
-        </div>
-
-        <div class="hero-scroll">
-            <span>Scroll</span>
-        </div>
-    </section>
-
-    <!-- Trust Section -->
-    <section class="trust-section reveal" id="company">
-        <div class="trust-content">
-            <h2 class="section-title">왜 유영을 선택할까요?</h2>
-            <p class="section-subtitle">검증된 전문성과 실질적인 솔루션으로 기업의 성장을 지원합니다</p>
-            
-            <div class="trust-grid">
-                <div class="trust-card">
-                    <div class="trust-icon">⚖️</div>
-                    <h3>노무﹒세무 통합서비스</h3>
-                    <p>노무사와 세무사가 한 팀을 이루어 기업에 딱 맞는 전략을 제시합니다.</p>
+    <main id="top">
+        <section class="hero">
+            <video autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+                <source src="hero-video.mp4" type="video/mp4">
+            </video>
+            <div class="wrap">
+                <span class="eyebrow">LABOR LAW FIRM YUYOUNG</span>
+                <h1>사람이 함께 크는 회사,<br><em>노무법인 유영</em>이 지킵니다</h1>
+                <p class="lead">노사관계에서 생기는 여러 문제에 합리적이고 실용적인 해결책을 드립니다. 고객과 함께 성장하는, 든든하고 믿을 수 있는 파트너가 되겠습니다.</p>
+                <div class="actions">
+                    <a href="tel:010-4835-8422" class="btn btn-gold">전화 상담</a>
+                    <a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-line" target="_blank" rel="noopener">카톡 상담</a>
                 </div>
-                <div class="trust-card">
-                    <div class="trust-icon">🎯</div>
-                    <h3>맞춤 솔루션</h3>
-                    <p>기업의 규모와 업종에 최적화된 인사노무 시스템을 설계하고 운영을 지원합니다.</p>
-                </div>
-                <div class="trust-card">
-                    <div class="trust-icon">📊</div>
-                    <h3>예방 중심</h3>
-                    <p>문제 발생 전 리스크를 진단하고, 체계적인 예방 시스템으로 분쟁을 사전에 차단합니다.</p>
+                <div class="hero-points">
+                    <div><b>노무·세무 통합</b><span>노무사와 세무사가 한 팀</span></div>
+                    <div><b>맞춤 솔루션</b><span>규모·업종에 맞춘 설계</span></div>
+                    <div><b>예방 중심</b><span>분쟁 전에 미리 차단</span></div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Services Section -->
-    <section class="services reveal" id="advisory">
-        <div class="services-content">
-            <h2 class="section-title">기업 맞춤 서비스</h2>
-            <p class="section-subtitle">귀사의 인사노무 전반을 책임지는 원스톱 솔루션</p>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>🏢 기업 종합 자문</h3>
-                    <p>일상적인 인사노무 상담부터 중요 의사결정까지 전방위 법률 지원</p>
-                    <ul class="service-features">
-                        <li>정기 자문 서비스(노무﹒세무 통합)</li>
-                        <li>근로계약서 등 서류 정비</li>
-                        <li>인사제도 설계 및 개선</li>
-                        <li>법정의무교육</li>
-                    </ul>
-                    <a href="https://pf.kakao.com/_BaeGn/chat" class="service-cta" target="_blank" rel="noopener">
-                        상담 신청하기 →
-                    </a>
+        <section id="company">
+            <div class="wrap">
+                <div class="sec-head rv">
+                    <div><span class="no">01 · WHY YUYOUNG</span><h2>왜 유영을<br>선택할까요?</h2></div>
+                    <p>검증된 전문성과 실질적인 해결책으로 기업의 성장을 돕습니다.</p>
                 </div>
-
-                <div class="service-card">
-                    <h3>⚖️ 노동 분쟁 대응</h3>
-                    <p>부당해고, 임금체불 등 모든 노동 분쟁에서 기업을 보호합니다</p>
-                    <ul class="service-features">
-                        <li>부당해고 구제신청 대응</li>
-                        <li>임금체불 진정 대응</li>
-                        <li>괴롭힘/성희롱 조사용역</li>
-                        <li>근로자와 협상 지원</li>
-                    </ul>
-                    <a href="https://pf.kakao.com/_BaeGn/chat" class="service-cta" target="_blank" rel="noopener">
-                        상담 신청하기 →
-                    </a>
-                </div>
-
-                <div class="service-card">
-                    <h3>🚀 스타트업 특화</h3>
-                    <p>빠르게 성장하는 스타트업을 위한 맞춤형 노무 솔루션</p>
-                    <ul class="service-features">
-                        <li>창업 초기 인사제도 설계</li>
-                        <li>임금체계 설계</li>
-                        <li>조직 확장 시 법률 리스크 관리</li>
-                        <li>투자유치 대비 노무실사</li>
-                    </ul>
-                    <a href="https://pf.kakao.com/_BaeGn/chat" class="service-cta" target="_blank" rel="noopener">
-                        상담 신청하기 →
-                    </a>
-                </div>
-    </section>
-
-    <!-- Labor Cases Section -->
-    <section class="services reveal" id="cases">
-        <div class="services-content">
-            <h2 class="section-title">노동사건 전문 대응</h2>
-            <p class="section-subtitle">복잡한 노동 분쟁, 경험 많은 전문가가 해결합니다</p>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>⚖️ 부당해고</h3>
-                    <p>정당한 이유 없는 해고에 대한 구제신청 대리</p>
-                    <ul class="service-features">
-                        <li>부당해고 구제신청 대리</li>
-                        <li>노동위원회 심판 대응</li>
-                        <li>금전보상 및 복직 협상</li>
-                    </ul>
-                    <a href="https://pf.kakao.com/_BaeGn/chat" class="service-cta" target="_blank" rel="noopener">
-                        상담 신청하기 →
-                    </a>
-                </div>
-
-                <div class="service-card">
-                    <h3>💰 임금체불</h3>
-                    <p>밀린 급여, 퇴직금 등 체불임금 청구 대리</p>
-                    <ul class="service-features">
-                        <li>임금체불 진정 대리</li>
-                        <li>금전 협상 대리</li>
-                        <li>간이대지급금 신청 대리</li>
-                    </ul>
-                    <a href="https://pf.kakao.com/_BaeGn/chat" class="service-cta" target="_blank" rel="noopener">
-                        상담 신청하기 →
-                    </a>
-                </div>
-
-                <div class="service-card">
-                    <h3>🚫 직장 내 괴롭힘</h3>
-                    <p>직장 내 괴롭힘 피해자 보호 및 가해자 징계</p>
-                    <ul class="service-features">
-                        <li>괴롭힘 신고 대리</li>
-                        <li>증거자료 수집 지원</li>
-                        <li>가해자 징계 요청</li>
-                     </ul>
-                    <a href="https://pf.kakao.com/_BaeGn/chat" class="service-cta" target="_blank" rel="noopener">
-                        상담 신청하기 →
-                    </a>
+                <div class="why">
+                    <article class="rv"><div class="n">01</div><h3>노무·세무 통합 서비스</h3><p>노무사와 세무사가 한 팀을 이루어 기업에 딱 맞는 전략을 제시합니다.</p></article>
+                    <article class="rv"><div class="n">02</div><h3>맞춤 솔루션</h3><p>기업의 규모와 업종에 맞는 인사노무 체계를 설계하고 운영을 지원합니다.</p></article>
+                    <article class="rv"><div class="n">03</div><h3>예방 중심</h3><p>문제가 생기기 전에 위험을 진단하고, 체계적인 예방으로 분쟁을 미리 막습니다.</p></article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Government Support Section -->
-    <section class="trust-section reveal" id="support">
-        <div class="trust-content">
-            <h2 class="section-title">정부지원금 컨설팅</h2>
-            <p class="section-subtitle">놓치기 쉬운 정부 지원사업, 유영이 찾아드립니다</p>
-            
-            <div class="trust-grid">
-                <div class="trust-card">
-                    <div class="trust-icon">💼</div>
-                    <h3>청년일자리 도약 장려금</h3>
-                    <p>청년일자리도약장려금 등 청년 고용 관련 정부지원금을 받도록 컨설팅합니다.<br>(2026년 기준, 1인당 720만원 지원)</p>
-                    <a href="https://pf.kakao.com/_BaeGn/chat" class="service-cta" target="_blank" rel="noopener">
-                        상담 신청하기 →
-                    </a>
+        <section id="advisory" class="bg-mist">
+            <div class="wrap">
+                <div class="sec-head rv">
+                    <div><span class="no">02 · SERVICES</span><h2>기업 맞춤 서비스</h2></div>
+                    <p>인사노무 전반을 책임지는 원스톱 서비스. 일상 상담부터 분쟁 대응까지 한 곳에서 해결합니다.</p>
                 </div>
-                <div class="trust-card">
-                    <div class="trust-icon">👨‍💼</div>
-                    <h3>고용장려금</h3>
-                    <p>고용창출, 고용유지 등 다양한 고용장려금 신청을 대행하고 최대 금액을 수령할 수 있도록 지원합니다.</p>
-                    <a href="https://pf.kakao.com/_BaeGn/chat" class="service-cta" target="_blank" rel="noopener">
-                        상담 신청하기 →
-                    </a>
-                </div>
-                <div class="trust-card">
-                    <div class="trust-icon">📈</div>
-                    <h3>일자리안정자금</h3>
-                    <p>최저임금 인상에 따른 인건비 부담을 줄일 수 있는 일자리안정자금 신청을 지원합니다.</p>
-                    <a href="https://pf.kakao.com/_BaeGn/chat" class="service-cta" target="_blank" rel="noopener">
-                        상담 신청하기 →
-                    </a>
+                <div class="svc">
+                    <div class="svc-row rv">
+                        <span class="n">01</span>
+                        <div><h3>기업 종합 자문</h3><p>일상적인 인사노무 상담부터 중요한 의사결정까지 지원</p></div>
+                        <ul><li>정기 자문 (노무·세무 통합)</li><li>근로계약서 등 서류 정비</li><li>인사제도 설계 및 개선</li><li>법정의무교육</li></ul>
+                        <a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-navy" target="_blank" rel="noopener">상담 신청</a>
+                    </div>
+                    <div class="svc-row rv">
+                        <span class="n">02</span>
+                        <div><h3>노동 분쟁 대응</h3><p>부당해고·임금체불 등 노동 분쟁에서 기업을 보호</p></div>
+                        <ul><li>부당해고 구제신청 대응</li><li>임금체불 진정 대응</li><li>괴롭힘·성희롱 조사</li><li>근로자와 협상 지원</li></ul>
+                        <a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-navy" target="_blank" rel="noopener">상담 신청</a>
+                    </div>
+                    <div class="svc-row rv">
+                        <span class="n">03</span>
+                        <div><h3>스타트업 특화</h3><p>빠르게 성장하는 스타트업을 위한 맞춤 노무 서비스</p></div>
+                        <ul><li>창업 초기 인사제도 설계</li><li>임금체계 설계</li><li>조직 확장 시 법률 위험 관리</li><li>투자유치 대비 노무실사</li></ul>
+                        <a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-navy" target="_blank" rel="noopener">상담 신청</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section" id="contact">
-        <div class="cta-content">
-            <h2>노동법 문제, 지금 바로 해결하세요</h2>
-            <p>전문가가 상황을 정확히 파악하고 최선의 솔루션을 제시해드립니다.</p>
-            <div class="cta-buttons">
-                <a href="tel:010-4835-8422" class="btn-primary">
-                    ☎ 전화 상담
-                </a>
-                <a href="https://pf.kakao.com/_BaeGn/chat" class="btn-secondary" target="_blank" rel="noopener">
-                    💬 카톡 상담
-                </a>
+        <section id="cases">
+            <div class="wrap">
+                <div class="sec-head rv">
+                    <div><span class="no">03 · LABOR CASES</span><h2>노동사건 전문 대응</h2></div>
+                    <p>복잡한 노동 분쟁, 경험 많은 전문가가 해결합니다.</p>
+                </div>
+                <div class="svc">
+                    <div class="svc-row rv">
+                        <span class="n">01</span>
+                        <div><h3>부당해고</h3><p>정당한 이유 없는 해고에 대한 구제신청 대리</p></div>
+                        <ul><li>부당해고 구제신청 대리</li><li>노동위원회 심판 대응</li><li>금전보상 및 복직 협상</li></ul>
+                        <a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-navy" target="_blank" rel="noopener">상담 신청</a>
+                    </div>
+                    <div class="svc-row rv">
+                        <span class="n">02</span>
+                        <div><h3>임금체불</h3><p>밀린 급여·퇴직금 등 체불임금 청구 대리</p></div>
+                        <ul><li>임금체불 진정 대리</li><li>금전 협상 대리</li><li>간이대지급금 신청 대리</li></ul>
+                        <a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-navy" target="_blank" rel="noopener">상담 신청</a>
+                    </div>
+                    <div class="svc-row rv">
+                        <span class="n">03</span>
+                        <div><h3>직장 내 괴롭힘</h3><p>피해자 보호 및 가해자 징계</p></div>
+                        <ul><li>괴롭힘 신고 대리</li><li>증거자료 수집 지원</li><li>가해자 징계 요청</li></ul>
+                        <a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-navy" target="_blank" rel="noopener">상담 신청</a>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
+        <section id="support" class="bg-mist">
+            <div class="wrap">
+                <div class="sec-head rv">
+                    <div><span class="no">04 · GRANTS</span><h2>정부지원금 컨설팅</h2></div>
+                    <p>놓치기 쉬운 정부 지원사업, 유영이 찾아드립니다.</p>
+                </div>
+                <div class="grant">
+                    <article class="rv"><h3>청년일자리도약장려금</h3><p>청년 고용 관련 정부지원금을 받을 수 있도록 컨설팅합니다.</p><p class="note">2026년 기준, 1인당 720만원 지원</p><a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-navy" target="_blank" rel="noopener">상담 신청</a></article>
+                    <article class="rv"><h3>고용장려금</h3><p>고용창출·고용유지 등 여러 고용장려금 신청을 대행하고, 최대 금액을 받을 수 있도록 돕습니다.</p><a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-navy" target="_blank" rel="noopener">상담 신청</a></article>
+                    <article class="rv"><h3>일자리안정자금</h3><p>최저임금 인상에 따른 인건비 부담을 줄일 수 있는 일자리안정자금 신청을 지원합니다.</p><a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-navy" target="_blank" rel="noopener">상담 신청</a></article>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="wrap">
+                <div class="sec-head rv">
+                    <div><span class="no">05 · PROCESS</span><h2>상담은 이렇게<br>진행됩니다</h2></div>
+                    <p>전화나 카카오톡으로 편하게 연락 주세요.</p>
+                </div>
+                <ol class="steps rv">
+                    <li><b>문의</b><span>전화 또는 카카오톡으로 연락</span></li>
+                    <li><b>상황 확인</b><span>노무사가 사실관계와 자료를 확인</span></li>
+                    <li><b>해결 방안 안내</b><span>대응 방향과 진행 방법 설명</span></li>
+                    <li><b>진행</b><span>신고·서면·협상 등 실제 업무 수행</span></li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="cta-band" id="contact">
+            <div class="wrap rv">
+                <h2>노동법 문제,<br>지금 바로 해결하세요</h2>
+                <p>전문가가 상황을 정확히 파악하고 가장 좋은 해결책을 드립니다.</p>
+                <div class="actions">
+                    <a href="tel:010-4835-8422" class="btn btn-gold">전화 상담</a>
+                    <a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-kakao" target="_blank" rel="noopener">카톡 상담</a>
+                </div>
+                <p class="tel">☎ 010-4835-8422</p>
+            </div>
+        </section>
+    </main>
+
     <footer>
-        <div class="footer-content">
-            <div class="footer-main">
-                <div class="footer-info">
-                    <div class="footer-privacy">
-                        <span>개인정보처리방침</span>
-                    </div>
-                    <div class="footer-details">
-                        <p class="footer-company-name">노무법인 유영 | 대표노무사 : 손유권 | 서울특별시 강남구 선릉로 578, 7층(태정빌딩)</p>
-                        <p>사업자등록증 : 645-88-02930 | 전화 : 010-4835-8422 | 팩스 : 0504-340-8422 | 이메일 : cplayk@naver.com</p>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>Copyright 노무법인 유영. All rights reserved.</p>
-            </div>
+        <div class="wrap">
+            <p class="name">노무법인 유영</p>
+            <p>대표노무사 손유권 · 서울특별시 강남구 선릉로 578, 7층(태정빌딩)</p>
+            <p>사업자등록번호 645-88-02930 · 전화 010-4835-8422 · 팩스 0504-340-8422 · 이메일 cplayk@naver.com</p>
+            <p class="copy">Copyright 노무법인 유영. All rights reserved.</p>
         </div>
     </footer>
 
+    <nav class="mbar" aria-label="빠른 상담">
+        <a href="tel:010-4835-8422" class="t">전화 상담</a>
+        <a href="https://pf.kakao.com/_BaeGn/chat" class="k" target="_blank" rel="noopener">카톡 상담</a>
+    </nav>
 
     <script>
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // Scroll reveal animation
-        const revealElements = document.querySelectorAll('.reveal');
-        
-        const revealOnScroll = () => {
-            revealElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (elementTop < windowHeight - 100) {
-                    element.classList.add('active');
-                }
-            });
-        };
-
-        window.addEventListener('scroll', revealOnScroll);
-        revealOnScroll();
-
-
-        // Mobile hamburger menu
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('navMenu');
-        const headerCta = document.getElementById('headerCta');
-        const navLinks = document.querySelectorAll('.nav-link');
-
-        hamburger.addEventListener('click', function() {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-            headerCta.classList.toggle('active');
-        });
-
-        // 메뉴를 누르면 모바일 메뉴 닫기
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-                headerCta.classList.remove('active');
-            });
-        });
+        document.documentElement.classList.add('js');
+        (function () {
+            var els = document.querySelectorAll('.rv');
+            if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('on'); }); return; }
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('on'); io.unobserve(en.target); } });
+            }, { rootMargin: '0px 0px -8% 0px' });
+            els.forEach(function (e) { io.observe(e); });
+        })();
     </script>
 </body>
 </html>
