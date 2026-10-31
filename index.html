@@ -53,7 +53,7 @@
     <meta property="daumoa:image" content="https://hryy.co.kr/images/og-image.png">
     
     <!-- 추가 SEO 메타태그 -->
-    <meta name="theme-color" content="#1a2b4a">
+    <meta name="theme-color" content="#f6f5f1">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -68,9 +68,7 @@
     <meta name="geo.position" content="37.5172;127.0473">
     <meta name="ICBM" content="37.5172, 127.0473">
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -94,333 +92,282 @@
     }
     </script>
     
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
     <style>
         :root {
-            --navy: #14213d;
-            --ink: #0b1426;
-            --gold: #c9a24a;
-            --gold-soft: #f3ead2;
+            --bg: #f6f5f1;
             --paper: #ffffff;
-            --mist: #f5f6f8;
-            --text: #1f2a3d;
-            --muted: #4b5568;
-            --line: #d9dee6;
-            --kakao: #fee500;
-            --serif: 'Noto Serif KR', serif;
-            --sans: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
-            --wrap: 1180px;
+            --ink: #121315;
+            --ink-2: #2b2d31;
+            --muted: #6b6a66;
+            --line: #dedbd3;
+            --accent: #1d2088;
+            --font: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, 'Noto Sans KR', sans-serif;
+            --wrap: 1240px;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; scrollbar-gutter: stable; }
-        body { font-family: var(--sans); color: var(--text); background: var(--paper); line-height: 1.7; -webkit-font-smoothing: antialiased; word-break: keep-all; }
+        body { font-family: var(--font); color: var(--ink); background: var(--bg); line-height: 1.65; -webkit-font-smoothing: antialiased; word-break: keep-all; letter-spacing: -0.01em; }
         a { color: inherit; text-decoration: none; }
-        .wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 24px; }
+        ul, ol { list-style: none; }
+        .wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 32px; }
 
         /* 버튼: 크기 고정, 글자 가운데 */
-        .btn { display: inline-flex; align-items: center; justify-content: center; text-align: center; height: 52px; width: 168px; border-radius: 6px; font-weight: 700; font-size: 1rem; white-space: nowrap; transition: transform .2s ease, box-shadow .2s ease; flex: none; }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,.18); }
-        .btn-gold { background: var(--gold); color: var(--ink); }
-        .btn-kakao { background: var(--kakao); color: #191600; }
-        .btn-navy { background: var(--navy); color: #fff; }
-        .btn-line { border: 2px solid rgba(255,255,255,.85); color: #fff; }
-        .btn-sm { height: 42px; width: 120px; font-size: .92rem; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; text-align: center; height: 56px; width: 200px; border-radius: 999px; font-weight: 600; font-size: 1rem; white-space: nowrap; flex: none; transition: background .2s ease, color .2s ease; }
+        .btn-ink { background: var(--ink); color: #fff; border: 1px solid var(--ink); }
+        .btn-ink:hover { background: var(--accent); border-color: var(--accent); }
+        .btn-ghost { border: 1px solid var(--ink); color: var(--ink); }
+        .btn-ghost:hover { background: var(--ink); color: #fff; }
+        .btn-white { background: #fff; color: var(--ink); border: 1px solid #fff; }
+        .btn-white:hover { background: transparent; color: #fff; }
+        .btn-line-w { border: 1px solid rgba(255,255,255,.5); color: #fff; }
+        .btn-line-w:hover { border-color: #fff; }
+        .btn-sm { height: 40px; width: 112px; font-size: .9rem; }
+        .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #fee500; margin-right: 8px; flex: none; }
 
         /* 헤더 */
-        header { position: fixed; inset: 0 0 auto 0; z-index: 50; height: 76px; background: rgba(255,255,255,.97); border-bottom: 1px solid var(--line); }
+        header { position: fixed; inset: 0 0 auto 0; z-index: 50; height: 72px; background: rgba(246,245,241,.9); backdrop-filter: saturate(160%) blur(12px); -webkit-backdrop-filter: saturate(160%) blur(12px); border-bottom: 1px solid transparent; transition: border-color .3s ease; }
+        header.scrolled { border-bottom-color: var(--line); }
         header .wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-        .logo img { height: 40px; display: block; }
-        .nav { display: flex; gap: 34px; list-style: none; }
-        .nav a { font-weight: 500; color: var(--text); font-size: .98rem; }
-        .nav a:hover { color: var(--gold); }
-        .head-cta { display: flex; gap: 10px; }
+        .logo img { height: 34px; display: block; }
+        .nav { display: flex; gap: 40px; }
+        .nav a { font-size: .95rem; color: var(--ink-2); font-weight: 500; }
+        .nav a:hover { color: var(--accent); }
+        .head-cta { display: flex; gap: 8px; }
 
-        /* 히어로 */
-        .hero { position: relative; min-height: 100vh; min-height: 100svh; display: flex; align-items: center; color: #fff; overflow: hidden; background: var(--ink); }
-        .hero video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-        .hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(11,20,38,.92) 0%, rgba(11,20,38,.78) 45%, rgba(11,20,38,.35) 100%); }
-        .hero .wrap { position: relative; z-index: 1; padding-top: 76px; }
-        .eyebrow { display: inline-block; font-size: .85rem; letter-spacing: .18em; color: var(--gold); font-weight: 700; margin-bottom: 22px; }
-        .hero h1 { font-family: var(--serif); font-weight: 700; font-size: clamp(2.3rem, 5.6vw, 4.4rem); line-height: 1.25; letter-spacing: -.01em; max-width: 14em; }
-        .hero h1 em { font-style: normal; color: var(--gold); }
-        .hero p.lead { margin-top: 26px; font-size: clamp(1.02rem, 1.6vw, 1.22rem); color: #e6e9ef; max-width: 34em; }
-        .hero .actions { margin-top: 40px; display: flex; gap: 12px; flex-wrap: wrap; }
-        .hero-points { margin-top: 64px; display: flex; gap: 0; border-top: 1px solid rgba(255,255,255,.28); max-width: 760px; }
-        .hero-points div { flex: 1; padding: 18px 18px 0 0; }
-        .hero-points b { display: block; font-size: 1.02rem; color: #fff; }
-        .hero-points span { font-size: .88rem; color: #c8ced9; }
+        /* 첫 화면 */
+        .hero { padding: 200px 0 120px; }
+        .kicker { font-size: .9rem; color: var(--muted); font-weight: 500; display: flex; align-items: center; gap: 10px; }
+        .kicker::before { content: ''; width: 28px; height: 1px; background: var(--ink); }
+        .hero h1 { margin-top: 32px; font-size: clamp(2.6rem, 7.2vw, 6rem); line-height: 1.12; font-weight: 700; letter-spacing: -0.045em; }
+        .hero h1 .soft { color: #a29f97; }
+        .hero-bottom { margin-top: 64px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: end; }
+        .hero .lead { font-size: 1.15rem; color: var(--ink-2); max-width: 30em; }
+        .hero .actions { display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap; }
+        .facts { margin-top: 96px; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--ink); }
+        .facts div { padding: 22px 24px 0 0; }
+        .facts div + div { padding-left: 24px; border-left: 1px solid var(--line); }
+        .facts b { display: block; font-size: 1.05rem; font-weight: 600; }
+        .facts span { font-size: .93rem; color: var(--muted); }
 
-        /* 공통 섹션 */
-        section { padding: 120px 0; }
-        .sec-head { display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; align-items: end; margin-bottom: 64px; }
-        .sec-head .no { font-size: .85rem; letter-spacing: .18em; color: var(--gold); font-weight: 700; display: block; margin-bottom: 14px; }
-        .sec-head h2 { font-family: var(--serif); font-size: clamp(1.9rem, 3.4vw, 2.8rem); line-height: 1.3; color: var(--navy); }
-        .sec-head p { color: var(--muted); font-size: 1.05rem; }
-        .bg-mist { background: var(--mist); }
-
-        /* 왜 유영 */
-        .why { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 2px solid var(--navy); }
-        .why article { padding: 36px 32px 8px 0; }
-        .why article + article { padding-left: 32px; border-left: 1px solid var(--line); }
-        .why .n { font-family: var(--serif); font-size: 2.6rem; color: var(--gold); line-height: 1; }
-        .why h3 { margin: 18px 0 10px; font-size: 1.3rem; color: var(--navy); }
-        .why p { color: var(--muted); }
+        /* 섹션 공통: 왼쪽 제목 고정 + 오른쪽 내용 */
+        section.block { padding: 140px 0; border-top: 1px solid var(--line); }
+        .split { display: grid; grid-template-columns: 360px 1fr; gap: 80px; }
+        .split-head { position: sticky; top: 120px; align-self: start; }
+        .label { font-size: .85rem; color: var(--muted); font-weight: 500; }
+        .split-head h2 { margin-top: 16px; font-size: clamp(2rem, 3.4vw, 2.9rem); line-height: 1.2; font-weight: 700; letter-spacing: -0.04em; }
+        .split-head p { margin-top: 18px; color: var(--muted); font-size: 1.02rem; }
 
         /* 서비스 목록 */
-        .svc { border-top: 2px solid var(--navy); }
-        .svc-row { display: grid; grid-template-columns: 80px 1fr 1.1fr 168px; gap: 28px; align-items: center; padding: 34px 0; border-bottom: 1px solid var(--line); }
-        .svc-row .n { font-family: var(--serif); font-size: 1.5rem; color: var(--gold); }
-        .svc-row h3 { font-size: 1.35rem; color: var(--navy); }
-        .svc-row h3 + p { color: var(--muted); margin-top: 6px; font-size: .98rem; }
-        .svc-row ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 20px; }
-        .svc-row li { position: relative; padding-left: 16px; font-size: .97rem; color: var(--text); }
-        .svc-row li::before { content: ''; position: absolute; left: 0; top: .72em; width: 7px; height: 7px; background: var(--gold); }
-        .svc-row .btn { justify-self: end; }
-        .svc-label { margin: 56px 0 0; font-weight: 700; color: var(--navy); font-size: 1rem; letter-spacing: .04em; }
-        .svc-label:first-child { margin-top: 0; }
+        .items { border-top: 1px solid var(--ink); }
+        .item { display: grid; grid-template-columns: 56px 1fr 1fr; gap: 24px; padding: 36px 0; border-bottom: 1px solid var(--line); }
+        .item .num { font-size: .9rem; color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 6px; }
+        .item h3 { font-size: 1.45rem; font-weight: 650; letter-spacing: -0.03em; line-height: 1.35; }
+        .item h3 + p { margin-top: 8px; color: var(--muted); font-size: .98rem; }
+        .item ul li { font-size: .98rem; color: var(--ink-2); padding: 3px 0; }
+        .item ul li::before { content: '—'; color: #b3afa6; margin-right: 10px; }
+        .item .note { display: inline-block; margin-top: 12px; font-size: .9rem; font-weight: 600; color: var(--accent); }
 
-        /* 지원금 */
-        .grant { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-        .grant article { background: #fff; border: 1px solid var(--line); border-top: 4px solid var(--gold); padding: 36px 30px; display: flex; flex-direction: column; }
-        .grant h3 { font-size: 1.25rem; color: var(--navy); margin-bottom: 12px; }
-        .grant p { color: var(--muted); flex: 1; }
-        .grant .note { margin-top: 14px; font-weight: 700; color: var(--navy); }
-        .grant .btn { margin-top: 26px; }
+        /* 진행 순서 */
+        .steps { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--ink); }
+        .steps li { padding: 26px 24px 0 0; }
+        .steps li + li { padding-left: 24px; border-left: 1px solid var(--line); }
+        .steps .num { font-size: .9rem; color: var(--muted); }
+        .steps b { display: block; margin-top: 36px; font-size: 1.25rem; font-weight: 650; letter-spacing: -0.03em; }
+        .steps span { display: block; margin-top: 6px; color: var(--muted); font-size: .95rem; }
 
-        /* 진행 절차 */
-        .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; counter-reset: s; }
-        .steps li { list-style: none; position: relative; padding: 0 24px 0 0; }
-        .steps li::before { counter-increment: s; content: counter(s, decimal-leading-zero); display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 50%; background: var(--navy); color: var(--gold); font-family: var(--serif); font-weight: 700; margin-bottom: 22px; position: relative; z-index: 1; }
-        .steps li::after { content: ''; position: absolute; top: 28px; left: 56px; right: 0; height: 2px; background: var(--line); }
-        .steps li:last-child::after { display: none; }
-        .steps b { display: block; font-size: 1.15rem; color: var(--navy); margin-bottom: 6px; }
-        .steps span { color: var(--muted); font-size: .97rem; }
+        /* 마지막 상담 */
+        .closing { background: var(--ink); color: #fff; padding: 150px 0 140px; }
+        .closing h2 { font-size: clamp(2.4rem, 6vw, 5rem); line-height: 1.12; font-weight: 700; letter-spacing: -0.045em; }
+        .closing h2 .soft { color: #77746d; }
+        .closing-bottom { margin-top: 64px; display: flex; justify-content: space-between; align-items: end; gap: 32px; flex-wrap: wrap; }
+        .closing .tel { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 600; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+        .closing .tel small { display: block; font-size: .9rem; font-weight: 400; color: #8e8b84; letter-spacing: 0; margin-bottom: 6px; }
+        .closing .actions { display: flex; gap: 10px; flex-wrap: wrap; }
 
-        /* 마지막 상담 띠 */
-        .cta-band { background: var(--navy); color: #fff; padding: 110px 0; text-align: center; }
-        .cta-band h2 { font-family: var(--serif); font-size: clamp(1.9rem, 3.6vw, 2.9rem); line-height: 1.35; }
-        .cta-band p { margin-top: 16px; color: #d3d8e2; font-size: 1.08rem; }
-        .cta-band .actions { margin-top: 38px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-        .cta-band .tel { margin-top: 26px; font-size: 1.05rem; color: var(--gold-soft); }
+        footer { background: var(--ink); color: #8e8b84; border-top: 1px solid #2a2b2e; padding: 40px 0 120px; font-size: .88rem; }
+        footer .row { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+        footer b { color: #e8e6e1; font-weight: 600; }
+        footer p + p { margin-top: 2px; }
 
-        footer { background: var(--ink); color: #aeb6c4; padding: 48px 0 110px; font-size: .9rem; }
-        footer .name { color: #fff; font-weight: 700; margin-bottom: 8px; }
-        footer p + p { margin-top: 4px; }
-        footer .copy { margin-top: 22px; color: #7c8697; }
-
-        /* 휴대폰 하단 고정 상담 줄 */
         .mbar { display: none; }
 
-        /* 등장 효과 (JS 가 켜질 때만) */
-        .js .rv { opacity: 0; transform: translateY(26px); transition: opacity .8s ease, transform .8s ease; }
+        /* 등장 효과 */
+        .js .rv { opacity: 0; transform: translateY(18px); transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
         .js .rv.on { opacity: 1; transform: none; }
-        @media (prefers-reduced-motion: reduce) { .js .rv { opacity: 1; transform: none; transition: none; } .btn { transition: none; } }
+        @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .js .rv { opacity: 1; transform: none; transition: none; } }
 
-        @media (max-width: 1024px) {
-            .svc-row { grid-template-columns: 56px 1fr 168px; }
-            .svc-row ul { grid-column: 2 / 4; grid-row: 2; }
-            .svc-row .btn { grid-column: 3; grid-row: 1; }
+        @media (max-width: 1080px) {
+            .split { grid-template-columns: 1fr; gap: 48px; }
+            .split-head { position: static; }
         }
         @media (max-width: 860px) {
+            .wrap { padding: 0 22px; }
             .nav, .head-cta { display: none; }
-            header { height: 64px; }
-            .logo img { height: 34px; }
-            .hero .wrap { padding-top: 64px; }
-            section { padding: 84px 0; }
-            .sec-head { grid-template-columns: 1fr; gap: 14px; margin-bottom: 40px; }
-            .why, .grant { grid-template-columns: 1fr; }
-            .why article, .why article + article { padding: 28px 0 24px; border-left: 0; border-bottom: 1px solid var(--line); }
-            .svc-row { grid-template-columns: 44px 1fr; gap: 14px 16px; padding: 28px 0; }
-            .svc-row ul { grid-column: 1 / 3; grid-row: auto; grid-template-columns: 1fr; }
-            .svc-row .btn { grid-column: 1 / 3; grid-row: auto; justify-self: stretch; width: 100%; }
-            .steps { grid-template-columns: 1fr; gap: 26px; }
-            .steps li { display: grid; grid-template-columns: 56px 1fr; column-gap: 18px; padding: 0; }
-            .steps li::before { grid-row: 1 / 3; margin: 0; }
-            .steps li::after { display: none; }
-            .hero-points { flex-direction: column; border-top: 0; margin-top: 44px; }
-            .hero-points div { padding: 12px 0 12px 14px; border-left: 3px solid var(--gold); margin-bottom: 8px; }
-            .hero .actions .btn, .cta-band .actions .btn { width: calc(50% - 6px); }
-            .mbar { display: grid; grid-template-columns: 1fr 1fr; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; height: 60px; padding-bottom: env(safe-area-inset-bottom); box-shadow: 0 -4px 16px rgba(0,0,0,.15); }
-            .mbar a { display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.02rem; }
-            .mbar .t { background: var(--navy); color: #fff; }
-            .mbar .k { background: var(--kakao); color: #191600; }
+            header { height: 60px; }
+            .logo img { height: 30px; }
+            .hero { padding: 132px 0 72px; }
+            .hero-bottom { grid-template-columns: 1fr; gap: 32px; margin-top: 36px; }
+            .hero .actions { justify-content: flex-start; }
+            .hero .actions .btn, .closing .actions .btn { width: calc(50% - 5px); }
+            .facts { grid-template-columns: 1fr; margin-top: 64px; }
+            .facts div, .facts div + div { padding: 18px 0; border-left: 0; border-bottom: 1px solid var(--line); }
+            section.block { padding: 88px 0; }
+            .item { grid-template-columns: 36px 1fr; gap: 10px 14px; padding: 28px 0; }
+            .item ul { grid-column: 2; }
+            .steps { grid-template-columns: 1fr 1fr; }
+            .steps li, .steps li + li { padding: 22px 16px 26px 0; border-left: 0; }
+            .steps li:nth-child(even) { padding-left: 16px; border-left: 1px solid var(--line); }
+            .steps li:nth-child(n+3) { border-top: 1px solid var(--line); }
+            .steps b { margin-top: 18px; }
+            .closing { padding: 96px 0 88px; }
+            .closing .actions { width: 100%; }
+            .mbar { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); background: rgba(246,245,241,.96); border-top: 1px solid var(--line); }
+            .mbar .btn { width: 100%; height: 50px; }
         }
     </style>
 </head>
 <body>
-    <header>
+    <header id="hd">
         <div class="wrap">
             <a href="#top" class="logo"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iX+uSt+uptF/rlJTsnpDsnbgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgNjk5LjU1IDEzNi44OSI+CiAgPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDMwLjIuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDIuMS4xIEJ1aWxkIDEwNSkgIC0tPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuc3QwIHsKICAgICAgICBzdHJva2U6ICMwMGEwZTk7CiAgICAgICAgc3Ryb2tlLWxpbmVjYXA6IHJvdW5kOwogICAgICB9CgogICAgICAuc3QwLCAuc3QxIHsKICAgICAgICBzdHJva2Utd2lkdGg6IDIuOTRweDsKICAgICAgfQoKICAgICAgLnN0MCwgLnN0MSwgLnN0MiwgLnN0MyB7CiAgICAgICAgZmlsbDogbm9uZTsKICAgICAgfQoKICAgICAgLnN0MCwgLnN0MiwgLnN0MywgLnN0NCB7CiAgICAgICAgc3Ryb2tlLW1pdGVybGltaXQ6IDEwOwogICAgICB9CgogICAgICAuc3QxIHsKICAgICAgICBzdHJva2UtbGluZWpvaW46IHJvdW5kOwogICAgICB9CgogICAgICAuc3QxLCAuc3QyLCAuc3QzIHsKICAgICAgICBzdHJva2U6ICMxZDIwODg7CiAgICAgIH0KCiAgICAgIC5zdDIgewogICAgICAgIHN0cm9rZS13aWR0aDogMS45NnB4OwogICAgICB9CgogICAgICAuc3Q1IHsKICAgICAgICBpc29sYXRpb246IGlzb2xhdGU7CiAgICAgIH0KCiAgICAgIC5zdDMgewogICAgICAgIHN0cm9rZS13aWR0aDogMy4yM3B4OwogICAgICB9CgogICAgICAuc3Q2IHsKICAgICAgICBmaWxsOiAjMjMxODE1OwogICAgICB9CgogICAgICAuc3Q0IHsKICAgICAgICBmaWxsOiAjZmZmOwogICAgICAgIHN0cm9rZTogIzAwMDsKICAgICAgfQogICAgPC9zdHlsZT4KICA8L2RlZnM+CiAgCiAgPGc+CiAgICA8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMzcuMTUsOTAuOTljMi4wNy4xNiwxMC43Ni4xNiwxNy41MS05LjIsNy43MS0xMC43LDIyLjEzLTE4LjIsMjcuODUtMTYuOTFoMHMtMTAuODMsMjAuMjgsMy44OCwyNS41MWMxLjc2LjYyLDMuNjguNzEsNS40OC4yNyw0LjktMS4yLDE1LjgtNC42MywxOS44MS0xMi4wM2gwczIuNDcsMTkuMDEsMjIuNjYsOS40YzAsMCwzLjE2LTEuNjMsMTAuMjUtNy43MSIvPgogICAgPHBhdGggY2xhc3M9InN0MCIgZD0iTTM5LjA5LDgwLjU0czE4LjY1LDI4LjU5LDUxLjMxLTEuOTRjMCwwLDEyLjIxLDMxLjg2LDQ0Ljc0LTEuNDkiLz4KICAgIDxjaXJjbGUgY2xhc3M9InN0MyIgY3g9Ijg5LjIiIGN5PSI2Ny4yOCIgcj0iNTYuOTMiLz4KICAgIDxjaXJjbGUgY2xhc3M9InN0MiIgY3g9IjEwNy4xNiIgY3k9IjM0LjM3IiByPSI0LjM0Ii8+CiAgICA8Y2lyY2xlIGNsYXNzPSJzdDIiIGN4PSIxMTcuMzQiIGN5PSI0MC44OCIgcj0iMi4xNiIvPgogIDwvZz4KICA8ZyBjbGFzcz0ic3Q1Ij4KICAgIDxnIGNsYXNzPSJzdDUiPgogICAgICA8ZyBjbGFzcz0ic3Q1Ij4KICAgICAgICA8cGF0aCBjbGFzcz0ic3Q2IiBkPSJNMTgzLjQ2LDQ5LjQxaDEyLjR2MjcuNzhoNDAuOXYxMC4yOGgtMjAuNjJ2MTQuNjdoMjMuMzl2MTAuMTNoLTU5LjI1di0xMC4xM2gyMy40NnYtMTQuNjdoLTIwLjI3di0zOC4wNmgtLjAxWiIvPgogICAgICAgIDxwYXRoIGNsYXNzPSJzdDYiIGQ9Ik0yNzEuNjQsOTkuNjZoLTIzLjMydi0xMC4yOGg1OS4yNXYxMC4yOGgtMjMuNTN2MTYuNDRoLTEyLjR2LTE2LjQ0Wk0zMDQuMzgsNDkuNDF2MzMuOTVoLTUyLjg3di0zMy45NWg1Mi44N1pNMjYzLjkxLDczLjIzaDI4LjA3di0xMy42MWgtMjguMDd2MTMuNjFoMFoiLz4KICAgICAgICA8cGF0aCBjbGFzcz0ic3Q2IiBkPSJNMzI5Ljc2LDQ5LjQxdjguMDFoMTAuODR2LTguMDFoMTEuNjJ2MTIuMjZoNy43M3YtMTMuMDRoMTIuNHYzNi43MWgtMTIuNHYtMTMuNTRoLTcuNzN2MTEuN2gtMzQuMjN2LTM0LjA5aDExLjc3Wk0zMzMuOTQsOTIuNjVoMjYuMTV2LTUuMTdoMTIuMjZ2MjguMjFoLTUwLjY4di0yOC4yMWgxMi4yNnY1LjE3aDBaTTMyOS43Niw3My45NGgxMC44NHYtNi44N2gtMTAuODR2Ni44N1pNMzYwLjA5LDEwNi4xMXYtMy44M2gtMjYuMTV2My44M2gyNi4xNVoiLz4KICAgICAgICA8cGF0aCBjbGFzcz0ic3Q2IiBkPSJNMzg0Ljk3LDY4LjEyYzAtNy4yMywyLjI3LTEyLjQ3LDYuMDItMTUuODgsMy4xMi0yLjY5LDcuMTYtMy45NywxMi4xOS0zLjk3czksMS4yOCwxMi4xMiwzLjk3YzMuODMsMy40LDYuMDMsOC42NSw2LjAzLDE1Ljg4cy0yLjIsMTIuNjItNi4wMywxNS44OGMtMy4xMiwyLjYyLTcuMTYsNC4wNC0xMi4xMiw0LjA0cy05LjA3LTEuNDItMTIuMTktNC4wNGMtMy43Ni0zLjI2LTYuMDItOC42NS02LjAyLTE1Ljg4Wk00NDEuMjUsMTA1LjMzdjEwLjA2aC01MS41M3YtMjMuODloMTIuNHYxMy44MmgzOS4xM1pNNDA5LjUsNjguMTJjMC0zLjktLjc4LTYuNjYtMi4yLTguMjktMS4wNi0xLjA2LTIuNDEtMS43LTQuMTEtMS43cy0zLjEyLjY0LTQuMTEsMS43Yy0xLjQyLDEuNjMtMi4yNyw0LjM5LTIuMjcsOC4yOXMuODUsNi44LDIuMjcsOC4yOWMuOTksMS4yMSwyLjQxLDEuNjMsNC4xMSwxLjYzczMuMDUtLjQyLDQuMTEtMS42M2MxLjQyLTEuNDksMi4yLTQuMzIsMi4yLTguMjlaTTQ0MC40LDQ4LjYzdjQ2LjU3aC0xMi40di00Ni41N3MxMi40LDAsMTIuNCwwWiIvPgogICAgICA8L2c+CiAgICA8L2c+CiAgPC9nPgogIDxnIGNsYXNzPSJzdDUiPgogICAgPGcgY2xhc3M9InN0NSI+CiAgICAgIDxnIGNsYXNzPSJzdDUiPgogICAgICAgIDxwYXRoIGNsYXNzPSJzdDYiIGQ9Ik0xOTMuMDUsMjcuNDRoLTExLjYydi0xMy42NWgxMy40NXYzLjdoLTkuMTF2Ni4yOGg4LjIxYzIuMjMsMCwzLjUtLjI2LDQuNDUtLjl2LTkuMzdoNC40djUuNjFoMy42N3YzLjc5aC0zLjY3djUuODFoLTQuNHYtMi4zNGMtLjk1LjY5LTIuNTcsMS4wNy01LjM4LDEuMDdaTTE4Mi40OSwzNC45MmMwLTEuNjguNzItMi45MiwxLjkxLTMuODIsMS44OC0xLjUsNS4wMy0yLjA4LDguNTktMi4wOHM2LjY4LjU4LDguNTYsMi4wOGMxLjE5LjksMS45MSwyLjE0LDEuOTEsMy44MnMtLjcyLDIuOTUtMS45MSwzLjg1Yy0xLjg4LDEuNDctNS4wMywyLjA1LTguNTYsMi4wNXMtNi43MS0uNTgtOC41OS0yLjA1Yy0xLjE5LS45LTEuOTEtMi4xNy0xLjkxLTMuODVaTTE4Ni44OSwzNC45MmMwLC41NS4yNi45OC43NSwxLjMzLjk4LjY5LDIuODYuOSw1LjM1LjlzNC4zNC0uMiw1LjMyLS45Yy40OS0uMzUuNzgtLjc4Ljc4LTEuMzNzLS4yOS0uOTgtLjc4LTEuMzNjLS45OC0uNjctMi44Ni0uOS01LjMyLS45cy00LjM3LjIzLTUuMzUuOWMtLjQ5LjM1LS43NS43OC0uNzUsMS4zM1oiLz4KICAgICAgICA8cGF0aCBjbGFzcz0ic3Q2IiBkPSJNMjE0LjA0LDEzLjY0aDQuNHY0LjIyYzAsNC42OCwyLjA4LDYuNzcsNS40NCw3LjcydjMuODJjLTMuMTUtLjQ5LTYuMDctMi4wNS03LjYtNC4wMi0xLjQ3LDIuMDUtNC40LDMuNzMtNy42Niw0LjMxdi0zLjc2YzMuNDctMS4wNyw1LjQ0LTMuNTMsNS40NC04LjA3di00LjIyaC0uMDIsMFpNMjMxLjcxLDM2LjY2djMuNjdoLTIwLjd2LTkuNTFoNC40djUuODRoMTYuMzEsMFpNMjMxLjI4LDEzLjV2MTguNzRoLTQuNFYxMy41aDQuNFoiLz4KICAgICAgICA8cGF0aCBjbGFzcz0ic3Q2IiBkPSJNMjU5LjAxLDEzLjV2MjYuNjloLTQuNHYtMi42OWMtLjkuODctMi42OSwxLjMtNS4yLDEuM2gtMTIuNzV2LTMuN2gxMy40NWMyLjE3LDAsMy42NC0uMzUsNC41MS0xLjEzVjEzLjVoNC40LS4wMVpNMjM3LjQ0LDIyLjEyYzAtMy4wNy45LTUuNDEsMi42My02Ljg4LDEuMjEtMS4wNCwyLjk1LTEuNTksNC44My0xLjU5czMuNjQuNTUsNC44NiwxLjU5YzEuNzMsMS40NywyLjYsMy44MiwyLjYsNi44OHMtLjg3LDUuNDEtMi42LDYuOTFjLTEuMjEsMS4wMS0yLjk1LDEuNTYtNC44NiwxLjU2cy0zLjYxLS41NS00LjgzLTEuNTZjLTEuNzMtMS41LTIuNjMtMy44NS0yLjYzLTYuOTFaTTI0MS43OCwyMi4xMmMwLDEuODIuMzIsMy4yNywxLjEsNC4wNS40OS41MiwxLjIxLjcyLDIuMDIuNzJzMS41LS4yLDItLjcyYy44MS0uNzgsMS4xNi0yLjIzLDEuMTYtNC4wNXMtLjM1LTMuMjQtMS4xNi00LjA1Yy0uNDktLjQ5LTEuMTYtLjc1LTItLjc1cy0xLjUzLjI2LTIuMDIuNzVjLS43OC44MS0xLjEsMi4yMy0xLjEsNC4wNVoiLz4KICAgICAgICA8cGF0aCBjbGFzcz0ic3Q2IiBkPSJNMjk2LjgxLDMwLjM4aC0yNC4xMnYtMy42N2gyNC4xMnYzLjY3Wk0yOTUuMTYsMTMuNzl2My42MmgtMTYuNDV2My4zNWgxNi42djMuNTloLTIwLjk5di0xMC41NWgyMC44NS0uMDFaTTI3NC4zMSwzMi4yMWg0LjQydjQuNDVoMTYuODl2My42N2gtMjEuMzF2LTguMTJaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9InN0NiIgZD0iTTMyNC41NywzMC4zOGgtMjQuMTJ2LTMuNjdoMjQuMTJ2My42N1pNMzIyLjkyLDEzLjc5djMuNjJoLTE2LjQ1djMuMzVoMTYuNnYzLjU5aC0yMC45OXYtMTAuNTVoMjAuODUtLjAxWk0zMDIuMDgsMzIuMjFoNC40MnY0LjQ1aDE2Ljg5djMuNjdoLTIxLjMxdi04LjEyaDBaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9InN0NiIgZD0iTTM0My4yOCwxNS4zOHYzLjQ3aC0xNS40MXYtMy40N2g1LjU4di0yLjY2aDQuNDJ2Mi42Nmg1LjQxWk0zMjguNjIsMjUuNWMwLTEuNzEuNjctMy4wOSwxLjg4LTQuMDUsMS4yNC0xLjAxLDMuMDQtMS41Niw1LjA5LTEuNTZzMy44Ny41NSw1LjEyLDEuNTZjMS4yMS45NSwxLjg4LDIuMzQsMS44OCw0LjA1cy0uNjcsMy4wOS0xLjg4LDQuMDVjLTEuMjQuOTgtMy4wNCwxLjU2LTUuMTIsMS41NnMtMy44NS0uNTgtNS4wOS0xLjU2Yy0xLjIxLS45Ni0xLjg4LTIuMzQtMS44OC00LjA1Wk0zMzAuMTMsMzIuMDZoNC40MnY0LjZoMTYuMDJ2My42N2gtMjAuNDR2LTguMjdaTTMzMi44MiwyNS41YzAsLjYxLjI2LDEuMTMuNjcsMS41LjQ5LjQ2LDEuMjQuNzIsMi4xMS43MnMxLjY1LS4yNiwyLjE0LS43MmMuNC0uMzguNjctLjkuNjctMS41cy0uMjYtMS4xNi0uNjctMS41M2MtLjQ5LS40Ni0xLjI3LS42OS0yLjE0LS42OXMtMS42Mi4yMy0yLjExLjY5Yy0uNC4zOC0uNjcuOS0uNjcsMS41M1pNMzQ1Ljc0LDEzLjVoNC40djcuMmgzLjY3djMuNzloLTMuNjd2OC41NmgtNC40VjEzLjVaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9InN0NiIgZD0iTTM2Ny4xNCwzNC43OHYtMTcuMTJoLTIuMTF2LTMuN2gxNS4zNXYzLjdoLTIuMTF2MTEuMjhjMCwyLjE0LS4xNCw0LjIyLS40Niw1Ljg0LDEuOTctLjAzLDMuMzUtLjM1LDQuMTktMS4wNFYxMy41aDQuNHYxMC40NGgzLjl2My43OWgtMy45djEyLjQ2aC00LjR2LTIuOTVjLS45My44NC0yLjc1LDEuMjEtNS4xOCwxLjIxaC0xMi4xMnYtMy42N2gyLjQ0LDBaTTM3NC4wMywyOS4xNHYtMTEuNDhoLTIuNjZ2MTcuMTJoMi4zMWMuMjktMS42Mi4zNS0zLjYxLjM1LTUuNjRaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9InN0NiIgZD0iTTQxNi4yMiwzOS4wOWgtMjMuODN2LTMuNzZoMjMuODN2My43NlpNNDE0Ljg5LDEzLjk2djMuN2gtMTYuNzd2My4yN2gxNi40NXYzLjY3aC0xNi40NXYzLjNoMTcuMDl2My43NmgtMjEuNTFWMTMuOTZoMjEuMTlaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9InN0NiIgZD0iTTQzMS41OCwzOC40NWgtMTAuNThWMTMuNzhoNC4zN3YyMC45OWg2LjM5YzEuODgsMCwzLjQxLS4wOSw0LjYzLS40M3YzLjU2Yy0xLjIxLjQzLTIuODYuNTUtNC44LjU1aC0uMDFaTTQzOC4yLDI2LjI4aC03LjM3di0zLjc5aDcuMzd2LTguOTloNC40djI2LjY5aC00LjR2LTEzLjkxWiIvPgogICAgICA8L2c+CiAgICA8L2c+CiAgPC9nPgogIDxnIGNsYXNzPSJzdDUiPgogICAgPGcgY2xhc3M9InN0NSI+CiAgICAgIDxnIGNsYXNzPSJzdDUiPgogICAgICAgIDxwYXRoIGNsYXNzPSJzdDYiIGQ9Ik00NzMuODgsOTMuNTFoLTE2Ljg0di0xNS4zN2g4Ny45OXYxNS4zN2gtMTYuNzR2MjMuODloLTE4di0yMy44OWgtMTguMzF2MjMuODloLTE4LjF2LTIzLjg5aDBaTTQ1OS43OCw0NC4xNWMwLTcuNTgsMi45NS0xMy42OCw4LTE3Ljc5LDcuMjYtNiwxOC40Mi04LjUzLDMzLjM3LTguNTNzMjUuODksMi41MywzMy4yNiw4LjUzYzUuMDUsNC4xMSw4LjEsMTAuMjEsOC4xLDE3Ljc5cy0zLjA1LDEzLjc5LTguMSwxNy43OWMtNy4zNyw2LTE4LjQyLDguNTMtMzMuMjYsOC41M3MtMjYuMS0yLjUzLTMzLjM3LTguNTNjLTUuMDUtNC04LTEwLjIxLTgtMTcuNzloMFpNNDc4LjIsNDQuMTVjMCwzLjI2LDEuMjYsNS42OCwzLjQ3LDcuMzcsMy42OCwyLjg0LDEwLDMuNzksMTkuNDcsMy43OXMxNS42OC0uOTUsMTkuMzctMy43OWMyLjMyLTEuNjgsMy40Ny00LjExLDMuNDctNy4zNywwLTMuMDUtMS4xNi01LjU4LTMuNDctNy4zNy0zLjY4LTIuNzQtMTAuMS0zLjY4LTE5LjM3LTMuNjhzLTE1Ljc5Ljk1LTE5LjQ3LDMuNjhjLTIuMjEsMS43OS0zLjQ3LDQuMzItMy40Nyw3LjM3WiIvPgogICAgICAgIDxwYXRoIGNsYXNzPSJzdDYiIGQ9Ik01NTguOTMsNDQuMzZjMC05LjM3LDMuMzctMTYuODQsOS4wNS0yMS40Nyw0LjUzLTMuNjgsMTAuNDItNS41OCwxNy41OC01LjU4czEzLjA1LDEuODksMTcuNTgsNS41OGMxLjE2Ljk1LDIuMjEsMi4xMSwzLjI2LDMuMjZoMTYuNDJ2LTguMzJoMTguNDJ2NTYuMzFoLTE4LjQydi0xMS4wNWgtMTYuOTVjLS44NC45NS0xLjc5LDEuNzktMi43NCwyLjYzLTQuNTMsMy42OC0xMC41Myw1Ljc5LTE3LjU4LDUuNzlzLTEzLjA1LTIuMS0xNy41OC01Ljc5Yy01LjY4LTQuNjMtOS4wNS0xMS44OS05LjA1LTIxLjM3aC4wMVpNNTY0LjkzLDk2Ljc4YzAtNi4zMiwyLjk1LTExLjE2LDcuNjgtMTQuNTMsNy4yNi01LjE2LDE4Ljc0LTcuMjYsMzEuNTgtNy4yNnMyNC4zMSwyLjExLDMxLjQ3LDcuMjZjNC44NCwzLjM3LDcuNzksOC4yMSw3Ljc5LDE0LjUzcy0yLjk1LDExLjI2LTcuNzksMTQuNjNjLTcuMTYsNS4yNi0xOC43Myw3LjI2LTMxLjQ3LDcuMjZzLTI0LjMxLTItMzEuNTgtNy4yNmMtNC43NC0zLjM3LTcuNjgtOC4yMS03LjY4LTE0LjYzWk01OTQuNTEsNDQuMzZjMC00LjUzLS45NS03Ljc5LTMuMTYtMTAtMS40Ny0xLjQ3LTMuMzctMi40Mi01Ljc5LTIuNDJzLTQuNDIuOTUtNiwyLjQyYy0yLDIuMjEtMy4xNiw1LjQ3LTMuMTYsMTBzMS4xNiw3Ljg5LDMuMTYsMTBjMS41OCwxLjU4LDMuNDcsMi4zMiw2LDIuMzJzNC4zMi0uNzQsNS43OS0yLjMyYzIuMjEtMi4xMSwzLjE2LTUuNjgsMy4xNi0xMFpNNTgzLjA0LDk2Ljc4YzAsMS43OS45NSwzLjA1LDIuNTMsNC4yMSwzLjM3LDIuMTEsMTAuMSwyLjk1LDE4LjYzLDIuOTVzMTUuMTYtLjg0LDE4LjUzLTIuOTVjMS42OC0xLjE2LDIuNDItMi40MiwyLjQyLTQuMjEsMC0xLjY4LS43NC0yLjg0LTIuNDItNC0zLjM3LTIuMTEtMTAtMy4wNS0xOC41My0zLjA1cy0xNS4yNi45NS0xOC42MywzLjA1Yy0xLjU4LDEuMTYtMi41MywyLjMyLTIuNTMsNFpNNjExLjc3LDQwLjU3Yy4xMSwxLjI2LjIxLDIuNTMuMjEsMy43OSwwLDEuNDctLjExLDIuOTUtLjIxLDQuMzJoMTEuMDV2LTguMWgtMTEuMDVaIi8+CiAgICAgIDwvZz4KICAgIDwvZz4KICA8L2c+Cjwvc3ZnPg==" alt="노무법인 유영"></a>
             <ul class="nav">
-                <li><a href="#company">법인소개</a></li>
                 <li><a href="#advisory">기업자문</a></li>
                 <li><a href="#cases">노동사건</a></li>
                 <li><a href="#support">정부지원금</a></li>
-                <li><a href="#contact">상담</a></li>
+                <li><a href="#process">상담 절차</a></li>
             </ul>
             <div class="head-cta">
-                <a href="tel:010-4835-8422" class="btn btn-navy btn-sm">전화상담</a>
-                <a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-kakao btn-sm" target="_blank" rel="noopener">카톡상담</a>
+                <a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-ghost btn-sm" target="_blank" rel="noopener"><span class="dot"></span>카톡</a>
+                <a href="tel:010-4835-8422" class="btn btn-ink btn-sm">전화 상담</a>
             </div>
         </div>
     </header>
 
     <main id="top">
         <section class="hero">
-            <video autoplay muted loop playsinline preload="metadata" aria-hidden="true">
-                <source src="hero-video.mp4" type="video/mp4">
-            </video>
             <div class="wrap">
-                <span class="eyebrow">LABOR LAW FIRM YUYOUNG</span>
-                <h1>사람이 함께 크는 회사,<br><em>노무법인 유영</em>이 지킵니다</h1>
-                <p class="lead">노사관계에서 생기는 여러 문제에 합리적이고 실용적인 해결책을 드립니다. 고객과 함께 성장하는, 든든하고 믿을 수 있는 파트너가 되겠습니다.</p>
-                <div class="actions">
-                    <a href="tel:010-4835-8422" class="btn btn-gold">전화 상담</a>
-                    <a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-line" target="_blank" rel="noopener">카톡 상담</a>
+                <p class="kicker rv">노무법인 유영 · 공인노무사 손유권</p>
+                <h1 class="rv">노사 문제에<br><span class="soft">합리적이고</span> 실용적인<br>답을 드립니다.</h1>
+                <div class="hero-bottom rv">
+                    <p class="lead">인사노무 자문부터 노동사건, 정부지원금까지. 고객과 함께 성장하는, 든든하고 믿을 수 있는 파트너가 되겠습니다.</p>
+                    <div class="actions">
+                        <a href="tel:010-4835-8422" class="btn btn-ink">전화 상담</a>
+                        <a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-ghost" target="_blank" rel="noopener"><span class="dot"></span>카카오톡 상담</a>
+                    </div>
                 </div>
-                <div class="hero-points">
-                    <div><b>노무·세무 통합</b><span>노무사와 세무사가 한 팀</span></div>
-                    <div><b>맞춤 솔루션</b><span>규모·업종에 맞춘 설계</span></div>
-                    <div><b>예방 중심</b><span>분쟁 전에 미리 차단</span></div>
+                <div class="facts rv">
+                    <div><b>노무·세무 통합</b><span>노무사와 세무사가 한 팀으로 기업에 맞는 전략을 제시합니다.</span></div>
+                    <div><b>맞춤 설계</b><span>규모와 업종에 맞는 인사노무 체계를 설계하고 운영을 돕습니다.</span></div>
+                    <div><b>예방 중심</b><span>문제가 생기기 전에 위험을 진단하고 분쟁을 미리 막습니다.</span></div>
                 </div>
             </div>
         </section>
 
-        <section id="company">
-            <div class="wrap">
-                <div class="sec-head rv">
-                    <div><span class="no">01 · WHY YUYOUNG</span><h2>왜 유영을<br>선택할까요?</h2></div>
-                    <p>검증된 전문성과 실질적인 해결책으로 기업의 성장을 돕습니다.</p>
+        <section class="block" id="advisory">
+            <div class="wrap split">
+                <div class="split-head rv">
+                    <p class="label">01 — 기업자문</p>
+                    <h2>인사노무 전반을<br>한 곳에서</h2>
+                    <p>일상 상담부터 중요한 의사결정까지 함께합니다.</p>
                 </div>
-                <div class="why">
-                    <article class="rv"><div class="n">01</div><h3>노무·세무 통합 서비스</h3><p>노무사와 세무사가 한 팀을 이루어 기업에 딱 맞는 전략을 제시합니다.</p></article>
-                    <article class="rv"><div class="n">02</div><h3>맞춤 솔루션</h3><p>기업의 규모와 업종에 맞는 인사노무 체계를 설계하고 운영을 지원합니다.</p></article>
-                    <article class="rv"><div class="n">03</div><h3>예방 중심</h3><p>문제가 생기기 전에 위험을 진단하고, 체계적인 예방으로 분쟁을 미리 막습니다.</p></article>
-                </div>
-            </div>
-        </section>
-
-        <section id="advisory" class="bg-mist">
-            <div class="wrap">
-                <div class="sec-head rv">
-                    <div><span class="no">02 · SERVICES</span><h2>기업 맞춤 서비스</h2></div>
-                    <p>인사노무 전반을 책임지는 원스톱 서비스. 일상 상담부터 분쟁 대응까지 한 곳에서 해결합니다.</p>
-                </div>
-                <div class="svc">
-                    <div class="svc-row rv">
-                        <span class="n">01</span>
-                        <div><h3>기업 종합 자문</h3><p>일상적인 인사노무 상담부터 중요한 의사결정까지 지원</p></div>
-                        <ul><li>정기 자문 (노무·세무 통합)</li><li>근로계약서 등 서류 정비</li><li>인사제도 설계 및 개선</li><li>법정의무교육</li></ul>
-                        <a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-navy" target="_blank" rel="noopener">상담 신청</a>
-                    </div>
-                    <div class="svc-row rv">
-                        <span class="n">02</span>
-                        <div><h3>노동 분쟁 대응</h3><p>부당해고·임금체불 등 노동 분쟁에서 기업을 보호</p></div>
-                        <ul><li>부당해고 구제신청 대응</li><li>임금체불 진정 대응</li><li>괴롭힘·성희롱 조사</li><li>근로자와 협상 지원</li></ul>
-                        <a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-navy" target="_blank" rel="noopener">상담 신청</a>
-                    </div>
-                    <div class="svc-row rv">
-                        <span class="n">03</span>
-                        <div><h3>스타트업 특화</h3><p>빠르게 성장하는 스타트업을 위한 맞춤 노무 서비스</p></div>
-                        <ul><li>창업 초기 인사제도 설계</li><li>임금체계 설계</li><li>조직 확장 시 법률 위험 관리</li><li>투자유치 대비 노무실사</li></ul>
-                        <a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-navy" target="_blank" rel="noopener">상담 신청</a>
-                    </div>
+                <div class="items">
+                    <div class="item rv"><span class="num">01</span><div><h3>기업 종합 자문</h3><p>일상적인 인사노무 상담부터 중요한 의사결정까지</p></div><ul><li>정기 자문 (노무·세무 통합)</li><li>근로계약서 등 서류 정비</li><li>인사제도 설계 및 개선</li><li>법정의무교육</li></ul></div>
+                    <div class="item rv"><span class="num">02</span><div><h3>노동 분쟁 대응</h3><p>부당해고·임금체불 등 분쟁에서 기업을 보호</p></div><ul><li>부당해고 구제신청 대응</li><li>임금체불 진정 대응</li><li>괴롭힘·성희롱 조사</li><li>근로자와 협상 지원</li></ul></div>
+                    <div class="item rv"><span class="num">03</span><div><h3>스타트업 특화</h3><p>빠르게 성장하는 회사를 위한 노무 설계</p></div><ul><li>창업 초기 인사제도 설계</li><li>임금체계 설계</li><li>조직 확장 시 법률 위험 관리</li><li>투자유치 대비 노무실사</li></ul></div>
                 </div>
             </div>
         </section>
 
-        <section id="cases">
-            <div class="wrap">
-                <div class="sec-head rv">
-                    <div><span class="no">03 · LABOR CASES</span><h2>노동사건 전문 대응</h2></div>
-                    <p>복잡한 노동 분쟁, 경험 많은 전문가가 해결합니다.</p>
+        <section class="block" id="cases">
+            <div class="wrap split">
+                <div class="split-head rv">
+                    <p class="label">02 — 노동사건</p>
+                    <h2>복잡한 노동 분쟁,<br>끝까지 대응합니다</h2>
+                    <p>경험 많은 노무사가 사건을 직접 맡습니다.</p>
                 </div>
-                <div class="svc">
-                    <div class="svc-row rv">
-                        <span class="n">01</span>
-                        <div><h3>부당해고</h3><p>정당한 이유 없는 해고에 대한 구제신청 대리</p></div>
-                        <ul><li>부당해고 구제신청 대리</li><li>노동위원회 심판 대응</li><li>금전보상 및 복직 협상</li></ul>
-                        <a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-navy" target="_blank" rel="noopener">상담 신청</a>
-                    </div>
-                    <div class="svc-row rv">
-                        <span class="n">02</span>
-                        <div><h3>임금체불</h3><p>밀린 급여·퇴직금 등 체불임금 청구 대리</p></div>
-                        <ul><li>임금체불 진정 대리</li><li>금전 협상 대리</li><li>간이대지급금 신청 대리</li></ul>
-                        <a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-navy" target="_blank" rel="noopener">상담 신청</a>
-                    </div>
-                    <div class="svc-row rv">
-                        <span class="n">03</span>
-                        <div><h3>직장 내 괴롭힘</h3><p>피해자 보호 및 가해자 징계</p></div>
-                        <ul><li>괴롭힘 신고 대리</li><li>증거자료 수집 지원</li><li>가해자 징계 요청</li></ul>
-                        <a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-navy" target="_blank" rel="noopener">상담 신청</a>
-                    </div>
+                <div class="items">
+                    <div class="item rv"><span class="num">01</span><div><h3>부당해고</h3><p>정당한 이유 없는 해고에 대한 구제신청</p></div><ul><li>부당해고 구제신청 대리</li><li>노동위원회 심판 대응</li><li>금전보상 및 복직 협상</li></ul></div>
+                    <div class="item rv"><span class="num">02</span><div><h3>임금체불</h3><p>밀린 급여·퇴직금 등 체불임금 청구</p></div><ul><li>임금체불 진정 대리</li><li>금전 협상 대리</li><li>간이대지급금 신청 대리</li></ul></div>
+                    <div class="item rv"><span class="num">03</span><div><h3>직장 내 괴롭힘</h3><p>피해자 보호 및 가해자 징계</p></div><ul><li>괴롭힘 신고 대리</li><li>증거자료 수집 지원</li><li>가해자 징계 요청</li></ul></div>
                 </div>
             </div>
         </section>
 
-        <section id="support" class="bg-mist">
-            <div class="wrap">
-                <div class="sec-head rv">
-                    <div><span class="no">04 · GRANTS</span><h2>정부지원금 컨설팅</h2></div>
-                    <p>놓치기 쉬운 정부 지원사업, 유영이 찾아드립니다.</p>
+        <section class="block" id="support">
+            <div class="wrap split">
+                <div class="split-head rv">
+                    <p class="label">03 — 정부지원금</p>
+                    <h2>놓치기 쉬운<br>지원사업을 찾아드립니다</h2>
+                    <p>받을 수 있는 지원금을 확인하고 신청까지 돕습니다.</p>
                 </div>
-                <div class="grant">
-                    <article class="rv"><h3>청년일자리도약장려금</h3><p>청년 고용 관련 정부지원금을 받을 수 있도록 컨설팅합니다.</p><p class="note">2026년 기준, 1인당 720만원 지원</p><a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-navy" target="_blank" rel="noopener">상담 신청</a></article>
-                    <article class="rv"><h3>고용장려금</h3><p>고용창출·고용유지 등 여러 고용장려금 신청을 대행하고, 최대 금액을 받을 수 있도록 돕습니다.</p><a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-navy" target="_blank" rel="noopener">상담 신청</a></article>
-                    <article class="rv"><h3>일자리안정자금</h3><p>최저임금 인상에 따른 인건비 부담을 줄일 수 있는 일자리안정자금 신청을 지원합니다.</p><a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-navy" target="_blank" rel="noopener">상담 신청</a></article>
+                <div class="items">
+                    <div class="item rv"><span class="num">01</span><div><h3>청년일자리도약장려금</h3><p>청년 고용 관련 정부지원금 컨설팅</p></div><div><ul><li>지원 대상 여부 확인</li><li>신청 서류 준비·제출</li></ul><span class="note">2026년 기준, 1인당 720만원 지원</span></div></div>
+                    <div class="item rv"><span class="num">02</span><div><h3>고용장려금</h3><p>고용창출·고용유지 등 각종 장려금</p></div><ul><li>신청 대행</li><li>받을 수 있는 금액 최대화</li></ul></div>
+                    <div class="item rv"><span class="num">03</span><div><h3>일자리안정자금</h3><p>인건비 부담을 덜어 주는 지원</p></div><ul><li>최저임금 인상에 따른 부담 완화</li><li>신청 지원</li></ul></div>
                 </div>
             </div>
         </section>
 
-        <section>
+        <section class="block" id="process">
             <div class="wrap">
-                <div class="sec-head rv">
-                    <div><span class="no">05 · PROCESS</span><h2>상담은 이렇게<br>진행됩니다</h2></div>
-                    <p>전화나 카카오톡으로 편하게 연락 주세요.</p>
+                <div class="split" style="margin-bottom:56px">
+                    <div class="split-head rv" style="position:static">
+                        <p class="label">04 — 상담 절차</p>
+                        <h2>이렇게 진행됩니다</h2>
+                    </div>
+                    <div></div>
                 </div>
                 <ol class="steps rv">
-                    <li><b>문의</b><span>전화 또는 카카오톡으로 연락</span></li>
-                    <li><b>상황 확인</b><span>노무사가 사실관계와 자료를 확인</span></li>
-                    <li><b>해결 방안 안내</b><span>대응 방향과 진행 방법 설명</span></li>
-                    <li><b>진행</b><span>신고·서면·협상 등 실제 업무 수행</span></li>
+                    <li><span class="num">01</span><b>문의</b><span>전화 또는 카카오톡으로 연락 주세요.</span></li>
+                    <li><span class="num">02</span><b>상황 확인</b><span>노무사가 사실관계와 자료를 확인합니다.</span></li>
+                    <li><span class="num">03</span><b>방향 안내</b><span>대응 방향과 진행 방법을 설명드립니다.</span></li>
+                    <li><span class="num">04</span><b>진행</b><span>신고·서면·협상 등 실제 업무를 수행합니다.</span></li>
                 </ol>
             </div>
         </section>
 
-        <section class="cta-band" id="contact">
-            <div class="wrap rv">
-                <h2>노동법 문제,<br>지금 바로 해결하세요</h2>
-                <p>전문가가 상황을 정확히 파악하고 가장 좋은 해결책을 드립니다.</p>
-                <div class="actions">
-                    <a href="tel:010-4835-8422" class="btn btn-gold">전화 상담</a>
-                    <a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-kakao" target="_blank" rel="noopener">카톡 상담</a>
+        <section class="closing" id="contact">
+            <div class="wrap">
+                <h2 class="rv">노동법 문제,<br><span class="soft">지금</span> 상담하세요.</h2>
+                <div class="closing-bottom rv">
+                    <a href="tel:010-4835-8422" class="tel"><small>대표 전화</small>010-4835-8422</a>
+                    <div class="actions">
+                        <a href="tel:010-4835-8422" class="btn btn-white">전화 상담</a>
+                        <a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-line-w" target="_blank" rel="noopener"><span class="dot"></span>카카오톡 상담</a>
+                    </div>
                 </div>
-                <p class="tel">☎ 010-4835-8422</p>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="wrap">
-            <p class="name">노무법인 유영</p>
-            <p>대표노무사 손유권 · 서울특별시 강남구 선릉로 578, 7층(태정빌딩)</p>
-            <p>사업자등록번호 645-88-02930 · 전화 010-4835-8422 · 팩스 0504-340-8422 · 이메일 cplayk@naver.com</p>
-            <p class="copy">Copyright 노무법인 유영. All rights reserved.</p>
+        <div class="wrap row">
+            <div>
+                <p><b>노무법인 유영</b> · 대표노무사 손유권</p>
+                <p>서울특별시 강남구 선릉로 578, 7층(태정빌딩)</p>
+                <p>사업자등록번호 645-88-02930 · 전화 010-4835-8422 · 팩스 0504-340-8422 · cplayk@naver.com</p>
+            </div>
+            <p>© 노무법인 유영</p>
         </div>
     </footer>
 
     <nav class="mbar" aria-label="빠른 상담">
-        <a href="tel:010-4835-8422" class="t">전화 상담</a>
-        <a href="https://pf.kakao.com/_BaeGn/chat" class="k" target="_blank" rel="noopener">카톡 상담</a>
+        <a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-ghost" target="_blank" rel="noopener"><span class="dot"></span>카카오톡</a>
+        <a href="tel:010-4835-8422" class="btn btn-ink">전화 상담</a>
     </nav>
 
     <script>
         document.documentElement.classList.add('js');
         (function () {
+            var hd = document.getElementById('hd');
+            var onScroll = function () { hd.classList.toggle('scrolled', window.scrollY > 10); };
+            window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
             var els = document.querySelectorAll('.rv');
             if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('on'); }); return; }
             var io = new IntersectionObserver(function (entries) {
                 entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('on'); io.unobserve(en.target); } });
-            }, { rootMargin: '0px 0px -8% 0px' });
+            }, { rootMargin: '0px 0px -6% 0px' });
             els.forEach(function (e) { io.observe(e); });
         })();
     </script>
