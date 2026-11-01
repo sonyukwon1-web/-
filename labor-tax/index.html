@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALL IN ONE 통합 자문 | 노무법인 유영 + 세무법인 연우</title>
+    <title>노무·세무 통합 자문 | 노무법인 유영 + 세무법인 연우</title>
     <meta name="robots" content="noindex, nofollow">
-    <meta name="description" content="노무법인 유영 + 세무법인 연우 ALL IN ONE 통합 자문. 대표님은 질문만 하세요.">
-    <meta property="og:title" content="ALL IN ONE 통합 자문 | 노무법인 유영 + 세무법인 연우">
-    <meta property="og:description" content="질문은 한 번, 답은 노무사와 세무사가 같이. 카톡방 하나로 끝내세요.">
+    <meta name="description" content="노무법인 유영 + 세무법인 연우 통합 자문. 한 번 물으면 노무사와 세무사가 같이 답합니다.">
+    <meta property="og:title" content="노무·세무 통합 자문 | 노무법인 유영 + 세무법인 연우">
+    <meta property="og:description" content="대표님은 통역사가 아닙니다. 노무사와 세무사가 한 카톡방에서 같이 답합니다.">
     <meta property="og:image" content="https://hryy.co.kr/images/og-image.png">
     <meta name="theme-color" content="#E6ECF3">
     <link rel="icon" type="image/png" href="/favicon.png">
@@ -53,12 +53,6 @@
         .hero-art { display: flex; flex-direction: column; align-items: center; }
         .stage3d { position: relative; perspective: 1400px; padding: 10px 40px; }
         .stage3d .phone { transform: rotateY(-16deg) rotateX(6deg) rotateZ(1deg); transform-style: preserve-3d; }
-        .chip { position: absolute; display: inline-flex; align-items: center; gap: 8px; height: 46px; padding: 0 18px 0 8px; border-radius: 999px; background: #fff; color: var(--ink); font-weight: 700; font-size: .95rem; white-space: nowrap; box-shadow: 0 18px 40px -12px rgba(16,19,79,.35), 0 2px 0 rgba(16,19,79,.06); animation: float 5s ease-in-out infinite; }
-        .chip.c1 { right: 0; top: 4px; }
-        .chip.c2 { left: 4px; bottom: -6px; animation-delay: -2.5s; }
-        .ci { width: 30px; height: 30px; border-radius: 50%; background: var(--ink); color: #fff; font-size: .85rem; display: inline-flex; align-items: center; justify-content: center; flex: none; }
-        .ci.n { background: var(--ink); } .ci.s { background: var(--sky); margin-left: -14px; border: 2px solid #fff; }
-        @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 
         /* ---------- 휴대폰 + 채팅 ---------- */
         .phone { width: 300px; border-radius: 46px; background: linear-gradient(145deg, #2A2E6E, #0E1030); padding: 11px; box-shadow: 0 50px 90px -30px rgba(16,19,79,.55), 0 20px 40px -20px rgba(16,19,79,.35), inset 0 0 0 1.5px rgba(255,255,255,.12); flex: none; }
@@ -113,46 +107,14 @@
         .bad .phone { filter: saturate(.75); }
         .one { margin-top: 24px; display: flex; justify-content: center; }
         .pains { margin-top: 30px; width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-        .pains li { border-radius: 16px; padding: 14px 6px; text-align: center; font-size: .9rem; display: flex; flex-direction: column; align-items: center; gap: 2px; }
-        .pains b { font-size: 1.3rem; font-weight: 800; letter-spacing: -0.03em; }
         .bad .pains li { background: #fff; color: #555c68; }
         .bad .pains b { color: var(--red); }
         .good .pains li { background: rgba(255,255,255,.1); color: #D5D9F5; }
         .good .pains b { color: #fff; }
 
-        /* ---------- 겪는 일 (라인아트) ---------- */
-        .lose { margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .lose li { background: var(--paper); border-radius: 26px; padding: 26px 24px 30px; text-align: center; display: flex; flex-direction: column; align-items: center; }
-        .lose .art { width: 100%; max-width: 240px; aspect-ratio: 200 / 140; }
-        .lose svg { width: 100%; height: 100%; display: block; }
-        .lose b { margin-top: 14px; font-size: 1.3rem; font-weight: 800; letter-spacing: -0.03em; color: var(--ink); }
-        .lose span { margin-top: 4px; color: var(--muted); font-size: .95rem; }
-        .lose svg * { stroke-linecap: round; stroke-linejoin: round; }
-        .lose .f-w { fill: #fff; stroke: var(--ink); stroke-width: 2.5; }
-        .lose .f-n { fill: #E3E5F7; stroke: var(--ink); stroke-width: 2.5; }
-        .lose .f-s { fill: #DDF2FC; stroke: #0088C7; stroke-width: 2.5; }
-        .lose .f-r { fill: #FDE3E4; stroke: var(--red); stroke-width: 2.5; }
-        .lose .ln { fill: none; stroke: #9FA8C9; stroke-width: 3; }
-        .lose .ar { fill: none; stroke: var(--ink); stroke-width: 2.5; }
-        .lose .dash { fill: none; stroke: var(--red); stroke-width: 2.5; stroke-dasharray: 5 6; }
-        .lose .tx { font: 800 17px var(--font); fill: var(--ink); text-anchor: middle; }
-        .lose .f-s + path + .tx, .lose text.tx:last-of-type { }
-        .lose .tx2 { font: 800 14px var(--font); fill: var(--red); text-anchor: middle; }
-        .lose .q { font: 800 15px var(--font); fill: var(--red); text-anchor: middle; }
-
         /* ---------- 3D 아이콘 타일 ---------- */
         .ico3d { width: 84px; height: 84px; border-radius: 26px; display: inline-flex; align-items: center; justify-content: center; flex: none; background: linear-gradient(150deg, #3B40C8 0%, #1D2088 60%, #14176A 100%); box-shadow: 0 18px 30px -12px rgba(29,32,136,.65), inset 0 2px 0 rgba(255,255,255,.25), inset 0 -6px 12px rgba(0,0,0,.25); }
         .ico3d svg { width: 46px; height: 46px; fill: none; stroke: #fff; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 2px 2px rgba(0,0,0,.25)); }
-
-        /* ---------- 시작 단계 ---------- */
-        .how { background: var(--paper); }
-        .flow { margin-top: 60px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; position: relative; }
-        .flow::before { content: ''; position: absolute; left: 12%; right: 12%; top: 42px; border-top: 3px dashed #B9C3D6; z-index: 0; }
-        .flow li { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; text-align: center; }
-        .flow em { margin-top: 16px; width: 26px; height: 26px; border-radius: 50%; background: var(--sky); color: #fff; font-style: normal; font-weight: 800; font-size: .85rem; display: flex; align-items: center; justify-content: center; }
-        .flow b { margin-top: 10px; font-size: 1.25rem; font-weight: 800; color: var(--ink); letter-spacing: -0.03em; }
-        .flow span { margin-top: 4px; color: var(--muted); font-size: .92rem; }
-        .flow li:nth-child(3) .ico3d { background: linear-gradient(150deg, #4CC6FF 0%, #00A0E9 55%, #0079B5 100%); box-shadow: 0 18px 30px -12px rgba(0,160,233,.7), inset 0 2px 0 rgba(255,255,255,.35), inset 0 -6px 12px rgba(0,0,0,.2); transform: scale(1.12); }
 
         /* ---------- 같이 보니까 (퍼즐) ---------- */
         .scens { margin-top: 56px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
@@ -166,21 +128,6 @@
         .pn { background: #E3E5F7; color: var(--ink); }
         .ps { background: #DDF2FC; color: #005E8C; }
         .plus { align-self: center; width: 28px; height: 28px; margin: -8px 0; border-radius: 50%; background: #fff; color: var(--ink); font-weight: 800; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1; box-shadow: 0 4px 10px rgba(16,19,79,.15); }
-
-        /* ---------- 가격 ---------- */
-        .price-sec { background: var(--paper); }
-        .pcards { margin-top: 48px; display: grid; grid-template-columns: repeat(2, minmax(0, 340px)); justify-content: center; gap: 22px; }
-        .pcard { background: #fff; border-radius: 28px; padding: 30px 26px 28px; display: flex; flex-direction: column; align-items: center; box-shadow: 0 30px 60px -36px rgba(16,19,79,.5); }
-        .pt { font-weight: 700; color: var(--muted); }
-        .stack3d { margin-top: 22px; height: 270px; width: 190px; display: flex; flex-direction: column; justify-content: flex-end; }
-        .blk { height: var(--h); position: relative; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: .95rem; border-radius: 6px; margin-top: 14px; }
-        .blk::before { content: ''; position: absolute; left: 6px; right: -6px; top: -12px; height: 12px; transform: skewX(-30deg); transform-origin: bottom; border-radius: 4px 4px 0 0; }
-        .blk::after { content: ''; position: absolute; top: -6px; right: -12px; width: 12px; bottom: 6px; transform: skewY(-30deg); transform-origin: left; border-radius: 0 4px 4px 0; }
-        .blk.n { background: #1D2088; } .blk.n::before { background: #3B40C8; } .blk.n::after { background: #12145C; }
-        .blk.s { background: #00A0E9; } .blk.s::before { background: #5FCBFF; } .blk.s::after { background: #0077AE; }
-        .tot { margin-top: 22px; color: var(--muted); font-weight: 600; }
-        .tot b { font-size: 2.1rem; font-weight: 800; color: var(--ink); letter-spacing: -0.04em; margin-right: 4px; }
-        .pnote { margin-top: 22px; font-size: .9rem; color: var(--muted); max-width: 36em; }
 
         /* ---------- 마무리 ---------- */
         .closing { background: var(--ink); color: #fff; padding: 120px 0 120px; overflow: hidden; }
@@ -203,7 +150,7 @@
 
         .js .rv { opacity: 0; transform: translateY(18px); transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
         .js .rv.on { opacity: 1; transform: none; }
-        @media (prefers-reduced-motion: reduce) { .js .rv, .js .rv .m { opacity: 1; transform: none; transition: none; } .chip, .cur { animation: none; } }
+        @media (prefers-reduced-motion: reduce) { .js .rv, .js .rv .m { opacity: 1; transform: none; transition: none; } .cur { animation: none; } }
 
         @media (max-width: 1080px) {
             .scens { grid-template-columns: repeat(2, 1fr); }
@@ -219,39 +166,83 @@
             .actions .btn { width: calc(50% - 5px); }
             .stage3d { padding: 10px 0; }
             .stage3d .phone { transform: none; }
-            .chip { height: 40px; font-size: .85rem; padding-right: 14px; }
-            .chip.c1 { right: -6px; top: -12px; }
-            .chip.c2 { left: -6px; bottom: -14px; }
-            .ci { width: 26px; height: 26px; }
             section.block { padding: 80px 0; }
             .vs-card { padding: 24px 12px 16px; border-radius: 24px; }
             .two { gap: 8px; }
             .two .phone { zoom: .68; }
             .one .phone { zoom: .9; }
-            .pains b { font-size: 1.1rem; }
-            .pains li { font-size: .8rem; padding: 12px 4px; }
-            .lose { grid-template-columns: 1fr; gap: 12px; }
-            .lose li { display: grid; grid-template-columns: 120px 1fr; grid-template-rows: auto auto; column-gap: 14px; align-items: center; text-align: left; padding: 16px 18px 16px 12px; border-radius: 22px; }
-            .lose .art { grid-row: 1 / 3; }
-            .lose b { margin-top: 0; font-size: 1.12rem; align-self: end; }
-            .lose span { font-size: .88rem; align-self: start; }
-            .flow { grid-template-columns: 1fr 1fr; row-gap: 36px; }
-            .flow::before { display: none; }
             .scens { grid-template-columns: 1fr 1fr; gap: 10px; }
             .scen { padding: 22px 10px 14px; border-radius: 22px; }
             .scen > b { font-size: 1.05rem; }
             .pz > span:not(.plus) { font-size: .8rem; min-height: 58px; }
-            .pcards { grid-template-columns: 1fr 1fr; gap: 10px; }
-            .pcard { padding: 22px 8px 20px; border-radius: 22px; }
-            .stack3d { zoom: .72; }
-            .blk { font-size: .78rem; }
-            .tot b { font-size: 1.45rem; }
             .closing { padding: 84px 0 80px; }
             .askbox { height: 54px; font-size: .95rem; padding: 0 14px; }
             .send { width: 54px; height: 54px; }
             .mbar { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); background: rgba(230,236,243,.96); border-top: 1px solid var(--line); }
             .mbar .btn { width: 100%; height: 50px; }
         }
+
+        /* ---------- v2 추가 ---------- */
+        .av svg { width: 62%; height: 62%; fill: none; stroke: #fff; stroke-width: 2.2; stroke-linecap: round; }
+        .hero .lead b { color: var(--ink); }
+        .stage3d .phone { transform: rotateY(-10deg) rotateX(4deg); }
+        .call { position: absolute; left: -150px; display: flex; align-items: flex-start; gap: 10px; width: 190px; padding: 12px 14px; border-radius: 16px; background: #fff; color: var(--ink-2); font-size: .92rem; line-height: 1.45; box-shadow: 0 16px 36px -14px rgba(16,19,79,.35); }
+        .call b { color: var(--ink); }
+        .call em { font-style: normal; width: 24px; height: 24px; border-radius: 50%; background: var(--sky); color: #fff; font-weight: 800; font-size: .8rem; display: flex; align-items: center; justify-content: center; flex: none; margin-top: -1px; }
+        .call::after { content: ''; position: absolute; right: -40px; top: 50%; width: 40px; border-top: 2px dashed var(--sky); }
+        .call.k1 { top: 92px; }
+        .call.k2 { top: 250px; }
+        .sum { margin-top: 34px; width: 100%; max-width: 380px; display: flex; flex-direction: column; gap: 4px; }
+        .sum li { display: flex; align-items: center; gap: 12px; padding: 12px 6px; font-size: 1.12rem; font-weight: 500; border-bottom: 1px solid rgba(0,0,0,.08); }
+        .sum li:last-child { border-bottom: 0; }
+        .sum .mk { width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: .78rem; font-weight: 800; color: #fff; flex: none; }
+        .bad .sum { color: #3a3f4a; }
+        .bad .sum .mk { background: var(--red); }
+        .bad .sum b { color: var(--red); }
+        .good .sum li { border-bottom-color: rgba(255,255,255,.14); color: #E6E8FA; }
+        .good .sum .mk { background: var(--sky); }
+        .good .sum b { color: #fff; }
+
+        .quotes { margin: 56px auto 0; max-width: 760px; display: flex; flex-direction: column; gap: 18px; }
+        .q { display: flex; align-items: flex-start; gap: 14px; max-width: 560px; }
+        .q.r { align-self: flex-end; flex-direction: row-reverse; text-align: right; }
+        .q .av { width: 52px; height: 52px; border-radius: 18px; }
+        .q .nm { font-size: .85rem; color: var(--muted); margin-bottom: 6px; }
+        .q p { display: inline-block; background: #fff; border-radius: 6px 24px 24px 24px; padding: 18px 24px; font-size: clamp(1.15rem, 2.2vw, 1.5rem); font-weight: 700; color: var(--ink-2); letter-spacing: -0.03em; box-shadow: 0 14px 30px -18px rgba(16,19,79,.35); }
+        .q.r p { border-radius: 24px 6px 24px 24px; text-align: left; }
+        .punch { margin-top: 64px; text-align: center; font-size: clamp(1.5rem, 3.2vw, 2.4rem); line-height: 1.3; letter-spacing: -0.04em; color: var(--ink-2); font-weight: 600; }
+        .punch b { color: var(--red); font-weight: 800; }
+
+        .flow3 { margin: 64px auto 0; max-width: 900px; display: grid; grid-template-columns: 1fr 70px 1fr 70px 1fr; align-items: start; }
+        .flow3 li { display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .flow3 .ico3d { width: 120px; height: 120px; border-radius: 36px; }
+        .flow3 .ico3d svg { width: 62px; height: 62px; }
+        .flow3 .ico3d.hi { background: linear-gradient(150deg, #4CC6FF 0%, #00A0E9 55%, #0079B5 100%); box-shadow: 0 22px 36px -14px rgba(0,160,233,.7), inset 0 2px 0 rgba(255,255,255,.35), inset 0 -8px 14px rgba(0,0,0,.2); }
+        .flow3 b { margin-top: 22px; font-size: 1.5rem; font-weight: 800; color: var(--ink); letter-spacing: -0.04em; }
+        .flow3 span { margin-top: 4px; color: var(--muted); font-size: .95rem; }
+        .flow3 .ar { height: 120px; justify-content: center; }
+        .arw { width: 40px; height: 24px; fill: none; stroke: #9AA6C2; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+        .pz i { font-size: .74rem; }
+
+        @media (max-width: 1180px) { .call { left: -110px; width: 170px; } }
+        @media (max-width: 860px) {
+            .call { display: none; }
+            .stage3d .phone { transform: none; }
+            .sum li { font-size: 1rem; padding: 10px 4px; }
+            .vs-card { padding-left: 16px; padding-right: 16px; }
+            .q .av { width: 42px; height: 42px; border-radius: 15px; }
+            .q p { padding: 14px 18px; }
+            .punch { margin-top: 44px; }
+            .flow3 { grid-template-columns: 1fr 34px 1fr 34px 1fr; }
+            .flow3 .ico3d { width: 76px; height: 76px; border-radius: 24px; }
+            .flow3 .ico3d svg { width: 40px; height: 40px; }
+            .flow3 .ar { height: 76px; }
+            .arw { width: 24px; }
+            .flow3 b { margin-top: 14px; font-size: 1.1rem; }
+            .flow3 span { font-size: .78rem; }
+        }
+        .hero h1 { font-size: clamp(2.5rem, 5vw, 4.1rem); }
+        .call.k2 { top: 240px; }
 
     </style>
 </head>
@@ -267,9 +258,9 @@
         <section class="hero">
             <div class="wrap hero-grid">
                 <div class="hero-copy">
-                    <p class="kicker rv">노무법인 유영 + 세무법인 연우 · ALL IN ONE 통합 자문</p>
-                    <h1 class="rv">질문은 한 번.<br><span class="hl">답은 둘이 같이.</span></h1>
-                    <p class="lead rv">노무사와 세무사가 함께 있는 카톡방 하나.<br>대표님은 질문만 하세요.</p>
+                    <p class="kicker rv">노무법인 유영 + 세무법인 연우 · 노무·세무 통합 자문</p>
+                    <h1 class="rv">대표님은<br><span class="hl">통역사가 아닙니다.</span></h1>
+                    <p class="lead rv">노무사와 세무사를 한 카톡방에 모았습니다.<br><b>한 번 물으면, 둘이 같이 답합니다.</b></p>
                     <div class="actions rv">
                         <a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-ink js-kakao" target="_blank" rel="noopener"><span class="dot"></span>통합 상담 신청</a>
                         <a href="tel:010-4835-8422" class="btn btn-ghost">전화 상담</a>
@@ -279,11 +270,11 @@
                     <div class="stage3d">
                         <div class="phone big"><div class="screen">
 <div class="cbar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><b>노무·세무 통합방</b><em>4</em></div>
-<div class="chat"><div class="m me" style="--i:0"><span class="t">10:02</span><p class="bb">다음 달부터 직원들 성과급 주려고 해요. 뭘 하면 되나요?</p></div><div class="m" style="--i:1"><span class="av av-n">노</span><div><span class="nm">손유권 노무사</span><div class="row"><p class="bb">계약서에 성과급 기준을 넣어야 해요. 수정본 오늘 보내 드릴게요.</p><span class="t">10:05</span></div></div></div><div class="m" style="--i:2"><span class="av av-s">세</span><div><span class="nm">조유진 세무사</span><div class="row"><p class="bb">지급할 때 원천징수는 급여에 같이 반영할게요.</p><span class="t">10:06</span></div></div></div><div class="m" style="--i:3"><span class="av av-n">노</span><div><span class="nm">손유권 노무사</span><div class="row"><p class="bb">세무사님, 지급일은 매달 25일로 넣겠습니다.</p><span class="t">10:07</span></div></div></div><div class="m" style="--i:4"><span class="av av-s">세</span><div><span class="nm">조유진 세무사</span><div class="row"><p class="bb">네, 거기에 맞춰 처리할게요.</p><span class="t">10:07</span></div></div></div><div class="m me" style="--i:5"><span class="t">10:09</span><p class="bb">한 번에 끝났네요. 감사합니다!</p></div></div>
+<div class="chat"><div class="m me" style="--i:0"><span class="t">10:02</span><p class="bb">다음 달부터 직원들 성과급 주려고 해요. 뭘 하면 되나요?</p></div><div class="m" style="--i:1"><span class="av av-n"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4.5 21c.8-4.4 3.8-7 7.5-7s6.7 2.6 7.5 7"/></svg></span><div><span class="nm">노무사</span><div class="row"><p class="bb">계약서에 성과급 기준을 넣어야 해요. 수정본 오늘 보내 드릴게요.</p><span class="t">10:05</span></div></div></div><div class="m" style="--i:2"><span class="av av-s"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4.5 21c.8-4.4 3.8-7 7.5-7s6.7 2.6 7.5 7"/></svg></span><div><span class="nm">세무사</span><div class="row"><p class="bb">지급할 때 원천징수는 급여에 같이 반영할게요.</p><span class="t">10:06</span></div></div></div><div class="m" style="--i:3"><span class="av av-n"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4.5 21c.8-4.4 3.8-7 7.5-7s6.7 2.6 7.5 7"/></svg></span><div><span class="nm">노무사</span><div class="row"><p class="bb">세무사님, 지급일은 매달 25일로 넣겠습니다.</p><span class="t">10:07</span></div></div></div><div class="m" style="--i:4"><span class="av av-s"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4.5 21c.8-4.4 3.8-7 7.5-7s6.7 2.6 7.5 7"/></svg></span><div><span class="nm">세무사</span><div class="row"><p class="bb">네, 거기에 맞춰 처리할게요.</p><span class="t">10:07</span></div></div></div><div class="m me" style="--i:5"><span class="t">10:09</span><p class="bb">한 번에 끝났네요. 감사합니다!</p></div></div>
 <div class="cin"><span>메시지 입력</span><i></i></div>
 </div></div>
-                        <span class="chip c1"><span class="ci">1</span>설명은 한 번</span>
-                        <span class="chip c2"><span class="ci n">노</span><span class="ci s">세</span>동시에 답변</span>
+                        <p class="call k1"><em>1</em><span>대표님은 <b>한 번만</b> 질문</span></p>
+                        <p class="call k2"><em>2</em><span>노무사·세무사가<br><b>같은 방에서</b> 바로 답변</span></p>
                     </div>
                     <p class="ex">예시 대화</p>
                 </div>
@@ -292,36 +283,36 @@
 
         <section class="block vs">
             <div class="wrap">
-                <h2 class="h2 c rv">같은 질문, 이렇게 달라집니다</h2>
+                <h2 class="h2 c rv">같은 질문 하나,<br>이렇게 달라집니다</h2>
                 <div class="vs-grid">
                     <div class="vs-card bad rv">
                         <p class="tag"><span class="x">✕</span>따로 맡기면</p>
                         <div class="two"><div class="phone mini"><div class="screen">
 <div class="cbar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><b>A 노무사</b></div>
-<div class="chat"><div class="m me" style="--i:0"><span class="t">오전 10:02</span><p class="bb">성과급 주려는데 어떻게 하죠?</p></div><div class="m" style="--i:1"><span class="av av-n">노</span><div><span class="nm">A 노무사</span><div class="row"><p class="bb">원천징수는 세무사님께 따로 물어보세요.</p><span class="t">오후 2:40</span></div></div></div><div class="m me" style="--i:2"><span class="t">오후 2:41</span><p class="bb">아… 네</p></div></div>
+<div class="chat"><div class="m me" style="--i:0"><span class="t">오전 10:02</span><p class="bb">성과급 주려는데 어떻게 하죠?</p></div><div class="m" style="--i:1"><span class="av av-n"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4.5 21c.8-4.4 3.8-7 7.5-7s6.7 2.6 7.5 7"/></svg></span><div><span class="nm">A 노무사</span><div class="row"><p class="bb">원천징수는 세무사님께 따로 물어보세요.</p><span class="t">오후 2:40</span></div></div></div><div class="m me" style="--i:2"><span class="t">오후 2:41</span><p class="bb">아… 네</p></div></div>
 <div class="cin"><span>메시지 입력</span><i></i></div>
 </div></div><div class="phone mini"><div class="screen">
 <div class="cbar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><b>B 세무사</b></div>
-<div class="chat"><div class="m me" style="--i:0"><span class="t">오후 2:45</span><p class="bb">노무사님이 물어보라셔서요. 성과급을 주려고 하는데요…</p></div><div class="m" style="--i:1"><span class="av av-s">세</span><div><span class="nm">B 세무사</span><div class="row"><p class="bb">계약서에 지급 기준이 어떻게 돼 있나요? 노무사님께 확인해 주세요.</p><span class="t">다음 날</span></div></div></div><div class="m me" style="--i:2"><span class="t">다음 날</span><p class="bb">또요…?</p></div></div>
+<div class="chat"><div class="m me" style="--i:0"><span class="t">오후 2:45</span><p class="bb">노무사님이 물어보라셔서요. 성과급을 주려고 하는데요…</p></div><div class="m" style="--i:1"><span class="av av-s"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4.5 21c.8-4.4 3.8-7 7.5-7s6.7 2.6 7.5 7"/></svg></span><div><span class="nm">B 세무사</span><div class="row"><p class="bb">계약서에 지급 기준이 어떻게 돼 있나요? 노무사님께 확인해 주세요.</p><span class="t">다음 날</span></div></div></div><div class="m me" style="--i:2"><span class="t">다음 날</span><p class="bb">또요…?</p></div></div>
 <div class="cin"><span>메시지 입력</span><i></i></div>
 </div></div></div>
-                        <ul class="pains">
-                            <li><b>2번</b>같은 설명</li>
-                            <li><b>하루+</b>답 기다림</li>
-                            <li><b>대표님</b>결국 혼자 결정</li>
+                        <ul class="sum">
+                            <li><span class="mk">✕</span><span>같은 설명을 <b>두 번</b> 해야 해요</span></li>
+                            <li><span class="mk">✕</span><span>답 하나에 <b>하루</b>가 걸려요</span></li>
+                            <li><span class="mk">✕</span><span>결정은 결국 <b>대표님 혼자</b></span></li>
                         </ul>
                     </div>
                     <div class="vs-card good rv">
                         <p class="tag"><span class="v">✓</span>같이 맡기면</p>
                         <div class="one"><div class="phone mini"><div class="screen">
 <div class="cbar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><b>노무·세무 통합방</b><em>4</em></div>
-<div class="chat"><div class="m me" style="--i:0"><span class="t">10:02</span><p class="bb">성과급 주려는데 어떻게 하죠?</p></div><div class="m" style="--i:1"><span class="av av-n">노</span><div><span class="nm">노무사</span><div class="row"><p class="bb">계약서는 제가 고칠게요.</p><span class="t">10:05</span></div></div></div><div class="m" style="--i:2"><span class="av av-s">세</span><div><span class="nm">세무사</span><div class="row"><p class="bb">원천징수는 급여에 같이 반영할게요.</p><span class="t">10:06</span></div></div></div><div class="m me" style="--i:3"><span class="t">10:07</span><p class="bb">끝! 감사합니다</p></div></div>
+<div class="chat"><div class="m me" style="--i:0"><span class="t">10:02</span><p class="bb">성과급 주려는데 어떻게 하죠?</p></div><div class="m" style="--i:1"><span class="av av-n"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4.5 21c.8-4.4 3.8-7 7.5-7s6.7 2.6 7.5 7"/></svg></span><div><span class="nm">노무사</span><div class="row"><p class="bb">계약서는 제가 고칠게요.</p><span class="t">10:05</span></div></div></div><div class="m" style="--i:2"><span class="av av-s"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4.5 21c.8-4.4 3.8-7 7.5-7s6.7 2.6 7.5 7"/></svg></span><div><span class="nm">세무사</span><div class="row"><p class="bb">원천징수는 급여에 같이 반영할게요.</p><span class="t">10:06</span></div></div></div><div class="m me" style="--i:3"><span class="t">10:07</span><p class="bb">끝! 감사합니다</p></div></div>
 <div class="cin"><span>메시지 입력</span><i></i></div>
 </div></div></div>
-                        <ul class="pains">
-                            <li><b>1번</b>설명 끝</li>
-                            <li><b>한자리</b>바로 답</li>
-                            <li><b>같이</b>책임도 함께</li>
+                        <ul class="sum">
+                            <li><span class="mk">✓</span><span><b>한 번</b> 말하면 끝</span></li>
+                            <li><span class="mk">✓</span><span><b>한 방</b>에서 바로 답</span></li>
+                            <li><span class="mk">✓</span><span>책임도 <b>둘이 같이</b></span></li>
                         </ul>
                     </div>
                 </div>
@@ -329,87 +320,53 @@
             </div>
         </section>
 
-        <section class="block">
+        <section class="block heard">
             <div class="wrap">
-                <h2 class="h2 c rv">따로 맡기면 겪는 일</h2>
-                <ul class="lose">
-                    <li class="rv"><div class="art"><svg viewBox="0 0 200 140" aria-hidden="true">
-<circle cx="100" cy="58" r="15" class="f-w"/><path d="M74 112c2-20 12-32 26-32s24 12 26 32" class="f-w"/>
-<rect x="14" y="20" width="48" height="34" rx="12" class="f-n"/><path d="M30 54l-4 12 14-12" class="f-n"/><text x="38" y="43" class="tx">노</text>
-<rect x="138" y="20" width="48" height="34" rx="12" class="f-s"/><path d="M170 54l4 12-14-12" class="f-s"/><text x="162" y="43" class="tx">세</text>
-<path d="M66 40 82 50" class="ar"/><path d="M134 40 118 50" class="ar"/>
-<path d="M88 26c4-6 20-6 24 0" class="dash"/><text x="100" y="20" class="q">?</text>
-</svg></div><b>대표님이 통역사</b><span>두 사람 말을 중간에서 옮겨야 해요</span></li>
-                    <li class="rv"><div class="art"><svg viewBox="0 0 200 140" aria-hidden="true">
-<rect x="40" y="18" width="62" height="82" rx="8" class="f-w"/><path d="M52 38h38M52 52h38M52 66h26" class="ln"/>
-<rect x="98" y="38" width="62" height="82" rx="8" class="f-w"/><path d="M110 58h38M110 72h38M110 86h26" class="ln"/>
-<circle cx="160" cy="34" r="17" class="f-r"/><text x="160" y="40" class="tx2">×2</text>
-<path d="M30 112a40 40 0 0 0 46 10" class="dash"/><path d="M70 116l8 6-9 4" class="ar"/>
-</svg></div><b>같은 설명, 두 번</b><span>자료도 두 번, 결정은 늦어져요</span></li>
-                    <li class="rv"><div class="art"><svg viewBox="0 0 200 140" aria-hidden="true">
-<circle cx="34" cy="52" r="13" class="f-n"/><path d="M14 112c2-22 10-34 20-34s18 12 20 34" class="f-n"/>
-<circle cx="166" cy="52" r="13" class="f-s"/><path d="M146 112c2-22 10-34 20-34s18 12 20 34" class="f-s"/>
-<path d="M56 74 76 66M144 74 124 66" class="ar"/>
-<path d="M78 60q22-40 44 0" class="dash"/><circle cx="100" cy="30" r="7" class="f-r"/>
-<text x="100" y="98" class="q">네 탓?</text>
-</svg></div><b>문제 생기면 서로 탓</b><span>책임은 결국 대표님에게</span></li>
+                <h2 class="h2 c rv">이런 말, 들어보셨죠?</h2>
+                <ul class="quotes">
+                    <li class="q l rv"><span class="av av-n"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4.5 21c.8-4.4 3.8-7 7.5-7s6.7 2.6 7.5 7"/></svg></span><div><span class="nm">노무사</span><p>“그건 세무사님께 물어보세요.”</p></div></li>
+                    <li class="q r rv"><span class="av av-s"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4.5 21c.8-4.4 3.8-7 7.5-7s6.7 2.6 7.5 7"/></svg></span><div><span class="nm">세무사</span><p>“노무사님께 한번 확인해 주시겠어요?”</p></div></li>
+                    <li class="q l rv"><span class="av av-n"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4.5 21c.8-4.4 3.8-7 7.5-7s6.7 2.6 7.5 7"/></svg></span><div><span class="nm">노무사</span><p>“자료 한 번만 더 보내 주세요.”</p></div></li>
+                    <li class="q r rv"><span class="av av-s"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4.5 21c.8-4.4 3.8-7 7.5-7s6.7 2.6 7.5 7"/></svg></span><div><span class="nm">세무사</span><p>“그건 저희 쪽 문제가 아니라서요.”</p></div></li>
                 </ul>
+                <p class="punch rv">그 사이를 뛰어다닌 사람,<br><b>바로 대표님입니다.</b></p>
             </div>
         </section>
 
         <section class="block how">
             <div class="wrap">
-                <h2 class="h2 c rv">시작은 이렇게 간단해요</h2>
-                <ol class="flow">
-                    <li class="rv"><span class="ico3d"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 12h32v20H22l-8 7v-7H8z"/><path d="M24 17v10M19 22h10"/></svg></span><em>1</em><b>카톡방 열기</b><span>노무사 + 세무사 통합방</span></li>
-                    <li class="rv"><span class="ico3d"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="17" cy="18" r="5"/><circle cx="31" cy="18" r="5"/><path d="M8 37c1-7 4-11 9-11s8 4 9 11M22 37c1-7 4-11 9-11s8 4 9 11"/></svg></span><em>2</em><b>3~4명 배정</b><span>손유권 노무사 · 조유진 세무사 · 직원</span></li>
-                    <li class="rv"><span class="ico3d"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 10h32v22H22l-8 7v-7H8z"/><path d="M20 17a4 4 0 1 1 5 4c-1 .5-1 1.5-1 3"/><circle cx="24" cy="28" r=".8"/></svg></span><em>3</em><b>질문만 하세요</b><span>노무사·세무사가 함께 읽어요</span></li>
-                    <li class="rv"><span class="ico3d"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6l14 5v11c0 9-6 16-14 20C16 38 10 31 10 22V11z"/><path d="M17 23l5 5 9-10"/></svg></span><em>4</em><b>알아서 처리</b><span>각자 맡은 일을 바로 대응</span></li>
+                <h2 class="h2 c rv">시작은 카톡방 하나</h2>
+                <ol class="flow3">
+                    <li class="rv"><span class="ico3d"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 12h32v20H22l-8 7v-7H8z"/><path d="M24 17v10M19 22h10"/></svg></span><b>카톡방 열기</b><span>노무사·세무사·담당 직원</span></li>
+                    <li class="ar rv" aria-hidden="true"><svg class="arw" viewBox="0 0 40 24" aria-hidden="true"><path d="M2 12h34M26 3l10 9-10 9"/></svg></li>
+                    <li class="rv"><span class="ico3d hi"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 10h32v22H22l-8 7v-7H8z"/><path d="M20 17a4 4 0 1 1 5 4c-1 .5-1 1.5-1 3"/><circle cx="24" cy="28" r=".8"/></svg></span><b>질문 한 줄</b><span>무엇이든 편하게</span></li>
+                    <li class="ar rv" aria-hidden="true"><svg class="arw" viewBox="0 0 40 24" aria-hidden="true"><path d="M2 12h34M26 3l10 9-10 9"/></svg></li>
+                    <li class="rv"><span class="ico3d"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="16"/><path d="M16 24l6 6 11-12"/></svg></span><b>끝</b><span>각자 맡은 일을 처리</span></li>
                 </ol>
             </div>
         </section>
 
         <section class="block">
             <div class="wrap">
-                <h2 class="h2 c rv">같이 보니까 한 번에 됩니다</h2>
+                <h2 class="h2 c rv">같이 보니까, 한 번에 끝납니다</h2>
                 <ul class="scens">
                     <li class="scen rv"><span class="ico3d"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 38h32"/><path d="M12 32l9-9 6 6 11-13"/><path d="M31 16h7v7"/></svg></span><b>연봉 올릴 때</b>
-<div class="pz"><span class="pn"><i>노무</i>근로시간·연장근로 위험</span><span class="plus">+</span><span class="ps"><i>세무</i>세금 계산</span></div></li>
+<div class="pz"><span class="pn"><i>노무사</i>근로시간·연장근로 위험</span><span class="plus">+</span><span class="ps"><i>세무사</i>세금 계산</span></div></li>
                     <li class="scen rv"><span class="ico3d"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M12 40V8h20v32"/><path d="M32 12l6 3v25"/><circle cx="27" cy="25" r="1.4"/><path d="M8 40h34"/></svg></span><b>직원이 그만둘 때</b>
-<div class="pz"><span class="pn"><i>노무</i>퇴직금·계약 정리</span><span class="plus">+</span><span class="ps"><i>세무</i>퇴직소득세</span></div></li>
+<div class="pz"><span class="pn"><i>노무사</i>퇴직금·계약 정리</span><span class="plus">+</span><span class="ps"><i>세무사</i>퇴직소득세</span></div></li>
                     <li class="scen rv"><span class="ico3d"><svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="24" cy="14" rx="13" ry="5"/><path d="M11 14v10c0 3 6 5 13 5s13-2 13-5V14"/><path d="M11 24v10c0 3 6 5 13 5s13-2 13-5V24"/></svg></span><b>급여를 짤 때</b>
-<div class="pz"><span class="pn"><i>노무</i>계약서에 반영</span><span class="plus">+</span><span class="ps"><i>세무</i>절세 구조</span></div></li>
+<div class="pz"><span class="pn"><i>노무사</i>계약서에 반영</span><span class="plus">+</span><span class="ps"><i>세무사</i>절세 구조</span></div></li>
                     <li class="scen rv"><span class="ico3d"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="6"/><path d="M24 6v6M24 36v6M6 24h6M36 24h6M11 11l4 4M33 33l4 4M11 37l4-4M33 15l4-4"/></svg></span><b>매달 하는 일</b>
-<div class="pz"><span class="pn"><i>노무</i>4대보험</span><span class="plus">+</span><span class="ps"><i>세무</i>급여·퇴직금 정산</span></div></li>
+<div class="pz"><span class="pn"><i>노무사</i>4대보험</span><span class="plus">+</span><span class="ps"><i>세무사</i>급여·퇴직금 정산</span></div></li>
                 </ul>
-            </div>
-        </section>
-
-        <section class="block price-sec">
-            <div class="wrap">
-                <h2 class="h2 c rv">가격도 한 번에</h2>
-                <p class="sub c rv">부가세 포함</p>
-                <div class="pcards">
-                    <div class="pcard rv">
-                        <p class="pt">개인사업장</p>
-                        <div class="stack3d"><span class="blk s" style="--h:66px">세무 11만원</span><span class="blk n" style="--h:132px">노무 22만원</span></div>
-                        <p class="tot"><b>33만원</b>부터</p>
-                    </div>
-                    <div class="pcard rv">
-                        <p class="pt">법인사업장</p>
-                        <div class="stack3d"><span class="blk s" style="--h:99px">세무 16만 5천원</span><span class="blk n" style="--h:132px">노무 22만원</span></div>
-                        <p class="tot"><b>38만 5천원</b>부터</p>
-                    </div>
-                </div>
-                <p class="pnote c">노동사건·지원금 수수료 등 특별 업무와 세무 조정료는 별도입니다.</p>
             </div>
         </section>
 
         <section class="closing">
             <div class="wrap close-grid">
                 <div>
-                    <h2 class="rv">궁금한 거,<br><span class="soft">그냥 물어보세요.</span></h2>
-                    <p class="rv">노무 + 세무, 답은 한 방에서 같이 드립니다.</p>
+                    <h2 class="rv">질문은 한 번.<br><span class="soft">답은 둘이 같이.</span></h2>
+                    <p class="rv">노무와 세무, 이제 한 카톡방에서 끝내세요.</p>
                     <div class="actions rv">
                         <a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-white js-kakao" target="_blank" rel="noopener">통합 상담 신청</a>
                         <a href="tel:010-4835-8422" class="btn btn-line-w">전화 010-4835-8422</a>
@@ -442,7 +399,7 @@
             var toast = document.getElementById('copied'), timer;
             document.querySelectorAll('.js-kakao').forEach(function (a) {
                 a.addEventListener('click', function () {
-                    try { navigator.clipboard.writeText('[노무+세무 통합 자문 상담] 회사명: / 개인·법인: / 직원 수: / 지금 맡기고 있는 곳:').then(function () {
+                    try { navigator.clipboard.writeText('[노무·세무 통합 자문 상담] 회사명: / 개인·법인: / 직원 수: / 궁금한 점:').then(function () {
                         toast.classList.add('show'); clearTimeout(timer); timer = setTimeout(function () { toast.classList.remove('show'); }, 3000);
                     }).catch(function () {}); } catch (e) {}
                 });
