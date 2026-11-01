@@ -53,7 +53,7 @@
     <meta property="daumoa:image" content="https://hryy.co.kr/images/og-image.png">
     
     <!-- 추가 SEO 메타태그 -->
-    <meta name="theme-color" content="#f6f5f1">
+    <meta name="theme-color" content="#DDE3E8">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -95,13 +95,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
     <style>
         :root {
-            --bg: #f6f5f1;
-            --paper: #ffffff;
-            --ink: #121315;
-            --ink-2: #2b2d31;
-            --muted: #6b6a66;
-            --line: #dedbd3;
-            --accent: #1d2088;
+            --bg: #DDE3E8;
+            --paper: #F7F8FA;
+            --ink: #3A0F34;
+            --ink-2: #2B2430;
+            --muted: #5C6470;
+            --line: #C3CBD3;
+            --accent: #3A0F34;
+            --gold: #EAAA00;
             --font: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, 'Noto Sans KR', sans-serif;
             --wrap: 1240px;
         }
@@ -115,7 +116,7 @@
         /* 버튼: 크기 고정, 글자 가운데 */
         .btn { display: inline-flex; align-items: center; justify-content: center; text-align: center; height: 56px; width: 200px; border-radius: 999px; font-weight: 600; font-size: 1rem; white-space: nowrap; flex: none; transition: background .2s ease, color .2s ease; }
         .btn-ink { background: var(--ink); color: #fff; border: 1px solid var(--ink); }
-        .btn-ink:hover { background: var(--accent); border-color: var(--accent); }
+        .btn-ink:hover { background: #551A4D; border-color: #551A4D; }
         .btn-ghost { border: 1px solid var(--ink); color: var(--ink); }
         .btn-ghost:hover { background: var(--ink); color: #fff; }
         .btn-white { background: #fff; color: var(--ink); border: 1px solid #fff; }
@@ -126,7 +127,7 @@
         .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #fee500; margin-right: 8px; flex: none; }
 
         /* 헤더 */
-        header { position: fixed; inset: 0 0 auto 0; z-index: 50; height: 72px; background: rgba(246,245,241,.9); backdrop-filter: saturate(160%) blur(12px); -webkit-backdrop-filter: saturate(160%) blur(12px); border-bottom: 1px solid transparent; transition: border-color .3s ease; }
+        header { position: fixed; inset: 0 0 auto 0; z-index: 50; height: 72px; background: rgba(221,227,232,.9); backdrop-filter: saturate(160%) blur(12px); -webkit-backdrop-filter: saturate(160%) blur(12px); border-bottom: 1px solid transparent; transition: border-color .3s ease; }
         header.scrolled { border-bottom-color: var(--line); }
         header .wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
         .logo img { height: 34px; display: block; }
@@ -138,9 +139,9 @@
         /* 첫 화면 */
         .hero { padding: 200px 0 120px; }
         .kicker { font-size: .9rem; color: var(--muted); font-weight: 500; display: flex; align-items: center; gap: 10px; }
-        .kicker::before { content: ''; width: 28px; height: 1px; background: var(--ink); }
+        .kicker::before { content: ''; width: 28px; height: 3px; border-radius: 2px; background: var(--gold); }
         .hero h1 { margin-top: 32px; font-size: clamp(2.6rem, 7.2vw, 6rem); line-height: 1.12; font-weight: 700; letter-spacing: -0.045em; }
-        .hero h1 .soft { color: #a29f97; }
+        .hero h1 .soft { color: #8B93A0; }
         .hero-bottom { margin-top: 64px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: end; }
         .hero .lead { font-size: 1.15rem; color: var(--ink-2); max-width: 30em; }
         .hero .actions { display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap; }
@@ -165,7 +166,7 @@
         .item h3 { font-size: 1.45rem; font-weight: 650; letter-spacing: -0.03em; line-height: 1.35; }
         .item h3 + p { margin-top: 8px; color: var(--muted); font-size: .98rem; }
         .item ul li { font-size: .98rem; color: var(--ink-2); padding: 3px 0; }
-        .item ul li::before { content: '—'; color: #b3afa6; margin-right: 10px; }
+        .item ul li::before { content: '—'; color: #9AA2AD; margin-right: 10px; }
         .item .note { display: inline-block; margin-top: 12px; font-size: .9rem; font-weight: 600; color: var(--accent); }
 
         /* 진행 순서 */
@@ -179,15 +180,15 @@
         /* 마지막 상담 */
         .closing { background: var(--ink); color: #fff; padding: 150px 0 140px; }
         .closing h2 { font-size: clamp(2.4rem, 6vw, 5rem); line-height: 1.12; font-weight: 700; letter-spacing: -0.045em; }
-        .closing h2 .soft { color: #77746d; }
+        .closing h2 .soft { color: var(--gold); }
         .closing-bottom { margin-top: 64px; display: flex; justify-content: space-between; align-items: end; gap: 32px; flex-wrap: wrap; }
         .closing .tel { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 600; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
-        .closing .tel small { display: block; font-size: .9rem; font-weight: 400; color: #8e8b84; letter-spacing: 0; margin-bottom: 6px; }
+        .closing .tel small { display: block; font-size: .9rem; font-weight: 400; color: #B9A9B6; letter-spacing: 0; margin-bottom: 6px; }
         .closing .actions { display: flex; gap: 10px; flex-wrap: wrap; }
 
-        footer { background: var(--ink); color: #8e8b84; border-top: 1px solid #2a2b2e; padding: 40px 0 120px; font-size: .88rem; }
+        footer { background: #2A0A26; color: #B9A9B6; border-top: 1px solid #4A1F44; padding: 40px 0 120px; font-size: .88rem; }
         footer .row { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
-        footer b { color: #e8e6e1; font-weight: 600; }
+        footer b { color: #F3EEF2; font-weight: 600; }
         footer p + p { margin-top: 2px; }
 
         .mbar { display: none; }
@@ -222,14 +223,14 @@
             .steps b { margin-top: 18px; }
             .closing { padding: 96px 0 88px; }
             .closing .actions { width: 100%; }
-            .mbar { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); background: rgba(246,245,241,.96); border-top: 1px solid var(--line); }
+            .mbar { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); background: rgba(221,227,232,.96); border-top: 1px solid var(--line); }
             .mbar .btn { width: 100%; height: 50px; }
         }
 
         /* ───── 상황 찾기 (첫 화면) ───── */
         .finder { padding: 150px 0 110px; }
         .finder h1 { margin-top: 26px; font-size: clamp(2.5rem, 6.4vw, 5.4rem); line-height: 1.1; font-weight: 700; letter-spacing: -0.045em; }
-        .finder h1 .soft { color: #a29f97; }
+        .finder h1 .soft { color: #8B93A0; }
         .finder .sub { margin-top: 20px; font-size: 1.12rem; color: var(--ink-2); }
 
         .who { margin-top: 48px; display: inline-grid; grid-template-columns: 140px 140px; padding: 4px; border: 1px solid var(--ink); border-radius: 999px; position: relative; }
@@ -247,7 +248,7 @@
         .tile .i { flex: none; width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; font-size: .78rem; font-weight: 600; color: var(--muted); font-variant-numeric: tabular-nums; transition: inherit; }
         .tile:hover { border-color: var(--ink); }
         .tile[aria-pressed="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
-        .tile[aria-pressed="true"] .i { border-color: rgba(255,255,255,.35); color: #fff; }
+        .tile[aria-pressed="true"] .i { background: var(--gold); border-color: var(--gold); color: var(--ink); }
 
         .answer { background: var(--paper); border: 1px solid var(--ink); border-radius: 20px; padding: 34px 36px 30px; display: flex; flex-direction: column; }
         .answer .tag { font-size: .85rem; color: var(--muted); font-weight: 500; }
@@ -309,7 +310,7 @@
         .yn { display: flex; gap: 6px; }
         .yn button { width: 64px; height: 34px; border-radius: 999px; border: 1px solid var(--ink); background: var(--paper); font: inherit; font-size: .88rem; font-weight: 600; color: var(--ink); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .2s ease, color .2s ease; }
         .yn button[aria-pressed="true"] { background: var(--ink); color: #fff; }
-        .qa { grid-column: 1 / -1; margin-top: 6px; height: 3.1em; overflow: hidden; font-size: .88rem; line-height: 1.55; color: #9b988f; }
+        .qa { grid-column: 1 / -1; margin-top: 6px; height: 3.1em; overflow: hidden; font-size: .88rem; line-height: 1.55; color: #8A929D; }
         .qa.on { color: var(--accent); font-weight: 500; }
         .answer .law { margin-top: 14px; }
         @media (max-width: 860px) {
