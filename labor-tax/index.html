@@ -7,7 +7,7 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="description" content="노무법인 유영 + 세무법인 연우 ALL IN ONE 통합 자문. 대표님은 질문만 하세요.">
     <meta property="og:title" content="ALL IN ONE 통합 자문 | 노무법인 유영 + 세무법인 연우">
-    <meta property="og:description" content="계약서와 급여, 세무가 따로 놀지 않게. 노무사와 세무사가 한 팀으로 봅니다.">
+    <meta property="og:description" content="질문은 한 번, 답은 노무사와 세무사가 같이. 카톡방 하나로 끝내세요.">
     <meta property="og:image" content="https://hryy.co.kr/images/og-image.png">
     <meta name="theme-color" content="#E6ECF3">
     <link rel="icon" type="image/png" href="/favicon.png">
@@ -15,24 +15,25 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
     <style>
         :root {
-            --bg: #E6ECF3; --paper: #F7F8FA; --ink: #1D2088; --ink-2: #1F2440; --muted: #556070; --line: #C6D0DC; --sky: #00A0E9;
+            --bg: #E6ECF3; --paper: #F7F8FA; --ink: #1D2088; --ink-2: #1F2440; --muted: #556070; --line: #C6D0DC; --sky: #00A0E9; --red: #E5484D;
             --font: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, 'Noto Sans KR', sans-serif; --wrap: 1180px;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; scrollbar-gutter: stable; }
-        body { font-family: var(--font); color: var(--ink-2); background: var(--bg); line-height: 1.65; word-break: keep-all; letter-spacing: -0.01em; -webkit-font-smoothing: antialiased; }
+        body { font-family: var(--font); color: var(--ink-2); background: var(--bg); line-height: 1.6; word-break: keep-all; letter-spacing: -0.01em; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
         a { color: inherit; text-decoration: none; }
         ul, ol { list-style: none; }
         .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 32px; }
-        .btn { display: inline-flex; align-items: center; justify-content: center; text-align: center; height: 56px; width: 200px; border-radius: 999px; font-weight: 600; font-size: 1rem; white-space: nowrap; flex: none; transition: background .2s ease, color .2s ease; }
-        .btn-ink { background: var(--ink); color: #fff; border: 1px solid var(--ink); }
+        .btn { display: inline-flex; align-items: center; justify-content: center; text-align: center; height: 56px; width: 200px; border-radius: 999px; font-weight: 600; font-size: 1rem; white-space: nowrap; flex: none; transition: background .2s, color .2s; }
+        .btn-ink { background: var(--ink); color: #fff; border: 1px solid var(--ink); box-shadow: 0 10px 24px -10px rgba(29,32,136,.6); }
         .btn-ink:hover { background: #2A31B0; }
         .btn-ghost { border: 1px solid var(--ink); color: var(--ink); }
         .btn-ghost:hover { background: var(--ink); color: #fff; }
         .btn-white { background: #fff; color: var(--ink); border: 1px solid #fff; }
         .btn-line-w { border: 1px solid rgba(255,255,255,.55); color: #fff; }
         .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #fee500; margin-right: 8px; }
-        .todo { color: #D32F2F !important; font-weight: 600; }
+        .c { text-align: center; margin-left: auto; margin-right: auto; }
+        .ex { margin-top: 14px; font-size: .78rem; color: #8B93A0; text-align: center; }
 
         header { height: 72px; display: flex; align-items: center; }
         header .wrap { width: 100%; display: flex; justify-content: space-between; align-items: center; }
@@ -40,55 +41,160 @@
         .back { font-size: .92rem; color: var(--muted); font-weight: 500; }
         .back:hover { color: var(--ink); }
 
-        .hero { padding: 96px 0 110px; }
+        /* ---------- 히어로 ---------- */
+        .hero { padding: 48px 0 100px; }
+        .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 40px; align-items: center; }
         .kicker { display: flex; align-items: center; gap: 10px; font-size: .9rem; color: var(--muted); font-weight: 500; }
-        .kicker::before { content: ''; width: 28px; height: 3px; border-radius: 2px; background: var(--sky); }
-        .hero h1 { margin-top: 28px; font-size: clamp(2.5rem, 6.4vw, 5.2rem); line-height: 1.12; font-weight: 700; letter-spacing: -0.045em; color: var(--ink); }
-        .hero h1 .soft { color: #8B93A0; }
-        .hero .lead { margin-top: 26px; font-size: 1.15rem; max-width: 34em; }
-        .hero .actions { margin-top: 40px; display: flex; gap: 10px; flex-wrap: wrap; }
+        .kicker::before { content: ''; width: 28px; height: 3px; border-radius: 2px; background: var(--sky); flex: none; }
+        .hero h1 { margin-top: 26px; font-size: clamp(2.6rem, 5.8vw, 4.8rem); line-height: 1.12; font-weight: 800; letter-spacing: -0.05em; color: var(--ink); }
+        .hero h1 .hl { background: linear-gradient(transparent 62%, rgba(0,160,233,.28) 62%); }
+        .hero .lead { margin-top: 24px; font-size: 1.2rem; color: var(--ink-2); }
+        .actions { margin-top: 36px; display: flex; gap: 10px; flex-wrap: wrap; }
+        .hero-art { display: flex; flex-direction: column; align-items: center; }
+        .stage3d { position: relative; perspective: 1400px; padding: 10px 40px; }
+        .stage3d .phone { transform: rotateY(-16deg) rotateX(6deg) rotateZ(1deg); transform-style: preserve-3d; }
+        .chip { position: absolute; display: inline-flex; align-items: center; gap: 8px; height: 46px; padding: 0 18px 0 8px; border-radius: 999px; background: #fff; color: var(--ink); font-weight: 700; font-size: .95rem; white-space: nowrap; box-shadow: 0 18px 40px -12px rgba(16,19,79,.35), 0 2px 0 rgba(16,19,79,.06); animation: float 5s ease-in-out infinite; }
+        .chip.c1 { right: 0; top: 4px; }
+        .chip.c2 { left: 4px; bottom: -6px; animation-delay: -2.5s; }
+        .ci { width: 30px; height: 30px; border-radius: 50%; background: var(--ink); color: #fff; font-size: .85rem; display: inline-flex; align-items: center; justify-content: center; flex: none; }
+        .ci.n { background: var(--ink); } .ci.s { background: var(--sky); margin-left: -14px; border: 2px solid #fff; }
+        @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 
-        section.block { padding: 120px 0; border-top: 1px solid var(--line); }
-        .label { font-size: .85rem; color: var(--muted); font-weight: 500; }
-        .h2 { margin-top: 14px; font-size: clamp(2rem, 3.6vw, 3rem); line-height: 1.2; font-weight: 700; letter-spacing: -0.04em; color: var(--ink); }
-        .sub { margin-top: 14px; color: var(--muted); max-width: 34em; }
+        /* ---------- 휴대폰 + 채팅 ---------- */
+        .phone { width: 300px; border-radius: 46px; background: linear-gradient(145deg, #2A2E6E, #0E1030); padding: 11px; box-shadow: 0 50px 90px -30px rgba(16,19,79,.55), 0 20px 40px -20px rgba(16,19,79,.35), inset 0 0 0 1.5px rgba(255,255,255,.12); flex: none; }
+        .screen { height: 590px; border-radius: 36px; overflow: hidden; background: #BACEE0; display: flex; flex-direction: column; }
+        .cbar { height: 54px; flex: none; display: flex; align-items: center; gap: 6px; padding: 14px 14px 0; font-size: 14px; color: #1b2430; }
+        .cbar svg { width: 18px; height: 18px; fill: none; stroke: #1b2430; stroke-width: 2; flex: none; }
+        .cbar em { font-style: normal; color: #5d6b7a; font-weight: 500; }
+        .chat { flex: 1; padding: 8px 12px; display: flex; flex-direction: column; gap: 9px; overflow: hidden; }
+        .m { display: flex; gap: 7px; align-items: flex-start; }
+        .m.me { justify-content: flex-end; align-items: flex-end; gap: 5px; }
+        .av { width: 34px; height: 34px; border-radius: 13px; color: #fff; font-weight: 800; font-size: 14px; display: flex; align-items: center; justify-content: center; flex: none; }
+        .av-n { background: var(--ink); } .av-s { background: var(--sky); }
+        .nm { display: block; font-size: 11px; color: #3f4d5c; margin-bottom: 3px; }
+        .row { display: flex; align-items: flex-end; gap: 5px; }
+        .bb { background: #fff; color: #111; border-radius: 4px 15px 15px 15px; padding: 8px 11px; font-size: 13px; line-height: 1.45; max-width: 178px; box-shadow: 0 1px 0 rgba(0,0,0,.04); }
+        .me .bb { background: #FEE500; border-radius: 15px 4px 15px 15px; max-width: 190px; }
+        .t { font-size: 10px; color: #4e5c6b; white-space: nowrap; flex: none; }
+        .cin { height: 50px; flex: none; background: #fff; display: flex; align-items: center; justify-content: space-between; padding: 0 12px 0 16px; font-size: 13px; color: #9aa3ad; }
+        .cin i { width: 30px; height: 30px; border-radius: 10px; background: #FEE500; }
 
-        /* 따로 맡기면 */
-        .split2 { margin-top: 52px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .panel { border-radius: 20px; padding: 32px; }
-        .panel.bad { background: var(--paper); border: 1px solid var(--line); }
-        .panel.good { background: var(--ink); color: #fff; }
-        .panel h3 { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.03em; }
-        .panel.bad h3 { color: var(--ink-2); }
-        .panel ul { margin-top: 18px; }
-        .panel li { padding: 11px 0 11px 28px; position: relative; border-top: 1px solid var(--line); font-size: .98rem; }
-        .panel.good li { border-top-color: rgba(255,255,255,.18); }
-        .panel li::before { position: absolute; left: 0; top: 11px; width: 18px; text-align: center; font-weight: 700; }
-        .panel.bad li::before { content: '✕'; color: #9AA2AD; }
-        .panel.good li::before { content: '✓'; color: var(--sky); }
+        .phone.mini { width: 226px; border-radius: 36px; padding: 8px; }
+        .phone.mini .screen { height: 400px; border-radius: 29px; }
+        .phone.mini .cbar { height: 44px; padding-top: 10px; font-size: 12.5px; }
+        .phone.mini .bb { font-size: 12px; max-width: 136px; padding: 7px 10px; }
+        .phone.mini .me .bb { max-width: 150px; }
+        .phone.mini .av { width: 28px; height: 28px; border-radius: 11px; font-size: 12px; }
+        .phone.mini .cin { height: 40px; font-size: 11.5px; }
+        .phone.mini .cin i { width: 24px; height: 24px; border-radius: 8px; }
 
-        /* 포함 업무 */
-        .cols { margin-top: 52px; display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--ink); }
-        .cols > div { padding: 30px 28px 0 0; }
-        .cols > div + div { padding-left: 28px; border-left: 1px solid var(--line); }
-        .cols .who { font-size: .85rem; font-weight: 700; color: var(--sky); }
-        .cols h3 { margin-top: 4px; font-size: 1.4rem; font-weight: 700; color: var(--ink); letter-spacing: -0.03em; }
-        .cols ul { margin-top: 18px; }
-        .cols li { padding: 10px 0; border-top: 1px solid var(--line); font-size: .98rem; }
+        /* 말풍선 하나씩 등장 — 자리는 미리 잡혀 있어 화면이 밀리지 않음 */
+        .js .rv .m { opacity: 0; transform: translateY(10px) scale(.97); transition: opacity .5s ease, transform .5s cubic-bezier(.2,.8,.2,1); transition-delay: calc(.35s + var(--i) * .55s); }
+        .js .rv.on .m { opacity: 1; transform: none; }
 
-        /* 진행 */
-        .steps { margin-top: 52px; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--ink); }
-        .steps li { padding: 26px 24px 0 0; }
-        .steps li + li { padding-left: 24px; border-left: 1px solid var(--line); }
-        .steps .num { font-size: .9rem; color: var(--muted); }
-        .steps b { display: block; margin-top: 30px; font-size: 1.25rem; font-weight: 700; color: var(--ink); letter-spacing: -0.03em; }
-        .steps span { display: block; margin-top: 6px; color: var(--muted); font-size: .95rem; }
+        /* ---------- 공통 섹션 ---------- */
+        section.block { padding: 110px 0; }
+        .h2 { font-size: clamp(2rem, 3.8vw, 3.1rem); line-height: 1.2; font-weight: 800; letter-spacing: -0.045em; color: var(--ink); }
+        .sub { margin-top: 10px; color: var(--muted); }
 
-        .closing { background: var(--ink); color: #fff; padding: 130px 0 120px; }
-        .closing h2 { font-size: clamp(2.3rem, 5.6vw, 4.6rem); line-height: 1.12; font-weight: 700; letter-spacing: -0.045em; }
+        /* ---------- 따로 vs 같이 ---------- */
+        .vs { background: var(--paper); }
+        .vs-grid { margin-top: 56px; display: grid; grid-template-columns: 1.25fr 1fr; gap: 22px; }
+        .vs-card { border-radius: 28px; padding: 30px 26px 26px; display: flex; flex-direction: column; align-items: center; }
+        .vs-card.bad { background: #ECEEF2; }
+        .vs-card.good { background: linear-gradient(160deg, #262AA0, #151878); color: #fff; box-shadow: 0 30px 60px -30px rgba(29,32,136,.7); }
+        .tag { display: inline-flex; align-items: center; gap: 10px; font-size: 1.35rem; font-weight: 800; letter-spacing: -0.03em; }
+        .tag span { width: 34px; height: 34px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 1rem; color: #fff; flex: none; }
+        .tag .x { background: var(--red); } .tag .v { background: var(--sky); }
+        .bad .tag { color: #3a3f4a; }
+        .two { margin-top: 24px; display: flex; gap: 14px; justify-content: center; }
+        .two .phone:first-child { transform: rotate(-3deg); }
+        .two .phone:last-child { transform: rotate(3deg) translateY(16px); }
+        .bad .phone { filter: saturate(.75); }
+        .one { margin-top: 24px; display: flex; justify-content: center; }
+        .pains { margin-top: 30px; width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+        .pains li { border-radius: 16px; padding: 14px 6px; text-align: center; font-size: .9rem; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+        .pains b { font-size: 1.3rem; font-weight: 800; letter-spacing: -0.03em; }
+        .bad .pains li { background: #fff; color: #555c68; }
+        .bad .pains b { color: var(--red); }
+        .good .pains li { background: rgba(255,255,255,.1); color: #D5D9F5; }
+        .good .pains b { color: #fff; }
+
+        /* ---------- 겪는 일 (라인아트) ---------- */
+        .lose { margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .lose li { background: var(--paper); border-radius: 26px; padding: 26px 24px 30px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+        .lose .art { width: 100%; max-width: 240px; aspect-ratio: 200 / 140; }
+        .lose svg { width: 100%; height: 100%; display: block; }
+        .lose b { margin-top: 14px; font-size: 1.3rem; font-weight: 800; letter-spacing: -0.03em; color: var(--ink); }
+        .lose span { margin-top: 4px; color: var(--muted); font-size: .95rem; }
+        .lose svg * { stroke-linecap: round; stroke-linejoin: round; }
+        .lose .f-w { fill: #fff; stroke: var(--ink); stroke-width: 2.5; }
+        .lose .f-n { fill: #E3E5F7; stroke: var(--ink); stroke-width: 2.5; }
+        .lose .f-s { fill: #DDF2FC; stroke: #0088C7; stroke-width: 2.5; }
+        .lose .f-r { fill: #FDE3E4; stroke: var(--red); stroke-width: 2.5; }
+        .lose .ln { fill: none; stroke: #9FA8C9; stroke-width: 3; }
+        .lose .ar { fill: none; stroke: var(--ink); stroke-width: 2.5; }
+        .lose .dash { fill: none; stroke: var(--red); stroke-width: 2.5; stroke-dasharray: 5 6; }
+        .lose .tx { font: 800 17px var(--font); fill: var(--ink); text-anchor: middle; }
+        .lose .f-s + path + .tx, .lose text.tx:last-of-type { }
+        .lose .tx2 { font: 800 14px var(--font); fill: var(--red); text-anchor: middle; }
+        .lose .q { font: 800 15px var(--font); fill: var(--red); text-anchor: middle; }
+
+        /* ---------- 3D 아이콘 타일 ---------- */
+        .ico3d { width: 84px; height: 84px; border-radius: 26px; display: inline-flex; align-items: center; justify-content: center; flex: none; background: linear-gradient(150deg, #3B40C8 0%, #1D2088 60%, #14176A 100%); box-shadow: 0 18px 30px -12px rgba(29,32,136,.65), inset 0 2px 0 rgba(255,255,255,.25), inset 0 -6px 12px rgba(0,0,0,.25); }
+        .ico3d svg { width: 46px; height: 46px; fill: none; stroke: #fff; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 2px 2px rgba(0,0,0,.25)); }
+
+        /* ---------- 시작 단계 ---------- */
+        .how { background: var(--paper); }
+        .flow { margin-top: 60px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; position: relative; }
+        .flow::before { content: ''; position: absolute; left: 12%; right: 12%; top: 42px; border-top: 3px dashed #B9C3D6; z-index: 0; }
+        .flow li { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .flow em { margin-top: 16px; width: 26px; height: 26px; border-radius: 50%; background: var(--sky); color: #fff; font-style: normal; font-weight: 800; font-size: .85rem; display: flex; align-items: center; justify-content: center; }
+        .flow b { margin-top: 10px; font-size: 1.25rem; font-weight: 800; color: var(--ink); letter-spacing: -0.03em; }
+        .flow span { margin-top: 4px; color: var(--muted); font-size: .92rem; }
+        .flow li:nth-child(3) .ico3d { background: linear-gradient(150deg, #4CC6FF 0%, #00A0E9 55%, #0079B5 100%); box-shadow: 0 18px 30px -12px rgba(0,160,233,.7), inset 0 2px 0 rgba(255,255,255,.35), inset 0 -6px 12px rgba(0,0,0,.2); transform: scale(1.12); }
+
+        /* ---------- 같이 보니까 (퍼즐) ---------- */
+        .scens { margin-top: 56px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+        .scen { background: var(--paper); border-radius: 26px; padding: 28px 18px 22px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .scen .ico3d { width: 72px; height: 72px; border-radius: 22px; }
+        .scen .ico3d svg { width: 38px; height: 38px; }
+        .scen > b { margin-top: 16px; font-size: 1.2rem; font-weight: 800; color: var(--ink); letter-spacing: -0.03em; }
+        .pz { margin-top: 16px; width: 100%; display: flex; flex-direction: column; align-items: stretch; }
+        .pz > span:not(.plus) { border-radius: 14px; padding: 10px 8px; font-size: .9rem; font-weight: 600; display: flex; flex-direction: column; align-items: center; min-height: 64px; justify-content: center; }
+        .pz i { font-style: normal; font-size: .72rem; font-weight: 800; letter-spacing: .02em; opacity: .75; }
+        .pn { background: #E3E5F7; color: var(--ink); }
+        .ps { background: #DDF2FC; color: #005E8C; }
+        .plus { align-self: center; width: 28px; height: 28px; margin: -8px 0; border-radius: 50%; background: #fff; color: var(--ink); font-weight: 800; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1; box-shadow: 0 4px 10px rgba(16,19,79,.15); }
+
+        /* ---------- 가격 ---------- */
+        .price-sec { background: var(--paper); }
+        .pcards { margin-top: 48px; display: grid; grid-template-columns: repeat(2, minmax(0, 340px)); justify-content: center; gap: 22px; }
+        .pcard { background: #fff; border-radius: 28px; padding: 30px 26px 28px; display: flex; flex-direction: column; align-items: center; box-shadow: 0 30px 60px -36px rgba(16,19,79,.5); }
+        .pt { font-weight: 700; color: var(--muted); }
+        .stack3d { margin-top: 22px; height: 270px; width: 190px; display: flex; flex-direction: column; justify-content: flex-end; }
+        .blk { height: var(--h); position: relative; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: .95rem; border-radius: 6px; margin-top: 14px; }
+        .blk::before { content: ''; position: absolute; left: 6px; right: -6px; top: -12px; height: 12px; transform: skewX(-30deg); transform-origin: bottom; border-radius: 4px 4px 0 0; }
+        .blk::after { content: ''; position: absolute; top: -6px; right: -12px; width: 12px; bottom: 6px; transform: skewY(-30deg); transform-origin: left; border-radius: 0 4px 4px 0; }
+        .blk.n { background: #1D2088; } .blk.n::before { background: #3B40C8; } .blk.n::after { background: #12145C; }
+        .blk.s { background: #00A0E9; } .blk.s::before { background: #5FCBFF; } .blk.s::after { background: #0077AE; }
+        .tot { margin-top: 22px; color: var(--muted); font-weight: 600; }
+        .tot b { font-size: 2.1rem; font-weight: 800; color: var(--ink); letter-spacing: -0.04em; margin-right: 4px; }
+        .pnote { margin-top: 22px; font-size: .9rem; color: var(--muted); max-width: 36em; }
+
+        /* ---------- 마무리 ---------- */
+        .closing { background: var(--ink); color: #fff; padding: 120px 0 120px; overflow: hidden; }
+        .close-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; }
+        .closing h2 { font-size: clamp(2.3rem, 5vw, 4.2rem); line-height: 1.12; font-weight: 800; letter-spacing: -0.05em; }
         .closing h2 .soft { color: var(--sky); }
-        .closing p { margin-top: 18px; color: #C9CEEA; }
-        .closing .actions { margin-top: 40px; display: flex; gap: 10px; flex-wrap: wrap; }
+        .closing p { margin-top: 18px; color: #C9CEEA; font-size: 1.1rem; }
+        .ask { display: flex; align-items: center; gap: 12px; padding: 14px; border-radius: 26px; background: rgba(255,255,255,.08); box-shadow: inset 0 0 0 1px rgba(255,255,255,.14); }
+        .askbox { flex: 1; height: 64px; border-radius: 18px; background: #fff; color: #1b2430; display: flex; align-items: center; padding: 0 20px; font-size: 1.05rem; font-weight: 500; overflow: hidden; white-space: nowrap; }
+        .cur { display: inline-block; width: 2px; height: 22px; background: var(--ink); margin-left: 3px; animation: blink 1s steps(1) infinite; }
+        @keyframes blink { 50% { opacity: 0; } }
+        .send { width: 64px; height: 64px; border-radius: 18px; background: #FEE500; display: flex; align-items: center; justify-content: center; flex: none; }
+        .send svg { width: 26px; height: 26px; fill: #1b2430; }
+
         footer { background: #10134F; color: #AEB5D6; padding: 36px 0 110px; font-size: .88rem; }
         footer b { color: #F2F4FB; }
         .copied { position: fixed; left: 50%; bottom: 96px; transform: translate(-50%, 20px); background: var(--ink-2); color: #fff; padding: 14px 22px; border-radius: 999px; font-size: .95rem; opacity: 0; pointer-events: none; transition: opacity .3s ease, transform .3s ease; z-index: 80; white-space: nowrap; }
@@ -97,40 +203,56 @@
 
         .js .rv { opacity: 0; transform: translateY(18px); transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
         .js .rv.on { opacity: 1; transform: none; }
-        @media (prefers-reduced-motion: reduce) { .js .rv { opacity: 1; transform: none; transition: none; } }
+        @media (prefers-reduced-motion: reduce) { .js .rv, .js .rv .m { opacity: 1; transform: none; transition: none; } .chip, .cur { animation: none; } }
 
+        @media (max-width: 1080px) {
+            .scens { grid-template-columns: repeat(2, 1fr); }
+            .vs-grid { grid-template-columns: 1fr; max-width: 620px; margin-left: auto; margin-right: auto; }
+        }
         @media (max-width: 860px) {
-            .wrap { padding: 0 22px; }
+            .wrap { padding: 0 20px; }
             header { height: 60px; }
             .logo img { height: 30px; }
-            .hero { padding: 56px 0 72px; }
-            .hero .actions .btn, .closing .actions .btn { width: calc(50% - 5px); }
-            section.block { padding: 84px 0; }
-            .split2, .cols { grid-template-columns: 1fr; }
-            .cols > div, .cols > div + div { padding: 26px 0 10px; border-left: 0; }
-            .cols > div + div { border-top: 1px solid var(--ink); }
-            .steps { grid-template-columns: 1fr; }
-            .steps li, .steps li + li { padding: 20px 0; border-left: 0; border-bottom: 1px solid var(--line); }
-            .steps b { margin-top: 10px; }
-            .panel { padding: 24px 20px; }
-            .closing { padding: 88px 0 80px; }
+            .hero { padding: 28px 0 72px; }
+            .hero-grid, .close-grid { grid-template-columns: 1fr; }
+            .hero .lead { font-size: 1.08rem; }
+            .actions .btn { width: calc(50% - 5px); }
+            .stage3d { padding: 10px 0; }
+            .stage3d .phone { transform: none; }
+            .chip { height: 40px; font-size: .85rem; padding-right: 14px; }
+            .chip.c1 { right: -6px; top: -12px; }
+            .chip.c2 { left: -6px; bottom: -14px; }
+            .ci { width: 26px; height: 26px; }
+            section.block { padding: 80px 0; }
+            .vs-card { padding: 24px 12px 16px; border-radius: 24px; }
+            .two { gap: 8px; }
+            .two .phone { zoom: .68; }
+            .one .phone { zoom: .9; }
+            .pains b { font-size: 1.1rem; }
+            .pains li { font-size: .8rem; padding: 12px 4px; }
+            .lose { grid-template-columns: 1fr; gap: 12px; }
+            .lose li { display: grid; grid-template-columns: 120px 1fr; grid-template-rows: auto auto; column-gap: 14px; align-items: center; text-align: left; padding: 16px 18px 16px 12px; border-radius: 22px; }
+            .lose .art { grid-row: 1 / 3; }
+            .lose b { margin-top: 0; font-size: 1.12rem; align-self: end; }
+            .lose span { font-size: .88rem; align-self: start; }
+            .flow { grid-template-columns: 1fr 1fr; row-gap: 36px; }
+            .flow::before { display: none; }
+            .scens { grid-template-columns: 1fr 1fr; gap: 10px; }
+            .scen { padding: 22px 10px 14px; border-radius: 22px; }
+            .scen > b { font-size: 1.05rem; }
+            .pz > span:not(.plus) { font-size: .8rem; min-height: 58px; }
+            .pcards { grid-template-columns: 1fr 1fr; gap: 10px; }
+            .pcard { padding: 22px 8px 20px; border-radius: 22px; }
+            .stack3d { zoom: .72; }
+            .blk { font-size: .78rem; }
+            .tot b { font-size: 1.45rem; }
+            .closing { padding: 84px 0 80px; }
+            .askbox { height: 54px; font-size: .95rem; padding: 0 14px; }
+            .send { width: 54px; height: 54px; }
             .mbar { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); background: rgba(230,236,243,.96); border-top: 1px solid var(--line); }
             .mbar .btn { width: 100%; height: 50px; }
         }
-        .steps span { line-height: 1.6; }
-        .panel ul.plain li { padding-left: 34px; }
-        .panel ul.plain li::before { content: none; }
-        .panel ul.plain li b { position: absolute; left: 0; top: 10px; width: 22px; height: 22px; border-radius: 50%; background: var(--ink); color: #fff; font-size: .78rem; display: flex; align-items: center; justify-content: center; }
-        .price { margin-top: 48px; }
-        .price table { border-collapse: collapse; border-top: 1px solid var(--ink); width: 100%; max-width: 720px; }
-        .price th, .price td { text-align: left; padding: 18px 20px 18px 0; border-bottom: 1px solid var(--line); font-size: 1.05rem; }
-        .price thead th { font-size: .9rem; color: var(--muted); font-weight: 600; }
-        .price tbody th { width: 110px; color: var(--ink); font-weight: 700; }
-        .price td { font-weight: 600; color: var(--ink-2); font-variant-numeric: tabular-nums; }
-        .price tr.sum th, .price tr.sum td { color: var(--ink); font-weight: 800; font-size: 1.15rem; }
-        .notes { margin-top: 18px; }
-        .notes li { font-size: .9rem; color: var(--muted); padding: 3px 0; }
-        @media (max-width: 860px) { .price th, .price td { padding: 14px 10px 14px 0; font-size: .95rem; } .price tbody th { width: 64px; } }
+
     </style>
 </head>
 <body>
@@ -143,88 +265,164 @@
 
     <main>
         <section class="hero">
-            <div class="wrap">
-                <p class="kicker rv">ALL IN ONE 통합 자문 · 노무법인 유영 + 세무법인 연우</p>
-                <h1 class="rv">노무사 따로, 세무사 따로.<br><span class="soft">이제는 같이.</span></h1>
-                <p class="lead rv">노무사와 세무사에게 따로 연락하느라 시간을 두 배로 쓰고 계시진 않나요? 대표님은 질문만 하세요. 노무 일은 노무사가, 세무 일은 세무사가 알아서 파악하고 대응합니다.</p>
-                <div class="actions rv">
-                    <a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-ink js-kakao" target="_blank" rel="noopener"><span class="dot"></span>통합 상담 신청</a>
-                    <a href="tel:010-4835-8422" class="btn btn-ghost">전화 상담</a>
+            <div class="wrap hero-grid">
+                <div class="hero-copy">
+                    <p class="kicker rv">노무법인 유영 + 세무법인 연우 · ALL IN ONE 통합 자문</p>
+                    <h1 class="rv">질문은 한 번.<br><span class="hl">답은 둘이 같이.</span></h1>
+                    <p class="lead rv">노무사와 세무사가 함께 있는 카톡방 하나.<br>대표님은 질문만 하세요.</p>
+                    <div class="actions rv">
+                        <a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-ink js-kakao" target="_blank" rel="noopener"><span class="dot"></span>통합 상담 신청</a>
+                        <a href="tel:010-4835-8422" class="btn btn-ghost">전화 상담</a>
+                    </div>
                 </div>
+                <div class="hero-art rv">
+                    <div class="stage3d">
+                        <div class="phone big"><div class="screen">
+<div class="cbar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><b>노무·세무 통합방</b><em>4</em></div>
+<div class="chat"><div class="m me" style="--i:0"><span class="t">10:02</span><p class="bb">다음 달부터 직원들 성과급 주려고 해요. 뭘 하면 되나요?</p></div><div class="m" style="--i:1"><span class="av av-n">노</span><div><span class="nm">손유권 노무사</span><div class="row"><p class="bb">계약서에 성과급 기준을 넣어야 해요. 수정본 오늘 보내 드릴게요.</p><span class="t">10:05</span></div></div></div><div class="m" style="--i:2"><span class="av av-s">세</span><div><span class="nm">조유진 세무사</span><div class="row"><p class="bb">지급할 때 원천징수는 급여에 같이 반영할게요.</p><span class="t">10:06</span></div></div></div><div class="m" style="--i:3"><span class="av av-n">노</span><div><span class="nm">손유권 노무사</span><div class="row"><p class="bb">세무사님, 지급일은 매달 25일로 넣겠습니다.</p><span class="t">10:07</span></div></div></div><div class="m" style="--i:4"><span class="av av-s">세</span><div><span class="nm">조유진 세무사</span><div class="row"><p class="bb">네, 거기에 맞춰 처리할게요.</p><span class="t">10:07</span></div></div></div><div class="m me" style="--i:5"><span class="t">10:09</span><p class="bb">한 번에 끝났네요. 감사합니다!</p></div></div>
+<div class="cin"><span>메시지 입력</span><i></i></div>
+</div></div>
+                        <span class="chip c1"><span class="ci">1</span>설명은 한 번</span>
+                        <span class="chip c2"><span class="ci n">노</span><span class="ci s">세</span>동시에 답변</span>
+                    </div>
+                    <p class="ex">예시 대화</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="block vs">
+            <div class="wrap">
+                <h2 class="h2 c rv">같은 질문, 이렇게 달라집니다</h2>
+                <div class="vs-grid">
+                    <div class="vs-card bad rv">
+                        <p class="tag"><span class="x">✕</span>따로 맡기면</p>
+                        <div class="two"><div class="phone mini"><div class="screen">
+<div class="cbar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><b>A 노무사</b></div>
+<div class="chat"><div class="m me" style="--i:0"><span class="t">오전 10:02</span><p class="bb">성과급 주려는데 어떻게 하죠?</p></div><div class="m" style="--i:1"><span class="av av-n">노</span><div><span class="nm">A 노무사</span><div class="row"><p class="bb">원천징수는 세무사님께 따로 물어보세요.</p><span class="t">오후 2:40</span></div></div></div><div class="m me" style="--i:2"><span class="t">오후 2:41</span><p class="bb">아… 네</p></div></div>
+<div class="cin"><span>메시지 입력</span><i></i></div>
+</div></div><div class="phone mini"><div class="screen">
+<div class="cbar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><b>B 세무사</b></div>
+<div class="chat"><div class="m me" style="--i:0"><span class="t">오후 2:45</span><p class="bb">노무사님이 물어보라셔서요. 성과급을 주려고 하는데요…</p></div><div class="m" style="--i:1"><span class="av av-s">세</span><div><span class="nm">B 세무사</span><div class="row"><p class="bb">계약서에 지급 기준이 어떻게 돼 있나요? 노무사님께 확인해 주세요.</p><span class="t">다음 날</span></div></div></div><div class="m me" style="--i:2"><span class="t">다음 날</span><p class="bb">또요…?</p></div></div>
+<div class="cin"><span>메시지 입력</span><i></i></div>
+</div></div></div>
+                        <ul class="pains">
+                            <li><b>2번</b>같은 설명</li>
+                            <li><b>하루+</b>답 기다림</li>
+                            <li><b>대표님</b>결국 혼자 결정</li>
+                        </ul>
+                    </div>
+                    <div class="vs-card good rv">
+                        <p class="tag"><span class="v">✓</span>같이 맡기면</p>
+                        <div class="one"><div class="phone mini"><div class="screen">
+<div class="cbar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><b>노무·세무 통합방</b><em>4</em></div>
+<div class="chat"><div class="m me" style="--i:0"><span class="t">10:02</span><p class="bb">성과급 주려는데 어떻게 하죠?</p></div><div class="m" style="--i:1"><span class="av av-n">노</span><div><span class="nm">노무사</span><div class="row"><p class="bb">계약서는 제가 고칠게요.</p><span class="t">10:05</span></div></div></div><div class="m" style="--i:2"><span class="av av-s">세</span><div><span class="nm">세무사</span><div class="row"><p class="bb">원천징수는 급여에 같이 반영할게요.</p><span class="t">10:06</span></div></div></div><div class="m me" style="--i:3"><span class="t">10:07</span><p class="bb">끝! 감사합니다</p></div></div>
+<div class="cin"><span>메시지 입력</span><i></i></div>
+</div></div></div>
+                        <ul class="pains">
+                            <li><b>1번</b>설명 끝</li>
+                            <li><b>한자리</b>바로 답</li>
+                            <li><b>같이</b>책임도 함께</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="ex c">예시 대화</p>
             </div>
         </section>
 
         <section class="block">
             <div class="wrap">
-                <p class="label rv">지금 구조의 문제</p>
-                <h2 class="h2 rv">따로 맡기면 생기는 3가지</h2>
-                <ol class="steps rv">
-                    <li><span class="num">01</span><b>대표님이 통역자가 됩니다</b><span>성과급 하나도 노무사는 계약서·임금 산정을, 세무사는 경비·원천징수를 봅니다. 서로 다른 답을 대표님이 해석하고 종합해야 합니다.</span></li>
-                    <li><span class="num">02</span><b>같은 설명을 두 번 합니다</b><span>같은 내용을 두 사람에게 설명하고 자료도 두 번 보냅니다. 결정은 늦어지고, 그 사이 위험은 커집니다.</span></li>
-                    <li><span class="num">03</span><b>문제가 생기면 책임이 없습니다</b><span>세무사는 "인사 정보가 틀렸다", 노무사는 "세무 처리를 몰랐다". 결국 책임은 대표님 몫이 됩니다.</span></li>
+                <h2 class="h2 c rv">따로 맡기면 겪는 일</h2>
+                <ul class="lose">
+                    <li class="rv"><div class="art"><svg viewBox="0 0 200 140" aria-hidden="true">
+<circle cx="100" cy="58" r="15" class="f-w"/><path d="M74 112c2-20 12-32 26-32s24 12 26 32" class="f-w"/>
+<rect x="14" y="20" width="48" height="34" rx="12" class="f-n"/><path d="M30 54l-4 12 14-12" class="f-n"/><text x="38" y="43" class="tx">노</text>
+<rect x="138" y="20" width="48" height="34" rx="12" class="f-s"/><path d="M170 54l4 12-14-12" class="f-s"/><text x="162" y="43" class="tx">세</text>
+<path d="M66 40 82 50" class="ar"/><path d="M134 40 118 50" class="ar"/>
+<path d="M88 26c4-6 20-6 24 0" class="dash"/><text x="100" y="20" class="q">?</text>
+</svg></div><b>대표님이 통역사</b><span>두 사람 말을 중간에서 옮겨야 해요</span></li>
+                    <li class="rv"><div class="art"><svg viewBox="0 0 200 140" aria-hidden="true">
+<rect x="40" y="18" width="62" height="82" rx="8" class="f-w"/><path d="M52 38h38M52 52h38M52 66h26" class="ln"/>
+<rect x="98" y="38" width="62" height="82" rx="8" class="f-w"/><path d="M110 58h38M110 72h38M110 86h26" class="ln"/>
+<circle cx="160" cy="34" r="17" class="f-r"/><text x="160" y="40" class="tx2">×2</text>
+<path d="M30 112a40 40 0 0 0 46 10" class="dash"/><path d="M70 116l8 6-9 4" class="ar"/>
+</svg></div><b>같은 설명, 두 번</b><span>자료도 두 번, 결정은 늦어져요</span></li>
+                    <li class="rv"><div class="art"><svg viewBox="0 0 200 140" aria-hidden="true">
+<circle cx="34" cy="52" r="13" class="f-n"/><path d="M14 112c2-22 10-34 20-34s18 12 20 34" class="f-n"/>
+<circle cx="166" cy="52" r="13" class="f-s"/><path d="M146 112c2-22 10-34 20-34s18 12 20 34" class="f-s"/>
+<path d="M56 74 76 66M144 74 124 66" class="ar"/>
+<path d="M78 60q22-40 44 0" class="dash"/><circle cx="100" cy="30" r="7" class="f-r"/>
+<text x="100" y="98" class="q">네 탓?</text>
+</svg></div><b>문제 생기면 서로 탓</b><span>책임은 결국 대표님에게</span></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="block how">
+            <div class="wrap">
+                <h2 class="h2 c rv">시작은 이렇게 간단해요</h2>
+                <ol class="flow">
+                    <li class="rv"><span class="ico3d"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 12h32v20H22l-8 7v-7H8z"/><path d="M24 17v10M19 22h10"/></svg></span><em>1</em><b>카톡방 열기</b><span>노무사 + 세무사 통합방</span></li>
+                    <li class="rv"><span class="ico3d"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="17" cy="18" r="5"/><circle cx="31" cy="18" r="5"/><path d="M8 37c1-7 4-11 9-11s8 4 9 11M22 37c1-7 4-11 9-11s8 4 9 11"/></svg></span><em>2</em><b>3~4명 배정</b><span>손유권 노무사 · 조유진 세무사 · 직원</span></li>
+                    <li class="rv"><span class="ico3d"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 10h32v22H22l-8 7v-7H8z"/><path d="M20 17a4 4 0 1 1 5 4c-1 .5-1 1.5-1 3"/><circle cx="24" cy="28" r=".8"/></svg></span><em>3</em><b>질문만 하세요</b><span>노무사·세무사가 함께 읽어요</span></li>
+                    <li class="rv"><span class="ico3d"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6l14 5v11c0 9-6 16-14 20C16 38 10 31 10 22V11z"/><path d="M17 23l5 5 9-10"/></svg></span><em>4</em><b>알아서 처리</b><span>각자 맡은 일을 바로 대응</span></li>
                 </ol>
             </div>
         </section>
 
         <section class="block">
             <div class="wrap">
-                <p class="label rv">이렇게 해결합니다</p>
-                <h2 class="h2 rv">대표님이 하실 일은<br>'질문'뿐입니다</h2>
-                <div class="split2 rv">
-                    <div class="panel bad">
-                        <h3>통합 소통 창구</h3>
-                        <ul class="plain">
-                            <li><b>1</b>노무사 + 세무사가 함께 있는 카카오톡 소통 창구를 엽니다.</li>
-                            <li><b>2</b>노무법인 유영 대표 손유권, 세무법인 연우 대표 조유진과 직원까지 3~4명이 배정됩니다.</li>
-                            <li><b>3</b>노무사와 세무사가 같은 질문을 함께 읽습니다.</li>
-                            <li><b>4</b>노무 일은 노무사가, 세무 일은 세무사가 알아서 파악하고 대응합니다.</li>
-                        </ul>
-                    </div>
-                    <div class="panel good">
-                        <h3>같이 보면 이렇게 달라집니다</h3>
-                        <ul>
-                            <li>임금 설계를 절세 구조로 잡되, 노무 위험 없이 계약서까지 반영</li>
-                            <li>퇴직 예정자를 함께 검토해 퇴직소득세·퇴직금·계약 해지를 한 번에 정리</li>
-                            <li>연봉 인상 시 근로시간·연장근로 위험과 세액 계산을 함께 확인</li>
-                            <li>4대보험, 급여 아웃소싱, 퇴직금 정산까지 연계</li>
-                        </ul>
-                    </div>
-                </div>
+                <h2 class="h2 c rv">같이 보니까 한 번에 됩니다</h2>
+                <ul class="scens">
+                    <li class="scen rv"><span class="ico3d"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 38h32"/><path d="M12 32l9-9 6 6 11-13"/><path d="M31 16h7v7"/></svg></span><b>연봉 올릴 때</b>
+<div class="pz"><span class="pn"><i>노무</i>근로시간·연장근로 위험</span><span class="plus">+</span><span class="ps"><i>세무</i>세금 계산</span></div></li>
+                    <li class="scen rv"><span class="ico3d"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M12 40V8h20v32"/><path d="M32 12l6 3v25"/><circle cx="27" cy="25" r="1.4"/><path d="M8 40h34"/></svg></span><b>직원이 그만둘 때</b>
+<div class="pz"><span class="pn"><i>노무</i>퇴직금·계약 정리</span><span class="plus">+</span><span class="ps"><i>세무</i>퇴직소득세</span></div></li>
+                    <li class="scen rv"><span class="ico3d"><svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="24" cy="14" rx="13" ry="5"/><path d="M11 14v10c0 3 6 5 13 5s13-2 13-5V14"/><path d="M11 24v10c0 3 6 5 13 5s13-2 13-5V24"/></svg></span><b>급여를 짤 때</b>
+<div class="pz"><span class="pn"><i>노무</i>계약서에 반영</span><span class="plus">+</span><span class="ps"><i>세무</i>절세 구조</span></div></li>
+                    <li class="scen rv"><span class="ico3d"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="6"/><path d="M24 6v6M24 36v6M6 24h6M36 24h6M11 11l4 4M33 33l4 4M11 37l4-4M33 15l4-4"/></svg></span><b>매달 하는 일</b>
+<div class="pz"><span class="pn"><i>노무</i>4대보험</span><span class="plus">+</span><span class="ps"><i>세무</i>급여·퇴직금 정산</span></div></li>
+                </ul>
             </div>
         </section>
 
-        <section class="block">
+        <section class="block price-sec">
             <div class="wrap">
-                <p class="label rv">가격 안내 (부가세 포함)</p>
-                <h2 class="h2 rv">자문 및 기장 가격</h2>
-                <div class="price rv">
-                    <table>
-                        <thead><tr><th></th><th>개인사업장</th><th>법인사업장</th></tr></thead>
-                        <tbody>
-                            <tr><th>노무</th><td>22만원부터</td><td>22만원부터</td></tr>
-                            <tr><th>세무</th><td>11만원부터</td><td>16만 5천원부터</td></tr>
-                            <tr class="sum"><th>합계</th><td>33만원부터</td><td>38만 5천원부터</td></tr>
-                        </tbody>
-                    </table>
-                    <ul class="notes">
-                        <li>노무: 노동사건, 지원금 수수료 등 별도 용역이 필요한 업무는 비용이 따로 있습니다.</li>
-                        <li>세무: 조정료는 별도입니다.</li>
-                    </ul>
+                <h2 class="h2 c rv">가격도 한 번에</h2>
+                <p class="sub c rv">부가세 포함</p>
+                <div class="pcards">
+                    <div class="pcard rv">
+                        <p class="pt">개인사업장</p>
+                        <div class="stack3d"><span class="blk s" style="--h:66px">세무 11만원</span><span class="blk n" style="--h:132px">노무 22만원</span></div>
+                        <p class="tot"><b>33만원</b>부터</p>
+                    </div>
+                    <div class="pcard rv">
+                        <p class="pt">법인사업장</p>
+                        <div class="stack3d"><span class="blk s" style="--h:99px">세무 16만 5천원</span><span class="blk n" style="--h:132px">노무 22만원</span></div>
+                        <p class="tot"><b>38만 5천원</b>부터</p>
+                    </div>
                 </div>
+                <p class="pnote c">노동사건·지원금 수수료 등 특별 업무와 세무 조정료는 별도입니다.</p>
             </div>
         </section>
 
         <section class="closing">
-            <div class="wrap">
-                <h2 class="rv">"따로"가 아니라<br><span class="soft">"같이"</span> 갑니다.</h2>
-                <p class="rv">노무 + 세무 ALL IN ONE 통합 자문 상담을 원하시면 언제든 연락 주세요.</p>
-                <div class="actions rv">
-                    <a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-white js-kakao" target="_blank" rel="noopener">통합 상담 신청</a>
-                    <a href="tel:010-4835-8422" class="btn btn-line-w">전화 010-4835-8422</a>
+            <div class="wrap close-grid">
+                <div>
+                    <h2 class="rv">궁금한 거,<br><span class="soft">그냥 물어보세요.</span></h2>
+                    <p class="rv">노무 + 세무, 답은 한 방에서 같이 드립니다.</p>
+                    <div class="actions rv">
+                        <a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-white js-kakao" target="_blank" rel="noopener">통합 상담 신청</a>
+                        <a href="tel:010-4835-8422" class="btn btn-line-w">전화 010-4835-8422</a>
+                    </div>
+                </div>
+                <div class="ask rv" aria-hidden="true">
+                    <div class="askbox"><span>직원 연봉 올리려는데요…</span><i class="cur"></i></div>
+                    <div class="send"><svg viewBox="0 0 24 24"><path d="M4 12l16-8-6 16-3-7z"/></svg></div>
                 </div>
             </div>
         </section>
     </main>
+
 
     <footer>
         <div class="wrap">
