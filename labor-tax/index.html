@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노무·세무 통합 서비스 | 노무법인 유영</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="노무사와 세무사가 한 팀으로 근로계약부터 급여·세무 처리까지 함께 봅니다.">
+    <meta property="og:title" content="노무·세무 통합 서비스 | 노무법인 유영">
+    <meta property="og:description" content="계약서와 급여, 세무가 따로 놀지 않게. 노무사와 세무사가 한 팀으로 봅니다.">
+    <meta property="og:image" content="https://hryy.co.kr/images/og-image.png">
+    <meta name="theme-color" content="#E6ECF3">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <style>
+        :root {
+            --bg: #E6ECF3; --paper: #F7F8FA; --ink: #1D2088; --ink-2: #1F2440; --muted: #556070; --line: #C6D0DC; --sky: #00A0E9;
+            --font: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, 'Noto Sans KR', sans-serif; --wrap: 1180px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; scrollbar-gutter: stable; }
+        body { font-family: var(--font); color: var(--ink-2); background: var(--bg); line-height: 1.65; word-break: keep-all; letter-spacing: -0.01em; -webkit-font-smoothing: antialiased; }
+        a { color: inherit; text-decoration: none; }
+        ul, ol { list-style: none; }
+        .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 32px; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; text-align: center; height: 56px; width: 200px; border-radius: 999px; font-weight: 600; font-size: 1rem; white-space: nowrap; flex: none; transition: background .2s ease, color .2s ease; }
+        .btn-ink { background: var(--ink); color: #fff; border: 1px solid var(--ink); }
+        .btn-ink:hover { background: #2A31B0; }
+        .btn-ghost { border: 1px solid var(--ink); color: var(--ink); }
+        .btn-ghost:hover { background: var(--ink); color: #fff; }
+        .btn-white { background: #fff; color: var(--ink); border: 1px solid #fff; }
+        .btn-line-w { border: 1px solid rgba(255,255,255,.55); color: #fff; }
+        .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #fee500; margin-right: 8px; }
+        .todo { color: #D32F2F !important; font-weight: 600; }
+
+        header { height: 72px; display: flex; align-items: center; }
+        header .wrap { width: 100%; display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 34px; display: block; }
+        .back { font-size: .92rem; color: var(--muted); font-weight: 500; }
+        .back:hover { color: var(--ink); }
+
+        .hero { padding: 96px 0 110px; }
+        .kicker { display: flex; align-items: center; gap: 10px; font-size: .9rem; color: var(--muted); font-weight: 500; }
+        .kicker::before { content: ''; width: 28px; height: 3px; border-radius: 2px; background: var(--sky); }
+        .hero h1 { margin-top: 28px; font-size: clamp(2.5rem, 6.4vw, 5.2rem); line-height: 1.12; font-weight: 700; letter-spacing: -0.045em; color: var(--ink); }
+        .hero h1 .soft { color: #8B93A0; }
+        .hero .lead { margin-top: 26px; font-size: 1.15rem; max-width: 34em; }
+        .hero .actions { margin-top: 40px; display: flex; gap: 10px; flex-wrap: wrap; }
+
+        section.block { padding: 120px 0; border-top: 1px solid var(--line); }
+        .label { font-size: .85rem; color: var(--muted); font-weight: 500; }
+        .h2 { margin-top: 14px; font-size: clamp(2rem, 3.6vw, 3rem); line-height: 1.2; font-weight: 700; letter-spacing: -0.04em; color: var(--ink); }
+        .sub { margin-top: 14px; color: var(--muted); max-width: 34em; }
+
+        /* 따로 맡기면 */
+        .split2 { margin-top: 52px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .panel { border-radius: 20px; padding: 32px; }
+        .panel.bad { background: var(--paper); border: 1px solid var(--line); }
+        .panel.good { background: var(--ink); color: #fff; }
+        .panel h3 { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.03em; }
+        .panel.bad h3 { color: var(--ink-2); }
+        .panel ul { margin-top: 18px; }
+        .panel li { padding: 11px 0 11px 28px; position: relative; border-top: 1px solid var(--line); font-size: .98rem; }
+        .panel.good li { border-top-color: rgba(255,255,255,.18); }
+        .panel li::before { position: absolute; left: 0; top: 11px; width: 18px; text-align: center; font-weight: 700; }
+        .panel.bad li::before { content: '✕'; color: #9AA2AD; }
+        .panel.good li::before { content: '✓'; color: var(--sky); }
+
+        /* 포함 업무 */
+        .cols { margin-top: 52px; display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--ink); }
+        .cols > div { padding: 30px 28px 0 0; }
+        .cols > div + div { padding-left: 28px; border-left: 1px solid var(--line); }
+        .cols .who { font-size: .85rem; font-weight: 700; color: var(--sky); }
+        .cols h3 { margin-top: 4px; font-size: 1.4rem; font-weight: 700; color: var(--ink); letter-spacing: -0.03em; }
+        .cols ul { margin-top: 18px; }
+        .cols li { padding: 10px 0; border-top: 1px solid var(--line); font-size: .98rem; }
+
+        /* 진행 */
+        .steps { margin-top: 52px; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--ink); }
+        .steps li { padding: 26px 24px 0 0; }
+        .steps li + li { padding-left: 24px; border-left: 1px solid var(--line); }
+        .steps .num { font-size: .9rem; color: var(--muted); }
+        .steps b { display: block; margin-top: 30px; font-size: 1.25rem; font-weight: 700; color: var(--ink); letter-spacing: -0.03em; }
+        .steps span { display: block; margin-top: 6px; color: var(--muted); font-size: .95rem; }
+
+        .closing { background: var(--ink); color: #fff; padding: 130px 0 120px; }
+        .closing h2 { font-size: clamp(2.3rem, 5.6vw, 4.6rem); line-height: 1.12; font-weight: 700; letter-spacing: -0.045em; }
+        .closing h2 .soft { color: var(--sky); }
+        .closing p { margin-top: 18px; color: #C9CEEA; }
+        .closing .actions { margin-top: 40px; display: flex; gap: 10px; flex-wrap: wrap; }
+        footer { background: #10134F; color: #AEB5D6; padding: 36px 0 110px; font-size: .88rem; }
+        footer b { color: #F2F4FB; }
+        .copied { position: fixed; left: 50%; bottom: 96px; transform: translate(-50%, 20px); background: var(--ink-2); color: #fff; padding: 14px 22px; border-radius: 999px; font-size: .95rem; opacity: 0; pointer-events: none; transition: opacity .3s ease, transform .3s ease; z-index: 80; white-space: nowrap; }
+        .copied.show { opacity: 1; transform: translate(-50%, 0); }
+        .mbar { display: none; }
+
+        .js .rv { opacity: 0; transform: translateY(18px); transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
+        .js .rv.on { opacity: 1; transform: none; }
+        @media (prefers-reduced-motion: reduce) { .js .rv { opacity: 1; transform: none; transition: none; } }
+
+        @media (max-width: 860px) {
+            .wrap { padding: 0 22px; }
+            header { height: 60px; }
+            .logo img { height: 30px; }
+            .hero { padding: 56px 0 72px; }
+            .hero .actions .btn, .closing .actions .btn { width: calc(50% - 5px); }
+            section.block { padding: 84px 0; }
+            .split2, .cols { grid-template-columns: 1fr; }
+            .cols > div, .cols > div + div { padding: 26px 0 10px; border-left: 0; }
+            .cols > div + div { border-top: 1px solid var(--ink); }
+            .steps { grid-template-columns: 1fr; }
+            .steps li, .steps li + li { padding: 20px 0; border-left: 0; border-bottom: 1px solid var(--line); }
+            .steps b { margin-top: 10px; }
+            .panel { padding: 24px 20px; }
+            .closing { padding: 88px 0 80px; }
+            .mbar { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); background: rgba(230,236,243,.96); border-top: 1px solid var(--line); }
+            .mbar .btn { width: 100%; height: 50px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="wrap">
+            <a href="/" class="logo"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iX+uSt+uptF/rlJTsnpDsnbgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgNjk5LjU1IDEzNi44OSI+CiAgPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDMwLjIuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDIuMS4xIEJ1aWxkIDEwNSkgIC0tPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuc3QwIHsKICAgICAgICBzdHJva2U6ICMwMGEwZTk7CiAgICAgICAgc3Ryb2tlLWxpbmVjYXA6IHJvdW5kOwogICAgICB9CgogICAgICAuc3QwLCAuc3QxIHsKICAgICAgICBzdHJva2Utd2lkdGg6IDIuOTRweDsKICAgICAgfQoKICAgICAgLnN0MCwgLnN0MSwgLnN0MiwgLnN0MyB7CiAgICAgICAgZmlsbDogbm9uZTsKICAgICAgfQoKICAgICAgLnN0MCwgLnN0MiwgLnN0MywgLnN0NCB7CiAgICAgICAgc3Ryb2tlLW1pdGVybGltaXQ6IDEwOwogICAgICB9CgogICAgICAuc3QxIHsKICAgICAgICBzdHJva2UtbGluZWpvaW46IHJvdW5kOwogICAgICB9CgogICAgICAuc3QxLCAuc3QyLCAuc3QzIHsKICAgICAgICBzdHJva2U6ICMxZDIwODg7CiAgICAgIH0KCiAgICAgIC5zdDIgewogICAgICAgIHN0cm9rZS13aWR0aDogMS45NnB4OwogICAgICB9CgogICAgICAuc3Q1IHsKICAgICAgICBpc29sYXRpb246IGlzb2xhdGU7CiAgICAgIH0KCiAgICAgIC5zdDMgewogICAgICAgIHN0cm9rZS13aWR0aDogMy4yM3B4OwogICAgICB9CgogICAgICAuc3Q2IHsKICAgICAgICBmaWxsOiAjMjMxODE1OwogICAgICB9CgogICAgICAuc3Q0IHsKICAgICAgICBmaWxsOiAjZmZmOwogICAgICAgIHN0cm9rZTogIzAwMDsKICAgICAgfQogICAgPC9zdHlsZT4KICA8L2RlZnM+CiAgCiAgPGc+CiAgICA8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMzcuMTUsOTAuOTljMi4wNy4xNiwxMC43Ni4xNiwxNy41MS05LjIsNy43MS0xMC43LDIyLjEzLTE4LjIsMjcuODUtMTYuOTFoMHMtMTAuODMsMjAuMjgsMy44OCwyNS41MWMxLjc2LjYyLDMuNjguNzEsNS40OC4yNyw0LjktMS4yLDE1LjgtNC42MywxOS44MS0xMi4wM2gwczIuNDcsMTkuMDEsMjIuNjYsOS40YzAsMCwzLjE2LTEuNjMsMTAuMjUtNy43MSIvPgogICAgPHBhdGggY2xhc3M9InN0MCIgZD0iTTM5LjA5LDgwLjU0czE4LjY1LDI4LjU5LDUxLjMxLTEuOTRjMCwwLDEyLjIxLDMxLjg2LDQ0Ljc0LTEuNDkiLz4KICAgIDxjaXJjbGUgY2xhc3M9InN0MyIgY3g9Ijg5LjIiIGN5PSI2Ny4yOCIgcj0iNTYuOTMiLz4KICAgIDxjaXJjbGUgY2xhc3M9InN0MiIgY3g9IjEwNy4xNiIgY3k9IjM0LjM3IiByPSI0LjM0Ii8+CiAgICA8Y2lyY2xlIGNsYXNzPSJzdDIiIGN4PSIxMTcuMzQiIGN5PSI0MC44OCIgcj0iMi4xNiIvPgogIDwvZz4KICA8ZyBjbGFzcz0ic3Q1Ij4KICAgIDxnIGNsYXNzPSJzdDUiPgogICAgICA8ZyBjbGFzcz0ic3Q1Ij4KICAgICAgICA8cGF0aCBjbGFzcz0ic3Q2IiBkPSJNMTgzLjQ2LDQ5LjQxaDEyLjR2MjcuNzhoNDAuOXYxMC4yOGgtMjAuNjJ2MTQuNjdoMjMuMzl2MTAuMTNoLTU5LjI1di0xMC4xM2gyMy40NnYtMTQuNjdoLTIwLjI3di0zOC4wNmgtLjAxWiIvPgogICAgICAgIDxwYXRoIGNsYXNzPSJzdDYiIGQ9Ik0yNzEuNjQsOTkuNjZoLTIzLjMydi0xMC4yOGg1OS4yNXYxMC4yOGgtMjMuNTN2MTYuNDRoLTEyLjR2LTE2LjQ0Wk0zMDQuMzgsNDkuNDF2MzMuOTVoLTUyLjg3di0zMy45NWg1Mi44N1pNMjYzLjkxLDczLjIzaDI4LjA3di0xMy42MWgtMjguMDd2MTMuNjFoMFoiLz4KICAgICAgICA8cGF0aCBjbGFzcz0ic3Q2IiBkPSJNMzI5Ljc2LDQ5LjQxdjguMDFoMTAuODR2LTguMDFoMTEuNjJ2MTIuMjZoNy43M3YtMTMuMDRoMTIuNHYzNi43MWgtMTIuNHYtMTMuNTRoLTcuNzN2MTEuN2gtMzQuMjN2LTM0LjA5aDExLjc3Wk0zMzMuOTQsOTIuNjVoMjYuMTV2LTUuMTdoMTIuMjZ2MjguMjFoLTUwLjY4di0yOC4yMWgxMi4yNnY1LjE3aDBaTTMyOS43Niw3My45NGgxMC44NHYtNi44N2gtMTAuODR2Ni44N1pNMzYwLjA5LDEwNi4xMXYtMy44M2gtMjYuMTV2My44M2gyNi4xNVoiLz4KICAgICAgICA8cGF0aCBjbGFzcz0ic3Q2IiBkPSJNMzg0Ljk3LDY4LjEyYzAtNy4yMywyLjI3LTEyLjQ3LDYuMDItMTUuODgsMy4xMi0yLjY5LDcuMTYtMy45NywxMi4xOS0zLjk3czksMS4yOCwxMi4xMiwzLjk3YzMuODMsMy40LDYuMDMsOC42NSw2LjAzLDE1Ljg4cy0yLjIsMTIuNjItNi4wMywxNS44OGMtMy4xMiwyLjYyLTcuMTYsNC4wNC0xMi4xMiw0LjA0cy05LjA3LTEuNDItMTIuMTktNC4wNGMtMy43Ni0zLjI2LTYuMDItOC42NS02LjAyLTE1Ljg4Wk00NDEuMjUsMTA1LjMzdjEwLjA2aC01MS41M3YtMjMuODloMTIuNHYxMy44MmgzOS4xM1pNNDA5LjUsNjguMTJjMC0zLjktLjc4LTYuNjYtMi4yLTguMjktMS4wNi0xLjA2LTIuNDEtMS43LTQuMTEtMS43cy0zLjEyLjY0LTQuMTEsMS43Yy0xLjQyLDEuNjMtMi4yNyw0LjM5LTIuMjcsOC4yOXMuODUsNi44LDIuMjcsOC4yOWMuOTksMS4yMSwyLjQxLDEuNjMsNC4xMSwxLjYzczMuMDUtLjQyLDQuMTEtMS42M2MxLjQyLTEuNDksMi4yLTQuMzIsMi4yLTguMjlaTTQ0MC40LDQ4LjYzdjQ2LjU3aC0xMi40di00Ni41N3MxMi40LDAsMTIuNCwwWiIvPgogICAgICA8L2c+CiAgICA8L2c+CiAgPC9nPgogIDxnIGNsYXNzPSJzdDUiPgogICAgPGcgY2xhc3M9InN0NSI+CiAgICAgIDxnIGNsYXNzPSJzdDUiPgogICAgICAgIDxwYXRoIGNsYXNzPSJzdDYiIGQ9Ik0xOTMuMDUsMjcuNDRoLTExLjYydi0xMy42NWgxMy40NXYzLjdoLTkuMTF2Ni4yOGg4LjIxYzIuMjMsMCwzLjUtLjI2LDQuNDUtLjl2LTkuMzdoNC40djUuNjFoMy42N3YzLjc5aC0zLjY3djUuODFoLTQuNHYtMi4zNGMtLjk1LjY5LTIuNTcsMS4wNy01LjM4LDEuMDdaTTE4Mi40OSwzNC45MmMwLTEuNjguNzItMi45MiwxLjkxLTMuODIsMS44OC0xLjUsNS4wMy0yLjA4LDguNTktMi4wOHM2LjY4LjU4LDguNTYsMi4wOGMxLjE5LjksMS45MSwyLjE0LDEuOTEsMy44MnMtLjcyLDIuOTUtMS45MSwzLjg1Yy0xLjg4LDEuNDctNS4wMywyLjA1LTguNTYsMi4wNXMtNi43MS0uNTgtOC41OS0yLjA1Yy0xLjE5LS45LTEuOTEtMi4xNy0xLjkxLTMuODVaTTE4Ni44OSwzNC45MmMwLC41NS4yNi45OC43NSwxLjMzLjk4LjY5LDIuODYuOSw1LjM1LjlzNC4zNC0uMiw1LjMyLS45Yy40OS0uMzUuNzgtLjc4Ljc4LTEuMzNzLS4yOS0uOTgtLjc4LTEuMzNjLS45OC0uNjctMi44Ni0uOS01LjMyLS45cy00LjM3LjIzLTUuMzUuOWMtLjQ5LjM1LS43NS43OC0uNzUsMS4zM1oiLz4KICAgICAgICA8cGF0aCBjbGFzcz0ic3Q2IiBkPSJNMjE0LjA0LDEzLjY0aDQuNHY0LjIyYzAsNC42OCwyLjA4LDYuNzcsNS40NCw3LjcydjMuODJjLTMuMTUtLjQ5LTYuMDctMi4wNS03LjYtNC4wMi0xLjQ3LDIuMDUtNC40LDMuNzMtNy42Niw0LjMxdi0zLjc2YzMuNDctMS4wNyw1LjQ0LTMuNTMsNS40NC04LjA3di00LjIyaC0uMDIsMFpNMjMxLjcxLDM2LjY2djMuNjdoLTIwLjd2LTkuNTFoNC40djUuODRoMTYuMzEsMFpNMjMxLjI4LDEzLjV2MTguNzRoLTQuNFYxMy41aDQuNFoiLz4KICAgICAgICA8cGF0aCBjbGFzcz0ic3Q2IiBkPSJNMjU5LjAxLDEzLjV2MjYuNjloLTQuNHYtMi42OWMtLjkuODctMi42OSwxLjMtNS4yLDEuM2gtMTIuNzV2LTMuN2gxMy40NWMyLjE3LDAsMy42NC0uMzUsNC41MS0xLjEzVjEzLjVoNC40LS4wMVpNMjM3LjQ0LDIyLjEyYzAtMy4wNy45LTUuNDEsMi42My02Ljg4LDEuMjEtMS4wNCwyLjk1LTEuNTksNC44My0xLjU5czMuNjQuNTUsNC44NiwxLjU5YzEuNzMsMS40NywyLjYsMy44MiwyLjYsNi44OHMtLjg3LDUuNDEtMi42LDYuOTFjLTEuMjEsMS4wMS0yLjk1LDEuNTYtNC44NiwxLjU2cy0zLjYxLS41NS00LjgzLTEuNTZjLTEuNzMtMS41LTIuNjMtMy44NS0yLjYzLTYuOTFaTTI0MS43OCwyMi4xMmMwLDEuODIuMzIsMy4yNywxLjEsNC4wNS40OS41MiwxLjIxLjcyLDIuMDIuNzJzMS41LS4yLDItLjcyYy44MS0uNzgsMS4xNi0yLjIzLDEuMTYtNC4wNXMtLjM1LTMuMjQtMS4xNi00LjA1Yy0uNDktLjQ5LTEuMTYtLjc1LTItLjc1cy0xLjUzLjI2LTIuMDIuNzVjLS43OC44MS0xLjEsMi4yMy0xLjEsNC4wNVoiLz4KICAgICAgICA8cGF0aCBjbGFzcz0ic3Q2IiBkPSJNMjk2LjgxLDMwLjM4aC0yNC4xMnYtMy42N2gyNC4xMnYzLjY3Wk0yOTUuMTYsMTMuNzl2My42MmgtMTYuNDV2My4zNWgxNi42djMuNTloLTIwLjk5di0xMC41NWgyMC44NS0uMDFaTTI3NC4zMSwzMi4yMWg0LjQydjQuNDVoMTYuODl2My42N2gtMjEuMzF2LTguMTJaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9InN0NiIgZD0iTTMyNC41NywzMC4zOGgtMjQuMTJ2LTMuNjdoMjQuMTJ2My42N1pNMzIyLjkyLDEzLjc5djMuNjJoLTE2LjQ1djMuMzVoMTYuNnYzLjU5aC0yMC45OXYtMTAuNTVoMjAuODUtLjAxWk0zMDIuMDgsMzIuMjFoNC40MnY0LjQ1aDE2Ljg5djMuNjdoLTIxLjMxdi04LjEyaDBaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9InN0NiIgZD0iTTM0My4yOCwxNS4zOHYzLjQ3aC0xNS40MXYtMy40N2g1LjU4di0yLjY2aDQuNDJ2Mi42Nmg1LjQxWk0zMjguNjIsMjUuNWMwLTEuNzEuNjctMy4wOSwxLjg4LTQuMDUsMS4yNC0xLjAxLDMuMDQtMS41Niw1LjA5LTEuNTZzMy44Ny41NSw1LjEyLDEuNTZjMS4yMS45NSwxLjg4LDIuMzQsMS44OCw0LjA1cy0uNjcsMy4wOS0xLjg4LDQuMDVjLTEuMjQuOTgtMy4wNCwxLjU2LTUuMTIsMS41NnMtMy44NS0uNTgtNS4wOS0xLjU2Yy0xLjIxLS45Ni0xLjg4LTIuMzQtMS44OC00LjA1Wk0zMzAuMTMsMzIuMDZoNC40MnY0LjZoMTYuMDJ2My42N2gtMjAuNDR2LTguMjdaTTMzMi44MiwyNS41YzAsLjYxLjI2LDEuMTMuNjcsMS41LjQ5LjQ2LDEuMjQuNzIsMi4xMS43MnMxLjY1LS4yNiwyLjE0LS43MmMuNC0uMzguNjctLjkuNjctMS41cy0uMjYtMS4xNi0uNjctMS41M2MtLjQ5LS40Ni0xLjI3LS42OS0yLjE0LS42OXMtMS42Mi4yMy0yLjExLjY5Yy0uNC4zOC0uNjcuOS0uNjcsMS41M1pNMzQ1Ljc0LDEzLjVoNC40djcuMmgzLjY3djMuNzloLTMuNjd2OC41NmgtNC40VjEzLjVaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9InN0NiIgZD0iTTM2Ny4xNCwzNC43OHYtMTcuMTJoLTIuMTF2LTMuN2gxNS4zNXYzLjdoLTIuMTF2MTEuMjhjMCwyLjE0LS4xNCw0LjIyLS40Niw1Ljg0LDEuOTctLjAzLDMuMzUtLjM1LDQuMTktMS4wNFYxMy41aDQuNHYxMC40NGgzLjl2My43OWgtMy45djEyLjQ2aC00LjR2LTIuOTVjLS45My44NC0yLjc1LDEuMjEtNS4xOCwxLjIxaC0xMi4xMnYtMy42N2gyLjQ0LDBaTTM3NC4wMywyOS4xNHYtMTEuNDhoLTIuNjZ2MTcuMTJoMi4zMWMuMjktMS42Mi4zNS0zLjYxLjM1LTUuNjRaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9InN0NiIgZD0iTTQxNi4yMiwzOS4wOWgtMjMuODN2LTMuNzZoMjMuODN2My43NlpNNDE0Ljg5LDEzLjk2djMuN2gtMTYuNzd2My4yN2gxNi40NXYzLjY3aC0xNi40NXYzLjNoMTcuMDl2My43NmgtMjEuNTFWMTMuOTZoMjEuMTlaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9InN0NiIgZD0iTTQzMS41OCwzOC40NWgtMTAuNThWMTMuNzhoNC4zN3YyMC45OWg2LjM5YzEuODgsMCwzLjQxLS4wOSw0LjYzLS40M3YzLjU2Yy0xLjIxLjQzLTIuODYuNTUtNC44LjU1aC0uMDFaTTQzOC4yLDI2LjI4aC03LjM3di0zLjc5aDcuMzd2LTguOTloNC40djI2LjY5aC00LjR2LTEzLjkxWiIvPgogICAgICA8L2c+CiAgICA8L2c+CiAgPC9nPgogIDxnIGNsYXNzPSJzdDUiPgogICAgPGcgY2xhc3M9InN0NSI+CiAgICAgIDxnIGNsYXNzPSJzdDUiPgogICAgICAgIDxwYXRoIGNsYXNzPSJzdDYiIGQ9Ik00NzMuODgsOTMuNTFoLTE2Ljg0di0xNS4zN2g4Ny45OXYxNS4zN2gtMTYuNzR2MjMuODloLTE4di0yMy44OWgtMTguMzF2MjMuODloLTE4LjF2LTIzLjg5aDBaTTQ1OS43OCw0NC4xNWMwLTcuNTgsMi45NS0xMy42OCw4LTE3Ljc5LDcuMjYtNiwxOC40Mi04LjUzLDMzLjM3LTguNTNzMjUuODksMi41MywzMy4yNiw4LjUzYzUuMDUsNC4xMSw4LjEsMTAuMjEsOC4xLDE3Ljc5cy0zLjA1LDEzLjc5LTguMSwxNy43OWMtNy4zNyw2LTE4LjQyLDguNTMtMzMuMjYsOC41M3MtMjYuMS0yLjUzLTMzLjM3LTguNTNjLTUuMDUtNC04LTEwLjIxLTgtMTcuNzloMFpNNDc4LjIsNDQuMTVjMCwzLjI2LDEuMjYsNS42OCwzLjQ3LDcuMzcsMy42OCwyLjg0LDEwLDMuNzksMTkuNDcsMy43OXMxNS42OC0uOTUsMTkuMzctMy43OWMyLjMyLTEuNjgsMy40Ny00LjExLDMuNDctNy4zNywwLTMuMDUtMS4xNi01LjU4LTMuNDctNy4zNy0zLjY4LTIuNzQtMTAuMS0zLjY4LTE5LjM3LTMuNjhzLTE1Ljc5Ljk1LTE5LjQ3LDMuNjhjLTIuMjEsMS43OS0zLjQ3LDQuMzItMy40Nyw3LjM3WiIvPgogICAgICAgIDxwYXRoIGNsYXNzPSJzdDYiIGQ9Ik01NTguOTMsNDQuMzZjMC05LjM3LDMuMzctMTYuODQsOS4wNS0yMS40Nyw0LjUzLTMuNjgsMTAuNDItNS41OCwxNy41OC01LjU4czEzLjA1LDEuODksMTcuNTgsNS41OGMxLjE2Ljk1LDIuMjEsMi4xMSwzLjI2LDMuMjZoMTYuNDJ2LTguMzJoMTguNDJ2NTYuMzFoLTE4LjQydi0xMS4wNWgtMTYuOTVjLS44NC45NS0xLjc5LDEuNzktMi43NCwyLjYzLTQuNTMsMy42OC0xMC41Myw1Ljc5LTE3LjU4LDUuNzlzLTEzLjA1LTIuMS0xNy41OC01Ljc5Yy01LjY4LTQuNjMtOS4wNS0xMS44OS05LjA1LTIxLjM3aC4wMVpNNTY0LjkzLDk2Ljc4YzAtNi4zMiwyLjk1LTExLjE2LDcuNjgtMTQuNTMsNy4yNi01LjE2LDE4Ljc0LTcuMjYsMzEuNTgtNy4yNnMyNC4zMSwyLjExLDMxLjQ3LDcuMjZjNC44NCwzLjM3LDcuNzksOC4yMSw3Ljc5LDE0LjUzcy0yLjk1LDExLjI2LTcuNzksMTQuNjNjLTcuMTYsNS4yNi0xOC43Myw3LjI2LTMxLjQ3LDcuMjZzLTI0LjMxLTItMzEuNTgtNy4yNmMtNC43NC0zLjM3LTcuNjgtOC4yMS03LjY4LTE0LjYzWk01OTQuNTEsNDQuMzZjMC00LjUzLS45NS03Ljc5LTMuMTYtMTAtMS40Ny0xLjQ3LTMuMzctMi40Mi01Ljc5LTIuNDJzLTQuNDIuOTUtNiwyLjQyYy0yLDIuMjEtMy4xNiw1LjQ3LTMuMTYsMTBzMS4xNiw3Ljg5LDMuMTYsMTBjMS41OCwxLjU4LDMuNDcsMi4zMiw2LDIuMzJzNC4zMi0uNzQsNS43OS0yLjMyYzIuMjEtMi4xMSwzLjE2LTUuNjgsMy4xNi0xMFpNNTgzLjA0LDk2Ljc4YzAsMS43OS45NSwzLjA1LDIuNTMsNC4yMSwzLjM3LDIuMTEsMTAuMSwyLjk1LDE4LjYzLDIuOTVzMTUuMTYtLjg0LDE4LjUzLTIuOTVjMS42OC0xLjE2LDIuNDItMi40MiwyLjQyLTQuMjEsMC0xLjY4LS43NC0yLjg0LTIuNDItNC0zLjM3LTIuMTEtMTAtMy4wNS0xOC41My0zLjA1cy0xNS4yNi45NS0xOC42MywzLjA1Yy0xLjU4LDEuMTYtMi41MywyLjMyLTIuNTMsNFpNNjExLjc3LDQwLjU3Yy4xMSwxLjI2LjIxLDIuNTMuMjEsMy43OSwwLDEuNDctLjExLDIuOTUtLjIxLDQuMzJoMTEuMDV2LTguMWgtMTEuMDVaIi8+CiAgICAgIDwvZz4KICAgIDwvZz4KICA8L2c+Cjwvc3ZnPg==" alt="노무법인 유영"></a>
+            <a href="/" class="back">노무법인 유영 홈 →</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="wrap">
+                <p class="kicker rv">노무·세무 통합 서비스</p>
+                <h1 class="rv">계약서와 급여, 세금이<br><span class="soft">따로 놀지 않게.</span></h1>
+                <p class="lead rv">노무사와 세무사가 한 팀으로 근로계약부터 급여 기준, 세무 처리까지 함께 봅니다. 사장님은 한 곳에만 물어보시면 됩니다.</p>
+                <div class="actions rv">
+                    <a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-ink js-kakao" target="_blank" rel="noopener"><span class="dot"></span>통합 상담 신청</a>
+                    <a href="tel:010-4835-8422" class="btn btn-ghost">전화 상담</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="block">
+            <div class="wrap">
+                <p class="label rv">왜 함께 봐야 할까요</p>
+                <h2 class="h2 rv">따로 맡기면<br>사장님이 중간에서 바빠집니다</h2>
+                <div class="split2 rv">
+                    <div class="panel bad">
+                        <h3>노무사·세무사를 따로 쓸 때</h3>
+                        <ul>
+                            <li>계약서의 임금과 급여대장의 숫자가 서로 다르게 적힘</li>
+                            <li>수당이 바뀔 때마다 사장님이 양쪽에 따로 전달</li>
+                            <li>퇴직금·연장수당 처리 기준을 두 곳에 각각 설명</li>
+                            <li>문제가 생기면 어느 쪽 일인지부터 따져야 함</li>
+                        </ul>
+                    </div>
+                    <div class="panel good">
+                        <h3>유영 통합 서비스</h3>
+                        <ul>
+                            <li>계약서에 정한 임금 기준이 급여·세무 처리까지 그대로 이어짐</li>
+                            <li>바뀐 내용은 한 번만 말하면 노무·세무에 함께 반영</li>
+                            <li>인건비 문제를 노무와 세무 양쪽에서 한 번에 검토</li>
+                            <li>연락 창구가 하나라 책임이 분명함</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="block">
+            <div class="wrap">
+                <p class="label rv">함께 맡는 일</p>
+                <h2 class="h2 rv">한 팀이 이만큼 봅니다</h2>
+                <div class="cols rv">
+                    <div>
+                        <p class="who">노무사</p>
+                        <h3>노무</h3>
+                        <ul><li>근로계약서·인사 서류 작성</li><li>임금·근로시간 기준 설계</li><li>입사·퇴사 상담</li><li>노동청·노동위원회 사건 대응</li><li>정부지원금 확인과 신청</li></ul>
+                    </div>
+                    <div>
+                        <p class="who">세무사</p>
+                        <h3>세무</h3>
+                        <ul><li>세무 기장</li><li>부가세·종합소득세·법인세 신고</li><li>인건비 세무 처리</li><li>원천세 신고</li><li class="todo">위 세무 항목은 예시 — 실제 범위와 함께하는 세무사 이름 확인 필요</li></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="block">
+            <div class="wrap">
+                <p class="label rv">진행 방법</p>
+                <h2 class="h2 rv">이렇게 시작합니다</h2>
+                <ol class="steps rv">
+                    <li><span class="num">01</span><b>상담</b><span>회사 규모, 직원 수, 지금 맡기고 있는 곳을 알려 주세요.</span></li>
+                    <li><span class="num">02</span><b>현황 점검</b><span>계약서·급여·신고 자료를 노무사와 세무사가 함께 확인합니다.</span></li>
+                    <li><span class="num">03</span><b>통합 관리</b><span>정한 기준대로 노무와 세무를 한 팀이 함께 맡습니다.</span></li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="closing">
+            <div class="wrap">
+                <h2 class="rv">노무도, 세무도<br><span class="soft">한 번에</span> 물어보세요.</h2>
+                <p class="rv">비용은 회사 규모와 업무량에 맞춰 상담 후 정합니다.</p>
+                <div class="actions rv">
+                    <a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-white js-kakao" target="_blank" rel="noopener">통합 상담 신청</a>
+                    <a href="tel:010-4835-8422" class="btn btn-line-w">전화 010-4835-8422</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap">
+            <p><b>노무법인 유영</b> · 대표노무사 손유권 · 서울특별시 강남구 선릉로 578, 7층(태정빌딩) · 전화 010-4835-8422</p>
+        </div>
+    </footer>
+
+    <nav class="mbar" aria-label="빠른 상담">
+        <a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-ghost js-kakao" target="_blank" rel="noopener"><span class="dot"></span>카카오톡</a>
+        <a href="tel:010-4835-8422" class="btn btn-ink">전화 상담</a>
+    </nav>
+    <div class="copied" id="copied" role="status">상담 내용이 복사됐어요. 채팅창에 붙여 넣어 주세요.</div>
+
+    <script>
+        document.documentElement.classList.add('js');
+        (function () {
+            var toast = document.getElementById('copied'), timer;
+            document.querySelectorAll('.js-kakao').forEach(function (a) {
+                a.addEventListener('click', function () {
+                    try { navigator.clipboard.writeText('[노무·세무 통합 상담] 회사명: / 직원 수: / 지금 세무를 맡긴 곳:').then(function () {
+                        toast.classList.add('show'); clearTimeout(timer); timer = setTimeout(function () { toast.classList.remove('show'); }, 3000);
+                    }).catch(function () {}); } catch (e) {}
+                });
+            });
+            var els = document.querySelectorAll('.rv');
+            if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('on'); }); return; }
+            var io = new IntersectionObserver(function (en) { en.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('on'); io.unobserve(x.target); } }); }, { rootMargin: '0px 0px -6% 0px' });
+            els.forEach(function (e) { io.observe(e); });
+        })();
+    </script>
+</body>
+</html>
