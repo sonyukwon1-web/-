@@ -334,6 +334,42 @@
             .person { grid-template-columns: 64px 1fr; padding: 24px 20px; gap: 16px; }
             .person .ph { width: 64px; height: 64px; font-size: 1.2rem; }
         }
+        /* ---------- 그림 요소 (입체 아이콘·통합 서비스 배너·질문창) ---------- */
+        .ico3d { width: 60px; height: 60px; border-radius: 19px; display: flex; align-items: center; justify-content: center; flex: none; margin-bottom: 18px; background: linear-gradient(150deg, #3B40C8 0%, #1D2088 60%, #14176A 100%); box-shadow: 0 14px 24px -12px rgba(29,32,136,.65), inset 0 2px 0 rgba(255,255,255,.25), inset 0 -5px 10px rgba(0,0,0,.25); }
+        .ico3d svg { width: 32px; height: 32px; fill: none; stroke: #fff; stroke-width: 2.8; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 2px 2px rgba(0,0,0,.25)); }
+        .facts div { padding-top: 28px; }
+        .cols > div { padding-top: 32px; }
+        .steps li { padding-top: 28px; }
+        .steps .ico3d { width: 52px; height: 52px; border-radius: 16px; margin-bottom: 16px; }
+        .steps .ico3d svg { width: 28px; height: 28px; }
+        .steps li:nth-child(1) .ico3d { background: linear-gradient(150deg, #4CC6FF 0%, #00A0E9 55%, #0079B5 100%); box-shadow: 0 14px 24px -12px rgba(0,160,233,.7), inset 0 2px 0 rgba(255,255,255,.35), inset 0 -5px 10px rgba(0,0,0,.2); }
+        .teaser { margin-top: 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; padding: 40px 44px; border-radius: 28px; background: linear-gradient(150deg, #262AA0, #151878); color: #fff; box-shadow: 0 30px 60px -34px rgba(29,32,136,.75); transition: transform .3s ease, box-shadow .3s ease; }
+        .teaser:hover { box-shadow: 0 36px 70px -32px rgba(29,32,136,.85); }
+        .tz-k { font-size: .85rem; font-weight: 700; color: #7FD3FF; }
+        .tz-copy b { display: block; margin-top: 10px; font-size: clamp(1.7rem, 3vw, 2.4rem); line-height: 1.18; font-weight: 800; letter-spacing: -0.045em; }
+        .tz-copy span { display: block; margin-top: 12px; color: #C9CEEA; }
+        .tz-copy em { display: inline-flex; align-items: center; justify-content: center; margin-top: 22px; height: 46px; width: 150px; border-radius: 999px; background: #fff; color: var(--ink); font-style: normal; font-weight: 700; font-size: .95rem; }
+        .tz-chat { background: #BACEE0; border-radius: 22px; padding: 18px; display: flex; flex-direction: column; gap: 8px; }
+        .tb { align-self: flex-start; max-width: 78%; background: #fff; color: #111; border-radius: 4px 15px 15px 15px; padding: 9px 13px; font-size: .92rem; line-height: 1.45; }
+        .tb small { display: block; font-size: .72rem; font-weight: 800; margin-bottom: 2px; }
+        .tb small.n { color: var(--ink); } .tb small.s { color: #0088C7; }
+        .tb.me { align-self: flex-end; background: #FEE500; border-radius: 15px 4px 15px 15px; }
+        .closing .ask { margin-top: 44px; max-width: 560px; display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 24px; background: rgba(255,255,255,.08); box-shadow: inset 0 0 0 1px rgba(255,255,255,.14); }
+        .askbox { flex: 1; min-width: 0; height: 58px; border-radius: 16px; background: #fff; color: #1b2430; display: flex; align-items: center; padding: 0 18px; font-size: 1rem; font-weight: 500; overflow: hidden; white-space: nowrap; }
+        .askbox span { overflow: hidden; text-overflow: ellipsis; }
+        .cur { display: inline-block; width: 2px; height: 20px; background: var(--ink); margin-left: 3px; flex: none; animation: blink 1s steps(1) infinite; }
+        @keyframes blink { 50% { opacity: 0; } }
+        .send { width: 58px; height: 58px; border-radius: 16px; background: #FEE500; display: flex; align-items: center; justify-content: center; flex: none; }
+        .send svg { width: 24px; height: 24px; fill: #1b2430; }
+        @media (prefers-reduced-motion: reduce) { .cur { animation: none; } }
+        @media (max-width: 860px) {
+            .ico3d { width: 52px; height: 52px; border-radius: 16px; margin-bottom: 14px; }
+            .ico3d svg { width: 28px; height: 28px; }
+            .teaser { grid-template-columns: 1fr; padding: 28px 20px 22px; gap: 22px; margin-top: 40px; border-radius: 24px; }
+            .tb { font-size: .86rem; }
+            .askbox { height: 50px; font-size: .9rem; padding: 0 14px; }
+            .send { width: 50px; height: 50px; }
+        }
     </style>
 </head>
 <body>
@@ -512,10 +548,24 @@
                     <p>검증된 전문성과 실질적인 해결책으로 기업의 성장을 돕습니다.</p>
                 </div>
                 <div class="facts rv" style="margin-top:0">
-                    <div><b>노무·세무 통합 서비스</b><span>노무사와 세무사가 한 팀을 이루어 기업에 딱 맞는 전략을 제시합니다.</span><br><a class="more" href="labor-tax/">통합 서비스 자세히</a></div>
-                    <div><b>맞춤 솔루션</b><span>기업의 규모와 업종에 맞는 인사노무 체계를 설계하고 운영을 지원합니다.</span></div>
-                    <div><b>예방 중심</b><span>문제가 생기기 전에 위험을 진단하고, 체계적인 예방으로 분쟁을 미리 막습니다.</span></div>
+                    <div><i class="ico3d" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="17" cy="18" r="5"/><circle cx="31" cy="18" r="5"/><path d="M8 37c1-7 4-11 9-11s8 4 9 11M22 37c1-7 4-11 9-11s8 4 9 11"/></svg></i><b>노무·세무 통합 서비스</b><span>노무사와 세무사가 한 팀을 이루어 기업에 딱 맞는 전략을 제시합니다.</span><br><a class="more" href="labor-tax/">통합 서비스 자세히</a></div>
+                    <div><i class="ico3d" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M10 14h28M10 24h28M10 34h28"/><circle cx="18" cy="14" r="3.5" fill="#1D2088"/><circle cx="30" cy="24" r="3.5" fill="#1D2088"/><circle cx="21" cy="34" r="3.5" fill="#1D2088"/></svg></i><b>맞춤 솔루션</b><span>기업의 규모와 업종에 맞는 인사노무 체계를 설계하고 운영을 지원합니다.</span></div>
+                    <div><i class="ico3d" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 6l14 5v11c0 9-6 16-14 20C16 38 10 31 10 22V11z"/><path d="M17 23l5 5 9-10"/></svg></i><b>예방 중심</b><span>문제가 생기기 전에 위험을 진단하고, 체계적인 예방으로 분쟁을 미리 막습니다.</span></div>
                 </div>
+                <a class="teaser rv" href="labor-tax/">
+                    <div class="tz-copy">
+                        <p class="tz-k">노무·세무 통합 서비스</p>
+                        <b>대표님은<br>통역사가 아닙니다.</b>
+                        <span>노무사와 세무사가 한 카톡방에서 같이 답합니다.</span>
+                        <em>자세히 보기 →</em>
+                    </div>
+                    <div class="tz-chat" aria-hidden="true">
+                        <p class="tb me">성과급 주려는데 어떻게 하죠?</p>
+                        <p class="tb"><small class="n">노무사</small>계약서는 제가 고칠게요.</p>
+                        <p class="tb"><small class="s">세무사</small>원천징수는 급여에 같이 반영할게요.</p>
+                        <p class="tb me">한 번에 끝났네요!</p>
+                    </div>
+                </a>
             </div>
         </section>
 
@@ -554,15 +604,15 @@
                 </div>
                 <div class="cols rv">
                     <div>
-                        <h3>기업자문</h3><p>사장님과 인사담당자를 위한 상시 자문</p>
+                        <i class="ico3d" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="8" y="16" width="32" height="22" rx="4"/><path d="M18 16v-4h12v4M8 26h32"/></svg></i><h3>기업자문</h3><p>사장님과 인사담당자를 위한 상시 자문</p>
                         <ul><li>정기 자문 (노무·세무 통합)</li><li>근로계약서 등 서류 정비</li><li>인사제도·임금체계 설계</li><li>법정의무교육</li><li>스타트업 노무실사</li></ul>
                     </div>
                     <div>
-                        <h3>노동사건</h3><p>노동청·노동위원회 사건 대리</p>
+                        <i class="ico3d" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 8v30M15 40h18M10 14h28"/><path d="M14 14 8 27a6 4 0 0 0 12 0zM34 14l-6 13a6 4 0 0 0 12 0z"/></svg></i><h3>노동사건</h3><p>노동청·노동위원회 사건 대리</p>
                         <ul><li>부당해고 구제신청</li><li>임금체불 진정</li><li>직장 내 괴롭힘·성희롱 조사</li><li>간이대지급금 신청</li><li>금전보상·협상 지원</li></ul>
                     </div>
                     <div>
-                        <h3>정부지원금</h3><p>받을 수 있는 지원금 확인부터 신청까지</p>
+                        <i class="ico3d" aria-hidden="true"><svg viewBox="0 0 48 48"><ellipse cx="24" cy="14" rx="13" ry="5"/><path d="M11 14v10c0 3 6 5 13 5s13-2 13-5V14"/><path d="M11 24v10c0 3 6 5 13 5s13-2 13-5V24"/></svg></i><h3>정부지원금</h3><p>받을 수 있는 지원금 확인부터 신청까지</p>
                         <ul><li>청년일자리도약장려금<span class="note">2026년 기준, 1인당 720만원 지원</span></li><li>고용창출·고용유지 장려금</li><li>일자리안정자금</li></ul>
                     </div>
                 </div>
@@ -576,10 +626,10 @@
                     <p>전화나 카카오톡으로 편하게 연락 주세요.</p>
                 </div>
                 <ol class="steps rv">
-                    <li><span class="num">01</span><b>문의</b><span>전화 또는 카카오톡으로 연락 주세요.</span></li>
-                    <li><span class="num">02</span><b>상황 확인</b><span>노무사가 사실관계와 자료를 확인합니다.</span></li>
-                    <li><span class="num">03</span><b>방향 안내</b><span>대응 방향과 진행 방법을 설명드립니다.</span></li>
-                    <li><span class="num">04</span><b>진행</b><span>신고·서면·협상 등 실제 업무를 수행합니다.</span></li>
+                    <li><i class="ico3d" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M8 12h32v20H22l-8 7v-7H8z"/><path d="M16 22h.5M24 22h.5M32 22h.5"/></svg></i><span class="num">01</span><b>문의</b><span>전화 또는 카카오톡으로 연락 주세요.</span></li>
+                    <li><i class="ico3d" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="21" cy="21" r="11"/><path d="M29 29l10 10"/></svg></i><span class="num">02</span><b>상황 확인</b><span>노무사가 사실관계와 자료를 확인합니다.</span></li>
+                    <li><i class="ico3d" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 8v32M16 40h16"/><path d="M24 12h12l4 5-4 5H24zM24 25H13l-4 5 4 5h11"/></svg></i><span class="num">03</span><b>방향 안내</b><span>대응 방향과 진행 방법을 설명드립니다.</span></li>
+                    <li><i class="ico3d" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="16"/><path d="M16 24l6 6 11-12"/></svg></i><span class="num">04</span><b>진행</b><span>신고·서면·협상 등 실제 업무를 수행합니다.</span></li>
                 </ol>
             </div>
         </section>
@@ -587,6 +637,10 @@
         <section class="closing" id="contact">
             <div class="wrap">
                 <h2 class="rv">혼자 고민하지 말고,<br><span class="soft">먼저</span> 물어보세요.</h2>
+                <div class="ask rv" aria-hidden="true">
+                    <div class="askbox"><span>직원이 노동청에 진정을 넣었는데요…</span><i class="cur"></i></div>
+                    <div class="send"><svg viewBox="0 0 24 24"><path d="M4 12l16-8-6 16-3-7z"/></svg></div>
+                </div>
                 <div class="closing-bottom rv">
                     <a href="tel:010-4835-8422" class="tel"><small>대표 전화</small>010-4835-8422</a>
                     <div class="actions">
