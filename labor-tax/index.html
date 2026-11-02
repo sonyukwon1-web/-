@@ -243,6 +243,18 @@
         }
         .hero h1 { font-size: clamp(2.5rem, 5vw, 4.1rem); }
         .call.k2 { top: 240px; }
+        .trust { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 8px 18px; }
+        .trust li { display: flex; align-items: center; gap: 8px; font-size: .98rem; font-weight: 600; color: var(--ink-2); }
+        .trust i, .checks i { width: 22px; height: 22px; border-radius: 50%; background: var(--sky); color: #fff; font-style: normal; font-size: .75rem; font-weight: 800; display: flex; align-items: center; justify-content: center; flex: none; }
+        .mid-cta { margin-top: 32px; display: flex; justify-content: center; }
+        .mid-cta .btn { width: 240px; }
+        .fit { background: var(--paper); }
+        .checks { margin: 44px auto 0; max-width: 640px; display: flex; flex-direction: column; gap: 12px; }
+        .checks li { display: flex; align-items: center; gap: 14px; padding: 18px 22px; border-radius: 18px; background: #fff; font-size: 1.1rem; font-weight: 600; color: var(--ink-2); box-shadow: 0 10px 24px -18px rgba(16,19,79,.4); }
+        .checks i { width: 28px; height: 28px; font-size: .9rem; }
+        .fit-q { margin-top: 34px; text-align: center; font-size: clamp(1.2rem, 2.4vw, 1.6rem); font-weight: 600; letter-spacing: -0.03em; }
+        .fit-q b { color: var(--ink); background: linear-gradient(transparent 60%, rgba(0,160,233,.25) 60%); }
+        @media (max-width: 860px) { .checks li { font-size: 1rem; padding: 15px 16px; } .mid-cta .btn { width: 100%; max-width: 320px; } }
 
     </style>
 </head>
@@ -261,6 +273,7 @@
                     <p class="kicker rv">노무법인 유영 + 세무법인 연우 · 노무·세무 통합 자문</p>
                     <h1 class="rv">대표님은<br><span class="hl">통역사가 아닙니다.</span></h1>
                     <p class="lead rv">노무사와 세무사를 한 카톡방에 모았습니다.<br><b>한 번 물으면, 둘이 같이 답합니다.</b></p>
+                    <ul class="trust rv"><li><i>✓</i>노무사·세무사가 한 방에</li><li><i>✓</i>질문은 카톡 한 줄</li><li><i>✓</i>듣고 나서 정하세요</li></ul>
                     <div class="actions rv">
                         <a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-ink js-kakao" target="_blank" rel="noopener"><span class="dot"></span>통합 상담 신청</a>
                         <a href="tel:010-4835-8422" class="btn btn-ghost">전화 상담</a>
@@ -330,6 +343,7 @@
                     <li class="q r rv"><span class="av av-s"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4.5 21c.8-4.4 3.8-7 7.5-7s6.7 2.6 7.5 7"/></svg></span><div><span class="nm">세무사</span><p>“그건 저희 쪽 문제가 아니라서요.”</p></div></li>
                 </ul>
                 <p class="punch rv">그 사이를 뛰어다닌 사람,<br><b>바로 대표님입니다.</b></p>
+                <div class="mid-cta rv"><a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-ink js-kakao" target="_blank" rel="noopener"><span class="dot"></span>이제 그만 뛰어다니기</a></div>
             </div>
         </section>
 
@@ -351,14 +365,28 @@
                 <h2 class="h2 c rv">같이 보니까, 한 번에 끝납니다</h2>
                 <ul class="scens">
                     <li class="scen rv"><span class="ico3d"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 38h32"/><path d="M12 32l9-9 6 6 11-13"/><path d="M31 16h7v7"/></svg></span><b>연봉 올릴 때</b>
-<div class="pz"><span class="pn"><i>노무사</i>근로시간·연장근로 위험</span><span class="plus">+</span><span class="ps"><i>세무사</i>세금 계산</span></div></li>
+<div class="pz"><span class="pn"><i>노무사</i>야근·근무시간 문제</span><span class="plus">+</span><span class="ps"><i>세무사</i>세금 계산</span></div></li>
                     <li class="scen rv"><span class="ico3d"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M12 40V8h20v32"/><path d="M32 12l6 3v25"/><circle cx="27" cy="25" r="1.4"/><path d="M8 40h34"/></svg></span><b>직원이 그만둘 때</b>
-<div class="pz"><span class="pn"><i>노무사</i>퇴직금·계약 정리</span><span class="plus">+</span><span class="ps"><i>세무사</i>퇴직소득세</span></div></li>
+<div class="pz"><span class="pn"><i>노무사</i>퇴직금·계약 정리</span><span class="plus">+</span><span class="ps"><i>세무사</i>퇴직금 세금</span></div></li>
                     <li class="scen rv"><span class="ico3d"><svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="24" cy="14" rx="13" ry="5"/><path d="M11 14v10c0 3 6 5 13 5s13-2 13-5V14"/><path d="M11 24v10c0 3 6 5 13 5s13-2 13-5V24"/></svg></span><b>급여를 짤 때</b>
-<div class="pz"><span class="pn"><i>노무사</i>계약서에 반영</span><span class="plus">+</span><span class="ps"><i>세무사</i>절세 구조</span></div></li>
+<div class="pz"><span class="pn"><i>노무사</i>계약서에 넣기</span><span class="plus">+</span><span class="ps"><i>세무사</i>세금 덜 내는 방법</span></div></li>
                     <li class="scen rv"><span class="ico3d"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="6"/><path d="M24 6v6M24 36v6M6 24h6M36 24h6M11 11l4 4M33 33l4 4M11 37l4-4M33 15l4-4"/></svg></span><b>매달 하는 일</b>
-<div class="pz"><span class="pn"><i>노무사</i>4대보험</span><span class="plus">+</span><span class="ps"><i>세무사</i>급여·퇴직금 정산</span></div></li>
+<div class="pz"><span class="pn"><i>노무사</i>4대보험</span><span class="plus">+</span><span class="ps"><i>세무사</i>월급·퇴직금 계산</span></div></li>
                 </ul>
+            </div>
+        </section>
+
+        <section class="block fit">
+            <div class="wrap">
+                <h2 class="h2 c rv">이런 대표님께 딱 맞아요</h2>
+                <ul class="checks rv">
+                    <li><i>✓</i>노무사·세무사에게 같은 말을 두 번 해 본 적 있다</li>
+                    <li><i>✓</i>계약서와 월급이 맞게 돼 있는지 늘 불안하다</li>
+                    <li><i>✓</i>직원이 늘어서 챙길 게 너무 많아졌다</li>
+                    <li><i>✓</i>세금이나 노무 문제로 밤에 고민해 본 적 있다</li>
+                </ul>
+                <p class="fit-q rv">하나라도 해당되면, <b>지금 카톡 한 줄</b> 보내 보세요.</p>
+                <div class="mid-cta rv"><a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-ink js-kakao" target="_blank" rel="noopener"><span class="dot"></span>통합 상담 신청</a></div>
             </div>
         </section>
 
@@ -366,7 +394,7 @@
             <div class="wrap close-grid">
                 <div>
                     <h2 class="rv">질문은 한 번.<br><span class="soft">답은 둘이 같이.</span></h2>
-                    <p class="rv">노무와 세무, 이제 한 카톡방에서 끝내세요.</p>
+                    <p class="rv">노무와 세무, 이제 한 카톡방에서 끝내세요.<br>상담만 받아도 괜찮아요. 맡길지는 듣고 나서 정하세요.</p>
                     <div class="actions rv">
                         <a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-white js-kakao" target="_blank" rel="noopener">통합 상담 신청</a>
                         <a href="tel:010-4835-8422" class="btn btn-line-w">전화 010-4835-8422</a>
