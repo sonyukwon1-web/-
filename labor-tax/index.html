@@ -169,8 +169,6 @@
             section.block { padding: 80px 0; }
             .vs-card { padding: 24px 12px 16px; border-radius: 24px; }
             .two { gap: 8px; }
-            .two .phone { zoom: .68; }
-            .one .phone { zoom: .9; }
             .scens { grid-template-columns: 1fr 1fr; gap: 10px; }
             .scen { padding: 22px 10px 14px; border-radius: 22px; }
             .scen > b { font-size: 1.05rem; }
@@ -255,6 +253,34 @@
         .fit-q { margin-top: 34px; text-align: center; font-size: clamp(1.2rem, 2.4vw, 1.6rem); font-weight: 600; letter-spacing: -0.03em; }
         .fit-q b { color: var(--ink); background: linear-gradient(transparent 60%, rgba(0,160,233,.25) 60%); }
         @media (max-width: 860px) { .checks li { font-size: 1rem; padding: 15px 16px; } .mid-cta .btn { width: 100%; max-width: 320px; } }
+
+        /* ---- Stageshow 원칙: 첫 장면만 봐도 이야기 / 크게 잘라 보여 주기 / 글자는 읽을 만큼만 ---- */
+        .phone.big { width: 320px; }
+        .phone.big .bb { font-size: 14px; max-width: 192px; }
+        .phone.big .me .bb { max-width: 205px; }
+        .js .rv .phone.big .m:nth-child(-n+3) { opacity: 1; transform: none; transition: none; }
+        .phone.mini { width: 268px; padding: 0; border-radius: 24px; background: #BACEE0; box-shadow: 0 24px 48px -26px rgba(16,19,79,.55), 0 0 0 1px rgba(16,19,79,.06); }
+        .phone.mini .screen { height: auto; border-radius: 24px; }
+        .phone.mini .cbar { height: 46px; padding: 0 16px; font-size: 14px; background: rgba(255,255,255,.35); }
+        .phone.mini .chat { padding: 14px 14px 18px; gap: 10px; }
+        .phone.mini .bb { font-size: 14px; max-width: 170px; padding: 9px 12px; }
+        .phone.mini .me .bb { max-width: 185px; }
+        .phone.mini .av { width: 32px; height: 32px; border-radius: 12px; }
+        .phone.mini .nm { font-size: 12px; }
+        .phone.mini .t { font-size: 10.5px; }
+        .phone.mini .cin { display: none; }
+        .two { align-items: flex-start; gap: 18px; }
+        .two .phone:first-child { transform: rotate(-2deg); }
+        .two .phone:last-child { transform: rotate(2deg) translateY(22px); }
+        .vs-grid { grid-template-columns: 1.3fr 1fr; }
+        @media (max-width: 1080px) { .two { flex-wrap: wrap; } .vs-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 860px) {
+            .phone.big { width: 300px; }
+            .two { flex-direction: column; align-items: center; gap: 14px; }
+            .two .phone:first-child, .two .phone:last-child { transform: none; }
+            .two .phone, .one .phone { width: 100%; max-width: 320px; }
+            .phone.mini .bb { max-width: 74%; }
+        }
 
     </style>
 </head>
