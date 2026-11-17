@@ -404,7 +404,8 @@
         .hero-band .trust li { color: #fff; }
         .hero-band .trust i { background: #FEE500; color: #1D2088; }
         .hero-vis { position: relative; height: 340px; }
-        .hero-vis > div { position: absolute; box-shadow: 0 30px 60px -20px rgba(5,8,60,.6); }
+        .hv-set { position: absolute; inset: 0; transition: opacity .35s ease; }
+        .hv-set > div { position: absolute; box-shadow: 0 30px 60px -20px rgba(5,8,60,.6); }
         .hv-q { right: 30px; top: 0; max-width: 300px; background: #FEE500; color: #191919; border-radius: 20px 6px 20px 20px; padding: 16px 20px; font-weight: 700; font-size: 1.02rem; line-height: 1.45; transform: rotate(2deg); animation: hvf 6s ease-in-out infinite; }
         .hv-who { display: block; font-size: .75rem; font-weight: 800; opacity: .6; margin-bottom: 2px; }
         .hv-a { left: 0; top: 112px; width: 300px; background: #fff; color: var(--ink-2); border-radius: 6px 20px 20px 20px; padding: 18px 20px; transform: rotate(-2deg); animation: hvf 6s ease-in-out -3s infinite; }
@@ -451,9 +452,14 @@
             .cols > div, .cols > div + div { padding: 24px 20px 12px; border-radius: 20px; border-top: 0; }
             .finder { padding-bottom: 72px; }
         }
+        .swap { display: grid; }
+        .swap > * { grid-area: 1 / 1; transition: opacity .3s ease; }
+        [data-mode="boss"] .swap > [data-for="worker"], [data-mode="worker"] .swap > [data-for="boss"],
+        [data-mode="boss"] .hv-set[data-for="worker"], [data-mode="worker"] .hv-set[data-for="boss"] { visibility: hidden; opacity: 0; }
+        [data-mode="boss"] .only[data-for="worker"], [data-mode="worker"] .only[data-for="boss"] { display: none !important; }
     </style>
 </head>
-<body>
+<body data-mode="boss">
     <header id="hd">
         <div class="wrap">
             <a href="#top" class="logo"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iX+uSt+uptF/rlJTsnpDsnbgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgNjk5LjU1IDEzNi44OSI+CiAgPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDMwLjIuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDIuMS4xIEJ1aWxkIDEwNSkgIC0tPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuc3QwIHsKICAgICAgICBzdHJva2U6ICMwMGEwZTk7CiAgICAgICAgc3Ryb2tlLWxpbmVjYXA6IHJvdW5kOwogICAgICB9CgogICAgICAuc3QwLCAuc3QxIHsKICAgICAgICBzdHJva2Utd2lkdGg6IDIuOTRweDsKICAgICAgfQoKICAgICAgLnN0MCwgLnN0MSwgLnN0MiwgLnN0MyB7CiAgICAgICAgZmlsbDogbm9uZTsKICAgICAgfQoKICAgICAgLnN0MCwgLnN0MiwgLnN0MywgLnN0NCB7CiAgICAgICAgc3Ryb2tlLW1pdGVybGltaXQ6IDEwOwogICAgICB9CgogICAgICAuc3QxIHsKICAgICAgICBzdHJva2UtbGluZWpvaW46IHJvdW5kOwogICAgICB9CgogICAgICAuc3QxLCAuc3QyLCAuc3QzIHsKICAgICAgICBzdHJva2U6ICMxZDIwODg7CiAgICAgIH0KCiAgICAgIC5zdDIgewogICAgICAgIHN0cm9rZS13aWR0aDogMS45NnB4OwogICAgICB9CgogICAgICAuc3Q1IHsKICAgICAgICBpc29sYXRpb246IGlzb2xhdGU7CiAgICAgIH0KCiAgICAgIC5zdDMgewogICAgICAgIHN0cm9rZS13aWR0aDogMy4yM3B4OwogICAgICB9CgogICAgICAuc3Q2IHsKICAgICAgICBmaWxsOiAjMjMxODE1OwogICAgICB9CgogICAgICAuc3Q0IHsKICAgICAgICBmaWxsOiAjZmZmOwogICAgICAgIHN0cm9rZTogIzAwMDsKICAgICAgfQogICAgPC9zdHlsZT4KICA8L2RlZnM+CiAgCiAgPGc+CiAgICA8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMzcuMTUsOTAuOTljMi4wNy4xNiwxMC43Ni4xNiwxNy41MS05LjIsNy43MS0xMC43LDIyLjEzLTE4LjIsMjcuODUtMTYuOTFoMHMtMTAuODMsMjAuMjgsMy44OCwyNS41MWMxLjc2LjYyLDMuNjguNzEsNS40OC4yNyw0LjktMS4yLDE1LjgtNC42MywxOS44MS0xMi4wM2gwczIuNDcsMTkuMDEsMjIuNjYsOS40YzAsMCwzLjE2LTEuNjMsMTAuMjUtNy43MSIvPgogICAgPHBhdGggY2xhc3M9InN0MCIgZD0iTTM5LjA5LDgwLjU0czE4LjY1LDI4LjU5LDUxLjMxLTEuOTRjMCwwLDEyLjIxLDMxLjg2LDQ0Ljc0LTEuNDkiLz4KICAgIDxjaXJjbGUgY2xhc3M9InN0MyIgY3g9Ijg5LjIiIGN5PSI2Ny4yOCIgcj0iNTYuOTMiLz4KICAgIDxjaXJjbGUgY2xhc3M9InN0MiIgY3g9IjEwNy4xNiIgY3k9IjM0LjM3IiByPSI0LjM0Ii8+CiAgICA8Y2lyY2xlIGNsYXNzPSJzdDIiIGN4PSIxMTcuMzQiIGN5PSI0MC44OCIgcj0iMi4xNiIvPgogIDwvZz4KICA8ZyBjbGFzcz0ic3Q1Ij4KICAgIDxnIGNsYXNzPSJzdDUiPgogICAgICA8ZyBjbGFzcz0ic3Q1Ij4KICAgICAgICA8cGF0aCBjbGFzcz0ic3Q2IiBkPSJNMTgzLjQ2LDQ5LjQxaDEyLjR2MjcuNzhoNDAuOXYxMC4yOGgtMjAuNjJ2MTQuNjdoMjMuMzl2MTAuMTNoLTU5LjI1di0xMC4xM2gyMy40NnYtMTQuNjdoLTIwLjI3di0zOC4wNmgtLjAxWiIvPgogICAgICAgIDxwYXRoIGNsYXNzPSJzdDYiIGQ9Ik0yNzEuNjQsOTkuNjZoLTIzLjMydi0xMC4yOGg1OS4yNXYxMC4yOGgtMjMuNTN2MTYuNDRoLTEyLjR2LTE2LjQ0Wk0zMDQuMzgsNDkuNDF2MzMuOTVoLTUyLjg3di0zMy45NWg1Mi44N1pNMjYzLjkxLDczLjIzaDI4LjA3di0xMy42MWgtMjguMDd2MTMuNjFoMFoiLz4KICAgICAgICA8cGF0aCBjbGFzcz0ic3Q2IiBkPSJNMzI5Ljc2LDQ5LjQxdjguMDFoMTAuODR2LTguMDFoMTEuNjJ2MTIuMjZoNy43M3YtMTMuMDRoMTIuNHYzNi43MWgtMTIuNHYtMTMuNTRoLTcuNzN2MTEuN2gtMzQuMjN2LTM0LjA5aDExLjc3Wk0zMzMuOTQsOTIuNjVoMjYuMTV2LTUuMTdoMTIuMjZ2MjguMjFoLTUwLjY4di0yOC4yMWgxMi4yNnY1LjE3aDBaTTMyOS43Niw3My45NGgxMC44NHYtNi44N2gtMTAuODR2Ni44N1pNMzYwLjA5LDEwNi4xMXYtMy44M2gtMjYuMTV2My44M2gyNi4xNVoiLz4KICAgICAgICA8cGF0aCBjbGFzcz0ic3Q2IiBkPSJNMzg0Ljk3LDY4LjEyYzAtNy4yMywyLjI3LTEyLjQ3LDYuMDItMTUuODgsMy4xMi0yLjY5LDcuMTYtMy45NywxMi4xOS0zLjk3czksMS4yOCwxMi4xMiwzLjk3YzMuODMsMy40LDYuMDMsOC42NSw2LjAzLDE1Ljg4cy0yLjIsMTIuNjItNi4wMywxNS44OGMtMy4xMiwyLjYyLTcuMTYsNC4wNC0xMi4xMiw0LjA0cy05LjA3LTEuNDItMTIuMTktNC4wNGMtMy43Ni0zLjI2LTYuMDItOC42NS02LjAyLTE1Ljg4Wk00NDEuMjUsMTA1LjMzdjEwLjA2aC01MS41M3YtMjMuODloMTIuNHYxMy44MmgzOS4xM1pNNDA5LjUsNjguMTJjMC0zLjktLjc4LTYuNjYtMi4yLTguMjktMS4wNi0xLjA2LTIuNDEtMS43LTQuMTEtMS43cy0zLjEyLjY0LTQuMTEsMS43Yy0xLjQyLDEuNjMtMi4yNyw0LjM5LTIuMjcsOC4yOXMuODUsNi44LDIuMjcsOC4yOWMuOTksMS4yMSwyLjQxLDEuNjMsNC4xMSwxLjYzczMuMDUtLjQyLDQuMTEtMS42M2MxLjQyLTEuNDksMi4yLTQuMzIsMi4yLTguMjlaTTQ0MC40LDQ4LjYzdjQ2LjU3aC0xMi40di00Ni41N3MxMi40LDAsMTIuNCwwWiIvPgogICAgICA8L2c+CiAgICA8L2c+CiAgPC9nPgogIDxnIGNsYXNzPSJzdDUiPgogICAgPGcgY2xhc3M9InN0NSI+CiAgICAgIDxnIGNsYXNzPSJzdDUiPgogICAgICAgIDxwYXRoIGNsYXNzPSJzdDYiIGQ9Ik0xOTMuMDUsMjcuNDRoLTExLjYydi0xMy42NWgxMy40NXYzLjdoLTkuMTF2Ni4yOGg4LjIxYzIuMjMsMCwzLjUtLjI2LDQuNDUtLjl2LTkuMzdoNC40djUuNjFoMy42N3YzLjc5aC0zLjY3djUuODFoLTQuNHYtMi4zNGMtLjk1LjY5LTIuNTcsMS4wNy01LjM4LDEuMDdaTTE4Mi40OSwzNC45MmMwLTEuNjguNzItMi45MiwxLjkxLTMuODIsMS44OC0xLjUsNS4wMy0yLjA4LDguNTktMi4wOHM2LjY4LjU4LDguNTYsMi4wOGMxLjE5LjksMS45MSwyLjE0LDEuOTEsMy44MnMtLjcyLDIuOTUtMS45MSwzLjg1Yy0xLjg4LDEuNDctNS4wMywyLjA1LTguNTYsMi4wNXMtNi43MS0uNTgtOC41OS0yLjA1Yy0xLjE5LS45LTEuOTEtMi4xNy0xLjkxLTMuODVaTTE4Ni44OSwzNC45MmMwLC41NS4yNi45OC43NSwxLjMzLjk4LjY5LDIuODYuOSw1LjM1LjlzNC4zNC0uMiw1LjMyLS45Yy40OS0uMzUuNzgtLjc4Ljc4LTEuMzNzLS4yOS0uOTgtLjc4LTEuMzNjLS45OC0uNjctMi44Ni0uOS01LjMyLS45cy00LjM3LjIzLTUuMzUuOWMtLjQ5LjM1LS43NS43OC0uNzUsMS4zM1oiLz4KICAgICAgICA8cGF0aCBjbGFzcz0ic3Q2IiBkPSJNMjE0LjA0LDEzLjY0aDQuNHY0LjIyYzAsNC42OCwyLjA4LDYuNzcsNS40NCw3LjcydjMuODJjLTMuMTUtLjQ5LTYuMDctMi4wNS03LjYtNC4wMi0xLjQ3LDIuMDUtNC40LDMuNzMtNy42Niw0LjMxdi0zLjc2YzMuNDctMS4wNyw1LjQ0LTMuNTMsNS40NC04LjA3di00LjIyaC0uMDIsMFpNMjMxLjcxLDM2LjY2djMuNjdoLTIwLjd2LTkuNTFoNC40djUuODRoMTYuMzEsMFpNMjMxLjI4LDEzLjV2MTguNzRoLTQuNFYxMy41aDQuNFoiLz4KICAgICAgICA8cGF0aCBjbGFzcz0ic3Q2IiBkPSJNMjU5LjAxLDEzLjV2MjYuNjloLTQuNHYtMi42OWMtLjkuODctMi42OSwxLjMtNS4yLDEuM2gtMTIuNzV2LTMuN2gxMy40NWMyLjE3LDAsMy42NC0uMzUsNC41MS0xLjEzVjEzLjVoNC40LS4wMVpNMjM3LjQ0LDIyLjEyYzAtMy4wNy45LTUuNDEsMi42My02Ljg4LDEuMjEtMS4wNCwyLjk1LTEuNTksNC44My0xLjU5czMuNjQuNTUsNC44NiwxLjU5YzEuNzMsMS40NywyLjYsMy44MiwyLjYsNi44OHMtLjg3LDUuNDEtMi42LDYuOTFjLTEuMjEsMS4wMS0yLjk1LDEuNTYtNC44NiwxLjU2cy0zLjYxLS41NS00LjgzLTEuNTZjLTEuNzMtMS41LTIuNjMtMy44NS0yLjYzLTYuOTFaTTI0MS43OCwyMi4xMmMwLDEuODIuMzIsMy4yNywxLjEsNC4wNS40OS41MiwxLjIxLjcyLDIuMDIuNzJzMS41LS4yLDItLjcyYy44MS0uNzgsMS4xNi0yLjIzLDEuMTYtNC4wNXMtLjM1LTMuMjQtMS4xNi00LjA1Yy0uNDktLjQ5LTEuMTYtLjc1LTItLjc1cy0xLjUzLjI2LTIuMDIuNzVjLS43OC44MS0xLjEsMi4yMy0xLjEsNC4wNVoiLz4KICAgICAgICA8cGF0aCBjbGFzcz0ic3Q2IiBkPSJNMjk2LjgxLDMwLjM4aC0yNC4xMnYtMy42N2gyNC4xMnYzLjY3Wk0yOTUuMTYsMTMuNzl2My42MmgtMTYuNDV2My4zNWgxNi42djMuNTloLTIwLjk5di0xMC41NWgyMC44NS0uMDFaTTI3NC4zMSwzMi4yMWg0LjQydjQuNDVoMTYuODl2My42N2gtMjEuMzF2LTguMTJaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9InN0NiIgZD0iTTMyNC41NywzMC4zOGgtMjQuMTJ2LTMuNjdoMjQuMTJ2My42N1pNMzIyLjkyLDEzLjc5djMuNjJoLTE2LjQ1djMuMzVoMTYuNnYzLjU5aC0yMC45OXYtMTAuNTVoMjAuODUtLjAxWk0zMDIuMDgsMzIuMjFoNC40MnY0LjQ1aDE2Ljg5djMuNjdoLTIxLjMxdi04LjEyaDBaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9InN0NiIgZD0iTTM0My4yOCwxNS4zOHYzLjQ3aC0xNS40MXYtMy40N2g1LjU4di0yLjY2aDQuNDJ2Mi42Nmg1LjQxWk0zMjguNjIsMjUuNWMwLTEuNzEuNjctMy4wOSwxLjg4LTQuMDUsMS4yNC0xLjAxLDMuMDQtMS41Niw1LjA5LTEuNTZzMy44Ny41NSw1LjEyLDEuNTZjMS4yMS45NSwxLjg4LDIuMzQsMS44OCw0LjA1cy0uNjcsMy4wOS0xLjg4LDQuMDVjLTEuMjQuOTgtMy4wNCwxLjU2LTUuMTIsMS41NnMtMy44NS0uNTgtNS4wOS0xLjU2Yy0xLjIxLS45Ni0xLjg4LTIuMzQtMS44OC00LjA1Wk0zMzAuMTMsMzIuMDZoNC40MnY0LjZoMTYuMDJ2My42N2gtMjAuNDR2LTguMjdaTTMzMi44MiwyNS41YzAsLjYxLjI2LDEuMTMuNjcsMS41LjQ5LjQ2LDEuMjQuNzIsMi4xMS43MnMxLjY1LS4yNiwyLjE0LS43MmMuNC0uMzguNjctLjkuNjctMS41cy0uMjYtMS4xNi0uNjctMS41M2MtLjQ5LS40Ni0xLjI3LS42OS0yLjE0LS42OXMtMS42Mi4yMy0yLjExLjY5Yy0uNC4zOC0uNjcuOS0uNjcsMS41M1pNMzQ1Ljc0LDEzLjVoNC40djcuMmgzLjY3djMuNzloLTMuNjd2OC41NmgtNC40VjEzLjVaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9InN0NiIgZD0iTTM2Ny4xNCwzNC43OHYtMTcuMTJoLTIuMTF2LTMuN2gxNS4zNXYzLjdoLTIuMTF2MTEuMjhjMCwyLjE0LS4xNCw0LjIyLS40Niw1Ljg0LDEuOTctLjAzLDMuMzUtLjM1LDQuMTktMS4wNFYxMy41aDQuNHYxMC40NGgzLjl2My43OWgtMy45djEyLjQ2aC00LjR2LTIuOTVjLS45My44NC0yLjc1LDEuMjEtNS4xOCwxLjIxaC0xMi4xMnYtMy42N2gyLjQ0LDBaTTM3NC4wMywyOS4xNHYtMTEuNDhoLTIuNjZ2MTcuMTJoMi4zMWMuMjktMS42Mi4zNS0zLjYxLjM1LTUuNjRaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9InN0NiIgZD0iTTQxNi4yMiwzOS4wOWgtMjMuODN2LTMuNzZoMjMuODN2My43NlpNNDE0Ljg5LDEzLjk2djMuN2gtMTYuNzd2My4yN2gxNi40NXYzLjY3aC0xNi40NXYzLjNoMTcuMDl2My43NmgtMjEuNTFWMTMuOTZoMjEuMTlaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9InN0NiIgZD0iTTQzMS41OCwzOC40NWgtMTAuNThWMTMuNzhoNC4zN3YyMC45OWg2LjM5YzEuODgsMCwzLjQxLS4wOSw0LjYzLS40M3YzLjU2Yy0xLjIxLjQzLTIuODYuNTUtNC44LjU1aC0uMDFaTTQzOC4yLDI2LjI4aC03LjM3di0zLjc5aDcuMzd2LTguOTloNC40djI2LjY5aC00LjR2LTEzLjkxWiIvPgogICAgICA8L2c+CiAgICA8L2c+CiAgPC9nPgogIDxnIGNsYXNzPSJzdDUiPgogICAgPGcgY2xhc3M9InN0NSI+CiAgICAgIDxnIGNsYXNzPSJzdDUiPgogICAgICAgIDxwYXRoIGNsYXNzPSJzdDYiIGQ9Ik00NzMuODgsOTMuNTFoLTE2Ljg0di0xNS4zN2g4Ny45OXYxNS4zN2gtMTYuNzR2MjMuODloLTE4di0yMy44OWgtMTguMzF2MjMuODloLTE4LjF2LTIzLjg5aDBaTTQ1OS43OCw0NC4xNWMwLTcuNTgsMi45NS0xMy42OCw4LTE3Ljc5LDcuMjYtNiwxOC40Mi04LjUzLDMzLjM3LTguNTNzMjUuODksMi41MywzMy4yNiw4LjUzYzUuMDUsNC4xMSw4LjEsMTAuMjEsOC4xLDE3Ljc5cy0zLjA1LDEzLjc5LTguMSwxNy43OWMtNy4zNyw2LTE4LjQyLDguNTMtMzMuMjYsOC41M3MtMjYuMS0yLjUzLTMzLjM3LTguNTNjLTUuMDUtNC04LTEwLjIxLTgtMTcuNzloMFpNNDc4LjIsNDQuMTVjMCwzLjI2LDEuMjYsNS42OCwzLjQ3LDcuMzcsMy42OCwyLjg0LDEwLDMuNzksMTkuNDcsMy43OXMxNS42OC0uOTUsMTkuMzctMy43OWMyLjMyLTEuNjgsMy40Ny00LjExLDMuNDctNy4zNywwLTMuMDUtMS4xNi01LjU4LTMuNDctNy4zNy0zLjY4LTIuNzQtMTAuMS0zLjY4LTE5LjM3LTMuNjhzLTE1Ljc5Ljk1LTE5LjQ3LDMuNjhjLTIuMjEsMS43OS0zLjQ3LDQuMzItMy40Nyw3LjM3WiIvPgogICAgICAgIDxwYXRoIGNsYXNzPSJzdDYiIGQ9Ik01NTguOTMsNDQuMzZjMC05LjM3LDMuMzctMTYuODQsOS4wNS0yMS40Nyw0LjUzLTMuNjgsMTAuNDItNS41OCwxNy41OC01LjU4czEzLjA1LDEuODksMTcuNTgsNS41OGMxLjE2Ljk1LDIuMjEsMi4xMSwzLjI2LDMuMjZoMTYuNDJ2LTguMzJoMTguNDJ2NTYuMzFoLTE4LjQydi0xMS4wNWgtMTYuOTVjLS44NC45NS0xLjc5LDEuNzktMi43NCwyLjYzLTQuNTMsMy42OC0xMC41Myw1Ljc5LTE3LjU4LDUuNzlzLTEzLjA1LTIuMS0xNy41OC01Ljc5Yy01LjY4LTQuNjMtOS4wNS0xMS44OS05LjA1LTIxLjM3aC4wMVpNNTY0LjkzLDk2Ljc4YzAtNi4zMiwyLjk1LTExLjE2LDcuNjgtMTQuNTMsNy4yNi01LjE2LDE4Ljc0LTcuMjYsMzEuNTgtNy4yNnMyNC4zMSwyLjExLDMxLjQ3LDcuMjZjNC44NCwzLjM3LDcuNzksOC4yMSw3Ljc5LDE0LjUzcy0yLjk1LDExLjI2LTcuNzksMTQuNjNjLTcuMTYsNS4yNi0xOC43Myw3LjI2LTMxLjQ3LDcuMjZzLTI0LjMxLTItMzEuNTgtNy4yNmMtNC43NC0zLjM3LTcuNjgtOC4yMS03LjY4LTE0LjYzWk01OTQuNTEsNDQuMzZjMC00LjUzLS45NS03Ljc5LTMuMTYtMTAtMS40Ny0xLjQ3LTMuMzctMi40Mi01Ljc5LTIuNDJzLTQuNDIuOTUtNiwyLjQyYy0yLDIuMjEtMy4xNiw1LjQ3LTMuMTYsMTBzMS4xNiw3Ljg5LDMuMTYsMTBjMS41OCwxLjU4LDMuNDcsMi4zMiw2LDIuMzJzNC4zMi0uNzQsNS43OS0yLjMyYzIuMjEtMi4xMSwzLjE2LTUuNjgsMy4xNi0xMFpNNTgzLjA0LDk2Ljc4YzAsMS43OS45NSwzLjA1LDIuNTMsNC4yMSwzLjM3LDIuMTEsMTAuMSwyLjk1LDE4LjYzLDIuOTVzMTUuMTYtLjg0LDE4LjUzLTIuOTVjMS42OC0xLjE2LDIuNDItMi40MiwyLjQyLTQuMjEsMC0xLjY4LS43NC0yLjg0LTIuNDItNC0zLjM3LTIuMTEtMTAtMy4wNS0xOC41My0zLjA1cy0xNS4yNi45NS0xOC42MywzLjA1Yy0xLjU4LDEuMTYtMi41MywyLjMyLTIuNTMsNFpNNjExLjc3LDQwLjU3Yy4xMSwxLjI2LjIxLDIuNTMuMjEsMy43OSwwLDEuNDctLjExLDIuOTUtLjIxLDQuMzJoMTEuMDV2LTguMWgtMTEuMDVaIi8+CiAgICAgIDwvZz4KICAgIDwvZz4KICA8L2c+Cjwvc3ZnPg==" alt="노무법인 유영"></a>
@@ -480,13 +486,21 @@
                 <p class="kicker rv">노무법인 유영 · 공인노무사 손유권</p>
                 <h1 class="rv">지금, <span class="soft">어떤 상황</span>이세요?</h1>
                 <p class="sub rv">아래에서 내 상황을 눌러 보세요. <b>지금 해야 할 일</b>을 바로 알려 드려요.</p>
-                <ul class="trust rv"><li><i>✓</i>노무사가 직접 답해요</li><li><i>✓</i>카톡 한 줄이면 돼요</li><li><i>✓</i>듣고 나서 맡길지 정하세요</li></ul>
+                <div class="swap rv"><ul class="trust" data-for="boss"><li><i>✓</i>노무사가 직접 답해요</li><li><i>✓</i>카톡 한 줄이면 돼요</li><li><i>✓</i>듣고 나서 맡길지 정하세요</li></ul><ul class="trust" data-for="worker"><li><i>✓</i>노무사가 직접 답해요</li><li><i>✓</i>상담 내용은 밖으로 새지 않아요</li><li><i>✓</i>기한 놓치기 전에 물어보세요</li></ul></div>
               </div>
               <div class="hero-vis rv" aria-hidden="true">
+                <div class="hv-set" data-for="boss">
                 <div class="hv-q"><span class="hv-who">사장님</span>직원이 노동청에 진정을 넣었어요. 어떡하죠?</div>
                 <div class="hv-a"><div class="hv-top"><span class="hv-av"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="4"/><path d="M4.5 21c.8-4.4 3.8-7 7.5-7s6.7 2.6 7.5 7"/></svg></span><b>노무사</b><em>지금 할 일</em></div>
                   <ul><li>출석요구서 날짜 확인</li><li>계약서·급여 기록 모으기</li><li>출석 전에 노무사와 정리</li></ul></div>
                 <div class="hv-due"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>출석일 전에 준비를 끝내야 해요</div>
+                </div>
+                <div class="hv-set" data-for="worker">
+                <div class="hv-q"><span class="hv-who">근로자</span>갑자기 내일부터 나오지 말래요. 어떡하죠?</div>
+                <div class="hv-a"><div class="hv-top"><span class="hv-av"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="4"/><path d="M4.5 21c.8-4.4 3.8-7 7.5-7s6.7 2.6 7.5 7"/></svg></span><b>노무사</b><em>지금 할 일</em></div>
+                  <ul><li>해고 문자·날짜 남겨 두기</li><li>급여·대화 기록 모으기</li><li>3개월 안에 구제신청</li></ul></div>
+                <div class="hv-due"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>해고된 날부터 3개월 안에 신청해야 해요</div>
+                </div>
               </div>
             </div>
           </div>
@@ -656,14 +670,19 @@
             <div class="wrap">
                 <div class="head-row rv">
                     <div><p class="label">법인소개</p><h2>왜 유영일까요?</h2></div>
-                    <p>어려운 법 이야기, 노무사가 쉬운 말로 직접 설명해 드립니다.</p>
+                    <p data-for="boss" class="only">어려운 법 이야기, 노무사가 쉬운 말로 직접 설명해 드립니다.</p><p data-for="worker" class="only">회사와 맞서는 일, 혼자 하지 마세요.</p>
                 </div>
-                <div class="facts rv" style="margin-top:0">
+                <div class="facts rv only" data-for="boss" style="margin-top:0">
                     <div><i class="ico3d" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="17" cy="18" r="5"/><circle cx="31" cy="18" r="5"/><path d="M8 37c1-7 4-11 9-11s8 4 9 11M22 37c1-7 4-11 9-11s8 4 9 11"/></svg></i><b>노무·세무 한 번에</b><span>노무사와 세무사가 한 팀이라, 같은 설명을 두 번 할 필요가 없어요.</span><br><a class="more" href="labor-tax/">통합 서비스 자세히</a></div>
                     <div><i class="ico3d" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M10 14h28M10 24h28M10 34h28"/><circle cx="18" cy="14" r="3.5" fill="#1D2088"/><circle cx="30" cy="24" r="3.5" fill="#1D2088"/><circle cx="21" cy="34" r="3.5" fill="#1D2088"/></svg></i><b>우리 회사에 맞게</b><span>직원 몇 명 가게부터 큰 회사까지, 규모에 맞게 계약서와 규칙을 만들어요.</span></div>
                     <div><i class="ico3d" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 6l14 5v11c0 9-6 16-14 20C16 38 10 31 10 22V11z"/><path d="M17 23l5 5 9-10"/></svg></i><b>터지기 전에 막기</b><span>진정·소송이 오기 전에 계약서와 월급부터 미리 점검해요.</span></div>
                 </div>
-                <a class="teaser rv" href="labor-tax/">
+                <div class="facts rv only" data-for="worker" style="margin-top:0">
+                    <div><i class="ico3d" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="24" cy="16" r="7"/><path d="M10 40c1.5-8 7-12 14-12s12.5 4 14 12"/></svg></i><b>노무사가 직접</b><span>상담부터 노동청·노동위원회 출석까지 노무사가 직접 챙겨요.</span></div>
+                    <div><i class="ico3d" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="16"/><path d="M24 15v10l6 4"/></svg></i><b>기한부터 챙겨요</b><span>해고 3개월, 임금 3년처럼 놓치면 안 되는 날짜부터 알려 드려요.</span></div>
+                    <div><i class="ico3d" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="11" y="21" width="26" height="19" rx="4"/><path d="M17 21v-5a7 7 0 0 1 14 0v5"/></svg></i><b>비밀은 지켜요</b><span>상담 내용은 밖으로 새지 않게 지켜요. 편하게 이야기하세요.</span></div>
+                </div>
+                <a class="teaser rv only" data-for="boss" href="labor-tax/">
                     <div class="tz-copy">
                         <p class="tz-k">노무·세무 통합 서비스</p>
                         <b>대표님은<br>통역사가 아닙니다.</b>
@@ -711,9 +730,9 @@
             <div class="wrap">
                 <div class="head-row rv">
                     <div><p class="label">업무 분야</p><h2>유영이 하는 일</h2></div>
-                    <p>회사 일상 업무부터 노동청 사건, 지원금까지 맡깁니다.</p>
+                    <p data-for="boss" class="only">회사 일상 업무부터 노동청 사건, 지원금까지 맡깁니다.</p><p data-for="worker" class="only">해고·월급·산재, 근로자 사건을 맡습니다.</p>
                 </div>
-                <div class="cols rv">
+                <div class="cols rv only" data-for="boss">
                     <div>
                         <i class="ico3d" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="8" y="16" width="32" height="22" rx="4"/><path d="M18 16v-4h12v4M8 26h32"/></svg></i><h3>기업자문</h3><p>사장님이 언제든 물어볼 수 있는 우리 회사 노무사</p>
                         <ul><li>정기 자문 (노무·세무 통합)</li><li>근로계약서 등 서류 정비</li><li>월급·인사 규칙 만들기</li><li>법정의무교육 (성희롱 예방 등)</li><li>투자 전 노무 점검 (스타트업)</li></ul>
@@ -725,6 +744,20 @@
                     <div>
                         <i class="ico3d" aria-hidden="true"><svg viewBox="0 0 48 48"><ellipse cx="24" cy="14" rx="13" ry="5"/><path d="M11 14v10c0 3 6 5 13 5s13-2 13-5V14"/><path d="M11 24v10c0 3 6 5 13 5s13-2 13-5V24"/></svg></i><h3>정부지원금</h3><p>받을 수 있는 돈, 놓치지 않게 챙겨요</p>
                         <ul><li>청년일자리도약장려금<span class="note">2026년 기준, 1인당 720만원 지원</span></li><li>고용창출·고용유지 장려금</li><li class="todo">일자리안정자금 (2021년 종료 — 삭제 확인 필요)</li></ul>
+                    </div>
+                </div>
+                <div class="cols rv only" data-for="worker">
+                    <div>
+                        <i class="ico3d" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M28 8H12v32h16"/><path d="M22 24h20M34 16l8 8-8 8"/></svg></i><h3>해고·징계</h3><p>회사가 그만두라고 할 때</p>
+                        <ul><li>부당해고 구제신청</li><li>부당징계·부당전보 다툼</li><li>권고사직 조건 상담</li><li>해고예고수당 청구</li></ul>
+                    </div>
+                    <div>
+                        <i class="ico3d" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="6" y="12" width="36" height="26" rx="4"/><path d="M6 20h36M31 28h5"/></svg></i><h3>월급·퇴직금</h3><p>못 받은 돈 받아 내기</p>
+                        <ul><li>임금체불 진정</li><li>퇴직금·연차수당 계산</li><li>야근·주말 수당 청구</li><li>간이대지급금 (못 받은 월급을 나라에서 먼저)</li></ul>
+                    </div>
+                    <div>
+                        <i class="ico3d" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="6" y="14" width="36" height="24" rx="4"/><path d="M18 14v-4h12v4M24 20v12M18 26h12"/></svg></i><h3>산재·괴롭힘</h3><p>다치거나 괴롭힘을 당했을 때</p>
+                        <ul><li>산재 신청 (치료비·쉬는 동안 급여)</li><li>직장 내 괴롭힘 신고</li><li>직장 내 성희롱 신고</li><li>실업급여 상담</li></ul>
                     </div>
                 </div>
             </div>
@@ -749,7 +782,7 @@
             <div class="wrap">
                 <h2 class="rv">혼자 고민하지 말고,<br><span class="soft">먼저</span> 물어보세요.</h2>
                 <div class="ask rv" aria-hidden="true">
-                    <div class="askbox"><span>직원이 노동청에 진정을 넣었는데요…</span><i class="cur"></i></div>
+                    <div class="askbox"><span data-for="boss" class="only">직원이 노동청에 진정을 넣었는데요…</span><span data-for="worker" class="only">회사가 갑자기 그만두라고 하는데요…</span><i class="cur"></i></div>
                     <div class="send"><svg viewBox="0 0 24 24"><path d="M4 12l16-8-6 16-3-7z"/></svg></div>
                 </div>
                 <p class="close-note rv">카톡은 밤이나 주말에도 남겨 두세요. 노무사가 확인하고 연락드려요.</p>
@@ -797,6 +830,7 @@
 
             function setWho(w) {
                 who.setAttribute('data-who', w);
+                document.body.setAttribute('data-mode', w);
                 who.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', x.getAttribute('data-who') === w ? 'true' : 'false'); });
                 Object.keys(sets).forEach(function (k) { sets[k].hidden = k !== w; });
             }
