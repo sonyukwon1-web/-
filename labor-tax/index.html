@@ -281,6 +281,13 @@
             .two .phone, .one .phone { width: 100%; max-width: 320px; }
             .phone.mini .bb { max-width: 74%; }
         }
+        .copied { white-space: normal; width: max-content; max-width: calc(100vw - 32px); text-align: center; }
+        .back { display: inline-flex; align-items: center; min-height: 44px; }
+        @media (max-width: 860px) {
+            .t { font-size: 11px; }
+            .nm, .phone.mini .nm { font-size: 12px; }
+        }
+        @media (max-width: 860px) { .phone.mini .t { font-size: 11px; } }
 
     </style>
 </head>
@@ -423,7 +430,7 @@
                     <p class="rv">노무와 세무, 이제 한 카톡방에서 끝내세요.<br>상담만 받아도 괜찮아요. 맡길지는 듣고 나서 정하세요.</p>
                     <div class="actions rv">
                         <a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-white js-kakao" target="_blank" rel="noopener">통합 상담 신청</a>
-                        <a href="tel:010-4835-8422" class="btn btn-line-w">전화 010-4835-8422</a>
+                        <a href="tel:010-4835-8422" class="btn btn-line-w">전화 상담</a>
                     </div>
                 </div>
                 <div class="ask rv" aria-hidden="true">
