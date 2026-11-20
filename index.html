@@ -585,6 +585,30 @@
             .stage.flow .tiles { grid-template-columns: 1fr !important; grid-auto-rows: 74px !important; }
         }
         .js .answer .check:not(.wz), .js .answer > .sl, .js .answer > .sl + ol, .js .answer > .due, .js .answer > .law, .js .answer > .we { display: none; }
+        /* ===== 어두운 신뢰 톤 (로고 남색 #1D2088 · 하늘색 #00A0E9 유지) ===== */
+        :root { --bg: #0D1233; --bg-2: #111841; --paper: rgba(255,255,255,.045); --ink: #FFFFFF; --ink-2: #D6DCEE; --muted: #A4AEC9; --line: rgba(255,255,255,.13); --accent: #4CC3F5; --gold: #00A0E9; --on-ink: #10155A; }
+        .panel, header, .askbox, .copied, .mbar, .tz-chat, .hv-a, .hv-q { --bg: #E6ECF3; --paper: #F7F8FA; --ink: #1D2088; --ink-2: #1F2440; --muted: #556070; --line: #C6D0DC; --accent: #1D2088; --on-ink: #FFFFFF; color: var(--ink); }
+        body { background: var(--bg); color: var(--ink); }
+        header { background: rgba(255,255,255,.97) !important; }
+        .btn-ink { color: var(--on-ink); }
+        .btn-ink:hover { background: #00A0E9; border-color: #00A0E9; color: #fff; }
+        .panel .btn-ink:hover, header .btn-ink:hover, .mbar .btn-ink:hover { background: #2A31B0; border-color: #2A31B0; }
+        .btn-ghost:hover { color: var(--on-ink); }
+        .hero-band { background: radial-gradient(820px 380px at 88% 0%, rgba(0,160,233,.30), transparent 62%), radial-gradient(640px 360px at 0% 100%, rgba(29,32,136,.55), transparent 60%), linear-gradient(165deg, #141A52 0%, #0E1440 50%, #0A0E2C 100%) !important; }
+        .finder { background: var(--bg); }
+        section.block { background: var(--bg) !important; }
+        #people, #process { background: var(--bg-2) !important; }
+        .person { background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.12); }
+        #services .cols > div { background: rgba(255,255,255,.05) !important; border: 1px solid rgba(255,255,255,.1); }
+        .teaser { background: linear-gradient(150deg, #1D2088, #12166A) !important; box-shadow: 0 30px 60px -30px rgba(0,0,0,.6), inset 0 0 0 1px rgba(0,160,233,.35); }
+        .closing { background: radial-gradient(700px 360px at 90% 0%, rgba(0,160,233,.22), transparent 60%), linear-gradient(170deg, #161C5C, #0E1342) !important; }
+        footer { background: #080B22 !important; border-top-color: rgba(255,255,255,.08) !important; }
+        .panel { box-shadow: 0 40px 80px -40px rgba(0,0,0,.7); }
+        .btn-white { color: #1D2088; }
+        .tz-copy em { color: #1D2088 !important; }
+        .btn-white:hover { color: #fff; }
+        .person .ph { background: #1D2088; color: #fff; box-shadow: 0 0 0 3px rgba(0,160,233,.55); }
+        .more:hover { color: var(--on-ink); }
     </style>
 </head>
 <body data-mode="boss">
