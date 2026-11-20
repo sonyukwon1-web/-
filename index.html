@@ -92,6 +92,7 @@
     }
     </script>
     
+    <script>document.documentElement.classList.add('js');</script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
     <style>
         :root {
@@ -538,7 +539,8 @@
         .wz-steps { display: grid; grid-template-columns: minmax(0, 1fr); }
         .wz-steps > * { grid-area: 1 / 1; transition: opacity .22s ease, transform .22s ease; }
         .wz-steps > :not(.wz-on) { visibility: hidden; opacity: 0; transform: translateX(14px); pointer-events: none; }
-                .check.wz .q { align-self: stretch; align-content: center; gap: 18px !important; padding: 20px 16px !important; }
+        .check.wz[data-done] .wz-steps, .check.wz:not([data-done]) .wz-res { display: none; }
+        .check.wz .q { align-self: stretch; align-content: center; gap: 18px !important; padding: 20px 16px !important; }
         .check.wz .q .qt { font-size: 1.22rem; line-height: 1.45; }
         .check.wz .q .yn button { height: 58px; font-size: 1.15rem; }
         .check.wz .q > .qa { display: none !important; }
@@ -567,6 +569,22 @@
             .wz-back { height: 40px; padding: 0; }
             .wz-back { font-size: .92rem; }
         }
+        /* 첫 화면(상황 목록) ↔ 질문 화면 나눔 */
+        .stage.flow { grid-template-columns: minmax(0, 1fr) !important; }
+        .stage.flow[data-view="list"] > #answers, .stage.flow[data-view="detail"] > .stack:first-child { display: none; }
+        .stage.flow > .stack:first-child { grid-template-rows: auto !important; }
+        .stage.flow .tiles { grid-template-columns: 1fr 1fr !important; grid-auto-rows: 88px !important; align-content: start !important; }
+        .stage.flow .tile::after { content: '›'; margin-left: auto; flex: none; width: 24px; display: flex; align-items: center; justify-content: center; font-size: 1.7rem; font-weight: 400; line-height: 1; color: #9AA6C2; }
+        .stage.flow .tile:hover::after { color: var(--ink); }
+        .stage.flow #answers { width: 100%; max-width: 760px; justify-self: center; }
+        .stage.flow #answers > [hidden] { display: none; }
+        .stage.flow .answer .check { margin-top: 16px; }
+        .stage.flow .wz-res .sl { margin-top: 10px; }
+        .stage.flow .wz-res .we { margin-top: 6px; }
+        @media (max-width: 640px) {
+            .stage.flow .tiles { grid-template-columns: 1fr !important; grid-auto-rows: 74px !important; }
+        }
+        .js .answer .check:not(.wz), .js .answer > .sl, .js .answer > .sl + ol, .js .answer > .due, .js .answer > .law, .js .answer > .we { display: none; }
     </style>
 </head>
 <body data-mode="boss">
@@ -621,7 +639,7 @@
                     <button type="button" data-who="boss" aria-pressed="true">사장님이에요</button>
                     <button type="button" data-who="worker" aria-pressed="false">근로자예요</button>
                 </div>
-                <div class="stage rv">
+                <div class="stage flow rv" data-view="list">
                     <div class="stack">
                         <div class="tiles" id="t-boss">
                             <button type="button" class="tile" data-key="jinjeong" aria-pressed="true"><span class="i"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M12 9v5M12 17.5v.1"/></svg></span>직원이 노동청에 진정을 넣었어요</button>
@@ -785,6 +803,7 @@
                         </article>
                     </div>
                 </div>
+                <script>(function(){var h=decodeURIComponent(location.hash.slice(1)),a=h&&document.getElementById('a-'+h);if(!a)return;document.querySelectorAll('#answers .answer').forEach(function(x){x.hidden=x!==a});document.querySelector('.stage').setAttribute('data-view','detail');if(a.getAttribute('data-who')==='worker'){document.getElementById('t-boss').hidden=true;document.getElementById('t-worker').hidden=false;document.body.setAttribute('data-mode','worker');document.querySelector('.who').setAttribute('data-who','worker');}})();</script>
                 <a class="nolist rv" href="https://pf.kakao.com/_BaeGn/chat" target="_blank" rel="noopener"><span>내 상황이 목록에 없나요?</span><b>그냥 카톡으로 한 줄만 보내 주세요 →</b></a>
             </div>
           </div>
@@ -958,27 +977,46 @@
                 who.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', x.getAttribute('data-who') === w ? 'true' : 'false'); });
                 Object.keys(sets).forEach(function (k) { sets[k].hidden = k !== w; });
             }
+            var stage = document.querySelector('.stage');
+            stage.classList.add('flow');
+            stage.setAttribute('data-view', 'list');
+            function toTop() {
+                var y = stage.getBoundingClientRect().top + window.scrollY - 84;
+                if (Math.abs(window.scrollY - y) > 4 && stage.getBoundingClientRect().top < 84) window.scrollTo({ top: y, behavior: 'instant' });
+            }
+            function showList(w) {
+                if (w) setWho(w);
+                document.querySelectorAll('.tile').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
+                stage.setAttribute('data-view', 'list');
+                toTop();
+            }
             function select(slug, opts) {
                 var a = document.getElementById('a-' + slug); if (!a) return;
-                var w = a.getAttribute('data-who');
-                setWho(w);
-                sets[w].querySelectorAll('.tile').forEach(function (x) { x.setAttribute('aria-pressed', x.getAttribute('data-key') === slug ? 'true' : 'false'); });
+                setWho(a.getAttribute('data-who'));
                 document.querySelectorAll('#answers .answer').forEach(function (x) { x.hidden = x !== a; });
-                if (history.replaceState) history.replaceState(null, '', '#' + slug);
-                if (opts && opts.scroll && window.matchMedia('(max-width: 1080px)').matches) {
-                    window.scrollTo({ top: a.getBoundingClientRect().top + window.scrollY - 76, behavior: 'smooth' });
-                }
+                var ck = a.querySelector('.check'); if (ck && ck._reset) ck._reset();
+                stage.setAttribute('data-view', 'detail');
+                if (opts && opts.push && history.pushState) history.pushState({ s: slug }, '', '#' + slug);
+                toTop();
             }
+            function backToList() {
+                if (history.state && history.state.s) { history.back(); return; }
+                if (history.replaceState) history.replaceState(null, '', location.pathname + location.search);
+                showList();
+            }
+            window.addEventListener('popstate', function () {
+                var h = decodeURIComponent(location.hash.slice(1));
+                if (h && document.getElementById('a-' + h)) select(h); else showList();
+            });
 
             who.querySelectorAll('button').forEach(function (b) {
                 b.addEventListener('click', function () {
-                    var w = b.getAttribute('data-who');
-                    var t = sets[w].querySelector('.tile[aria-pressed="true"]');
-                    select(t.getAttribute('data-key'));
+                    if (location.hash && history.replaceState) history.replaceState(null, '', location.pathname + location.search);
+                    showList(b.getAttribute('data-who'));
                 });
             });
             document.querySelectorAll('.tile').forEach(function (t) {
-                t.addEventListener('click', function () { select(t.getAttribute('data-key'), { scroll: true }); });
+                t.addEventListener('click', function () { select(t.getAttribute('data-key'), { push: true }); });
             });
 
             /* 한 문제씩: 고르면 다음 질문 → 마지막에 노무사 답 */
@@ -993,7 +1031,7 @@
                 for (var i = 0; i <= n; i++) bar.appendChild(document.createElement('i'));
                 var steps = document.createElement('div'); steps.className = 'wz-steps';
                 var res = document.createElement('div'); res.className = 'wz-res';
-                res.innerHTML = '<p class="wz-rt">노무사 답</p><div class="wz-list"></div><button type="button" class="wz-re">처음부터 다시</button>';
+                res.innerHTML = '<p class="wz-rt">노무사 답</p><div class="wz-list"></div>';
                 var ol = res.querySelector('.wz-list');
                 qs.forEach(function (q, k) {
                     var out = q.querySelector('.qa'), ph = out.textContent;
@@ -1017,14 +1055,17 @@
                         });
                     });
                 });
-                steps.appendChild(res);
-                ck.appendChild(top); ck.appendChild(bar); ck.appendChild(steps);
+                var art = ck.closest('.answer');
+                if (art) ['.sl', '.sl + ol', '.due', '.law', '.we'].map(function (sel) { return art.querySelector(':scope > ' + sel); }).forEach(function (el) { if (el) res.appendChild(el); });
+                ck.appendChild(top); ck.appendChild(bar); ck.appendChild(steps); ck.appendChild(res);
                 var back = top.querySelector('.wz-back'), st = top.querySelector('.wz-st');
                 function go(t) {
                     cur = Math.max(0, Math.min(n, t));
                     Array.prototype.forEach.call(steps.children, function (c, i) { c.classList.toggle('wz-on', i === cur); });
+                    if (cur === n) ck.setAttribute('data-done', ''); else ck.removeAttribute('data-done');
+                    back.textContent = cur === 0 ? '← 목록' : '← 이전';
+                    if (t !== undefined && ck.getBoundingClientRect().top < 70) window.scrollTo({ top: ck.getBoundingClientRect().top + window.scrollY - 84, behavior: 'instant' });
                     Array.prototype.forEach.call(bar.children, function (c, i) { c.classList.toggle('on', i <= cur); });
-                    back.hidden = cur === 0;
                     if (cur < n) {
                         var left = n - cur - 1;
                         st.innerHTML = '질문 ' + (cur + 1) + ' / ' + n + '<small>' + (left ? '남은 질문 ' + left + '개' : '마지막 질문') + '</small>';
@@ -1032,12 +1073,15 @@
                         st.innerHTML = '결과<small>내 답 기준</small>';
                     }
                 }
-                back.addEventListener('click', function () { go(cur - 1); });
-                res.querySelector('.wz-re').addEventListener('click', function () {
+                back.addEventListener('click', function () { if (cur === 0) backToList(); else go(cur - 1); });
+                ck._reset = function () {
                     qs.forEach(function (q) { q.querySelectorAll('.yn button').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); }); });
-                    go(0);
-                });
-                go(0);
+                    cur = 0; Array.prototype.forEach.call(steps.children, function (c, i) { c.classList.toggle('wz-on', i === 0); });
+                    ck.removeAttribute('data-done'); back.textContent = '← 목록';
+                    Array.prototype.forEach.call(bar.children, function (c, i) { c.classList.toggle('on', i === 0); });
+                    st.innerHTML = '질문 1 / ' + n + '<small>' + (n > 1 ? '남은 질문 ' + (n - 1) + '개' : '마지막 질문') + '</small>';
+                };
+                ck._reset();
             });
 
             /* 링크 복사 */
@@ -1062,7 +1106,9 @@
 
             /* 주소 뒤 #상황 으로 바로 열기 */
             var h = decodeURIComponent(location.hash.slice(1));
+            document.querySelectorAll('.tile').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
             if (h && document.getElementById('a-' + h)) {
+                if (history.pushState) { history.replaceState(null, '', location.pathname + location.search); history.pushState({ s: h }, '', '#' + h); }
                 select(h);
                 var go = function () { var el = window.matchMedia('(max-width: 1080px)').matches ? document.getElementById('a-' + h) : document.querySelector('.who'); var y = el.getBoundingClientRect().top + window.scrollY - 80; window.scrollTo({ top: y, behavior: 'instant' }); }; if (document.readyState === 'complete') setTimeout(go, 0); else window.addEventListener('load', function () { setTimeout(go, 0); });
             }
