@@ -543,7 +543,6 @@
         .check.wz .q { align-self: stretch; align-content: center; gap: 18px !important; padding: 20px 16px !important; }
         .check.wz .q .qt { font-size: 1.22rem; line-height: 1.45; }
         .check.wz .q .yn button { height: 58px; font-size: 1.15rem; }
-        .check.wz .q > .qa { display: none !important; }
         .wz-res { background: #fff; border-radius: 14px; padding: 18px 16px; box-shadow: 0 6px 16px -12px rgba(16,19,79,.35); display: grid; gap: 12px; align-content: start; }
         .wz-rt { margin: 0; font-size: 1.1rem; font-weight: 800; color: var(--ink); }
         .wz-list { display: grid; gap: 12px; }
@@ -800,6 +799,18 @@
         .tx-k i { display: none; margin-left: 8px; font-style: normal; font-size: .72rem; padding: 2px 8px; border-radius: 999px; background: var(--accent); color: #0A0D1C; }
         .tx.hot { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,160,233,.25); }
         .tx.hot .tx-k i { display: inline-block; }
+        /* O/X 고르면 짧은 답 + 다음 단추 */
+        .check.wz .q .qa { display: grid !important; height: auto !important; margin: 0 !important; padding: 14px 16px !important; border-radius: 12px !important; border: 1.5px dashed rgba(255,255,255,.16) !important; background: transparent !important; font-size: 1rem !important; line-height: 1.55 !important; color: var(--muted) !important; }
+        .check.wz .q .qa > span { grid-area: 1 / 1; opacity: 0; transition: opacity .2s ease; }
+        .check.wz .q .qa:not([data-state]) > .ph, .check.wz .q .qa[data-state="y"] > .ay, .check.wz .q .qa[data-state="n"] > .an { opacity: 1; }
+        .check.wz .q .qa > .ph { align-self: center; justify-self: center; text-align: center; font-size: .95rem; }
+        .check.wz .q .qa > .ay::before, .check.wz .q .qa > .an::before { content: '노무사 답'; display: block; font-size: .8rem; font-weight: 800; color: var(--accent); margin-bottom: 4px; }
+        .check.wz .q .qa[data-state] { border: 1.5px solid rgba(0,160,233,.35) !important; background: rgba(0,160,233,.08) !important; color: var(--ink) !important; }
+        .check.wz .q .qa > .ay, .check.wz .q .qa > .an { font-weight: 600; }
+        .check.wz .q .qa > .ph { font-weight: 500; }
+        .qn { height: 52px; border-radius: 12px; border: 0; background: #fff; color: #0A0D1C; font: inherit; font-size: 1.05rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .2s ease, color .2s ease; }
+        .qn:hover { background: var(--cy); color: #fff; }
+        .qn:disabled { background: rgba(255,255,255,.08); color: var(--muted); cursor: default; }
     </style>
 </head>
 <body data-mode="boss">
@@ -933,7 +944,7 @@
                         <article class="answer" id="a-budanghaego" data-help='["해고가 정당한지 검토", "부당해고 구제신청 대리", "권고사직·실업급여 가능 여부 확인"]' data-who="worker" data-msg="[홈페이지 상담] 근로자 · 해고됐거나 그만두라고 해요" hidden>
                             <div class="ahead"><p class="tag">근로자 · 지금 먼저 할 일</p></div>
                             <h2>해고됐거나 그만두라고 해요</h2>
-                            <div class="check"><p class="ct"><b>내 상황 체크</b><span>질문 2개 · 눌러서 답해 보세요</span></p><div class="q" data-q="회사에 상시 5명 이상 일하나요?"><p class="qt">회사에 상시 5명 이상 일하나요?</p><div class="yn"><button type="button" data-v="y" aria-pressed="false">예</button><button type="button" data-v="n" aria-pressed="false">아니요</button></div><p class="qa" data-y="부당해고 구제신청을 할 수 있어요. 해고된 날부터 3개월 안에 해야 해요." data-n="구제신청 대상은 아니에요. 30일 전에 알려 주지 않았다면 해고예고수당을 받을 수 있어요(예외 있음).">예·아니요를 누르면 노무사 답이 여기 나와요</p></div><div class="q" data-q="사직서에 서명했나요?"><p class="qt">사직서에 서명했나요?</p><div class="yn"><button type="button" data-v="y" aria-pressed="false">예</button><button type="button" data-v="n" aria-pressed="false">아니요</button></div><p class="qa" data-y="" data-n="">.</p></div></div>
+                            <div class="check"><p class="ct"><b>내 상황 체크</b><span>질문 2개 · 눌러서 답해 보세요</span></p><div class="q" data-q="회사에 상시 5명 이상 일하나요?"><p class="qt">회사에 상시 5명 이상 일하나요?</p><div class="yn"><button type="button" data-v="y" aria-pressed="false">예</button><button type="button" data-v="n" aria-pressed="false">아니요</button></div><p class="qa" data-y="부당해고 구제신청을 할 수 있어요. 해고된 날부터 3개월 안에 해야 해요." data-n="구제신청 대상은 아니에요. 30일 전에 알려 주지 않았다면 해고예고수당을 받을 수 있어요(예외 있음).">예·아니요를 누르면 노무사 답이 여기 나와요</p></div><div class="q" data-q="사직서에 서명했나요?"><p class="qt">사직서에 서명했나요?</p><div class="yn"><button type="button" data-v="y" aria-pressed="false">예</button><button type="button" data-v="n" aria-pressed="false">아니요</button></div><p class="qa" data-y="스스로 그만둔 것으로 처리될 수 있어요. 억지로 쓰게 했다면 그때 상황을 기록해 두세요." data-n="서명하지 않았다면 회사가 일방적으로 끝낸 것이라 해고로 다툴 수 있어요.">.</p></div></div>
                             <p class="sl">지금 할 일</p>
                             <ol><li>해고 통보(문자·카톡 포함)를 저장하세요.</li><li>해고된 날짜를 적어 두세요.</li><li>계약서·급여 내역·대화 기록을 모으세요.</li></ol>
                             <p class="due"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>해고된 날부터 3개월이 지나면 구제신청을 못 해요</p>
@@ -1228,14 +1239,25 @@
                 var chips = document.createElement('div'); chips.className = 'qc';
                 for (var i = 0; i <= n; i++) { var c = document.createElement('button'); c.type = 'button'; c.textContent = i < n ? 'Q' + (i + 1) : '신청'; chips.appendChild(c); }
                 var steps = document.createElement('div'); steps.className = 'wz-steps';
+                var outs = [], nexts = [];
                 qs.forEach(function (q, k) {
-                    var out = q.querySelector('.qa'); if (out) out.remove();
+                    var out = q.querySelector('.qa');
+                    out.textContent = '';
+                    [['ph', '고르면 노무사가 짧게 답해 드려요'], ['ay', out.getAttribute('data-y')], ['an', out.getAttribute('data-n')]].forEach(function (x) {
+                        var sp = document.createElement('span'); sp.className = x[0]; sp.textContent = x[1]; out.appendChild(sp);
+                    });
+                    out.removeAttribute('data-state'); outs[k] = out;
+                    var nx = document.createElement('button'); nx.type = 'button'; nx.className = 'qn'; nx.disabled = true;
+                    nx.textContent = k < n - 1 ? '다음 질문 →' : '상담 신청으로 →';
+                    q.appendChild(nx); nexts[k] = nx;
+                    nx.addEventListener('click', function () { if (!nx.disabled) go(k + 1); });
                     steps.appendChild(q);
                     q.querySelectorAll('.yn button').forEach(function (b) {
                         b.addEventListener('click', function () {
                             q.querySelectorAll('.yn button').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
                             ans[k] = b.textContent;
-                            setTimeout(function () { go(k + 1); }, 180);
+                            out.setAttribute('data-state', b.getAttribute('data-v'));
+                            nx.disabled = false; paint();
                         });
                     });
                 });
@@ -1295,6 +1317,7 @@
                     ans = []; tmv = ''; fm.reset(); sb.disabled = true; note.textContent = '';
                     fm.querySelectorAll('.tm button').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
                     qs.forEach(function (q) { q.querySelectorAll('.yn button').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); }); });
+                    outs.forEach(function (o) { o.removeAttribute('data-state'); }); nexts.forEach(function (x) { x.disabled = true; });
                     cur = 0; Array.prototype.forEach.call(steps.children, function (c, i) { c.classList.toggle('wz-on', i === 0); });
                     ck.removeAttribute('data-done'); paint();
                 };
