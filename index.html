@@ -699,6 +699,72 @@
         .mbar { background: rgba(10,13,28,.94) !important; border-top: 1px solid var(--line) !important; }
         .copied { background: #fff !important; color: #0A0D1C !important; }
         .tb small.n { color: #1D2088 !important; }
+        /* ===== 상단 고정 줄 · 질문 칩 · 상담 신청 ===== */
+        .stage.flow > .nav { display: grid; grid-template-columns: 220px 1fr; align-items: center; height: 48px; margin-bottom: 18px; padding-bottom: 14px; border-bottom: 1px solid var(--line); box-sizing: content-box; }
+        .nav-back { justify-self: start; width: 220px; height: 44px; border: 0; border-radius: 12px; background: transparent; font: inherit; font-size: 1rem; font-weight: 700; color: var(--ink-2); cursor: pointer; display: flex; align-items: center; gap: 8px; padding: 0 10px; white-space: nowrap; }
+        .nav-back:hover { background: rgba(255,255,255,.06); color: var(--ink); }
+        .nb-a { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,.08); flex: none; }
+        .nv-st { justify-self: end; display: flex; gap: 6px; margin: 0; padding: 0; list-style: none; }
+        .nv-st li { display: flex; align-items: center; gap: 6px; height: 32px; padding: 0 12px 0 6px; border-radius: 999px; font-size: .9rem; font-weight: 600; color: var(--muted); }
+        .nv-st li i { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-style: normal; font-size: .78rem; font-weight: 800; background: rgba(255,255,255,.1); color: #C4CBE0; }
+        .nv-st li.on { background: rgba(0,160,233,.14); color: var(--ink); }
+        .nv-st li.on i { background: #0A7FBA; color: #fff; }
+        .nv-st li.done i { background: rgba(0,160,233,.25); color: var(--accent); }
+        .stage.flow[data-view="who"] .nav-back { visibility: hidden !important; }
+        .pick-t, .lhd-t { margin: 4px 0 18px !important; text-align: left !important; font-size: 1.35rem !important; }
+        .stage.flow[data-view="list"] > .lhd { display: block !important; }
+        .pick-b { height: 150px !important; align-items: flex-start !important; justify-content: center !important; text-align: left !important; padding: 0 28px !important; gap: 8px !important; }
+        .pick-b b { font-size: 1.45rem; }
+        .pick-b::after { content: '→'; position: absolute; right: 26px; top: 50%; transform: translateY(-50%); font-size: 1.3rem; color: var(--muted); transition: color .2s ease, transform .2s ease; }
+        .pick-b:hover::after { color: var(--accent); transform: translate(4px, -50%); }
+        .answer .ahead { display: none; }
+        .answer h2 { font-size: 1.05rem !important; font-weight: 700 !important; color: var(--muted) !important; letter-spacing: -0.01em; margin: 0 !important; }
+        .stage.flow .answer .check { margin-top: 12px !important; gap: 14px !important; }
+        .qc { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 8px; }
+        .qc button { height: 42px; border-radius: 12px; border: 1px solid rgba(255,255,255,.12); background: transparent; font: inherit; font-size: .98rem; font-weight: 700; color: var(--ink-2); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; }
+        .qc button.done { color: var(--accent); border-color: rgba(0,160,233,.4); }
+        .qc button.done::before { content: '✓'; font-size: .85rem; }
+        .qc button.on { background: var(--cy); border-color: var(--cy); color: #fff; }
+        .qc button:disabled { opacity: .35; cursor: default; }
+        @media (hover: hover) { .qc button:not(:disabled):not(.on):hover { border-color: var(--accent); color: var(--ink); } }
+        .check.wz .q .qt { font-size: 1.35rem !important; }
+        .check.wz .q { padding: 26px 22px !important; gap: 22px !important; }
+        .wz-res { padding: 22px !important; gap: 16px !important; }
+        .wz-rt { font-size: 1.2rem !important; }
+        .wz-res, .fm, .fm label { grid-template-columns: minmax(0, 1fr); }
+        .fm input[name] { width: 100%; min-width: 0; box-sizing: border-box; }
+        .hp { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+        .hp li { position: relative; padding: 12px 14px 12px 42px; border-radius: 12px; background: rgba(0,160,233,.08); font-weight: 600; color: var(--ink); line-height: 1.45; }
+        .hp li::before { content: '✓'; position: absolute; left: 14px; top: 12px; width: 18px; height: 18px; border-radius: 50%; background: var(--cy); color: #fff; font-size: .7rem; font-weight: 800; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+        .fm { display: grid; gap: 12px; margin-top: 4px; padding-top: 18px; border-top: 1px solid var(--line); }
+        .fm label { display: grid; gap: 6px; }
+        .fm label > span, .tm > span { font-size: .92rem; font-weight: 700; color: var(--ink-2); }
+        .fm input[name] { height: 50px; border-radius: 12px; border: 1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.04); color: var(--ink); font: inherit; font-size: 1.05rem; padding: 0 14px; outline: none; }
+        .fm input[name]:focus { border-color: var(--cy); background: rgba(0,160,233,.06); }
+        .fm input::placeholder { color: #5D6787; }
+        .tm { display: grid; gap: 6px; }
+        .tm > div { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+        .tm button { height: 42px; border-radius: 10px; border: 1px solid rgba(255,255,255,.16); background: transparent; font: inherit; font-size: .92rem; font-weight: 600; color: var(--ink-2); cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .tm button[aria-pressed="true"] { background: var(--cy); border-color: var(--cy); color: #fff; }
+        .fm .ag { grid-template-columns: 22px 1fr; align-items: start; gap: 10px; cursor: pointer; }
+        .fm .ag input { width: 20px; height: 20px; margin: 2px 0 0; accent-color: #00A0E9; }
+        .fm .ag span { font-size: .92rem; font-weight: 600; color: var(--ink-2); line-height: 1.45; }
+        .fm .ag small { display: block; font-weight: 500; color: var(--muted); font-size: .82rem; }
+        .fm .sb { width: 100%; height: 56px; font-size: 1.08rem; margin-top: 4px; }
+        .fm .sb:disabled { background: rgba(255,255,255,.12); border-color: transparent; color: var(--muted); cursor: default; }
+        .fm-n { min-height: 1.4em; text-align: center; font-size: .92rem; color: var(--accent); font-weight: 600; }
+        @media (max-width: 640px) {
+            .stage.flow > .nav { grid-template-columns: minmax(0, 1fr) auto; gap: 8px; }
+            .nav-back { width: 100%; min-width: 0; font-size: .95rem; padding: 0 4px; gap: 6px; }
+            .nv-st { gap: 4px; }
+            .nv-st li { padding: 0; width: 26px; justify-content: center; }
+            .nv-st li span { display: none; }
+            .pick-b { height: 120px !important; padding: 0 22px !important; }
+            .check.wz .q .qt { font-size: 1.2rem !important; }
+            .check.wz .q { padding: 22px 16px !important; }
+            .wz-res { padding: 18px 14px !important; }
+            .tm > div { grid-template-columns: repeat(2, 1fr); }
+        }
     </style>
 </head>
 <body data-mode="boss">
@@ -754,14 +820,15 @@
                     <button type="button" data-who="worker" aria-pressed="false">근로자예요</button>
                 </div>
                 <div class="stage flow rv" data-view="who">
+                    <div class="nav"><button type="button" class="nav-back"><span class="nb-a">←</span><span class="nb-t"></span></button><ol class="nv-st" aria-label="진행 단계"><li><i>1</i><span>누구</span></li><li><i>2</i><span>상황</span></li><li><i>3</i><span>질문</span></li><li><i>4</i><span>신청</span></li></ol></div>
                     <div class="pick">
-                        <p class="pick-t">먼저, 누구신가요?</p>
+                        <p class="pick-t">누구신가요?</p>
                         <div class="pick-g">
-                            <button type="button" class="pick-b" data-who="boss"><span class="pk-i"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M8.5 7V5.5A1.5 1.5 0 0 1 10 4h4a1.5 1.5 0 0 1 1.5 1.5V7M3 12.5h18"/></svg></span><b>사장님이에요</b><small>직원·노동청·계약서·지원금</small><span class="pk-go">→</span></button>
-                            <button type="button" class="pick-b" data-who="worker"><span class="pk-i"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 21c.8-4.4 3.8-7 7.5-7s6.7 2.6 7.5 7"/></svg></span><b>근로자예요</b><small>해고·월급·수당·산재·괴롭힘</small><span class="pk-go">→</span></button>
+                            <button type="button" class="pick-b" data-who="boss"><b>사장님이에요</b><small>직원·노동청·계약서·지원금</small></button>
+                            <button type="button" class="pick-b" data-who="worker"><b>근로자예요</b><small>해고·월급·수당·산재·괴롭힘</small></button>
                         </div>
                     </div>
-                    <div class="lhd"><button type="button" class="lhd-back">← 처음으로</button><p class="lhd-t"><span data-for="boss" class="only">사장님, 어떤 상황이세요?</span><span data-for="worker" class="only">어떤 일이 있으셨어요?</span></p></div>
+                    <div class="lhd"><p class="lhd-t">해당하는 일을 골라 주세요</p></div>
                     <div class="stack">
                         <div class="tiles" id="t-boss">
                             <button type="button" class="tile" data-key="jinjeong" aria-pressed="true"><span class="i"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M12 9v5M12 17.5v.1"/></svg></span>직원이 노동청에 진정을 넣었어요</button>
@@ -783,7 +850,7 @@
                         </div>
                     </div>
                     <div class="stack" id="answers">
-                        <article class="answer" id="a-jinjeong" data-who="boss" data-msg="[홈페이지 상담] 사장님 · 직원이 노동청에 진정을 넣었어요">
+                        <article class="answer" id="a-jinjeong" data-help='["노동청 출석·조사 동행", "진정 답변서·자료 정리", "합의·지급 방법 조언"]' data-who="boss" data-msg="[홈페이지 상담] 사장님 · 직원이 노동청에 진정을 넣었어요">
                             <div class="ahead"><p class="tag">사장님 · 지금 먼저 할 일</p></div>
                             <h2>직원이 노동청에 진정을 넣었어요</h2>
                             <div class="check"><p class="ct"><b>내 상황 체크</b><span>질문 2개 · 눌러서 답해 보세요</span></p><div class="q" data-q="그만둔 직원이 낸 진정인가요?"><p class="qt">그만둔 직원이 낸 진정인가요?</p><div class="yn"><button type="button" data-v="y" aria-pressed="false">예</button><button type="button" data-v="n" aria-pressed="false">아니요</button></div><p class="qa" data-y="퇴직한 직원의 임금·퇴직금은 퇴직 후 14일 안에 줘야 해요. 못 준 돈이 있으면 그것부터 정리하세요." data-n="다니고 있는 직원이에요. 진정을 냈다는 이유로 불리하게 대하면 안 돼요.">예·아니요를 누르면 노무사 답이 여기 나와요</p></div><div class="q" data-q="직원 말대로 못 준 돈이 실제로 있나요?"><p class="qt">직원 말대로 못 준 돈이 실제로 있나요?</p><div class="yn"><button type="button" data-v="y" aria-pressed="false">예</button><button type="button" data-v="n" aria-pressed="false">아니요</button></div><p class="qa" data-y="출석 전에 금액을 맞춰 보고 지급하면 사건을 빨리 끝낼 수 있어요." data-n="출퇴근 기록·급여 이체 내역으로 다 줬다는 걸 보여 줘야 해요.">예·아니요를 누르면 노무사 답이 여기 나와요</p></div></div>
@@ -793,7 +860,7 @@
                             <p class="law">근로기준법 제36조(금품 청산)·제104조(신고를 이유로 한 불리한 처우 금지).</p>
                             <div class="we"><p>임금체불 진정 대응, 유영이 맡아 드려요.<span>지금 상황 그대로 카톡에 보내 주세요. 노무사가 직접 답해 드려요.</span></p><div class="btns"><a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-ghost js-kakao" target="_blank" rel="noopener"><span class="dot"></span>카톡 상담</a><a href="tel:010-4835-8422" class="btn btn-ink">전화 상담</a></div></div>
                         </article>
-                        <article class="answer" id="a-haego" data-who="boss" data-msg="[홈페이지 상담] 사장님 · 직원을 내보내야 해요" hidden>
+                        <article class="answer" id="a-haego" data-help='["해고·권고사직 절차 점검", "해고통지서·사직서 작성", "분쟁이 생기면 노동위원회 대응"]' data-who="boss" data-msg="[홈페이지 상담] 사장님 · 직원을 내보내야 해요" hidden>
                             <div class="ahead"><p class="tag">사장님 · 지금 먼저 할 일</p></div>
                             <h2>직원을 내보내야 해요</h2>
                             <div class="check"><p class="ct"><b>내 상황 체크</b><span>질문 2개 · 눌러서 답해 보세요</span></p><div class="q" data-q="상시 근로자가 5명 이상인가요?"><p class="qt">상시 근로자가 5명 이상인가요?</p><div class="yn"><button type="button" data-v="y" aria-pressed="false">예</button><button type="button" data-v="n" aria-pressed="false">아니요</button></div><p class="qa" data-y="정당한 이유가 있어야 해고할 수 있고, 사유와 날짜를 서면으로 알려야 해요. 아니면 부당해고가 될 수 있어요." data-n="해고 제한 규정은 적용되지 않아요. 다만 30일 전에 알리지 않으면 30일분 임금(해고예고수당)을 줘야 해요(예외 있음).">예·아니요를 누르면 노무사 답이 여기 나와요</p></div><div class="q" data-q="직원도 그만두는 데 동의했나요?"><p class="qt">직원도 그만두는 데 동의했나요?</p><div class="yn"><button type="button" data-v="y" aria-pressed="false">예</button><button type="button" data-v="n" aria-pressed="false">아니요</button></div><p class="qa" data-y="권고사직이에요. 합의한 내용을 사직서로 받아 두세요." data-n="해고예요. 30일 전에 미리 알려야 하고, 5명 이상이면 사유·날짜를 서면으로 알려야 해요.">예·아니요를 누르면 노무사 답이 여기 나와요</p></div></div>
@@ -803,7 +870,7 @@
                             <p class="law">근로기준법 제23조·제26조·제27조. 5명 미만 사업장에는 제23조제1항·제27조가 적용되지 않습니다.</p>
                             <div class="we"><p>해고·퇴사 절차 자문, 유영이 맡아 드려요.<span>지금 상황 그대로 카톡에 보내 주세요. 노무사가 직접 답해 드려요.</span></p><div class="btns"><a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-ghost js-kakao" target="_blank" rel="noopener"><span class="dot"></span>카톡 상담</a><a href="tel:010-4835-8422" class="btn btn-ink">전화 상담</a></div></div>
                         </article>
-                        <article class="answer" id="a-gyeyak" data-who="boss" data-msg="[홈페이지 상담] 사장님 · 근로계약서·규정을 정비하고 싶어요" hidden>
+                        <article class="answer" id="a-gyeyak" data-help='["근로계약서 새로 쓰기·점검", "취업규칙 작성·신고", "급여 항목(수당) 정리"]' data-who="boss" data-msg="[홈페이지 상담] 사장님 · 근로계약서·규정을 정비하고 싶어요" hidden>
                             <div class="ahead"><p class="tag">사장님 · 지금 먼저 할 일</p></div>
                             <h2>근로계약서·규정을 정비하고 싶어요</h2>
                             <div class="check"><p class="ct"><b>내 상황 체크</b><span>질문 2개 · 눌러서 답해 보세요</span></p><div class="q" data-q="모든 직원과 근로계약서를 써서 1부씩 줬나요?"><p class="qt">모든 직원과 근로계약서를 써서 1부씩 줬나요?</p><div class="yn"><button type="button" data-v="y" aria-pressed="false">예</button><button type="button" data-v="n" aria-pressed="false">아니요</button></div><p class="qa" data-y="좋아요. 최저임금·주휴수당·근무시간이 법에 맞게 적혔는지 점검해 보세요." data-n="계약서를 안 쓰거나 안 주면 500만 원 이하 벌금 대상이에요. 지금 바로 쓰세요.">예·아니요를 누르면 노무사 답이 여기 나와요</p></div><div class="q" data-q="상시 근로자가 10명 이상인가요?"><p class="qt">상시 근로자가 10명 이상인가요?</p><div class="yn"><button type="button" data-v="y" aria-pressed="false">예</button><button type="button" data-v="n" aria-pressed="false">아니요</button></div><p class="qa" data-y="취업규칙을 만들어 노동청에 신고해야 해요." data-n="취업규칙 신고 의무는 없어요. 계약서만 잘 갖추면 돼요.">예·아니요를 누르면 노무사 답이 여기 나와요</p></div></div>
@@ -813,7 +880,7 @@
                             <p class="law">근로기준법 제17조·제93조·제114조.</p>
                             <div class="we"><p>서류·제도 정비, 유영이 맡아 드려요.<span>지금 상황 그대로 카톡에 보내 주세요. 노무사가 직접 답해 드려요.</span></p><div class="btns"><a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-ghost js-kakao" target="_blank" rel="noopener"><span class="dot"></span>카톡 상담</a><a href="tel:010-4835-8422" class="btn btn-ink">전화 상담</a></div></div>
                         </article>
-                        <article class="answer" id="a-jiwongeum" data-who="boss" data-msg="[홈페이지 상담] 사장님 · 받을 수 있는 지원금이 궁금해요" hidden>
+                        <article class="answer" id="a-jiwongeum" data-help='["받을 수 있는 지원금 찾기", "신청 서류 준비·접수", "지원 조건 유지 관리"]' data-who="boss" data-msg="[홈페이지 상담] 사장님 · 받을 수 있는 지원금이 궁금해요" hidden>
                             <div class="ahead"><p class="tag">사장님 · 지금 먼저 할 일</p></div>
                             <h2>받을 수 있는 지원금이 궁금해요</h2>
                             <div class="check"><p class="ct"><b>내 상황 체크</b><span>질문 2개 · 눌러서 답해 보세요</span></p><div class="q" data-q="고용보험에 가입한 직원이 5명 이상인가요?"><p class="qt">고용보험에 가입한 직원이 5명 이상인가요?</p><div class="yn"><button type="button" data-v="y" aria-pressed="false">예</button><button type="button" data-v="n" aria-pressed="false">아니요</button></div><p class="qa" data-y="청년일자리도약장려금 같은 고용지원금 대부분을 신청할 수 있어요." data-n="5명 미만이면 대상이 아니거나 조건이 다른 지원금이 많아요. 업종별로 확인이 필요해요.">예·아니요를 누르면 노무사 답이 여기 나와요</p></div><div class="q" data-q="최근 청년(만 15~34세)을 정규직으로 뽑았나요?"><p class="qt">최근 청년(만 15~34세)을 정규직으로 뽑았나요?</p><div class="yn"><button type="button" data-v="y" aria-pressed="false">예</button><button type="button" data-v="n" aria-pressed="false">아니요</button></div><p class="qa" data-y="6개월 이상 계속 고용하면 1명당 최대 720만 원(2026년 기준)을 받을 수 있는지 확인해 보세요." data-n="채용 계획이 있다면 뽑기 전에 조건부터 확인하세요. 뽑은 뒤에는 바꾸기 어려워요.">예·아니요를 누르면 노무사 답이 여기 나와요</p></div></div>
@@ -823,7 +890,7 @@
                             <p class="law">지원 요건과 금액은 해마다 바뀝니다(2026년 청년일자리도약장려금 기준).</p>
                             <div class="we"><p>정부지원금 컨설팅, 유영이 맡아 드려요.<span>지금 상황 그대로 카톡에 보내 주세요. 노무사가 직접 답해 드려요.</span></p><div class="btns"><a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-ghost js-kakao" target="_blank" rel="noopener"><span class="dot"></span>카톡 상담</a><a href="tel:010-4835-8422" class="btn btn-ink">전화 상담</a></div></div>
                         </article>
-                        <article class="answer" id="a-goerophim-boss" data-who="boss" data-msg="[홈페이지 상담] 사장님 · 직장 내 괴롭힘 신고가 들어왔어요" hidden>
+                        <article class="answer" id="a-goerophim-boss" data-help='["신고 사건 조사(외부 조사)", "조사 결과 보고서·조치안 작성", "재발 방지 교육"]' data-who="boss" data-msg="[홈페이지 상담] 사장님 · 직장 내 괴롭힘 신고가 들어왔어요" hidden>
                             <div class="ahead"><p class="tag">사장님 · 지금 먼저 할 일</p></div>
                             <h2>직장 내 괴롭힘 신고가 들어왔어요</h2>
                             <div class="check"><p class="ct"><b>내 상황 체크</b><span>질문 2개 · 눌러서 답해 보세요</span></p><div class="q" data-q="상시 근로자가 5명 이상인가요?"><p class="qt">상시 근로자가 5명 이상인가요?</p><div class="yn"><button type="button" data-v="y" aria-pressed="false">예</button><button type="button" data-v="n" aria-pressed="false">아니요</button></div><p class="qa" data-y="신고를 받으면 바로 조사하고 피해 직원을 보호해야 해요. 안 하면 과태료 대상이에요." data-n="직장 내 괴롭힘 규정은 5명 미만 사업장에 적용되지 않아요. 다만 폭언·폭행은 다른 법으로 문제가 될 수 있어요.">예·아니요를 누르면 노무사 답이 여기 나와요</p></div><div class="q" data-q="괴롭힌 사람으로 지목된 사람이 대표님(또는 가족)인가요?"><p class="qt">괴롭힌 사람으로 지목된 사람이 대표님(또는 가족)인가요?</p><div class="yn"><button type="button" data-v="y" aria-pressed="false">예</button><button type="button" data-v="n" aria-pressed="false">아니요</button></div><p class="qa" data-y="대표 본인이 괴롭힘을 하면 1천만 원 이하 과태료 대상이에요. 외부에 조사를 맡기는 게 안전해요." data-n="객관적으로 조사한 뒤, 사실이면 징계 등 조치를 해야 해요.">예·아니요를 누르면 노무사 답이 여기 나와요</p></div></div>
@@ -833,7 +900,7 @@
                             <p class="law">근로기준법 제76조의2·제76조의3·제116조. 5명 미만 사업장에는 적용되지 않습니다.</p>
                             <div class="we"><p>괴롭힘 조사·대응, 유영이 맡아 드려요.<span>지금 상황 그대로 카톡에 보내 주세요. 노무사가 직접 답해 드려요.</span></p><div class="btns"><a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-ghost js-kakao" target="_blank" rel="noopener"><span class="dot"></span>카톡 상담</a><a href="tel:010-4835-8422" class="btn btn-ink">전화 상담</a></div></div>
                         </article>
-                        <article class="answer" id="a-toejikgeum" data-who="boss" data-msg="[홈페이지 상담] 사장님 · 직원이 그만두는데 퇴직금은요?" hidden>
+                        <article class="answer" id="a-toejikgeum" data-help='["퇴직금 계산·지급액 확인", "퇴직 서류 정리", "분쟁이 생기면 노동청 대응"]' data-who="boss" data-msg="[홈페이지 상담] 사장님 · 직원이 그만두는데 퇴직금은요?" hidden>
                             <div class="ahead"><p class="tag">사장님 · 지금 먼저 할 일</p></div>
                             <h2>직원이 그만두는데 퇴직금은요?</h2>
                             <div class="check"><p class="ct"><b>내 상황 체크</b><span>질문 2개 · 눌러서 답해 보세요</span></p><div class="q" data-q="1년 이상 계속 일했나요?"><p class="qt">1년 이상 계속 일했나요?</p><div class="yn"><button type="button" data-v="y" aria-pressed="false">예</button><button type="button" data-v="n" aria-pressed="false">아니요</button></div><p class="qa" data-y="퇴직금 대상일 수 있어요. 아래 질문도 확인해 보세요." data-n="1년 미만이면 퇴직금이 없어요.">예·아니요를 누르면 노무사 답이 여기 나와요</p></div><div class="q" data-q="4주 평균으로 주 15시간 이상 일했나요?"><p class="qt">4주 평균으로 주 15시간 이상 일했나요?</p><div class="yn"><button type="button" data-v="y" aria-pressed="false">예</button><button type="button" data-v="n" aria-pressed="false">아니요</button></div><p class="qa" data-y="퇴직금 대상이에요(1년 이상인 경우). 퇴직 후 14일 안에 줘야 해요(합의하면 늦출 수 있어요)." data-n="주 15시간 미만이면 퇴직금이 없어요.">예·아니요를 누르면 노무사 답이 여기 나와요</p></div></div>
@@ -843,7 +910,7 @@
                             <p class="law">근로자퇴직급여 보장법 제4조·제9조, 근로기준법 제36조. 직원 수와 상관없이 적용됩니다.</p>
                             <div class="we"><p>퇴직 정산 자문, 유영이 맡아 드려요.<span>지금 상황 그대로 카톡에 보내 주세요. 노무사가 직접 답해 드려요.</span></p><div class="btns"><a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-ghost js-kakao" target="_blank" rel="noopener"><span class="dot"></span>카톡 상담</a><a href="tel:010-4835-8422" class="btn btn-ink">전화 상담</a></div></div>
                         </article>
-                        <article class="answer" id="a-geunrosigan" data-who="boss" data-msg="[홈페이지 상담] 사장님 · 연장근무·주 52시간이 걱정돼요" hidden>
+                        <article class="answer" id="a-geunrosigan" data-help='["근무시간·연장근무 점검", "근무표·교대제 설계", "수당 계산 방식 정리"]' data-who="boss" data-msg="[홈페이지 상담] 사장님 · 연장근무·주 52시간이 걱정돼요" hidden>
                             <div class="ahead"><p class="tag">사장님 · 지금 먼저 할 일</p></div>
                             <h2>연장근무·주 52시간이 걱정돼요</h2>
                             <div class="check"><p class="ct"><b>내 상황 체크</b><span>질문 2개 · 눌러서 답해 보세요</span></p><div class="q" data-q="상시 근로자가 5명 이상인가요?"><p class="qt">상시 근로자가 5명 이상인가요?</p><div class="yn"><button type="button" data-v="y" aria-pressed="false">예</button><button type="button" data-v="n" aria-pressed="false">아니요</button></div><p class="qa" data-y="주 52시간(연장 12시간) 한도와 연장·야간·휴일 50% 가산수당이 적용돼요." data-n="연장 한도와 가산수당은 적용되지 않아요. 일한 시간만큼 임금은 줘야 해요.">예·아니요를 누르면 노무사 답이 여기 나와요</p></div><div class="q" data-q="주 52시간을 넘기는 주가 있나요?"><p class="qt">주 52시간을 넘기는 주가 있나요?</p><div class="yn"><button type="button" data-v="y" aria-pressed="false">예</button><button type="button" data-v="n" aria-pressed="false">아니요</button></div><p class="qa" data-y="5명 이상이면 법 위반이에요. 근무표를 바꾸거나 사람을 늘리는 방법을 찾아야 해요." data-n="연장근로 수당만 맞게 계산하면 돼요.">예·아니요를 누르면 노무사 답이 여기 나와요</p></div></div>
@@ -853,7 +920,7 @@
                             <p class="law">근로기준법 제50조·제53조·제56조. 5명 미만 사업장에는 제53조·제56조가 적용되지 않습니다.</p>
                             <div class="we"><p>근로시간·임금 설계, 유영이 맡아 드려요.<span>지금 상황 그대로 카톡에 보내 주세요. 노무사가 직접 답해 드려요.</span></p><div class="btns"><a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-ghost js-kakao" target="_blank" rel="noopener"><span class="dot"></span>카톡 상담</a><a href="tel:010-4835-8422" class="btn btn-ink">전화 상담</a></div></div>
                         </article>
-                        <article class="answer" id="a-jamun" data-who="boss" data-msg="[홈페이지 상담] 사장님 · 정기적으로 맡길 노무사가 필요해요" hidden>
+                        <article class="answer" id="a-jamun" data-help='["매달 노무 자문(전화·카톡)", "계약서·급여·4대보험 관리", "노동청 사건이 생기면 바로 대응"]' data-who="boss" data-msg="[홈페이지 상담] 사장님 · 정기적으로 맡길 노무사가 필요해요" hidden>
                             <div class="ahead"><p class="tag">사장님 · 지금 먼저 할 일</p></div>
                             <h2>정기적으로 맡길 노무사가 필요해요</h2>
                             <div class="check"><p class="ct"><b>내 상황 체크</b><span>질문 2개 · 눌러서 답해 보세요</span></p><div class="q" data-q="상시 근로자가 5명 이상인가요?"><p class="qt">상시 근로자가 5명 이상인가요?</p><div class="yn"><button type="button" data-v="y" aria-pressed="false">예</button><button type="button" data-v="n" aria-pressed="false">아니요</button></div><p class="qa" data-y="연차·가산수당·해고 제한까지 지킬 게 많아져요. 정기 자문이 특히 도움이 돼요." data-n="계약서·최저임금·주휴수당·퇴직금은 5명 미만도 똑같이 지켜야 해요.">예·아니요를 누르면 노무사 답이 여기 나와요</p></div><div class="q" data-q="세무(기장)도 함께 맡기고 싶으신가요?"><p class="qt">세무(기장)도 함께 맡기고 싶으신가요?</p><div class="yn"><button type="button" data-v="y" aria-pressed="false">예</button><button type="button" data-v="n" aria-pressed="false">아니요</button></div><p class="qa" data-y="노무사와 세무사가 한 팀으로 보는 노무·세무 통합 서비스가 있어요." data-n="노무 자문만 따로 맡기실 수 있어요.">예·아니요를 누르면 노무사 답이 여기 나와요</p></div></div>
@@ -863,7 +930,7 @@
                             <p class="law">자문 범위와 비용은 회사 규모와 업무량에 맞춰 상담 후 정합니다.</p>
                             <div class="we"><p>기업 종합 자문, 유영이 맡아 드려요.<span>지금 상황 그대로 카톡에 보내 주세요. 노무사가 직접 답해 드려요.</span></p><div class="btns"><a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-ghost js-kakao" target="_blank" rel="noopener"><span class="dot"></span>카톡 상담</a><a href="tel:010-4835-8422" class="btn btn-ink">전화 상담</a></div></div>
                         </article>
-                        <article class="answer" id="a-budanghaego" data-who="worker" data-msg="[홈페이지 상담] 근로자 · 해고를 당했어요" hidden>
+                        <article class="answer" id="a-budanghaego" data-help='["해고가 정당한지 검토", "부당해고 구제신청 대리", "복직·보상 협의"]' data-who="worker" data-msg="[홈페이지 상담] 근로자 · 해고를 당했어요" hidden>
                             <div class="ahead"><p class="tag">근로자 · 지금 먼저 할 일</p></div>
                             <h2>해고를 당했어요</h2>
                             <div class="check"><p class="ct"><b>내 상황 체크</b><span>질문 2개 · 눌러서 답해 보세요</span></p><div class="q" data-q="회사에 상시 5명 이상 일하나요?"><p class="qt">회사에 상시 5명 이상 일하나요?</p><div class="yn"><button type="button" data-v="y" aria-pressed="false">예</button><button type="button" data-v="n" aria-pressed="false">아니요</button></div><p class="qa" data-y="부당해고 구제신청을 할 수 있어요. 해고된 날부터 3개월 안에 해야 해요." data-n="구제신청 대상은 아니에요. 30일 전에 알려 주지 않았다면 해고예고수당을 받을 수 있어요(예외 있음).">예·아니요를 누르면 노무사 답이 여기 나와요</p></div><div class="q" data-q="해고 사유와 날짜를 서면으로 받았나요?"><p class="qt">해고 사유와 날짜를 서면으로 받았나요?</p><div class="yn"><button type="button" data-v="y" aria-pressed="false">예</button><button type="button" data-v="n" aria-pressed="false">아니요</button></div><p class="qa" data-y="받은 서면을 꼭 보관하세요. 구제신청 때 중요한 자료예요." data-n="5명 이상 회사에서 서면 없이 한 해고는 효력이 없어요.">예·아니요를 누르면 노무사 답이 여기 나와요</p></div></div>
@@ -873,7 +940,7 @@
                             <p class="law">근로기준법 제23조·제26조·제27조·제28조.</p>
                             <div class="we"><p>부당해고 구제신청 대리, 유영이 맡아 드려요.<span>지금 상황 그대로 카톡에 보내 주세요. 노무사가 직접 답해 드려요.</span></p><div class="btns"><a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-ghost js-kakao" target="_blank" rel="noopener"><span class="dot"></span>카톡 상담</a><a href="tel:010-4835-8422" class="btn btn-ink">전화 상담</a></div></div>
                         </article>
-                        <article class="answer" id="a-chebul" data-who="worker" data-msg="[홈페이지 상담] 근로자 · 월급·퇴직금을 못 받았어요" hidden>
+                        <article class="answer" id="a-chebul" data-help='["못 받은 임금·퇴직금 계산", "노동청 진정 서류 작성·대리", "대지급금(나라가 먼저 주는 돈) 신청 안내"]' data-who="worker" data-msg="[홈페이지 상담] 근로자 · 월급·퇴직금을 못 받았어요" hidden>
                             <div class="ahead"><p class="tag">근로자 · 지금 먼저 할 일</p></div>
                             <h2>월급·퇴직금을 못 받았어요</h2>
                             <div class="check"><p class="ct"><b>내 상황 체크</b><span>질문 2개 · 눌러서 답해 보세요</span></p><div class="q" data-q="이미 퇴사하셨나요?"><p class="qt">이미 퇴사하셨나요?</p><div class="yn"><button type="button" data-v="y" aria-pressed="false">예</button><button type="button" data-v="n" aria-pressed="false">아니요</button></div><p class="qa" data-y="퇴사 후 14일이 지나도 못 받았다면 노동청에 진정할 수 있어요." data-n="다니는 중에도 정해진 날 못 받은 월급은 진정할 수 있어요.">예·아니요를 누르면 노무사 답이 여기 나와요</p></div><div class="q" data-q="회사가 문을 닫았거나 돈이 없다고 하나요?"><p class="qt">회사가 문을 닫았거나 돈이 없다고 하나요?</p><div class="yn"><button type="button" data-v="y" aria-pressed="false">예</button><button type="button" data-v="n" aria-pressed="false">아니요</button></div><p class="qa" data-y="나라가 먼저 주는 대지급금을 받을 수 있는지 확인하세요." data-n="노동청 진정이나 회사와 협상으로 받을 수 있어요.">예·아니요를 누르면 노무사 답이 여기 나와요</p></div></div>
@@ -883,7 +950,7 @@
                             <p class="law">근로기준법 제36조·제43조·제49조.</p>
                             <div class="we"><p>임금체불 진정 대리, 유영이 맡아 드려요.<span>지금 상황 그대로 카톡에 보내 주세요. 노무사가 직접 답해 드려요.</span></p><div class="btns"><a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-ghost js-kakao" target="_blank" rel="noopener"><span class="dot"></span>카톡 상담</a><a href="tel:010-4835-8422" class="btn btn-ink">전화 상담</a></div></div>
                         </article>
-                        <article class="answer" id="a-sudang" data-who="worker" data-msg="[홈페이지 상담] 근로자 · 야근·주말 근무 수당을 못 받았어요" hidden>
+                        <article class="answer" id="a-sudang" data-help='["못 받은 수당 계산", "출퇴근 기록 등 증거 정리", "노동청 진정 대리"]' data-who="worker" data-msg="[홈페이지 상담] 근로자 · 야근·주말 근무 수당을 못 받았어요" hidden>
                             <div class="ahead"><p class="tag">근로자 · 지금 먼저 할 일</p></div>
                             <h2>야근·주말 근무 수당을 못 받았어요</h2>
                             <div class="check"><p class="ct"><b>내 상황 체크</b><span>질문 2개 · 눌러서 답해 보세요</span></p><div class="q" data-q="회사에 상시 5명 이상 일하나요?"><p class="qt">회사에 상시 5명 이상 일하나요?</p><div class="yn"><button type="button" data-v="y" aria-pressed="false">예</button><button type="button" data-v="n" aria-pressed="false">아니요</button></div><p class="qa" data-y="연장·야간·휴일 근무는 시급의 50%를 더 받아야 해요." data-n="50% 가산수당은 없지만, 일한 시간만큼 시급은 받아야 해요.">예·아니요를 누르면 노무사 답이 여기 나와요</p></div><div class="q" data-q="출퇴근 기록(카톡·교통카드·사진 등)이 남아 있나요?"><p class="qt">출퇴근 기록(카톡·교통카드·사진 등)이 남아 있나요?</p><div class="yn"><button type="button" data-v="y" aria-pressed="false">예</button><button type="button" data-v="n" aria-pressed="false">아니요</button></div><p class="qa" data-y="그 기록이 가장 중요한 증거예요. 지우지 말고 모아 두세요." data-n="지금부터라도 매일 출퇴근 시간을 메모·사진으로 남기세요.">예·아니요를 누르면 노무사 답이 여기 나와요</p></div></div>
@@ -893,7 +960,7 @@
                             <p class="law">근로기준법 제56조·제49조. 5명 미만 회사에는 제56조가 적용되지 않습니다.</p>
                             <div class="we"><p>임금체불 진정 대리, 유영이 맡아 드려요.<span>지금 상황 그대로 카톡에 보내 주세요. 노무사가 직접 답해 드려요.</span></p><div class="btns"><a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-ghost js-kakao" target="_blank" rel="noopener"><span class="dot"></span>카톡 상담</a><a href="tel:010-4835-8422" class="btn btn-ink">전화 상담</a></div></div>
                         </article>
-                        <article class="answer" id="a-gwongosajik" data-who="worker" data-msg="[홈페이지 상담] 근로자 · 회사가 그만두라고 해요" hidden>
+                        <article class="answer" id="a-gwongosajik" data-help='["권고사직인지 해고인지 검토", "사직서·합의서 내용 점검", "실업급여 가능 여부 확인"]' data-who="worker" data-msg="[홈페이지 상담] 근로자 · 회사가 그만두라고 해요" hidden>
                             <div class="ahead"><p class="tag">근로자 · 지금 먼저 할 일</p></div>
                             <h2>회사가 그만두라고 해요</h2>
                             <div class="check"><p class="ct"><b>내 상황 체크</b><span>질문 2개 · 눌러서 답해 보세요</span></p><div class="q" data-q="사직서에 이미 서명했나요?"><p class="qt">사직서에 이미 서명했나요?</p><div class="yn"><button type="button" data-v="y" aria-pressed="false">예</button><button type="button" data-v="n" aria-pressed="false">아니요</button></div><p class="qa" data-y="되돌리기 어렵지만, 회사가 받아들이기 전이면 철회할 수 있는 경우가 있어요. 바로 상담하세요." data-n="서명하기 전에 위로금·퇴직 날짜·실업급여 처리부터 정리하세요.">예·아니요를 누르면 노무사 답이 여기 나와요</p></div><div class="q" data-q="회사가 &#x27;권고사직&#x27;으로 처리해 준다고 했나요?"><p class="qt">회사가 &#x27;권고사직&#x27;으로 처리해 준다고 했나요?</p><div class="yn"><button type="button" data-v="y" aria-pressed="false">예</button><button type="button" data-v="n" aria-pressed="false">아니요</button></div><p class="qa" data-y="권고사직은 실업급여를 받을 수 있는 경우가 많아요. 처리 사유를 꼭 확인하세요." data-n="자진 퇴사로 처리되면 실업급여를 받기 어려워요.">예·아니요를 누르면 노무사 답이 여기 나와요</p></div></div>
@@ -903,7 +970,7 @@
                             <p class="law">실업급여는 고용센터가 퇴직 사유를 보고 결정합니다.</p>
                             <div class="we"><p>퇴사 조건 상담, 유영이 맡아 드려요.<span>지금 상황 그대로 카톡에 보내 주세요. 노무사가 직접 답해 드려요.</span></p><div class="btns"><a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-ghost js-kakao" target="_blank" rel="noopener"><span class="dot"></span>카톡 상담</a><a href="tel:010-4835-8422" class="btn btn-ink">전화 상담</a></div></div>
                         </article>
-                        <article class="answer" id="a-sanjae" data-who="worker" data-msg="[홈페이지 상담] 근로자 · 일하다 다쳤어요 (산재)" hidden>
+                        <article class="answer" id="a-sanjae" data-help='["산재 신청서·자료 작성", "근로복지공단 대응", "불승인 시 다시 판단 요청"]' data-who="worker" data-msg="[홈페이지 상담] 근로자 · 일하다 다쳤어요 (산재)" hidden>
                             <div class="ahead"><p class="tag">근로자 · 지금 먼저 할 일</p></div>
                             <h2>일하다 다쳤어요 (산재)</h2>
                             <div class="check"><p class="ct"><b>내 상황 체크</b><span>질문 2개 · 눌러서 답해 보세요</span></p><div class="q" data-q="치료가 4일 이상 필요한가요?"><p class="qt">치료가 4일 이상 필요한가요?</p><div class="yn"><button type="button" data-v="y" aria-pressed="false">예</button><button type="button" data-v="n" aria-pressed="false">아니요</button></div><p class="qa" data-y="산재 신청 대상이에요. 치료비와 쉬는 동안의 급여를 받을 수 있어요." data-n="3일 이내로 나을 부상은 산재가 아니라 회사가 치료비를 부담해요.">예·아니요를 누르면 노무사 답이 여기 나와요</p></div><div class="q" data-q="회사가 산재 처리를 꺼리나요?"><p class="qt">회사가 산재 처리를 꺼리나요?</p><div class="yn"><button type="button" data-v="y" aria-pressed="false">예</button><button type="button" data-v="n" aria-pressed="false">아니요</button></div><p class="qa" data-y="회사 동의 없이도 근로복지공단에 직접 산재 신청을 할 수 있어요." data-n="회사와 함께 근로복지공단에 신청하면 돼요.">예·아니요를 누르면 노무사 답이 여기 나와요</p></div></div>
@@ -913,7 +980,7 @@
                             <p class="law">산업재해보상보험법 제40조·제112조, 근로기준법 제78조.</p>
                             <div class="we"><p>산재 신청 대리, 유영이 맡아 드려요.<span>지금 상황 그대로 카톡에 보내 주세요. 노무사가 직접 답해 드려요.</span></p><div class="btns"><a href="https://pf.kakao.com/_BaeGn/chat" class="btn btn-ghost js-kakao" target="_blank" rel="noopener"><span class="dot"></span>카톡 상담</a><a href="tel:010-4835-8422" class="btn btn-ink">전화 상담</a></div></div>
                         </article>
-                        <article class="answer" id="a-goerophim" data-who="worker" data-msg="[홈페이지 상담] 근로자 · 직장 내 괴롭힘을 당하고 있어요" hidden>
+                        <article class="answer" id="a-goerophim" data-help='["괴롭힘 신고서 작성", "증거 정리·대응 방법 안내", "회사가 조치하지 않으면 노동청 진정"]' data-who="worker" data-msg="[홈페이지 상담] 근로자 · 직장 내 괴롭힘을 당하고 있어요" hidden>
                             <div class="ahead"><p class="tag">근로자 · 지금 먼저 할 일</p></div>
                             <h2>직장 내 괴롭힘을 당하고 있어요</h2>
                             <div class="check"><p class="ct"><b>내 상황 체크</b><span>질문 2개 · 눌러서 답해 보세요</span></p><div class="q" data-q="회사에 상시 5명 이상 일하나요?"><p class="qt">회사에 상시 5명 이상 일하나요?</p><div class="yn"><button type="button" data-v="y" aria-pressed="false">예</button><button type="button" data-v="n" aria-pressed="false">아니요</button></div><p class="qa" data-y="회사에 신고하면 회사가 바로 조사하고 나를 보호해야 해요." data-n="직장 내 괴롭힘 규정은 5명 미만 회사에 적용되지 않아요. 폭언·폭행이 있었다면 다른 방법을 찾아야 해요(자세한 건 변호사와 상담하세요).">예·아니요를 누르면 노무사 답이 여기 나와요</p></div><div class="q" data-q="괴롭힌 사람이 대표(사장)인가요?"><p class="qt">괴롭힌 사람이 대표(사장)인가요?</p><div class="yn"><button type="button" data-v="y" aria-pressed="false">예</button><button type="button" data-v="n" aria-pressed="false">아니요</button></div><p class="qa" data-y="대표가 괴롭힌 경우 노동청에 바로 신고할 수 있어요(과태료 대상)." data-n="먼저 회사에 신고하고, 회사가 조사하지 않으면 노동청에 신고하세요.">예·아니요를 누르면 노무사 답이 여기 나와요</p></div></div>
@@ -1110,9 +1177,9 @@
                 if (w) setWho(w);
                 document.querySelectorAll('.tile').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
                 stage.setAttribute('data-view', 'list');
-                toTop();
+                updateNav(); toTop();
             }
-            function showWho() { stage.setAttribute('data-view', 'who'); toTop(); }
+            function showWho() { stage.setAttribute('data-view', 'who'); updateNav(); toTop(); }
             document.querySelectorAll('.pick-b').forEach(function (b) {
                 b.addEventListener('click', function () {
                     var w = b.getAttribute('data-who');
@@ -1120,8 +1187,23 @@
                     showList(w);
                 });
             });
-            stage.querySelector('.lhd-back').addEventListener('click', function () {
-                if (history.state && history.state.v === 'list') history.back(); else showWho();
+            var navBack = stage.querySelector('.nav-back'), navT = navBack.querySelector('.nb-t'), navSt = stage.querySelectorAll('.nv-st li');
+            function curCheck() { var a = document.querySelector('#answers .answer:not([hidden])'); return a && a.querySelector('.check'); }
+            function updateNav() {
+                var v = stage.getAttribute('data-view'), step = 1, t = '';
+                if (v === 'list') { step = 2; t = '처음으로'; }
+                else if (v === 'detail') {
+                    var ck = curCheck(), c = ck && ck._cur ? ck._cur() : 0, n = ck && ck._n ? ck._n : 0;
+                    step = c >= n ? 4 : 3;
+                    t = c === 0 ? '상황 다시 고르기' : 'Q' + c + '로';
+                }
+                navT.textContent = t;
+                navSt.forEach(function (li, i) { li.className = i + 1 < step ? 'done' : (i + 1 === step ? 'on' : ''); });
+            }
+            navBack.addEventListener('click', function () {
+                var v = stage.getAttribute('data-view');
+                if (v === 'list') { if (history.state && history.state.v === 'list') history.back(); else showWho(); return; }
+                if (v === 'detail') { var ck = curCheck(); if (ck && ck._cur() > 0) ck._go(ck._cur() - 1); else backToList(); }
             });
             function select(slug, opts) {
                 var a = document.getElementById('a-' + slug); if (!a) return;
@@ -1129,6 +1211,7 @@
                 document.querySelectorAll('#answers .answer').forEach(function (x) { x.hidden = x !== a; });
                 var ck = a.querySelector('.check'); if (ck && ck._reset) ck._reset();
                 stage.setAttribute('data-view', 'detail');
+                updateNav();
                 if (opts && opts.push && history.pushState) history.pushState({ s: slug }, '', '#' + slug);
                 toTop();
             }
@@ -1153,70 +1236,85 @@
                 t.addEventListener('click', function () { select(t.getAttribute('data-key'), { push: true }); });
             });
 
-            /* 한 문제씩: 고르면 다음 질문 → 마지막에 노무사 답 */
+            /* 한 문제씩 → 마지막에 '이렇게 도와드려요' + 상담 신청 */
+            var mobile = window.matchMedia('(pointer: coarse)').matches;
             document.querySelectorAll('.check').forEach(function (ck) {
+                var art = ck.closest('.answer');
                 var qs = Array.prototype.slice.call(ck.querySelectorAll('.q'));
-                var n = qs.length, cur = 0;
+                var n = qs.length, cur = 0, ans = [];
                 ck.classList.add('wz');
                 var ct = ck.querySelector('.ct'); if (ct) ct.remove();
-                var top = document.createElement('div'); top.className = 'wz-top';
-                top.innerHTML = '<button type="button" class="wz-back">← 이전</button><p class="wz-st" aria-live="polite"></p><span></span>';
-                var bar = document.createElement('div'); bar.className = 'wz-bar';
-                for (var i = 0; i <= n; i++) bar.appendChild(document.createElement('i'));
+                var chips = document.createElement('div'); chips.className = 'qc';
+                for (var i = 0; i <= n; i++) { var c = document.createElement('button'); c.type = 'button'; c.textContent = i < n ? 'Q' + (i + 1) : '신청'; chips.appendChild(c); }
                 var steps = document.createElement('div'); steps.className = 'wz-steps';
-                var res = document.createElement('div'); res.className = 'wz-res';
-                res.innerHTML = '<p class="wz-rt">노무사 답</p><div class="wz-list"></div>';
-                var ol = res.querySelector('.wz-list');
                 qs.forEach(function (q, k) {
-                    var out = q.querySelector('.qa'), ph = out.textContent;
-                    out.textContent = '';
-                    [['ph', ph], ['ay', out.getAttribute('data-y')], ['an', out.getAttribute('data-n')]].forEach(function (x) {
-                        var sp = document.createElement('span'); sp.className = x[0]; sp.textContent = x[1]; out.appendChild(sp);
-                    });
-                    var li = document.createElement('div'); li.className = 'wz-it';
-                    li.innerHTML = '<p class="wz-q"><span></span><b><span class="y">예</span><span class="n">아니요</span></b></p>';
-                    li.querySelector('.wz-q > span').textContent = 'Q' + (k + 1) + '. ' + q.getAttribute('data-q');
-                    var badge = li.querySelector('b');
-                    li.appendChild(out); ol.appendChild(li);
+                    var out = q.querySelector('.qa'); if (out) out.remove();
                     steps.appendChild(q);
                     q.querySelectorAll('.yn button').forEach(function (b) {
                         b.addEventListener('click', function () {
-                            var v = b.getAttribute('data-v');
                             q.querySelectorAll('.yn button').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
-                            out.setAttribute('data-state', v); out.classList.add('on');
-                            badge.setAttribute('data-v', v);
+                            ans[k] = b.textContent;
                             setTimeout(function () { go(k + 1); }, 180);
                         });
                     });
                 });
-                var art = ck.closest('.answer');
-                if (art) ['.sl', '.sl + ol', '.due', '.law', '.we'].map(function (sel) { return art.querySelector(':scope > ' + sel); }).forEach(function (el) { if (el) res.appendChild(el); });
-                ck.appendChild(top); ck.appendChild(bar); ck.appendChild(steps); ck.appendChild(res);
-                var back = top.querySelector('.wz-back'), st = top.querySelector('.wz-st');
+                var res = document.createElement('div'); res.className = 'wz-res';
+                var help = []; try { help = JSON.parse(art.getAttribute('data-help') || '[]'); } catch (e) {}
+                var boss = art.getAttribute('data-who') === 'boss';
+                res.innerHTML = '<p class="wz-rt">유영이 이렇게 도와드려요</p><ul class="hp"></ul>'
+                    + '<form class="fm" novalidate><label><span>' + (boss ? '회사명 또는 성함' : '성함') + '</span><input name="nm" autocomplete="name" placeholder="' + (boss ? '예) 유영상사 / 홍길동' : '예) 홍길동') + '"></label>'
+                    + '<label><span>연락처</span><input name="ph" type="tel" inputmode="tel" autocomplete="tel" placeholder="010-0000-0000"></label>'
+                    + '<div class="tm"><span>편한 연락 시간</span><div><button type="button">오전</button><button type="button">오후</button><button type="button">저녁</button><button type="button">아무 때나</button></div></div>'
+                    + '<label class="ag"><input type="checkbox" name="ag"><span>상담을 위해 이름·연락처를 받는 데 동의해요<small>상담 목적으로만 쓰고, 상담이 끝나면 지웁니다.</small></span></label>'
+                    + '<button type="submit" class="btn btn-ink sb" disabled>상담 신청하기</button><p class="fm-n" aria-live="polite"></p></form>';
+                var ul = res.querySelector('.hp');
+                help.forEach(function (h) { var li = document.createElement('li'); li.textContent = h; ul.appendChild(li); });
+                var fm = res.querySelector('.fm'), sb = fm.querySelector('.sb'), note = fm.querySelector('.fm-n'), tmv = '';
+                fm.querySelectorAll('.tm button').forEach(function (b) {
+                    b.addEventListener('click', function () { tmv = b.textContent; fm.querySelectorAll('.tm button').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); }); });
+                });
+                function valid() { return fm.nm.value.trim() && fm.ph.value.replace(/[^0-9]/g, '').length >= 9 && fm.ag.checked; }
+                fm.addEventListener('input', function () { sb.disabled = !valid(); });
+                fm.addEventListener('change', function () { sb.disabled = !valid(); });
+                fm.addEventListener('submit', function (e) {
+                    e.preventDefault(); if (!valid()) return;
+                    var lines = ['[홈페이지 상담 신청]', art.getAttribute('data-msg').replace('[홈페이지 상담] ', '')];
+                    qs.forEach(function (q, k) { if (ans[k]) lines.push('- ' + q.getAttribute('data-q') + ' ' + ans[k]); });
+                    lines.push('이름: ' + fm.nm.value.trim(), '연락처: ' + fm.ph.value.trim());
+                    if (tmv) lines.push('편한 시간: ' + tmv);
+                    var body = lines.join('\n');
+                    if (mobile) { location.href = 'sms:01048358422?&body=' + encodeURIComponent(body); note.textContent = '문자 창이 열리면 보내기만 눌러 주세요.'; }
+                    else { location.href = 'mailto:cplayk@naver.com?subject=' + encodeURIComponent('[홈페이지 상담 신청] ' + fm.nm.value.trim()) + '&body=' + encodeURIComponent(body); note.textContent = '메일 창이 열리면 보내기만 눌러 주세요.'; }
+                });
+                ck.appendChild(chips); ck.appendChild(steps); ck.appendChild(res);
+                function reach() { var r = 0; while (r < n && ans[r]) r++; return r; }
+                function paint() {
+                    var r = reach();
+                    Array.prototype.forEach.call(chips.children, function (c, i) {
+                        c.className = i === cur ? 'on' : (i < n && ans[i] ? 'done' : '');
+                        c.disabled = i > r;
+                    });
+                }
                 function go(t) {
                     cur = Math.max(0, Math.min(n, t));
                     Array.prototype.forEach.call(steps.children, function (c, i) { c.classList.toggle('wz-on', i === cur); });
                     if (cur === n) ck.setAttribute('data-done', ''); else ck.removeAttribute('data-done');
-                    back.textContent = cur === 0 ? '← 목록' : '← 이전';
-                    if (t !== undefined && ck.getBoundingClientRect().top < 70) window.scrollTo({ top: ck.getBoundingClientRect().top + window.scrollY - 84, behavior: 'instant' });
-                    Array.prototype.forEach.call(bar.children, function (c, i) { c.classList.toggle('on', i <= cur); });
-                    if (cur < n) {
-                        var left = n - cur - 1;
-                        st.innerHTML = '질문 ' + (cur + 1) + ' / ' + n + '<small>' + (left ? '남은 질문 ' + left + '개' : '마지막 질문') + '</small>';
-                    } else {
-                        st.innerHTML = '결과<small>내 답 기준</small>';
-                    }
+                    paint(); updateNav();
+                    var top = stage.getBoundingClientRect().top;
+                    if (top < 70) window.scrollTo({ top: top + window.scrollY - 84, behavior: 'instant' });
                 }
-                back.addEventListener('click', function () { if (cur === 0) backToList(); else go(cur - 1); });
+                Array.prototype.forEach.call(chips.children, function (c, i) { c.addEventListener('click', function () { if (!c.disabled) go(i); }); });
+                ck._go = go; ck._cur = function () { return cur; }; ck._n = n;
                 ck._reset = function () {
+                    ans = []; tmv = ''; fm.reset(); sb.disabled = true; note.textContent = '';
+                    fm.querySelectorAll('.tm button').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
                     qs.forEach(function (q) { q.querySelectorAll('.yn button').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); }); });
                     cur = 0; Array.prototype.forEach.call(steps.children, function (c, i) { c.classList.toggle('wz-on', i === 0); });
-                    ck.removeAttribute('data-done'); back.textContent = '← 목록';
-                    Array.prototype.forEach.call(bar.children, function (c, i) { c.classList.toggle('on', i === 0); });
-                    st.innerHTML = '질문 1 / ' + n + '<small>' + (n > 1 ? '남은 질문 ' + (n - 1) + '개' : '마지막 질문') + '</small>';
+                    ck.removeAttribute('data-done'); paint();
                 };
                 ck._reset();
             });
+            updateNav();
 
             /* 링크 복사 */
             document.querySelectorAll('.js-link').forEach(function (b) {
