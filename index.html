@@ -792,6 +792,14 @@
             .tile .tt b { font-size: 1.08rem; }
             .tile .tt small { font-size: .9rem; }
         }
+        /* 세무 기장 영업 포인트 */
+        .qsell { margin: -6px 0 0; padding: 0; list-style: none; display: grid; gap: 6px; }
+        .qsell li { position: relative; padding-left: 26px; font-size: 1rem; color: var(--ink-2); line-height: 1.5; }
+        .qsell li::before { content: '✓'; position: absolute; left: 0; top: 2px; width: 18px; height: 18px; border-radius: 50%; background: rgba(0,160,233,.2); color: var(--accent); font-size: .7rem; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+        .qsell b { color: var(--ink); font-weight: 700; }
+        .tx-k i { display: none; margin-left: 8px; font-style: normal; font-size: .72rem; padding: 2px 8px; border-radius: 999px; background: var(--accent); color: #0A0D1C; }
+        .tx.hot { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,160,233,.25); }
+        .tx.hot .tx-k i { display: inline-block; }
     </style>
 </head>
 <body data-mode="boss">
@@ -915,7 +923,7 @@
                         <article class="answer" id="a-jamun" data-tax="1" data-help='["매달 노무 점검(계약서·급여·4대보험)", "궁금할 때 전화·카톡으로 바로 답변", "노동청 사건이 생기면 바로 대응"]' data-who="boss" data-msg="[홈페이지 상담] 사장님 · 정기적으로 노무 관리가 필요해요" hidden>
                             <div class="ahead"><p class="tag">사장님 · 지금 먼저 할 일</p></div>
                             <h2>정기적으로 노무 관리가 필요해요</h2>
-                            <div class="check"><p class="ct"><b>내 상황 체크</b><span>질문 2개 · 눌러서 답해 보세요</span></p><div class="q" data-q="상시 근로자가 5명 이상인가요?"><p class="qt">상시 근로자가 5명 이상인가요?</p><div class="yn"><button type="button" data-v="y" aria-pressed="false">예</button><button type="button" data-v="n" aria-pressed="false">아니요</button></div><p class="qa" data-y="연차·가산수당·해고 제한까지 지킬 게 많아져요. 정기 자문이 특히 도움이 돼요." data-n="계약서·최저임금·주휴수당·퇴직금은 5명 미만도 똑같이 지켜야 해요.">예·아니요를 누르면 노무사 답이 여기 나와요</p></div><div class="q" data-q="세무(기장)도 함께 맡기고 싶으신가요?"><p class="qt">세무(기장)도 함께 맡기고 싶으신가요?</p><div class="yn"><button type="button" data-v="y" aria-pressed="false">예</button><button type="button" data-v="n" aria-pressed="false">아니요</button></div><p class="qa" data-y="노무사와 세무사가 한 팀으로 보는 노무·세무 통합 서비스가 있어요." data-n="노무 자문만 따로 맡기실 수 있어요.">예·아니요를 누르면 노무사 답이 여기 나와요</p></div></div>
+                            <div class="check"><p class="ct"><b>내 상황 체크</b><span>질문 2개 · 눌러서 답해 보세요</span></p><div class="q" data-q="상시 근로자가 5명 이상인가요?"><p class="qt">상시 근로자가 5명 이상인가요?</p><div class="yn"><button type="button" data-v="y" aria-pressed="false">예</button><button type="button" data-v="n" aria-pressed="false">아니요</button></div><p class="qa" data-y="연차·가산수당·해고 제한까지 지킬 게 많아져요. 정기 자문이 특히 도움이 돼요." data-n="계약서·최저임금·주휴수당·퇴직금은 5명 미만도 똑같이 지켜야 해요.">예·아니요를 누르면 노무사 답이 여기 나와요</p></div><div class="q" data-q="세무 기장도 함께 맡기고 싶으신가요?"><p class="qt">세무 기장도 함께 맡기고 싶으신가요?</p><ul class="qsell"><li><b>급여·4대보험·세금</b>을 한 곳에서</li><li><b>노무사·세무사</b>가 같이 답해요</li><li>대표님은 <b>설명 한 번</b>이면 끝</li></ul><div class="yn"><button type="button" data-v="y" aria-pressed="false">예, 같이 맡길래요</button><button type="button" data-v="n" aria-pressed="false">노무만 할게요</button></div><p class="qa" data-y="노무사와 세무사가 한 팀으로 보는 노무·세무 통합 서비스가 있어요." data-n="노무 자문만 따로 맡기실 수 있어요.">예·아니요를 누르면 노무사 답이 여기 나와요</p></div></div>
                             <p class="sl">지금 할 일</p>
                             <ol><li>입사·퇴사, 계약서, 급여, 연차를 언제든 물어보세요.</li><li>노무와 세무를 한 팀에서 함께 봐 드려요.</li><li>문제가 생기기 전에 미리 점검해요.</li></ol>
                             <p class="due"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>문제는 터진 뒤보다 터지기 전에 막는 게 훨씬 싸요</p>
@@ -1141,9 +1149,10 @@
             var stage = document.querySelector('.stage');
             stage.classList.add('flow');
             stage.setAttribute('data-view', 'who');
+            if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
             function toTop() {
-                var y = stage.getBoundingClientRect().top + window.scrollY - 84;
-                if (Math.abs(window.scrollY - y) > 4 && stage.getBoundingClientRect().top < 84) window.scrollTo({ top: y, behavior: 'instant' });
+                var t = stage.getBoundingClientRect().top;
+                if (t < 0) window.scrollTo({ top: t + window.scrollY - 84, behavior: 'instant' });
             }
             function showList(w) {
                 if (w) setWho(w);
@@ -1243,7 +1252,7 @@
                 help.forEach(function (h) { var li = document.createElement('li'); li.textContent = h; ul.appendChild(li); });
                 if (art.getAttribute('data-tax')) {
                     var tx = document.createElement('a'); tx.className = 'tx'; tx.href = 'labor-tax/';
-                    tx.innerHTML = '<span class="tx-k">노무·세무 통합 서비스</span><b>세무도 함께 맡기면, 질문 한 번에 노무사·세무사가 같이 답해요</b><span class="tx-go">자세히 보기 →</span>';
+                    tx.innerHTML = '<span class="tx-k">노무·세무 통합 서비스<i>선택하신 서비스</i></span><b>세무도 함께 맡기면, 질문 한 번에 노무사·세무사가 같이 답해요</b><span class="tx-go">자세히 보기 →</span>';
                     ul.parentNode.insertBefore(tx, ul.nextSibling);
                 }
                 var fm = res.querySelector('.fm'), sb = fm.querySelector('.sb'), note = fm.querySelector('.fm-n'), tmv = '';
@@ -1274,11 +1283,11 @@
                 }
                 function go(t) {
                     cur = Math.max(0, Math.min(n, t));
+                    var txc = res.querySelector('.tx'); if (txc) txc.classList.toggle('hot', !!(ans[n - 1] && ans[n - 1].indexOf('예') === 0));
                     Array.prototype.forEach.call(steps.children, function (c, i) { c.classList.toggle('wz-on', i === cur); });
                     if (cur === n) ck.setAttribute('data-done', ''); else ck.removeAttribute('data-done');
                     paint(); updateNav();
-                    var top = stage.getBoundingClientRect().top;
-                    if (top < 70) window.scrollTo({ top: top + window.scrollY - 84, behavior: 'instant' });
+                    toTop();
                 }
                 Array.prototype.forEach.call(chips.children, function (c, i) { c.addEventListener('click', function () { if (!c.disabled) go(i); }); });
                 ck._go = go; ck._cur = function () { return cur; }; ck._n = n;
