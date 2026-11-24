@@ -811,6 +811,29 @@
         .qn { height: 52px; border-radius: 12px; border: 0; background: #fff; color: #0A0D1C; font: inherit; font-size: 1.05rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .2s ease, color .2s ease; }
         .qn:hover { background: var(--cy); color: #fff; }
         .qn:disabled { background: rgba(255,255,255,.08); color: var(--muted); cursor: default; }
+        /* ===== 토스 디자인 지침 점검 반영 ===== */
+        .hv-due { display: none !important; }
+        .hv-top em { color: #005F91 !important; }
+        .q .yn button[aria-pressed="true"], .qc button.on, .tm button[aria-pressed="true"] { background: #fff !important; border-color: #fff !important; color: #0A0D1C !important; }
+        .qc button.on { box-shadow: none; }
+        .q .qt::before { background: rgba(0,160,233,.18) !important; color: var(--accent) !important; }
+        .nv-st li.on i { background: #fff !important; color: #0A0D1C !important; }
+        .nv-st li.on { background: rgba(255,255,255,.1) !important; }
+        .qn, .fm .sb { background: #0077B6 !important; border-color: #0077B6 !important; color: #fff !important; }
+        .qn:hover, .fm .sb:hover { background: #006AA3 !important; border-color: #006AA3 !important; }
+        .qn:disabled, .fm .sb:disabled { background: rgba(255,255,255,.08) !important; border-color: transparent !important; color: var(--muted) !important; }
+        .qn, .fm .sb { height: auto !important; min-height: 56px; }
+        .q .yn button { height: auto !important; min-height: 56px; }
+        .qc button, .tm button { height: auto !important; min-height: 46px; }
+        .fm input[name] { height: auto !important; min-height: 52px; }
+        .fm .ag { grid-template-columns: 26px 1fr; min-height: 44px; align-items: center; }
+        .fm .ag input { width: 24px !important; height: 24px !important; margin: 0 !important; }
+        .fm-n { color: var(--muted) !important; font-weight: 600; }
+        .fm-n.ok { color: var(--accent) !important; }
+        .fm-alt { justify-self: center; min-height: 44px; display: flex; align-items: center; font-size: .95rem; font-weight: 700; color: var(--ink-2); text-decoration: underline; text-underline-offset: 3px; }
+        .fm-alt:hover { color: var(--ink); }
+        .hp li::before { background: rgba(0,160,233,.25) !important; color: var(--accent) !important; }
+        @media (max-width: 1080px) { body.in-form .mbar { display: none !important; } }
     </style>
 </head>
 <body data-mode="boss">
@@ -839,7 +862,7 @@
               <div class="hero-copy">
                 <p class="kicker rv">노무법인 유영 · 공인노무사 손유권</p>
                 <h1 class="rv">지금, <span class="soft">어떤 상황</span>이세요?</h1>
-                <p class="sub rv">아래에서 내 상황을 눌러 보세요. <b>지금 해야 할 일</b>을 바로 알려 드려요.</p>
+                <p class="sub rv">아래에서 내 상황을 고르면, <b>노무사가 바로 답해</b> 드려요.</p>
                 <div class="swap rv"><ul class="trust" data-for="boss"><li><i>✓</i>노무사가 직접 답해요</li><li><i>✓</i>카톡 한 줄이면 돼요</li><li><i>✓</i>듣고 나서 맡길지 정하세요</li></ul><ul class="trust" data-for="worker"><li><i>✓</i>노무사가 직접 답해요</li><li><i>✓</i>상담 내용은 밖으로 새지 않아요</li><li><i>✓</i>기한 놓치기 전에 물어보세요</li></ul></div>
               </div>
               <div class="hero-vis rv" aria-hidden="true">
@@ -870,24 +893,24 @@
                     <div class="pick">
                         <p class="pick-t">누구신가요?</p>
                         <div class="pick-g">
-                            <button type="button" class="pick-b" data-who="boss"><span class="pk-i"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M8.5 7V5.5A1.5 1.5 0 0 1 10 4h4a1.5 1.5 0 0 1 1.5 1.5V7M3 12.5h18"/></svg></span><b>사장님이에요</b><small>직원·노동청·계약서·지원금</small></button>
-                            <button type="button" class="pick-b" data-who="worker"><span class="pk-i"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 21c.8-4.4 3.8-7 7.5-7s6.7 2.6 7.5 7"/></svg></span><b>근로자예요</b><small>해고·월급·수당·산재·괴롭힘</small></button>
+                            <button type="button" class="pick-b" data-who="boss"><span class="pk-i" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M8.5 7V5.5A1.5 1.5 0 0 1 10 4h4a1.5 1.5 0 0 1 1.5 1.5V7M3 12.5h18"/></svg></span><b>사장님이에요</b><small>직원·노동청·계약서·지원금</small></button>
+                            <button type="button" class="pick-b" data-who="worker"><span class="pk-i" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 21c.8-4.4 3.8-7 7.5-7s6.7 2.6 7.5 7"/></svg></span><b>근로자예요</b><small>해고·월급·수당·산재·괴롭힘</small></button>
                         </div>
                     </div>
                     <div class="lhd"><p class="lhd-t">해당하는 일을 골라 주세요</p></div>
                     <div class="stack">
                         <div class="tiles" id="t-boss">
-                            <button type="button" class="tile feat" data-key="jamun" aria-pressed="false"><span class="i"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c.6-3.6 3-5.5 6-5.5s5.4 1.9 6 5.5"/><path d="M15 11l2 2 4-4"/></svg></span><span class="tt"><em>추천</em><b>정기적으로 노무 관리가 필요해요</b><small>계약서·급여·노동청까지, 매달 노무사가 챙겨요</small></span></button>
-                            <button type="button" class="tile" data-key="jinjeong" aria-pressed="true"><span class="i"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M12 9v5M12 17.5v.1"/></svg></span>직원이 노동청에 진정을 넣었어요</button>
-                            <button type="button" class="tile" data-key="haego" aria-pressed="false"><span class="i"><svg viewBox="0 0 24 24"><path d="M14 4H6v16h8"/><path d="M11 12h10M17 8l4 4-4 4"/></svg></span>직원이 그만두거나 내보내야 해요</button>
-                            <button type="button" class="tile" data-key="gyeyak" aria-pressed="false"><span class="i"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M9 13h6M9 17h4"/><path d="M14 3v5h5"/></svg></span>근로계약서·근무시간을 정비하고 싶어요</button>
-                            <button type="button" class="tile" data-key="jiwongeum" aria-pressed="false"><span class="i"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 9l2 7 2-5 2 5 2-7M7.5 12h9"/></svg></span>받을 수 있는 지원금이 궁금해요</button>
+                            <button type="button" class="tile feat" data-key="jamun" aria-pressed="false"><span class="i" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c.6-3.6 3-5.5 6-5.5s5.4 1.9 6 5.5"/><path d="M15 11l2 2 4-4"/></svg></span><span class="tt"><em>추천</em><b>정기적으로 노무 관리가 필요해요</b><small>계약서·급여·노동청까지, 매달 노무사가 챙겨요</small></span></button>
+                            <button type="button" class="tile" data-key="jinjeong" aria-pressed="true"><span class="i" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M12 9v5M12 17.5v.1"/></svg></span>직원이 노동청에 진정을 넣었어요</button>
+                            <button type="button" class="tile" data-key="haego" aria-pressed="false"><span class="i" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 4H6v16h8"/><path d="M11 12h10M17 8l4 4-4 4"/></svg></span>직원이 그만두거나 내보내야 해요</button>
+                            <button type="button" class="tile" data-key="gyeyak" aria-pressed="false"><span class="i" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M9 13h6M9 17h4"/><path d="M14 3v5h5"/></svg></span>근로계약서·근무시간을 정비하고 싶어요</button>
+                            <button type="button" class="tile" data-key="jiwongeum" aria-pressed="false"><span class="i" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 9l2 7 2-5 2 5 2-7M7.5 12h9"/></svg></span>받을 수 있는 지원금이 궁금해요</button>
                         </div>
                         <div class="tiles" id="t-worker" hidden>
-                            <button type="button" class="tile" data-key="budanghaego" aria-pressed="true"><span class="i"><svg viewBox="0 0 24 24"><path d="M14 4H6v16h8"/><path d="M11 12h10M17 8l4 4-4 4"/></svg></span>해고됐거나 그만두라고 해요</button>
-                            <button type="button" class="tile" data-key="chebul" aria-pressed="false"><span class="i"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M9 14l6 3M15 14l-6 3"/></svg></span>월급·수당·퇴직금을 못 받았어요</button>
-                            <button type="button" class="tile" data-key="sanjae" aria-pressed="false"><span class="i"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M9 7V5h6v2M12 10v6M9 13h6"/></svg></span>일하다 다쳤어요 (산재)</button>
-                            <button type="button" class="tile" data-key="goerophim" aria-pressed="false"><span class="i"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M12 8v4M12 14.5v.1"/></svg></span>직장 내 괴롭힘을 당하고 있어요</button>
+                            <button type="button" class="tile" data-key="budanghaego" aria-pressed="true"><span class="i" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 4H6v16h8"/><path d="M11 12h10M17 8l4 4-4 4"/></svg></span>해고됐거나 그만두라고 해요</button>
+                            <button type="button" class="tile" data-key="chebul" aria-pressed="false"><span class="i" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M9 14l6 3M15 14l-6 3"/></svg></span>월급·수당·퇴직금을 못 받았어요</button>
+                            <button type="button" class="tile" data-key="sanjae" aria-pressed="false"><span class="i" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M9 7V5h6v2M12 10v6M9 13h6"/></svg></span>일하다 다쳤어요 (산재)</button>
+                            <button type="button" class="tile" data-key="goerophim" aria-pressed="false"><span class="i" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M12 8v4M12 14.5v.1"/></svg></span>직장 내 괴롭힘을 당하고 있어요</button>
                         </div>
                     </div>
                     <div class="stack" id="answers">
@@ -1190,6 +1213,7 @@
                     t = c === 0 ? '상황 다시 고르기' : 'Q' + c + '로';
                 }
                 navT.textContent = t;
+                if (v !== 'detail') document.body.classList.remove('in-form');
                 navSt.forEach(function (li, i) { li.className = i + 1 < step ? 'done' : (i + 1 === step ? 'on' : ''); });
             }
             navBack.addEventListener('click', function () {
@@ -1237,7 +1261,7 @@
                 ck.classList.add('wz');
                 var ct = ck.querySelector('.ct'); if (ct) ct.remove();
                 var chips = document.createElement('div'); chips.className = 'qc';
-                for (var i = 0; i <= n; i++) { var c = document.createElement('button'); c.type = 'button'; c.textContent = i < n ? 'Q' + (i + 1) : '신청'; chips.appendChild(c); }
+                for (var i = 0; i <= n; i++) { var c = document.createElement('button'); c.type = 'button'; c.textContent = i < n ? 'Q' + (i + 1) : '신청'; c.setAttribute('aria-label', i < n ? (i + 1) + '번 질문으로' : '상담 신청으로'); chips.appendChild(c); }
                 var steps = document.createElement('div'); steps.className = 'wz-steps';
                 var outs = [], nexts = [];
                 qs.forEach(function (q, k) {
@@ -1269,7 +1293,7 @@
                     + '<label><span>연락처</span><input name="ph" type="tel" inputmode="tel" autocomplete="tel" placeholder="010-0000-0000"></label>'
                     + '<div class="tm"><span>편한 연락 시간</span><div><button type="button">오전</button><button type="button">오후</button><button type="button">저녁</button><button type="button">아무 때나</button></div></div>'
                     + '<label class="ag"><input type="checkbox" name="ag"><span>상담을 위해 이름·연락처를 받는 데 동의해요<small>상담 목적으로만 쓰고, 상담이 끝나면 지웁니다.</small></span></label>'
-                    + '<button type="submit" class="btn btn-ink sb" disabled>상담 신청하기</button><p class="fm-n" aria-live="polite"></p></form>';
+                    + '<button type="submit" class="btn btn-ink sb" disabled>상담 신청하기</button><p class="fm-n" aria-live="polite"></p><a class="fm-alt" href="https://pf.kakao.com/_BaeGn/chat" target="_blank" rel="noopener">카톡으로 바로 상담하기 →</a></form>';
                 var ul = res.querySelector('.hp');
                 help.forEach(function (h) { var li = document.createElement('li'); li.textContent = h; ul.appendChild(li); });
                 if (art.getAttribute('data-tax')) {
@@ -1281,9 +1305,24 @@
                 fm.querySelectorAll('.tm button').forEach(function (b) {
                     b.addEventListener('click', function () { tmv = b.textContent; fm.querySelectorAll('.tm button').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); }); });
                 });
-                function valid() { return fm.nm.value.trim() && fm.ph.value.replace(/[^0-9]/g, '').length >= 9 && fm.ag.checked; }
-                fm.addEventListener('input', function () { sb.disabled = !valid(); });
-                fm.addEventListener('change', function () { sb.disabled = !valid(); });
+                function missing() {
+                    if (!fm.nm.value.trim()) return boss ? '회사명이나 성함을 적어 주세요' : '성함을 적어 주세요';
+                    var d = fm.ph.value.replace(/[^0-9]/g, '');
+                    if (d.length < 9) return d.length ? '연락처를 끝까지 적어 주세요' : '연락처를 적어 주세요';
+                    if (!fm.ag.checked) return '동의에 체크하면 신청할 수 있어요';
+                    return '';
+                }
+                function valid() { return !missing(); }
+                function hint() { sb.disabled = !valid(); note.classList.remove('ok'); note.textContent = missing(); }
+                fm.ph.addEventListener('input', function () {
+                    var d = fm.ph.value.replace(/[^0-9]/g, '').slice(0, 11), f = d;
+                    if (/^02/.test(d)) f = d.length > 9 ? d.replace(/^(02)(\d{4})(\d+)/, '$1-$2-$3') : d.replace(/^(02)(\d{3})(\d+)/, '$1-$2-$3');
+                    else if (d.length > 7) f = d.replace(/^(\d{3})(\d{3,4})(\d{4})$/, '$1-$2-$3').replace(/^(\d{3})(\d{4})(\d+)$/, '$1-$2-$3');
+                    else if (d.length > 3) f = d.replace(/^(\d{3})(\d+)/, '$1-$2');
+                    fm.ph.value = f;
+                });
+                fm.addEventListener('input', hint);
+                fm.addEventListener('change', hint);
                 fm.addEventListener('submit', function (e) {
                     e.preventDefault(); if (!valid()) return;
                     var lines = ['[홈페이지 상담 신청]', art.getAttribute('data-msg').replace('[홈페이지 상담] ', '')];
@@ -1291,8 +1330,8 @@
                     lines.push('이름: ' + fm.nm.value.trim(), '연락처: ' + fm.ph.value.trim());
                     if (tmv) lines.push('편한 시간: ' + tmv);
                     var body = lines.join('\n');
-                    if (mobile) { location.href = 'sms:01048358422?&body=' + encodeURIComponent(body); note.textContent = '문자 창이 열리면 보내기만 눌러 주세요.'; }
-                    else { location.href = 'mailto:cplayk@naver.com?subject=' + encodeURIComponent('[홈페이지 상담 신청] ' + fm.nm.value.trim()) + '&body=' + encodeURIComponent(body); note.textContent = '메일 창이 열리면 보내기만 눌러 주세요.'; }
+                    if (mobile) { location.href = 'sms:01048358422?&body=' + encodeURIComponent(body); note.textContent = '문자 창이 열리면 보내기만 눌러 주세요.'; note.classList.add('ok'); }
+                    else { location.href = 'mailto:cplayk@naver.com?subject=' + encodeURIComponent('[홈페이지 상담 신청] ' + fm.nm.value.trim()) + '&body=' + encodeURIComponent(body); note.textContent = '메일 창이 열리면 보내기만 눌러 주세요.'; note.classList.add('ok'); }
                 });
                 ck.appendChild(chips); ck.appendChild(steps); ck.appendChild(res);
                 function reach() { var r = 0; while (r < n && ans[r]) r++; return r; }
@@ -1309,12 +1348,13 @@
                     Array.prototype.forEach.call(steps.children, function (c, i) { c.classList.toggle('wz-on', i === cur); });
                     if (cur === n) ck.setAttribute('data-done', ''); else ck.removeAttribute('data-done');
                     paint(); updateNav();
+                    document.body.classList.toggle('in-form', cur === n);
                     toTop();
                 }
                 Array.prototype.forEach.call(chips.children, function (c, i) { c.addEventListener('click', function () { if (!c.disabled) go(i); }); });
                 ck._go = go; ck._cur = function () { return cur; }; ck._n = n;
                 ck._reset = function () {
-                    ans = []; tmv = ''; fm.reset(); sb.disabled = true; note.textContent = '';
+                    ans = []; tmv = ''; fm.reset(); sb.disabled = true; note.classList.remove('ok'); note.textContent = missing();
                     fm.querySelectorAll('.tm button').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
                     qs.forEach(function (q) { q.querySelectorAll('.yn button').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); }); });
                     outs.forEach(function (o) { o.removeAttribute('data-state'); }); nexts.forEach(function (x) { x.disabled = true; });
